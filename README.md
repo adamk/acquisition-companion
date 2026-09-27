@@ -2,13 +2,14 @@
 
 The free, source-linked guide to buying, financing, and building businesses.
 
-Static Astro website, ready for local review and Cloudflare Pages. No accounts, payments, advertising, affiliate links, server runtime, or public transcript corpus. Nothing is deployed automatically.
+Acquisition Companion is a free, independent Astro guide to buying, financing, and building businesses. It connects original teaching across public sources and links readers to the creators' full material. It is not affiliated with or endorsed by Yusufa Sey, Fund Launch, or other referenced creators. The site has no accounts, payments, advertising, affiliate links, trackers, server runtime, or public transcript corpus.
 
 ## Local development
 
-Use Node **22.23.0** (the tested version; dependencies require at least 22.19). This Mac also has an older Node on its default path, so select the project version before installing or running commands:
+Use Node **22.23.0** (the tested version; dependencies require at least 22.19):
 
 ```sh
+git clone https://github.com/adamk/acquisition-companion.git
 cd acquisition-companion
 nvm use
 npm ci
@@ -39,13 +40,12 @@ The command runs unit/content checks, Astro/TypeScript checks, the static build,
 ## Cloudflare Pages
 
 1. Review the local production preview and the editorial limitations below.
-2. Place this repository in a private Git repository you control, or use Cloudflare's direct-upload workflow for the built `dist` directory. No remote repository has been created by this task.
-3. In Cloudflare, choose **Workers & Pages → Create → Pages**, then connect the repository. Choose the **Astro** framework preset.
+2. In Cloudflare, choose **Workers & Pages → Create → Pages**, then connect `adamk/acquisition-companion` through GitHub. Choose the **Astro** framework preset and production branch `main`.
 4. Set **Build command** to `npm run build` and **Build output directory** to `dist`. Root directory is the repository root. No Cloudflare adapter or SSR functions are required.
-5. Set `NODE_VERSION=22.23.0`. Set `SITE_URL` to the chosen public HTTPS origin, including the eventual `pages.dev` origin if that is your initial published address. Do not include a subdirectory, query, or fragment.
-6. Deploy only after you authorize publication. Inspect the source links, search, headers, canonical tags, sitemap, robots file, and mobile layout on the resulting deployment.
+5. Set `NODE_VERSION=22.23.0` and `SITE_URL=https://acquisitioncompanion.com` in the Pages production build environment.
+6. After domain ownership is confirmed, add `acquisitioncompanion.com` as a Pages custom domain. The apex domain requires a Cloudflare DNS zone and Cloudflare authoritative nameservers. Configure `www.acquisitioncompanion.com` to redirect permanently to the apex. Verify HTTPS, redirects, source links, search, headers, canonical tags, sitemap, robots file, and mobile layout on the live deployment.
 
-No domain has been purchased or configured. With `SITE_URL` unset, the site omits canonical URLs, emits an empty sitemap, and marks preview pages `noindex`; robots disallows crawling. Set the real origin and rebuild before an indexed launch. For an unindexed preview deployment, leave it unset. Public source links remain the original YouTube URLs regardless of the site domain.
+With `SITE_URL` unset, the site omits canonical URLs, emits an empty sitemap, and marks preview pages `noindex`; robots disallows crawling. Public source links remain the creators' original URLs regardless of the site domain. Domain and DNS account changes should be made only after ownership and current records are verified.
 
 Official references: [Astro content collections](https://docs.astro.build/en/guides/content-collections/), [Cloudflare Pages build settings](https://developers.cloudflare.com/pages/configuration/build-configuration/), [Pagefind indexing](https://pagefind.app/docs/running-pagefind/).
 
@@ -75,8 +75,7 @@ No permanent production domain is hardcoded. Analytics are optional and off. If 
 - `src/data/fund-launch-numbers.json`: separately labeled, dated Fund Launch illustrations and typical ranges with direct source URLs. They are not added to the 313 Yusufa records.
 - `src/data/providers.json`: 28 provider/firm/intermediary records with roles and relationship status.
 - `src/data/number-editorial.json` and `provider-editorial.json`: reviewed editorial overlays used by the importer.
-- `private/provenance.json`: full research traceability, including exact source file, transcript source, confidence, original evidence row and supporting context. Build-time audit material only; **never move it into `public/` or import it into a client script**.
-- `private/import-manifest.json`: hashes of the nine research inputs.
+The optional importer can generate detailed provenance and research-input hashes locally. Those outputs are ignored by Git and are not needed for public builds. Never place research inputs or importer audit outputs in `public/`.
 
 Astro content collections validate frontmatter. Relationships are IDs and slugs, not duplicated video descriptions in UI components. Topic pages find related lessons, examples, numbers and sources at build time. Search runs over the public HTML. Its generated index contains no private transcript metadata.
 
@@ -92,7 +91,7 @@ python3 scripts/import-research.py \
   --output .
 ```
 
-The importer parses the evidence/inventory CSVs and escaped-pipe Markdown tables. It preserves stable row-based IDs, applies the reviewed original context overlays, validates source identities, and writes public-safe JSON plus private provenance. It rejects output inside the input research directory. It never copies raw transcript files. All nine input files are hashed to verify read-only handling.
+The importer parses the evidence/inventory CSVs and escaped-pipe Markdown tables. It preserves stable row-based IDs, applies the reviewed original context overlays, validates source identities, and writes public-safe JSON plus local-only provenance. It rejects output inside the input research directory. It never copies raw transcript files. All nine input files are hashed to verify read-only handling.
 
 If the research changes, reconcile rows and editorial overlays deliberately; do not assume ordinal IDs still refer to the same claim. Review the generated diff, update authored content as needed, and run the full tests/build. Source creators and videos remain the primary evidence.
 
@@ -135,4 +134,4 @@ There are four unusable substantive recoveries and two other incomplete recoveri
 - `docs/validation.md`
 - `docs/editorial-review.md`
 
-Only `dist/` is the deployable artifact. Keep the research inputs, `private/`, scripts and repository metadata out of any manually configured static web root.
+Only `dist/` is the deployable artifact. Keep research inputs, local provenance, scripts and repository metadata out of any manually configured static web root. No license has been selected for the repository's original content or code.

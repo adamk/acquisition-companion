@@ -4,6 +4,25 @@ dist/
 .env
 .env.*
 !.env.example
+private/
+whisper_corpus/
+missing_whisper*/
+missing_audio/
+Yusufa Sey - Videos_part*.md
+raw-sources/
+source-html/
+*.pdf
+*.bak
+*.backup
+*.sqlite
+*.db
+**/Cookies
+.playwright/
+.cache/
+.vscode/
+.idea/
+*.swp
+*.swo
 .DS_Store
 artifacts/
 __pycache__/

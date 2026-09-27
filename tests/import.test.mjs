@@ -1,11 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync,mkdtempSync,rmSync} from 'node:fs';
-import {tmpdir} from 'node:os';
-import {join} from 'node:path';
+import {readFileSync,existsSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
 const read = name => JSON.parse(readFileSync(new URL(`../src/data/${name}.json`,import.meta.url)));
-test('read-only importer parses aligned sources and escaped title separators',()=>{
+test('read-only importer parses aligned sources and escaped title separators',(t)=>{
+ if(spawnSync('python3',['--version'],{encoding:'utf8'}).error){t.skip('Python is optional for the public build');return;}
  const r=spawnSync('python3',['-c',`import importlib.util
 s=importlib.util.spec_from_file_location('research','scripts/import-research.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
 r=m.aligned_sources({'video_id':'--DvlTBzkW4 || abcdefghijk','video_title':'A | B || Second','video_url':'https://www.youtube.com/watch?v=--DvlTBzkW4 || https://www.youtube.com/watch?v=abcdefghijk','source_file':'a.md || b.md','transcript_source':'native || recovered'})
@@ -49,7 +48,8 @@ test('uncertain figures and proposed capital retain their distinct status',()=>{
  assert.match(n.N291.caution,/unsupported/);assert.equal(n.N291.confidence,'low');
  assert.equal(n.N311.kind,'unverified-claim');assert.match(n.N313.caution,/80%.*appraisal/);
 });
-test('private audit maps exact source rows without leaking supporting prose into public context',()=>{
+test('private audit maps exact source rows without leaking supporting prose into public context',(t)=>{
+ if(!existsSync('private/provenance.json')||!existsSync('private/import-manifest.json')){t.skip('local-only research audit files are absent from the public checkout');return;}
  const audit=JSON.parse(readFileSync('private/provenance.json'));
  const manifest=JSON.parse(readFileSync('private/import-manifest.json'));
  assert.equal(manifest.inputs.length,9);assert.equal(manifest.rawTranscriptsCopied,false);

@@ -1,5 +1,4 @@
 {
-  "researchRoot":"/path/to/yusufa_analysis",
   "evidenceIds":"E001 through E243 are 1-based CSV data-row ordinals",
   "numberIds":"N001 through N313 are 1-based Markdown quantitative-table data-row ordinals",
   "providerIds":"P001 through P028 are first table data-row ordinals in provider research",
