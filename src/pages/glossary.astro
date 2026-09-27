@@ -1,0 +1,7 @@
+---
+import Base from '../layouts/Base.astro';import Crumbs from '../components/Crumbs.astro';import Filters from '../components/Filters.astro';import glossary from '../data/glossary.json';
+const terms=[...glossary].sort((a,b)=>a.term.localeCompare(b.term));
+---
+<Base title="Business acquisition glossary" description="Plain-English definitions for acquisition entrepreneurship, EBITDA, equity, debt, seller finance and private credit, linked to deeper guides." type="Glossary">
+ <Crumbs items={[{title:'Glossary'}]} /><header class="page-header"><p class="eyebrow">Plain-English reference</p><h1>Learn the language of an acquisition.</h1><p>Short definitions for the concepts used throughout the course. Follow a term for examples, qualifications, and original source links.</p></header><Filters placeholder="Try ‘earn-out’, ‘EBITDA’, or ‘collateral’" label="Find a term"/><p hidden data-empty-state class="empty-state">No matching terms. Try fewer words.</p><dl class="alpha-list">{terms.map(t=><div id={t.id} data-filter-item data-search={`${t.term} ${t.definition}`}><dt><a href={`/topics/${t.topic}/`}>{t.term}</a></dt><dd>{t.definition}</dd></div>)}</dl>
+</Base>

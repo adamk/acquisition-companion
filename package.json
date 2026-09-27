@@ -1,0 +1,29 @@
+{
+  "name": "ma-companion-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev --host 127.0.0.1",
+    "check": "ASTRO_TELEMETRY_DISABLED=1 astro check",
+    "test": "node --test tests/*.test.mjs",
+    "build": "npm run test && npm run check && ASTRO_TELEMETRY_DISABLED=1 astro build && node scripts/generate-sitemap.mjs && pagefind --site dist && node scripts/validate-dist.mjs",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview --host 127.0.0.1",
+    "validate": "node scripts/validate-dist.mjs",
+    "import:research": "python3 scripts/import-research.py",
+    "test:browser": "node scripts/browser-check.mjs"
+  },
+  "dependencies": {
+    "@astrojs/check": "0.9.10",
+    "astro": "7.3.5",
+    "pagefind": "1.5.2",
+    "typescript": "6.0.3"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0"
+  }
+}

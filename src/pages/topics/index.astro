@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';import Crumbs from '../../components/Crumbs.astro';import {getCollection} from 'astro:content';
+const topics=(await getCollection('topics')).sort((a,b)=>a.data.title.localeCompare(b.data.title));
+const groups=['Fundamentals','Finding deals','Understanding the numbers','Deal structure','Financing','Operating and exits'];
+---
+<Base title="Acquisition topic library" description="Browse source-linked guides to valuation, EBITDA, seller finance, private credit, due diligence and business ownership." type="Topic index">
+ <Crumbs items={[{title:'Topics'}]} /><header class="page-header"><p class="eyebrow">The reference library</p><h1>Understand the concept. Connect the decisions.</h1><p>Forty-four topic guides connect plain-English definitions to lessons, examples, numbers, and original sources. Limited coverage is labeled rather than filled with unsupported detail.</p></header>
+ <div class="topic-columns">{groups.map(group=><section class="topic-group"><h2>{group}</h2><ul>{topics.filter(x=>x.data.category===group).map(t=><li><a href={`/topics/${t.id}/`}>{t.data.title}</a>{t.data.coverage==='limited' && <> <span class="badge caution">Limited source coverage</span></>}</li>)}</ul></section>)}</div>
+ <p class="notice">Need a short definition? <a href="/glossary/">Use the glossary.</a> Need a learning sequence? <a href="/course/">Take the free course.</a></p>
+</Base>

@@ -1,0 +1,226 @@
+{
+  "P001": {
+    "name": "TD / TD Bank",
+    "type": "Bank",
+    "role": "Bank credit in an external deal example",
+    "context": "The speakers discuss a purported credit offer connected with the proposed GameStop/eBay transaction.",
+    "caution": "The proposed $20bn offer and transaction are unverified here; no borrowing relationship with Sey is established.",
+    "status": "External proposal"
+  },
+  "P002": {
+    "name": "HSBC",
+    "type": "Bank",
+    "role": "Illustrative bank and potential debt source",
+    "context": "HSBC appears in a proof-of-funds illustration and in general discussions of UK high-street banks.",
+    "caution": "An example bank account or lender name is not evidence of an acquisition facility.",
+    "status": "Illustrative mention"
+  },
+  "P003": {
+    "name": "General Atlantic",
+    "type": "Investment firm",
+    "role": "Institutional investor approached",
+    "context": "Sey recounts several meetings before the firm judged his platform too early for investment.",
+    "caution": "The account does not establish funding, a debt instrument or a completed investment.",
+    "status": "Reported outreach; declined"
+  },
+  "P004": {
+    "name": "Norvian",
+    "type": "Fundraising intermediary",
+    "role": "Equity investor introductions",
+    "context": "Sey describes an investor-matching business in which he has an ownership or partnership interest.",
+    "caution": "The discussion explicitly excludes debt work; associated names are inconsistently transcribed and the LNG raise is not a credit facility.",
+    "status": "Equity intermediary"
+  },
+  "P005": {
+    "name": "Eigor / Igor",
+    "type": "Debt broker",
+    "role": "Lender outreach and financing structure",
+    "context": "The broker helps assess acquisition fundability, assemble information and approach lenders.",
+    "caution": "Name spelling and firm identity are uncertain; arranging credit does not make the broker the lender.",
+    "status": "Reported intermediary relationship"
+  },
+  "P006": {
+    "name": "David / Davíd",
+    "type": "Capital-raising intermediary and investor",
+    "role": "Retail-investor distribution and equity participation",
+    "context": "Sey describes a Stockholm contact who introduced investments to retail investors and helped raise steel-group capital.",
+    "caution": "The firm is unnamed; no loan product, compensation terms or verified regulatory status is established.",
+    "status": "Reported equity fundraising relationship"
+  },
+  "P007": {
+    "name": "Alex",
+    "type": "Deal intermediary",
+    "role": "Target introductions",
+    "context": "A contact called Alex passes acquisition leads and is asked to arrange an introduction to an owner.",
+    "caution": "Surname and firm are absent, and no lending role is described.",
+    "status": "Reported sourcing contact"
+  },
+  "P008": {
+    "name": "KBS Corporate",
+    "type": "Sell-side business broker",
+    "role": "Acquisition sourcing",
+    "context": "A broker call produces a large set of potential opportunities; another discussion mentions a historical funding-related role.",
+    "caution": "Claims of market leadership are the speaker's; neither source proves KBS supplied a loan.",
+    "status": "Reported sourcing interaction"
+  },
+  "P009": {
+    "name": "Benchmark International",
+    "type": "Sell-side business broker",
+    "role": "Acquisition sourcing",
+    "context": "The firm is mentioned as a route to businesses for sale and as a contact in target outreach.",
+    "caution": "A sourcing relationship is not evidence of debt-capital provision.",
+    "status": "Reported sourcing contact"
+  },
+  "P010": {
+    "name": "UNLOQ / Unlock",
+    "type": "Buy-side broker",
+    "role": "Paid target search",
+    "context": "The discussion describes buying assistance with identifying businesses and reaching their owners.",
+    "caution": "Name variants appear; no direct credit supply is established.",
+    "status": "Reported sourcing intermediary"
+  },
+  "P011": {
+    "name": "Endole",
+    "type": "Business-data platform",
+    "role": "Company research and owner outreach",
+    "context": "The platform is used to discuss filtering companies and building a direct outreach list.",
+    "caution": "Several spoken name and domain variants appear; those variants are not independently verified separate firms.",
+    "status": "Sourcing resource"
+  },
+  "P012": {
+    "name": "Deal Opportunities",
+    "type": "Acquisition search platform",
+    "role": "Business-sale listings",
+    "context": "The platform is described as a way to search across businesses available for acquisition.",
+    "caution": "A listing platform is not established as a lender or capital supplier.",
+    "status": "Sourcing resource"
+  },
+  "P013": {
+    "name": "IPO Capital",
+    "type": "Acquisition vehicle",
+    "role": "Buyer and recipient of search capital",
+    "context": "Sey uses the name in banking introductions and describes an equally owned vehicle funded for the search period.",
+    "caution": "No institutional lending product, fund assets or third-party credit business is established.",
+    "status": "Capital recipient"
+  },
+  "P014": {
+    "name": "Clearline Capital",
+    "type": "Acquisition venture",
+    "role": "Oscar's search and buyout activity",
+    "context": "Oscar's venture is discussed through its website, broker outreach and early sector choices.",
+    "caution": "Names vary in the audio recovery; no committed institutional fund or completed credit facility is shown.",
+    "status": "Prospective acquirer"
+  },
+  "P015": {
+    "name": "Northern Industries",
+    "type": "Acquisition holding group",
+    "role": "Steel ownership and borrowing",
+    "context": "The group provides the setting for discussions of shareholders, operating-company failures, guarantees and listing plans.",
+    "caution": "It is a buyer and capital recipient, not an outside lender to the reader.",
+    "status": "Reported operating group"
+  },
+  "P016": {
+    "name": "Ventilation Ventures",
+    "type": "Acquisition platform",
+    "role": "HVAC acquisitions and equity fundraising",
+    "context": "The platform is discussed as a vehicle for assembling HVAC businesses and building operating capabilities.",
+    "caution": "Fundraising and growth ambitions do not establish a third-party lending business or committed capital.",
+    "status": "Reported acquirer and fundraiser"
+  },
+  "P017": {
+    "name": "Santander",
+    "type": "Bank",
+    "role": "Potential bank funding example",
+    "context": "The speaker names Santander while describing possible UK acquisition lenders.",
+    "caution": "The mention does not identify a facility or a completed borrowing relationship.",
+    "status": "General lender example"
+  },
+  "P018": {
+    "name": "Lloyds",
+    "type": "Bank; name uncertain in one mention",
+    "role": "Potential bank funding example",
+    "context": "Lloyds appears among high-street-bank examples in a wider discussion of credit channels.",
+    "caution": "One rendering is Lloyd's; identity is not independently resolved and no actual facility is attributed.",
+    "status": "Uncertain illustrative mention"
+  },
+  "P019": {
+    "name": "Duke Royalty",
+    "type": "Prospective nonbank contact",
+    "role": "Candidate for an Irish acquisition enquiry",
+    "context": "Sey suggests the broker explore Duke Royalty, with receivables mentioned in the conversation.",
+    "caution": "No lender commitment, completed facility or exact instrument is established; the proposed contact is not proof of private-credit funding.",
+    "status": "Prospective candidate"
+  },
+  "P020": {
+    "name": "Bank of Ireland",
+    "type": "Bank",
+    "role": "Candidate for a cash-flow loan enquiry",
+    "context": "A broker suggests that Bank of Ireland might consider the Irish transaction.",
+    "caution": "Tentative interest in making an approach is not a credit approval or funding commitment.",
+    "status": "Prospective candidate"
+  },
+  "P021": {
+    "name": "MFS",
+    "type": "Unresolved acronym",
+    "role": "Market-commentary reference",
+    "context": "The acronym appears in a remark about financial distress while discussing private credit.",
+    "caution": "Identity and the alleged event are unresolved and unverified; the acronym must not be expanded into a known firm by assumption.",
+    "status": "Unverified reference"
+  },
+  "P022": {
+    "name": "Keola / Kyola",
+    "type": "Family-office or private-investor reference",
+    "role": "Equity backing and investor introductions",
+    "context": "The discussions connect Magnus and colleagues with equity ownership, introductions and portfolio gatherings.",
+    "caution": "Name spelling is uncertain; equity backing is not evidence of institutional debt or a credit facility.",
+    "status": "Reported equity relationship"
+  },
+  "P023": {
+    "name": "Blackstone",
+    "type": "Investment-firm comparator",
+    "role": "Illustration of a PE firm's starting point",
+    "context": "The name is used to frame a rhetorical comparison about building an investment business.",
+    "caution": "No actual funding relationship with Sey or the platform is established.",
+    "status": "Illustrative comparator"
+  },
+  "P024": {
+    "name": "MMT Equity",
+    "type": "Guest acquisition vehicle",
+    "role": "Acquirer in a guest's account",
+    "context": "Momar describes his own acquisition journey using this venture's name.",
+    "caution": "The collection does not establish a credit-supplying role or independently verify the registered entity.",
+    "status": "Guest-reported acquirer"
+  },
+  "P025": {
+    "name": "NatWest",
+    "type": "Bank",
+    "role": "High-street banking example",
+    "context": "NatWest is named while contrasting familiar branch banks with a broader credit market.",
+    "caution": "The mention does not identify an acquisition loan, offer or commitment.",
+    "status": "General lender example"
+  },
+  "P026": {
+    "name": "Everett",
+    "type": "Fundraising contact",
+    "role": "Investor meetings and data-room activity",
+    "context": "A person named Everett appears in discussions of organizing investor conversations and fundraising materials.",
+    "caution": "No firm is identified, and equity fundraising activity does not establish a debt mandate.",
+    "status": "Reported fundraising intermediary"
+  },
+  "P027": {
+    "name": "Charlie Munger / Berkshire Hathaway",
+    "type": "Investor and firm reference",
+    "role": "Investment-method illustration",
+    "context": "The discussion invokes inversion as a way to approach decisions and avoid predictable mistakes.",
+    "caution": "This reference supplies no financing relationship or capital availability.",
+    "status": "Method reference"
+  },
+  "P028": {
+    "name": "YMS equities",
+    "type": "Personal holding vehicle",
+    "role": "Equity interests in acquisition groups",
+    "context": "A later explanation describes a corporate holding vehicle for Sey's interests in Northern Industries and Ventilation Ventures.",
+    "caution": "The exact registered identity is unverified; earlier ambiguity about Clearline does not establish a separate lender.",
+    "status": "Reported equity owner"
+  }
+}

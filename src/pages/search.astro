@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';import Crumbs from '../components/Crumbs.astro';
+---
+<Base title="Search the acquisition guide" description="Search lessons, topic guides, worked examples, quantitative references and source videos." type="Search" noindex>
+ <Crumbs items={[{title:'Search'}]}/><header class="page-header"><p class="eyebrow">Find a concept or example</p><h1>Search the Companion.</h1><p>Search the course and reference library. Try “seller financing,” “private credit,” or “working capital.” No transcript corpus is indexed.</p></header><div id="search"><p id="search-status" role="status">Loading search…</p></div><noscript><p>Search needs JavaScript. Browse the <a href="/topics/">topic library</a>, <a href="/glossary/">glossary</a>, or <a href="/course/">course</a> instead.</p></noscript>
+ <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+ <script is:inline src="/pagefind/pagefind-ui.js"></script>
+ <script is:inline>
+  const status=document.getElementById('search-status');
+  if(typeof PagefindUI!=='undefined'){
+   status.remove();const ui=new PagefindUI({element:'#search',showSubResults:true,showImages:false,resetStyles:false,autofocus:true,translations:{placeholder:'Search the guide…'}});
+   const query=new URLSearchParams(location.search).get('q');if(query)ui.triggerSearch(query);
+  }else{status.textContent='Search is available in the production preview. Browse Topics or build the site, then run npm run preview.';}
+ </script>
+</Base>

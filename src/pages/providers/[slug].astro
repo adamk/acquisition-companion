@@ -1,0 +1,6 @@
+---
+import Base from '../../layouts/Base.astro';import Crumbs from '../../components/Crumbs.astro';import Sources from '../../components/Sources.astro';import Related from '../../components/Related.astro';import {providers} from '../../lib/data';
+export function getStaticPaths(){return providers.map(provider=>({params:{slug:provider.id.toLowerCase()},props:{provider}}));}
+const {provider:p}=Astro.props;
+---
+<Base title={`${p.name}: role and source context`} description={p.context} type="Provider"><Crumbs items={[{title:'Firms & intermediaries',url:'/providers/'},{title:p.name}]} /><article class="narrow"><header class="page-header"><p class="eyebrow">Source reference · {p.type}</p><h1>{p.name}</h1><p>{p.role}</p></header><div class="prose"><h2>What the source establishes</h2><p>{p.context}</p><h2>Relationship status</h2><p>{p.status}</p><h2>What remains uncertain</h2><p>{p.caution || 'The collection is not a current provider directory. A mention does not establish present lending appetite, terms, or an executed funding relationship.'}</p></div><p class="notice warning">Reference only. No endorsement, affiliate relationship, or verified offer of capital is implied.</p><Sources ids={p.videoIds} open /><Related topicIds={p.topics}/></article></Base>

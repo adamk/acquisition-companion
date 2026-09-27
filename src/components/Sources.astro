@@ -1,0 +1,15 @@
+---
+import {videoById,evidenceById,videoPath,label} from '../lib/data';
+interface Props {ids:string[];evidenceIds?:string[];open?:boolean;}
+const {ids,evidenceIds=[],open=false}=Astro.props;
+const selected=[...new Set(ids)].map(id=>videoById.get(id)).filter(Boolean);
+const records=evidenceIds.map(id=>evidenceById.get(id)).filter(Boolean);
+---
+<details class="sources" open={open} data-pagefind-ignore>
+ <summary>Sources &amp; further viewing <span>{selected.length} original {selected.length===1?'video':'videos'}</span></summary>
+ <div class="sources-content">
+  <p class="small muted">The explanations on this site are independent synthesis. The original videos provide the primary context. A reported experience is not independent proof of a transaction.</p>
+  {records.length>0 && <ul class="evidence-labels">{records.map(r=>r && <li><span class="badge">{label(r.type)}</span> {r.label}{r.confidence==='low' && <strong class="uncertain"> — uncertain source</strong>}</li>)}</ul>}
+  <ol class="source-list">{selected.map(v=>v && <li><a href={v.url} class="source-title">{v.title}</a><div class="source-actions"><a href={v.url}>Watch the original →</a><a href={videoPath(v.id)}>Source notes</a></div></li>)}</ol>
+ </div>
+</details>

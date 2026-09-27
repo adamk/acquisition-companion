@@ -1,0 +1,41 @@
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';
+import {forbiddenOutputPath} from './output-policy.mjs';
+const root=path.resolve('dist');assert.ok(fs.existsSync(root),'Production output is missing');
+const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(x=>x.isDirectory()?walk(path.join(dir,x.name)):[path.join(dir,x.name)]);
+const files=walk(root),html=files.filter(f=>f.endsWith('.html'));const videos=JSON.parse(fs.readFileSync('src/data/videos.json','utf8'));const sourceUrls=new Set(videos.map(v=>v.url));
+const errors=[];let checkedLinks=0;const decode=s=>s.replaceAll('&amp;','&').replaceAll('&#39;',"'").replaceAll('&quot;','"').replaceAll('&lt;','<').replaceAll('&gt;','>');
+const texts=new Map(html.map(f=>[f,fs.readFileSync(f,'utf8')]));
+for(const file of files){
+ const relative=path.relative(root,file);
+ if(forbiddenOutputPath(relative))errors.push(`Private/raw file in output: ${relative}`);
+ if(/\.(?:html|js|json|txt|xml|css)$/.test(file)){
+  const text=fs.readFileSync(file,'utf8');
+  if(/\/Users\/|\/private\/tmp\/|whisper_corpus\/|Videos_part[1-4]\.md|Whisper repetition collapsed|supporting_context|source_file|mlx_whisper_audio|native_youtube_caption/.test(text))errors.push(`Private metadata or transcript marker in ${relative}`);
+ }
+}
+for(const [file,text] of texts){
+ const route='/'+path.relative(root,file).replaceAll(path.sep,'/').replace(/index\.html$/,'');
+ if((text.match(/<h1(?:\s|>)/g)||[]).length!==1)errors.push(`${route}: expected one h1`);
+ if(!text.includes('<html lang="en"'))errors.push(`${route}: missing language`);
+ if(!/<title>[^<]+<\/title>/.test(text))errors.push(`${route}: missing title`);
+ for(const match of text.matchAll(/\b(?:href|src)=["']([^"']+)["']/g)){
+  const value=decode(match[1]);if(!value||/^(mailto:|tel:|data:|javascript:)/.test(value))continue;
+  if(value.startsWith('https://www.youtube.com/watch?')){if(!sourceUrls.has(value))errors.push(`${route}: unrecognized YouTube URL ${value}`);continue;}
+  if(/^(https?:)?\/\//.test(value))continue;
+  const url=new URL(value,'https://local.invalid'+route);const pathname=decodeURIComponent(url.pathname);let target=path.join(root,pathname);
+  if(fs.existsSync(target)&&fs.statSync(target).isDirectory())target=path.join(target,'index.html');
+  if(!fs.existsSync(target)){errors.push(`${route}: broken ${value}`);continue;}
+  checkedLinks++;
+  if(url.hash && target.endsWith('.html')){
+   const targetText=texts.get(target)||fs.readFileSync(target,'utf8');const id=decodeURIComponent(url.hash.slice(1));
+   if(!new RegExp(`\\bid=["']${id.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}["']`).test(targetText))errors.push(`${route}: missing anchor ${value}`);
+  }
+ }
+}
+for(const v of videos)assert.ok(fs.existsSync(path.join(root,'sources/yusufa-sey',v.id,'index.html')),`Source route missing: ${v.id}`);
+assert.ok(fs.existsSync(path.join(root,'pagefind/pagefind.js')),'Pagefind index missing');
+assert.ok(fs.existsSync(path.join(root,'sitemap.xml')),'Sitemap missing');
+assert.ok(fs.existsSync(path.join(root,'robots.txt')),'Robots missing');
+assert.equal(errors.length,0,errors.slice(0,35).join('\n'));
+const result={pages:html.length,files:files.length,internalLinksChecked:checkedLinks,sourceVideos:videos.length,privacyScan:'passed',linkScan:'passed'};
+fs.mkdirSync('artifacts',{recursive:true});fs.writeFileSync('artifacts/dist-validation.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));

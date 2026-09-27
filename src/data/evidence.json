@@ -1,0 +1,3720 @@
+[
+  {
+    "id": "E001",
+    "label": "Alternative PE versus search fund",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "--DvlTBzkW4",
+      "dUL-YXeWDQY"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship",
+      "target-selection",
+      "capital-stack",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E002",
+    "label": "Sponsor versus manager",
+    "type": "opinion",
+    "confidence": "medium",
+    "videoIds": [
+      "--DvlTBzkW4",
+      "TGMdeD8EnD4",
+      "4DhN50eAkcA",
+      "eN6nVKlUu3c"
+    ],
+    "topics": [
+      "sourcing",
+      "investor-equity",
+      "management",
+      "roll-ups",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E003",
+    "label": "From individual transactions to funds",
+    "type": "example",
+    "confidence": "high",
+    "videoIds": [
+      "--DvlTBzkW4"
+    ],
+    "topics": [
+      "leverage",
+      "investor-equity",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E004",
+    "label": "Revenue is not sponsor wealth",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "9OBSog0S5XU",
+      "TGMdeD8EnD4",
+      "v41qQ3KC2b4",
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "equity-value",
+      "roll-ups",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E005",
+    "label": "Bankruptcies and response",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "9OBSog0S5XU"
+    ],
+    "topics": [
+      "working-capital",
+      "bank-debt",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E006",
+    "label": "Covenant breach despite performing asset",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "9OBSog0S5XU"
+    ],
+    "topics": [
+      "acquisition-process",
+      "capital-stack",
+      "leverage",
+      "bank-debt",
+      "amortization",
+      "covenants",
+      "collateral",
+      "refinancing",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E007",
+    "label": "Aggressive amortization and liquidity",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "9OBSog0S5XU"
+    ],
+    "topics": [
+      "cash-flow",
+      "capital-stack",
+      "leverage",
+      "amortization"
+    ]
+  },
+  {
+    "id": "E008",
+    "label": "Low purchase multiple as fundability premise",
+    "type": "rule-of-thumb",
+    "confidence": "medium",
+    "videoIds": [
+      "Sj_SpzSpxw0",
+      "x-BdgrSknEw"
+    ],
+    "topics": [
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples"
+    ]
+  },
+  {
+    "id": "E009",
+    "label": "Bank/seller/equity residual worked example",
+    "type": "example",
+    "confidence": "medium",
+    "videoIds": [
+      "Sj_SpzSpxw0",
+      "mh1tKwDlnaE",
+      "eN6nVKlUu3c"
+    ],
+    "topics": [
+      "ebitda",
+      "customer-concentration",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "deferred-consideration",
+      "bank-debt",
+      "management"
+    ]
+  },
+  {
+    "id": "E010",
+    "label": "Return amount and time",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "Sj_SpzSpxw0"
+    ],
+    "topics": [
+      "investor-equity",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E011",
+    "label": "On-market versus off-market",
+    "type": "quantitative-claim",
+    "confidence": "high",
+    "videoIds": [
+      "Sj_SpzSpxw0"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing"
+    ]
+  },
+  {
+    "id": "E012",
+    "label": "Normalize profit before underwriting",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "Sj_SpzSpxw0"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "adjusted-ebitda",
+      "enterprise-value",
+      "valuation-multiples"
+    ]
+  },
+  {
+    "id": "E013",
+    "label": "Minimum scale for management",
+    "type": "rule-of-thumb",
+    "confidence": "high",
+    "videoIds": [
+      "JtJlEfANJsA"
+    ],
+    "topics": [
+      "preferred-equity",
+      "management"
+    ]
+  },
+  {
+    "id": "E014",
+    "label": "Growth drivers and attribution",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "JtJlEfANJsA",
+      "WBPmqD8jIKA"
+    ],
+    "topics": [
+      "management",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E015",
+    "label": "Employment, ownership and control are separate",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "JtJlEfANJsA",
+      "xq5pwowli-0"
+    ],
+    "topics": [
+      "management"
+    ]
+  },
+  {
+    "id": "E016",
+    "label": "Employment contract and insolvency claim",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "JtJlEfANJsA"
+    ],
+    "topics": [
+      "management"
+    ]
+  },
+  {
+    "id": "E017",
+    "label": "Refinancing experience versus broad market claim",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "cvauHwc3guQ"
+    ],
+    "topics": [
+      "valuation-multiples",
+      "capital-stack",
+      "leverage",
+      "bank-debt",
+      "refinancing"
+    ]
+  },
+  {
+    "id": "E018",
+    "label": "Credit broker and information package",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "cvauHwc3guQ"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "brokers",
+      "loi",
+      "capital-stack",
+      "leverage",
+      "bank-debt",
+      "management"
+    ]
+  },
+  {
+    "id": "E019",
+    "label": "Indicative support is not approved financing",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "cvauHwc3guQ",
+      "3U3uEsou3SM"
+    ],
+    "topics": [
+      "sourcing",
+      "loi",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E020",
+    "label": "Competing allocations and investor fit",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "cvauHwc3guQ"
+    ],
+    "topics": [
+      "investor-equity",
+      "preferred-equity"
+    ]
+  },
+  {
+    "id": "E021",
+    "label": "Closing starts debt-service work",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "cvauHwc3guQ",
+      "FluB82yq9Lo"
+    ],
+    "topics": [
+      "acquisition-process",
+      "valuation-multiples",
+      "capital-stack",
+      "leverage",
+      "debt-service"
+    ]
+  },
+  {
+    "id": "E022",
+    "label": "Institutional PE versus alternative deal-by-deal buying",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "IJIazMAuvmI",
+      "p3EX7IpcYd0"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship",
+      "target-selection",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E023",
+    "label": "AI acceleration thesis",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "IJIazMAuvmI"
+    ],
+    "topics": [
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E024",
+    "label": "Three workstreams and actual checks",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "q5acehTXYXs"
+    ],
+    "topics": [
+      "due-diligence",
+      "bank-debt",
+      "management"
+    ]
+  },
+  {
+    "id": "E025",
+    "label": "Third-party DD cost and controversial minimization",
+    "type": "opinion",
+    "confidence": "medium",
+    "videoIds": [
+      "q5acehTXYXs",
+      "wd4Y23wruXU"
+    ],
+    "topics": [
+      "due-diligence",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E026",
+    "label": "Customer concentration can erase all earnings",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "q5acehTXYXs",
+      "NnWl4wMoQhM"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "ebitda",
+      "due-diligence",
+      "customer-concentration"
+    ]
+  },
+  {
+    "id": "E027",
+    "label": "Material DD changes versus intentional retrading",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "q5acehTXYXs"
+    ],
+    "topics": [
+      "due-diligence"
+    ]
+  },
+  {
+    "id": "E028",
+    "label": "Financial concealment versus disclosed operating problems",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "q5acehTXYXs"
+    ],
+    "topics": [
+      "acquisition-process",
+      "due-diligence",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E029",
+    "label": "Investor evaluates sponsor fit and credibility",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "Io8ctiLGjbs",
+      "rE2R3B0kiBc"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "ebitda",
+      "due-diligence",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E030",
+    "label": "Adapt pitch to capital type",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "Io8ctiLGjbs"
+    ],
+    "topics": [
+      "equity-value",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E031",
+    "label": "Repeated relationships survive individual failures",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "Io8ctiLGjbs",
+      "kwRtKv_dUL0",
+      "LgKz1bxdCMM",
+      "3U3uEsou3SM"
+    ],
+    "topics": [
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E032",
+    "label": "LOI/heads of terms",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "vkKw1MeUors",
+      "PqGjF6z1ZaM"
+    ],
+    "topics": [
+      "acquisition-process",
+      "loi",
+      "ebitda",
+      "working-capital",
+      "due-diligence",
+      "customer-concentration",
+      "amortization",
+      "management"
+    ]
+  },
+  {
+    "id": "E033",
+    "label": "Deferred consideration versus earnout",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "vkKw1MeUors",
+      "-hqVGkoT0dQ"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "seller-financing",
+      "deferred-consideration",
+      "earn-outs",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E034",
+    "label": "Typical offer and example",
+    "type": "rule-of-thumb",
+    "confidence": "medium",
+    "videoIds": [
+      "vkKw1MeUors",
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "acquisition-process",
+      "valuation-multiples",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "preferred-equity",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E035",
+    "label": "Challenge unsupported addbacks",
+    "type": "example",
+    "confidence": "high",
+    "videoIds": [
+      "vkKw1MeUors"
+    ],
+    "topics": [
+      "ebitda",
+      "adjusted-ebitda",
+      "enterprise-value",
+      "valuation-multiples",
+      "due-diligence"
+    ]
+  },
+  {
+    "id": "E036",
+    "label": "Data room and back-to-back information requests",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "vkKw1MeUors"
+    ],
+    "topics": [
+      "due-diligence",
+      "bank-debt",
+      "management"
+    ]
+  },
+  {
+    "id": "E037",
+    "label": "Warranties and disclosures",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "vkKw1MeUors"
+    ],
+    "topics": [
+      "due-diligence"
+    ]
+  },
+  {
+    "id": "E038",
+    "label": "CEO in waiting",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "4KGWEet-vwE",
+      "NWQKr-gqNhc"
+    ],
+    "topics": [
+      "target-selection",
+      "valuation-multiples",
+      "investor-equity",
+      "management"
+    ]
+  },
+  {
+    "id": "E039",
+    "label": "Direct relationship versus recruiter",
+    "type": "opinion",
+    "confidence": "medium",
+    "videoIds": [
+      "4KGWEet-vwE",
+      "s8Hkxnq3-Bo"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "ebitda",
+      "preferred-equity",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E040",
+    "label": "Start with business cash obligations",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "4KGWEet-vwE"
+    ],
+    "topics": [
+      "cash-flow",
+      "debt-service",
+      "management"
+    ]
+  },
+  {
+    "id": "E041",
+    "label": "Broker, equity contacts and joint ventures",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "4KGWEet-vwE",
+      "_CJLfixvoN4"
+    ],
+    "topics": [
+      "acquisition-process",
+      "sourcing",
+      "brokers",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E042",
+    "label": "Vision, financial forecast and soft behavior",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "4KGWEet-vwE",
+      "b_Emk0J2yfw"
+    ],
+    "topics": [
+      "target-selection",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E043",
+    "label": "£100m growth goal missed",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "3z3NDUcOaNg"
+    ],
+    "topics": [
+      "target-selection"
+    ]
+  },
+  {
+    "id": "E044",
+    "label": "Underwrite conservative cycle earnings",
+    "type": "rule-of-thumb",
+    "confidence": "high",
+    "videoIds": [
+      "3z3NDUcOaNg"
+    ],
+    "topics": [
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples"
+    ]
+  },
+  {
+    "id": "E045",
+    "label": "Conditional acquisition preference",
+    "type": "opinion",
+    "confidence": "low",
+    "videoIds": [
+      "vmAmd5vmK8o",
+      "Kisa0C-YiY4",
+      "Z6mhiK7E3Sk",
+      "auNRmG6JcUM"
+    ],
+    "topics": [
+      "preferred-equity",
+      "debt-pricing",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E046",
+    "label": "Self-audit before acquiring",
+    "type": "opinion",
+    "confidence": "medium",
+    "videoIds": [
+      "vmAmd5vmK8o",
+      "zAlT_NNOb6U",
+      "zRh8i5uPjA0"
+    ],
+    "topics": [
+      "leverage",
+      "management",
+      "roll-ups",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E047",
+    "label": "Retail-investor intermediary connection",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "vmAmd5vmK8o"
+    ],
+    "topics": [
+      "acquisition-process",
+      "brokers",
+      "due-diligence",
+      "investor-equity",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E048",
+    "label": "Reporting layers and sponsor accountability",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "8LNGpCPhTzU",
+      "VNXXyH4dr-I",
+      "ykuS4w_Ocws"
+    ],
+    "topics": [
+      "covenants",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E049",
+    "label": "Debt-free dividends are conditional",
+    "type": "example",
+    "confidence": "medium",
+    "videoIds": [
+      "8LNGpCPhTzU",
+      "eKGCCawHqjk"
+    ],
+    "topics": [
+      "amortization",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E050",
+    "label": "Separate SPVs versus reinvesting within group",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "8LNGpCPhTzU",
+      "r1hHXDVg4cQ"
+    ],
+    "topics": [
+      "ebitda",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E051",
+    "label": "Cheap add-on can reduce combined leverage",
+    "type": "example",
+    "confidence": "high",
+    "videoIds": [
+      "8LNGpCPhTzU"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "seller-financing",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E052",
+    "label": "Sponsor maintains seller motivation after offer",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "ekJRHTStpbk"
+    ],
+    "topics": [
+      "acquisition-process",
+      "due-diligence"
+    ]
+  },
+  {
+    "id": "E053",
+    "label": "Financial information quality as frequent bottleneck",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "ekJRHTStpbk",
+      "NnWl4wMoQhM"
+    ],
+    "topics": [
+      "ebitda",
+      "due-diligence",
+      "covenants",
+      "management"
+    ]
+  },
+  {
+    "id": "E054",
+    "label": "Earn trust through realistic process disclosure",
+    "type": "rule-of-thumb",
+    "confidence": "medium",
+    "videoIds": [
+      "ekJRHTStpbk",
+      "vvw6brqjl2I",
+      "NnWl4wMoQhM"
+    ],
+    "topics": [
+      "acquisition-process",
+      "due-diligence",
+      "deferred-consideration",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E055",
+    "label": "UK versus Denmark credit access",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "2maCpFUx4ks",
+      "4KGWEet-vwE",
+      "zRh8i5uPjA0"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship",
+      "target-selection",
+      "valuation-multiples",
+      "capital-stack",
+      "leverage",
+      "buyer-equity",
+      "investor-equity",
+      "bank-debt",
+      "personal-guarantees"
+    ]
+  },
+  {
+    "id": "E056",
+    "label": "Failed close costs",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "2maCpFUx4ks"
+    ],
+    "topics": [
+      "acquisition-process"
+    ]
+  },
+  {
+    "id": "E057",
+    "label": "Management reporting is not enough",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "2maCpFUx4ks"
+    ],
+    "topics": [
+      "ebitda",
+      "covenants",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E058",
+    "label": "Different underwriting emphasis",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "2maCpFUx4ks"
+    ],
+    "topics": [
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E059",
+    "label": "Timeline and sequence",
+    "type": "rule-of-thumb",
+    "confidence": "medium",
+    "videoIds": [
+      "WcYMjlTsUwA",
+      "iuC8eRD77I8",
+      "lGkWzEfsu_c"
+    ],
+    "topics": [
+      "acquisition-process",
+      "brokers",
+      "loi",
+      "leverage",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E060",
+    "label": "Complementary sponsor partners",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "WcYMjlTsUwA"
+    ],
+    "topics": [
+      "management"
+    ]
+  },
+  {
+    "id": "E061",
+    "label": "Fundable manufacturing versus defensible services",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "WcYMjlTsUwA"
+    ],
+    "topics": [
+      "acquisition-process",
+      "working-capital",
+      "capital-stack",
+      "leverage",
+      "asset-based-lending",
+      "receivables-finance",
+      "collateral"
+    ]
+  },
+  {
+    "id": "E062",
+    "label": "Construction invoice disputes impede collateral",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "WcYMjlTsUwA",
+      "Hvw5FAbRAZY"
+    ],
+    "topics": [
+      "working-capital",
+      "capital-stack",
+      "leverage",
+      "receivables-finance",
+      "collateral"
+    ]
+  },
+  {
+    "id": "E063",
+    "label": "First pass through financials",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "1C5gI6LlWhA"
+    ],
+    "topics": [
+      "ebitda",
+      "collateral"
+    ]
+  },
+  {
+    "id": "E064",
+    "label": "EBITDA focus",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "1C5gI6LlWhA"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples",
+      "debt-pricing",
+      "amortization"
+    ]
+  },
+  {
+    "id": "E065",
+    "label": "Two-form loan taxonomy",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "1C5gI6LlWhA"
+    ],
+    "topics": [
+      "cash-flow",
+      "working-capital",
+      "capital-stack",
+      "leverage",
+      "asset-based-lending",
+      "receivables-finance",
+      "collateral"
+    ]
+  },
+  {
+    "id": "E066",
+    "label": "Customer concentration can overwhelm otherwise good deal",
+    "type": "example",
+    "confidence": "high",
+    "videoIds": [
+      "1C5gI6LlWhA"
+    ],
+    "topics": [
+      "customer-concentration"
+    ]
+  },
+  {
+    "id": "E067",
+    "label": "Sustainable earnings outrank surface attractiveness",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "1C5gI6LlWhA",
+      "yqSF-IoKfEQ"
+    ],
+    "topics": [
+      "ebitda",
+      "adjusted-ebitda",
+      "due-diligence"
+    ]
+  },
+  {
+    "id": "E068",
+    "label": "Defense exclusions and target interest",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "1C5gI6LlWhA"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "brokers",
+      "debt-pricing"
+    ]
+  },
+  {
+    "id": "E069",
+    "label": "Ownership, control and employment are distinct",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "xq5pwowli-0",
+      "NWQKr-gqNhc"
+    ],
+    "topics": [
+      "sourcing",
+      "management"
+    ]
+  },
+  {
+    "id": "E070",
+    "label": "Chairman crisis work",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "xq5pwowli-0"
+    ],
+    "topics": [
+      "management"
+    ]
+  },
+  {
+    "id": "E071",
+    "label": "Board composition",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "xq5pwowli-0"
+    ],
+    "topics": [
+      "target-selection",
+      "management"
+    ]
+  },
+  {
+    "id": "E072",
+    "label": "Construction liquidity",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "xq5pwowli-0"
+    ],
+    "topics": [
+      "cash-flow",
+      "roll-ups",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E073",
+    "label": "Director versus chair distinction",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "xq5pwowli-0"
+    ],
+    "topics": [
+      "management"
+    ]
+  },
+  {
+    "id": "E074",
+    "label": "First-deal case is prospective",
+    "type": "example",
+    "confidence": "high",
+    "videoIds": [
+      "942nFYmky6Q"
+    ],
+    "topics": [
+      "acquisition-process"
+    ]
+  },
+  {
+    "id": "E075",
+    "label": "Equity can precede debt",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "942nFYmky6Q"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E076",
+    "label": "Experience and profile affect bank backing",
+    "type": "opinion",
+    "confidence": "medium",
+    "videoIds": [
+      "942nFYmky6Q",
+      "je7CsLaUm8w"
+    ],
+    "topics": [
+      "target-selection",
+      "capital-stack",
+      "leverage",
+      "bank-debt",
+      "management"
+    ]
+  },
+  {
+    "id": "E077",
+    "label": "Alt-PE entry sweet spot",
+    "type": "rule-of-thumb",
+    "confidence": "high",
+    "videoIds": [
+      "YI3Shq4iXao"
+    ],
+    "topics": [
+      "sourcing",
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples",
+      "investor-equity",
+      "management"
+    ]
+  },
+  {
+    "id": "E078",
+    "label": "Committed capital changes feasible targets",
+    "type": "example",
+    "confidence": "high",
+    "videoIds": [
+      "YI3Shq4iXao"
+    ],
+    "topics": [
+      "target-selection",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "seller-financing"
+    ]
+  },
+  {
+    "id": "E079",
+    "label": "Price risk depends on debt terms and earnings durability",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "YI3Shq4iXao"
+    ],
+    "topics": [
+      "ebitda",
+      "valuation-multiples",
+      "capital-stack",
+      "leverage",
+      "debt-pricing",
+      "amortization"
+    ]
+  },
+  {
+    "id": "E080",
+    "label": "Smaller acquirer can buy larger target",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "YI3Shq4iXao"
+    ],
+    "topics": [
+      "target-selection",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E081",
+    "label": "GameStop/eBay illustration is conditional",
+    "type": "example",
+    "confidence": "high",
+    "videoIds": [
+      "YI3Shq4iXao"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E082",
+    "label": "Counterparty quality affects price willingness",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "acquisition-process",
+      "enterprise-value",
+      "valuation-multiples"
+    ]
+  },
+  {
+    "id": "E083",
+    "label": "Recent January deal disclosure limits",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "EL60pBzPd_k",
+      "kNoY1Wkr07E"
+    ],
+    "topics": [
+      "acquisition-process",
+      "ebitda",
+      "valuation-multiples",
+      "due-diligence",
+      "deferred-consideration",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E084",
+    "label": "Exceptional £1.8m deal",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "ebitda",
+      "adjusted-ebitda",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E085",
+    "label": "Balloon payments manage liquidity but assume refinance",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "cash-flow",
+      "capital-stack",
+      "leverage",
+      "deferred-consideration",
+      "institutional-debt",
+      "amortization",
+      "refinancing",
+      "management"
+    ]
+  },
+  {
+    "id": "E086",
+    "label": "Debt burden relative to earnings determines default pressure",
+    "type": "example",
+    "confidence": "high",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "ebitda",
+      "capital-stack",
+      "leverage",
+      "debt-pricing"
+    ]
+  },
+  {
+    "id": "E087",
+    "label": "DSCR framing",
+    "type": "rule-of-thumb",
+    "confidence": "medium",
+    "videoIds": [
+      "EL60pBzPd_k",
+      "wd4Y23wruXU"
+    ],
+    "topics": [
+      "ebitda",
+      "adjusted-ebitda",
+      "cash-flow",
+      "valuation-multiples",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "bank-debt",
+      "debt-pricing",
+      "amortization",
+      "debt-service"
+    ]
+  },
+  {
+    "id": "E088",
+    "label": "High seller upfront expectations increase equity need",
+    "type": "example",
+    "confidence": "high",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "valuation-multiples",
+      "capital-stack",
+      "leverage",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E089",
+    "label": "Seller effort does not set market price",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples"
+    ]
+  },
+  {
+    "id": "E090",
+    "label": "Group trade-buyer narrative",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "np9jH5OyQnE"
+    ],
+    "topics": [
+      "target-selection",
+      "investor-equity",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E091",
+    "label": "Cross-collateralization boosts finance and spreads failures",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "np9jH5OyQnE",
+      "8LNGpCPhTzU"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "bank-debt",
+      "collateral",
+      "personal-guarantees",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E092",
+    "label": "Preserve early ring-fencing option",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "np9jH5OyQnE"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "refinancing"
+    ]
+  },
+  {
+    "id": "E093",
+    "label": "Capital provider mandate narrowed HVAC strategy",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "np9jH5OyQnE",
+      "NnWl4wMoQhM"
+    ],
+    "topics": [
+      "investor-equity",
+      "covenants",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E094",
+    "label": "Build toward financeable investor demand",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "np9jH5OyQnE"
+    ],
+    "topics": [
+      "target-selection",
+      "investor-equity",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E095",
+    "label": "Maintenance recurring revenue",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "np9jH5OyQnE"
+    ],
+    "topics": [
+      "target-selection"
+    ]
+  },
+  {
+    "id": "E096",
+    "label": "Management fee, carry, hurdle",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "7Zg5hGZLrDM"
+    ],
+    "topics": [
+      "debt-pricing",
+      "management",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E097",
+    "label": "Compounding hurdle and delayed exits",
+    "type": "example",
+    "confidence": "high",
+    "videoIds": [
+      "7Zg5hGZLrDM"
+    ],
+    "topics": [
+      "management",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E098",
+    "label": "Director/service fees",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "7Zg5hGZLrDM"
+    ],
+    "topics": [
+      "target-selection",
+      "cash-flow",
+      "management",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E099",
+    "label": "Dividends delayed by serial debt-funded acquisitions",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "7Zg5hGZLrDM",
+      "IJIazMAuvmI"
+    ],
+    "topics": [
+      "working-capital",
+      "amortization",
+      "roll-ups",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E100",
+    "label": "Sponsor equity possible even in all-equity deal",
+    "type": "opinion",
+    "confidence": "medium",
+    "videoIds": [
+      "7Zg5hGZLrDM",
+      "KsnY8Gpnkl4"
+    ],
+    "topics": [
+      "sourcing",
+      "capital-stack",
+      "leverage",
+      "buyer-equity",
+      "investor-equity",
+      "bank-debt",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E101",
+    "label": "Duty focus shifts in insolvency",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "7Zg5hGZLrDM"
+    ],
+    "topics": [
+      "working-capital",
+      "debt-pricing"
+    ]
+  },
+  {
+    "id": "E102",
+    "label": "From hands-on search to delegated pipeline",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "vvw6brqjl2I",
+      "H7R3OanjTfo"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "sourcing",
+      "brokers",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E103",
+    "label": "Inputs and offer volume",
+    "type": "rule-of-thumb",
+    "confidence": "high",
+    "videoIds": [
+      "vvw6brqjl2I",
+      "IJIazMAuvmI"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing"
+    ]
+  },
+  {
+    "id": "E104",
+    "label": "Buy-side broker affordability",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "vvw6brqjl2I"
+    ],
+    "topics": [
+      "sourcing",
+      "brokers"
+    ]
+  },
+  {
+    "id": "E105",
+    "label": "Family office first-ticket constraint",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "vvw6brqjl2I"
+    ],
+    "topics": [
+      "investor-equity",
+      "debt-pricing"
+    ]
+  },
+  {
+    "id": "E106",
+    "label": "Resolve dependencies immediately",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "vvw6brqjl2I"
+    ],
+    "topics": [
+      "acquisition-process",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E107",
+    "label": "Sequence of five roles",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "OtjUJIlY_6Q",
+      "rVW6fyafA0s"
+    ],
+    "topics": [
+      "acquisition-process",
+      "brokers",
+      "preferred-equity",
+      "covenants",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E108",
+    "label": "Intern operating cadence",
+    "type": "rule-of-thumb",
+    "confidence": "medium",
+    "videoIds": [
+      "OtjUJIlY_6Q",
+      "vBUWZPT9YuI",
+      "_CJLfixvoN4"
+    ],
+    "topics": [
+      "sourcing",
+      "brokers",
+      "management"
+    ]
+  },
+  {
+    "id": "E109",
+    "label": "Contingent deal counsel",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "OtjUJIlY_6Q"
+    ],
+    "topics": [
+      "acquisition-process"
+    ]
+  },
+  {
+    "id": "E110",
+    "label": "Lender-paid debt broker",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "OtjUJIlY_6Q"
+    ],
+    "topics": [
+      "brokers",
+      "capital-stack",
+      "leverage",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E111",
+    "label": "Merge functions selectively",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "rVW6fyafA0s"
+    ],
+    "topics": [
+      "covenants",
+      "roll-ups",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E112",
+    "label": "Centralize support, decentralize operating units",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "rVW6fyafA0s"
+    ],
+    "topics": [
+      "roll-ups",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E113",
+    "label": "Investor-mandated integration plan",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "rVW6fyafA0s"
+    ],
+    "topics": [
+      "acquisition-process",
+      "investor-equity",
+      "roll-ups",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E114",
+    "label": "Broad dismissal of dangerous scaling is underdeveloped",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "rVW6fyafA0s"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E115",
+    "label": "Completion and elapsed work",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "dUL-YXeWDQY"
+    ],
+    "topics": [
+      "acquisition-process"
+    ]
+  },
+  {
+    "id": "E116",
+    "label": "Acquisition SPV",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "PqGjF6z1ZaM"
+    ],
+    "topics": [
+      "loi"
+    ]
+  },
+  {
+    "id": "E117",
+    "label": "Qualified LOIs and funnel",
+    "type": "rule-of-thumb",
+    "confidence": "high",
+    "videoIds": [
+      "PqGjF6z1ZaM"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "enterprise-value",
+      "valuation-multiples"
+    ]
+  },
+  {
+    "id": "E118",
+    "label": "Nonexclusive standing offer",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "PqGjF6z1ZaM"
+    ],
+    "topics": [
+      "acquisition-process",
+      "loi",
+      "enterprise-value",
+      "valuation-multiples",
+      "due-diligence"
+    ]
+  },
+  {
+    "id": "E119",
+    "label": "Lender-compatible sectors",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "UAtbZfPN2zA",
+      "oU1cEFem6j0"
+    ],
+    "topics": [
+      "target-selection",
+      "working-capital",
+      "capital-stack",
+      "leverage",
+      "asset-based-lending",
+      "receivables-finance",
+      "collateral"
+    ]
+  },
+  {
+    "id": "E120",
+    "label": "Beginner execution sequence",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "UAtbZfPN2zA"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "brokers",
+      "loi",
+      "investor-equity",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E121",
+    "label": "Two-year pretax earnings average",
+    "type": "rule-of-thumb",
+    "confidence": "medium",
+    "videoIds": [
+      "UAtbZfPN2zA",
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples"
+    ]
+  },
+  {
+    "id": "E122",
+    "label": "Debt broker and proof of funds",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "UAtbZfPN2zA",
+      "lGkWzEfsu_c"
+    ],
+    "topics": [
+      "brokers",
+      "loi",
+      "capital-stack",
+      "leverage",
+      "buyer-equity",
+      "investor-equity",
+      "bank-debt",
+      "management"
+    ]
+  },
+  {
+    "id": "E123",
+    "label": "Story, data room, sales",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "UAtbZfPN2zA",
+      "LgKz1bxdCMM",
+      "s8Hkxnq3-Bo",
+      "zRh8i5uPjA0"
+    ],
+    "topics": [
+      "target-selection",
+      "investor-equity",
+      "management"
+    ]
+  },
+  {
+    "id": "E124",
+    "label": "First 100 days stakeholder communication",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "4DhN50eAkcA"
+    ],
+    "topics": [
+      "bank-debt",
+      "management",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E125",
+    "label": "Escrow and closing call",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "4DhN50eAkcA",
+      "lGkWzEfsu_c",
+      "NTa6kB7cGg0"
+    ],
+    "topics": [
+      "acquisition-process",
+      "investor-equity",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E126",
+    "label": "Evaluation horizons and accountability",
+    "type": "rule-of-thumb",
+    "confidence": "high",
+    "videoIds": [
+      "4DhN50eAkcA"
+    ],
+    "topics": [
+      "enterprise-value",
+      "valuation-multiples",
+      "investor-equity",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E127",
+    "label": "Seller as operator",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "4DhN50eAkcA"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship",
+      "rollover-equity",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E128",
+    "label": "Deal-by-deal versus platform capital",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "yqSF-IoKfEQ",
+      "vBUWZPT9YuI",
+      "cBBwXTMtho4",
+      "Kisa0C-YiY4"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship",
+      "investor-equity",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E129",
+    "label": "Avoid high expectations, turnarounds and low absolute profit",
+    "type": "opinion",
+    "confidence": "medium",
+    "videoIds": [
+      "yqSF-IoKfEQ",
+      "zRh8i5uPjA0"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "cash-flow",
+      "enterprise-value",
+      "valuation-multiples",
+      "investor-equity",
+      "senior-debt",
+      "management"
+    ]
+  },
+  {
+    "id": "E130",
+    "label": "Normalize recent profit gains",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "yqSF-IoKfEQ"
+    ],
+    "topics": [
+      "acquisition-process",
+      "brokers",
+      "ebitda",
+      "adjusted-ebitda",
+      "enterprise-value",
+      "valuation-multiples"
+    ]
+  },
+  {
+    "id": "E131",
+    "label": "Post-close earnings dip",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "yqSF-IoKfEQ"
+    ],
+    "topics": [
+      "acquisition-process",
+      "ebitda"
+    ]
+  },
+  {
+    "id": "E132",
+    "label": "Key person clauses",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "yqSF-IoKfEQ",
+      "B0s_vWFC60U"
+    ],
+    "topics": [
+      "working-capital",
+      "management"
+    ]
+  },
+  {
+    "id": "E133",
+    "label": "Bank KYC and sponsor role",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "b_Emk0J2yfw",
+      "wd4Y23wruXU",
+      "Kisa0C-YiY4"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "bank-debt",
+      "management"
+    ]
+  },
+  {
+    "id": "E134",
+    "label": "Existing debtor financing consumes funding capacity",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "b_Emk0J2yfw",
+      "18cB9LOaucs"
+    ],
+    "topics": [
+      "target-selection",
+      "cash-flow",
+      "working-capital",
+      "capital-stack",
+      "leverage",
+      "receivables-finance",
+      "collateral"
+    ]
+  },
+  {
+    "id": "E135",
+    "label": "Cash-free debt-free versus continued balance sheet",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "b_Emk0J2yfw",
+      "vkKw1MeUors"
+    ],
+    "topics": [
+      "working-capital",
+      "capital-stack",
+      "leverage",
+      "bank-debt",
+      "receivables-finance",
+      "amortization",
+      "management"
+    ]
+  },
+  {
+    "id": "E136",
+    "label": "Synergy, arbitrage and capital fit",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "b_Emk0J2yfw"
+    ],
+    "topics": [
+      "target-selection",
+      "valuation-multiples",
+      "roll-ups",
+      "bolt-ons",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E137",
+    "label": "Target-first strategy",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "j4orWHw8kdA"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "brokers",
+      "ebitda",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E138",
+    "label": "Credibility and access",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "j4orWHw8kdA",
+      "kNoY1Wkr07E"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "brokers"
+    ]
+  },
+  {
+    "id": "E139",
+    "label": "Separate deal, lender and investor CRMs",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "j4orWHw8kdA"
+    ],
+    "topics": [
+      "sourcing",
+      "loi",
+      "investor-equity",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E140",
+    "label": "General Atlantic rejected as too early",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "j4orWHw8kdA"
+    ],
+    "topics": [
+      "investor-equity",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E141",
+    "label": "Term sheet is not committed capital",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "j4orWHw8kdA",
+      "iuC8eRD77I8"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship",
+      "target-selection",
+      "due-diligence",
+      "investor-equity",
+      "collateral"
+    ]
+  },
+  {
+    "id": "E142",
+    "label": "Off-market buyside brokers",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "SPMaYlRzACI",
+      "x-BdgrSknEw"
+    ],
+    "topics": [
+      "sourcing",
+      "brokers"
+    ]
+  },
+  {
+    "id": "E143",
+    "label": "Debt broker, credit institution and 2x EBITDA",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "SPMaYlRzACI",
+      "wd4Y23wruXU",
+      "XC-Nls8KhCI",
+      "je7CsLaUm8w"
+    ],
+    "topics": [
+      "target-selection",
+      "brokers",
+      "loi",
+      "ebitda",
+      "valuation-multiples",
+      "capital-stack",
+      "leverage",
+      "bank-debt",
+      "private-credit"
+    ]
+  },
+  {
+    "id": "E144",
+    "label": "Holdco-midco-bidco",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "SPMaYlRzACI"
+    ],
+    "topics": [
+      "target-selection",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E145",
+    "label": "Fees, ownership and control",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "SPMaYlRzACI",
+      "NOU9AVeHjhI"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "management",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E146",
+    "label": "Illiquid wealth, prospective multiple expansion",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "SPMaYlRzACI",
+      "WBPmqD8jIKA"
+    ],
+    "topics": [
+      "equity-value",
+      "valuation-multiples",
+      "management",
+      "roll-ups",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E147",
+    "label": "Steel versus HVAC",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "SPMaYlRzACI"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship",
+      "asset-based-lending",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E148",
+    "label": "Credit-company due diligence",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "H7R3OanjTfo"
+    ],
+    "topics": [
+      "due-diligence",
+      "investor-equity",
+      "institutional-debt",
+      "collateral",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E149",
+    "label": "Macro data versus personal deal execution",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "H7R3OanjTfo"
+    ],
+    "topics": [
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E150",
+    "label": "Competitive capital shopping",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "H7R3OanjTfo"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E151",
+    "label": "Mutual fit and diligence",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "CFibrbTI1Cg"
+    ],
+    "topics": [
+      "sourcing",
+      "due-diligence",
+      "investor-equity",
+      "management"
+    ]
+  },
+  {
+    "id": "E152",
+    "label": "Legal review matters",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "CFibrbTI1Cg"
+    ],
+    "topics": [
+      "debt-pricing"
+    ]
+  },
+  {
+    "id": "E153",
+    "label": "Specify earnings period and closing terms",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "JhqVeCE6yYk"
+    ],
+    "topics": [
+      "acquisition-process",
+      "loi",
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples"
+    ]
+  },
+  {
+    "id": "E154",
+    "label": "Past startup failure versus personal insolvency",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "JhqVeCE6yYk",
+      "2maCpFUx4ks"
+    ],
+    "topics": [
+      "working-capital",
+      "capital-stack",
+      "leverage"
+    ]
+  },
+  {
+    "id": "E155",
+    "label": "E-commerce acquisition synergy",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "v41qQ3KC2b4"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship",
+      "target-selection",
+      "ebitda",
+      "valuation-multiples",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E156",
+    "label": "Avoid asset carveouts",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "v41qQ3KC2b4"
+    ],
+    "topics": [
+      "acquisition-process",
+      "preferred-equity",
+      "management"
+    ]
+  },
+  {
+    "id": "E157",
+    "label": "Brokers and direct banker relationships",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "v41qQ3KC2b4",
+      "iuC8eRD77I8"
+    ],
+    "topics": [
+      "brokers",
+      "capital-stack",
+      "leverage",
+      "bank-debt",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E158",
+    "label": "Failed listing and restructuring cost",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "rE2R3B0kiBc",
+      "Sj_SpzSpxw0",
+      "s8Hkxnq3-Bo"
+    ],
+    "topics": [
+      "roll-ups",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E159",
+    "label": "Financial covenants, change of control, distributions",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "rE2R3B0kiBc",
+      "v3SrYOEUs7Q",
+      "je7CsLaUm8w"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "covenants",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E160",
+    "label": "Raw-material inflation and fixed-price backlog",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "bPk2dXuYV4M"
+    ],
+    "topics": [
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E161",
+    "label": "Market drawdowns and capital-provider liquidity",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "bPk2dXuYV4M"
+    ],
+    "topics": [
+      "cash-flow",
+      "investor-equity",
+      "management"
+    ]
+  },
+  {
+    "id": "E162",
+    "label": "Institutional minimum ticket and platform maturity",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "KEg9PMGnDxQ"
+    ],
+    "topics": [
+      "investor-equity",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E163",
+    "label": "Dating, timeline and investment vintage",
+    "type": "educational",
+    "confidence": "high",
+    "videoIds": [
+      "afyNTawqQgY"
+    ],
+    "topics": [
+      "investor-equity",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E164",
+    "label": "Pivot requested by New York institution",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "afyNTawqQgY"
+    ],
+    "topics": [
+      "adjusted-ebitda",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E165",
+    "label": "cost of capital",
+    "type": "quantitative-claim",
+    "confidence": "high",
+    "videoIds": [
+      "IfAA5Hy-8Zw"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "debt-pricing"
+    ]
+  },
+  {
+    "id": "E166",
+    "label": "seller credit and security",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "IfAA5Hy-8Zw"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "collateral"
+    ]
+  },
+  {
+    "id": "E167",
+    "label": "listed acquisition platform",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "IfAA5Hy-8Zw"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "management",
+      "roll-ups",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E168",
+    "label": "deleveraging target",
+    "type": "quantitative-claim",
+    "confidence": "medium",
+    "videoIds": [
+      "IfAA5Hy-8Zw",
+      "Vy-GvO4SGvI"
+    ],
+    "topics": [
+      "target-selection",
+      "cash-flow",
+      "capital-stack",
+      "leverage",
+      "amortization",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E169",
+    "label": "equity fund adjacent to acquisitions",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "msevrkpgZSM"
+    ],
+    "topics": [
+      "investor-equity",
+      "debt-pricing"
+    ]
+  },
+  {
+    "id": "E170",
+    "label": "liquidity goals",
+    "type": "opinion",
+    "confidence": "high",
+    "videoIds": [
+      "msevrkpgZSM"
+    ],
+    "topics": [
+      "cash-flow",
+      "enterprise-value",
+      "valuation-multiples",
+      "preferred-equity",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E171",
+    "label": "alternative assets and failed investment",
+    "type": "personal-experience",
+    "confidence": "high",
+    "videoIds": [
+      "msevrkpgZSM"
+    ],
+    "topics": [
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E172",
+    "label": "Read notes before valuing collateral",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "18cB9LOaucs"
+    ],
+    "topics": [
+      "target-selection",
+      "working-capital",
+      "due-diligence",
+      "receivables-finance",
+      "collateral",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E173",
+    "label": "Receivable eligibility and retentions",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "18cB9LOaucs"
+    ],
+    "topics": [
+      "working-capital",
+      "capital-stack",
+      "leverage",
+      "bank-debt",
+      "receivables-finance"
+    ]
+  },
+  {
+    "id": "E174",
+    "label": "Experienced screening versus novice reps",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "18cB9LOaucs"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "brokers",
+      "management"
+    ]
+  },
+  {
+    "id": "E175",
+    "label": "Asset-light cash-flow cap and equity gap",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "18cB9LOaucs",
+      "MwejQUah14Y",
+      "akgHprIWcZU"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "sourcing",
+      "ebitda",
+      "adjusted-ebitda",
+      "cash-flow",
+      "enterprise-value",
+      "valuation-multiples",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "seller-financing",
+      "bank-debt",
+      "asset-based-lending",
+      "receivables-finance",
+      "collateral",
+      "management",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E176",
+    "label": "Explicit private-credit description of unnamed Texas funder",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "18cB9LOaucs"
+    ],
+    "topics": [
+      "investor-equity",
+      "private-credit"
+    ]
+  },
+  {
+    "id": "E177",
+    "label": "Control versus minority pre-IPO positions",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "kwRtKv_dUL0"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "management",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E178",
+    "label": "Succession gap below institutional scale",
+    "type": "opinion",
+    "confidence": "medium",
+    "videoIds": [
+      "kwRtKv_dUL0"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection"
+    ]
+  },
+  {
+    "id": "E179",
+    "label": "Sale-leaseback versus property leverage",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "wd4Y23wruXU",
+      "eKGCCawHqjk"
+    ],
+    "topics": [
+      "brokers",
+      "working-capital",
+      "capital-stack",
+      "leverage",
+      "rollover-equity",
+      "receivables-finance"
+    ]
+  },
+  {
+    "id": "E180",
+    "label": "Unsuccessful SPAC alternative",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "wd4Y23wruXU"
+    ],
+    "topics": [
+      "roll-ups",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E181",
+    "label": "Named prospective nonbank candidate Duke Royalty",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "MwejQUah14Y"
+    ],
+    "topics": [
+      "acquisition-process",
+      "brokers",
+      "working-capital",
+      "capital-stack",
+      "leverage",
+      "receivables-finance",
+      "private-credit"
+    ]
+  },
+  {
+    "id": "E182",
+    "label": "Irish offer and provisional capital stack",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "MwejQUah14Y"
+    ],
+    "topics": [
+      "acquisition-process",
+      "loi",
+      "ebitda",
+      "cash-flow",
+      "valuation-multiples",
+      "capital-stack",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E183",
+    "label": "Standalone versus existing-platform ownership",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "MwejQUah14Y"
+    ],
+    "topics": [
+      "target-selection",
+      "investor-equity",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E184",
+    "label": "Private-credit liquidity comment is an assertion",
+    "type": "opinion",
+    "confidence": "low",
+    "videoIds": [
+      "MwejQUah14Y"
+    ],
+    "topics": [
+      "cash-flow",
+      "investor-equity",
+      "private-credit"
+    ]
+  },
+  {
+    "id": "E185",
+    "label": "Control now, options for seller residual",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "fOjSk3VYZdc"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "ebitda",
+      "valuation-multiples",
+      "investor-equity",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E186",
+    "label": "Permanent equity plus perpetual revenue slice",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "fOjSk3VYZdc"
+    ],
+    "topics": [
+      "acquisition-process",
+      "investor-equity",
+      "management"
+    ]
+  },
+  {
+    "id": "E187",
+    "label": "Preference waterfall can eliminate common proceeds",
+    "type": "example",
+    "confidence": "medium",
+    "videoIds": [
+      "fOjSk3VYZdc"
+    ],
+    "topics": [
+      "enterprise-value",
+      "valuation-multiples",
+      "preferred-equity",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E188",
+    "label": "Sell-side fee incentives affect all-in cost",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "fOjSk3VYZdc"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "brokers",
+      "valuation-multiples",
+      "due-diligence"
+    ]
+  },
+  {
+    "id": "E189",
+    "label": "Water-sector cycle concentration",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "fOjSk3VYZdc",
+      "oU1cEFem6j0"
+    ],
+    "topics": [
+      "target-selection",
+      "customer-concentration",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E190",
+    "label": "No-improvement base case and margin reversion",
+    "type": "opinion",
+    "confidence": "medium",
+    "videoIds": [
+      "WBPmqD8jIKA"
+    ],
+    "topics": [
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples"
+    ]
+  },
+  {
+    "id": "E191",
+    "label": "Historic HVAC profits did not prevent later decline",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "fa2k4c1przg",
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "ebitda",
+      "valuation-multiples",
+      "investor-equity",
+      "covenants"
+    ]
+  },
+  {
+    "id": "E192",
+    "label": "Four practical skills, with outsourced expertise",
+    "type": "opinion",
+    "confidence": "medium",
+    "videoIds": [
+      "-rzMTRjDIJk"
+    ],
+    "topics": [
+      "sourcing"
+    ]
+  },
+  {
+    "id": "E193",
+    "label": "Operational involvement earlier in M&A",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "r1hHXDVg4cQ"
+    ],
+    "topics": [
+      "sourcing",
+      "management",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E194",
+    "label": "Personal-guarantee advice is explicitly qualified",
+    "type": "opinion",
+    "confidence": "medium",
+    "videoIds": [
+      "zAlT_NNOb6U"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "capital-stack",
+      "leverage",
+      "buyer-equity",
+      "investor-equity",
+      "bank-debt",
+      "personal-guarantees"
+    ]
+  },
+  {
+    "id": "E195",
+    "label": "Future fund plan is sequential aspiration",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "zAlT_NNOb6U"
+    ],
+    "topics": [
+      "acquisition-process",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E196",
+    "label": "Listing remains exploratory optionality",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "NOU9AVeHjhI"
+    ],
+    "topics": [
+      "amortization",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E197",
+    "label": "First acquisition sourced before funding commitment",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "v3SrYOEUs7Q",
+      "_CJLfixvoN4",
+      "yB-Z25dC_OU"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "sourcing",
+      "ebitda",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "rollover-equity",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E198",
+    "label": "Delegation and tested trust",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "management",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E199",
+    "label": "NAV EV equity simplification",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "ebitda",
+      "adjusted-ebitda",
+      "enterprise-value",
+      "equity-value",
+      "valuation-multiples",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E200",
+    "label": "Acquisition growth resources",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "B0s_vWFC60U"
+    ],
+    "topics": [
+      "sourcing"
+    ]
+  },
+  {
+    "id": "E201",
+    "label": "Institutional whole capital stack discussion",
+    "type": "fundraising-claim",
+    "confidence": "medium",
+    "videoIds": [
+      "cBBwXTMtho4"
+    ],
+    "topics": [
+      "capital-stack",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E202",
+    "label": "Personal guarantee alternatives",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "cBBwXTMtho4"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "deferred-consideration",
+      "personal-guarantees"
+    ]
+  },
+  {
+    "id": "E203",
+    "label": "Asset-based institutional underwriting",
+    "type": "fundraising-claim",
+    "confidence": "medium",
+    "videoIds": [
+      "cBBwXTMtho4"
+    ],
+    "topics": [
+      "acquisition-process",
+      "capital-stack",
+      "leverage",
+      "asset-based-lending",
+      "debt-pricing"
+    ]
+  },
+  {
+    "id": "E204",
+    "label": "Owner concentration in management",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "NnWl4wMoQhM"
+    ],
+    "topics": [
+      "target-selection",
+      "valuation-multiples",
+      "customer-concentration",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E205",
+    "label": "Private credit versus deposit bank",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "NnWl4wMoQhM",
+      "je7CsLaUm8w",
+      "Hvw5FAbRAZY"
+    ],
+    "topics": [
+      "cash-flow",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "bank-debt",
+      "private-credit"
+    ]
+  },
+  {
+    "id": "E206",
+    "label": "Lender legal-fee abort risk",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "NnWl4wMoQhM"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E207",
+    "label": "Accountant referral economics",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "_CJLfixvoN4"
+    ],
+    "topics": [
+      "sourcing",
+      "enterprise-value",
+      "valuation-multiples"
+    ]
+  },
+  {
+    "id": "E208",
+    "label": "Seller rollover and call option",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "_CJLfixvoN4"
+    ],
+    "topics": [
+      "acquisition-process",
+      "valuation-multiples",
+      "rollover-equity",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E209",
+    "label": "Search prefinancing",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "_CJLfixvoN4",
+      "tZBRCa9EW3A"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship",
+      "investor-equity",
+      "covenants",
+      "refinancing"
+    ]
+  },
+  {
+    "id": "E210",
+    "label": "Sector fragmentation",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "oU1cEFem6j0"
+    ],
+    "topics": [
+      "target-selection",
+      "management",
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E211",
+    "label": "Cashless guarantee partner",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "KsnY8Gpnkl4"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "personal-guarantees"
+    ]
+  },
+  {
+    "id": "E212",
+    "label": "Term-sheet controls and leavers",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "KsnY8Gpnkl4"
+    ],
+    "topics": [
+      "target-selection",
+      "loi",
+      "cash-flow",
+      "investor-equity",
+      "collateral"
+    ]
+  },
+  {
+    "id": "E213",
+    "label": "Personal guarantee actual reversal",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "KsnY8Gpnkl4"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "personal-guarantees",
+      "refinancing",
+      "management"
+    ]
+  },
+  {
+    "id": "E214",
+    "label": "Stepwise acquisition revenue",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "XC-Nls8KhCI"
+    ],
+    "topics": [
+      "roll-ups"
+    ]
+  },
+  {
+    "id": "E215",
+    "label": "Monetization and illiquidity",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "VmRqlJuqCs8"
+    ],
+    "topics": [
+      "cash-flow",
+      "management",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E216",
+    "label": "Debt-service worked example",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "VmRqlJuqCs8"
+    ],
+    "topics": [
+      "ebitda",
+      "adjusted-ebitda",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "bank-debt",
+      "debt-pricing",
+      "amortization",
+      "debt-service"
+    ]
+  },
+  {
+    "id": "E217",
+    "label": "Acquisition effort versus scale",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "u3ZPPxS3NJ4"
+    ],
+    "topics": [
+      "roll-ups",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E218",
+    "label": "Entrepreneur transition into acquisitions",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "urdgXDBc_So"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship",
+      "acquisition-process",
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E219",
+    "label": "Sponsor backing indication",
+    "type": "fundraising-claim",
+    "confidence": "medium",
+    "videoIds": [
+      "mh1tKwDlnaE"
+    ],
+    "topics": [
+      "investor-equity",
+      "management"
+    ]
+  },
+  {
+    "id": "E220",
+    "label": "Environmental site delay",
+    "type": "personal-experience",
+    "confidence": "medium",
+    "videoIds": [
+      "-hqVGkoT0dQ"
+    ],
+    "topics": [
+      "due-diligence"
+    ]
+  },
+  {
+    "id": "E221",
+    "label": "Seller subordination",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "byJSV1CEYBk"
+    ],
+    "topics": [
+      "acquisition-process",
+      "capital-stack",
+      "leverage",
+      "seller-financing",
+      "bank-debt",
+      "senior-debt",
+      "subordination"
+    ]
+  },
+  {
+    "id": "E222",
+    "label": "Lender legal fees reduce usable proceeds",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "byJSV1CEYBk"
+    ],
+    "topics": [
+      "acquisition-process",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E223",
+    "label": "Lender amendments disrupt agreed terms",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "byJSV1CEYBk"
+    ],
+    "topics": [
+      "acquisition-process",
+      "investor-equity",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E224",
+    "label": "Credit approval can expire with trading deterioration",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "byJSV1CEYBk"
+    ],
+    "topics": [
+      "acquisition-process",
+      "due-diligence",
+      "capital-stack",
+      "leverage"
+    ]
+  },
+  {
+    "id": "E225",
+    "label": "Revive dormant negotiations with updated results",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "byJSV1CEYBk"
+    ],
+    "topics": [
+      "sourcing",
+      "due-diligence",
+      "management"
+    ]
+  },
+  {
+    "id": "E226",
+    "label": "Cyclical construction restricts lending",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "akgHprIWcZU"
+    ],
+    "topics": [
+      "target-selection",
+      "capital-stack",
+      "leverage",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E227",
+    "label": "Ticket size and claimed investor regulation",
+    "type": "opinion",
+    "confidence": "medium",
+    "videoIds": [
+      "NTa6kB7cGg0"
+    ],
+    "topics": [
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E228",
+    "label": "Ongoing subscriptions differ from acquisition closing",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "NTa6kB7cGg0"
+    ],
+    "topics": [
+      "acquisition-process",
+      "investor-equity",
+      "bank-debt"
+    ]
+  },
+  {
+    "id": "E229",
+    "label": "Liquidity and investor qualification",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "NTa6kB7cGg0"
+    ],
+    "topics": [
+      "sourcing",
+      "cash-flow",
+      "equity-value",
+      "investor-equity",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E230",
+    "label": "Actual early sponsor funding",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "tZBRCa9EW3A"
+    ],
+    "topics": [
+      "investor-equity",
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E231",
+    "label": "Cash-test measurement timing",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "je7CsLaUm8w"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "covenants",
+      "management"
+    ]
+  },
+  {
+    "id": "E232",
+    "label": "Systematic search routine",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "p3EX7IpcYd0"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "brokers",
+      "loi"
+    ]
+  },
+  {
+    "id": "E233",
+    "label": "Refinance secured while trading was difficult",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "p3EX7IpcYd0"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "collateral",
+      "refinancing"
+    ]
+  },
+  {
+    "id": "E234",
+    "label": "Opportunistic technology leadership recruitment",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "nzh1e0oONqQ"
+    ],
+    "topics": [
+      "sourcing",
+      "management",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E235",
+    "label": "Equity-first acquisition then bank refinance",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "Vy-GvO4SGvI"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "loi",
+      "ebitda",
+      "valuation-multiples",
+      "due-diligence",
+      "investor-equity",
+      "bank-debt",
+      "refinancing"
+    ]
+  },
+  {
+    "id": "E236",
+    "label": "Pre-investment evidence versus post-investment actuals",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "9-mOvWiyYZw"
+    ],
+    "topics": [
+      "due-diligence",
+      "investor-equity",
+      "amortization",
+      "management"
+    ]
+  },
+  {
+    "id": "E237",
+    "label": "Permanent capital loss without operating-company death",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "9-mOvWiyYZw"
+    ],
+    "topics": [
+      "investor-equity",
+      "bank-debt",
+      "management"
+    ]
+  },
+  {
+    "id": "E238",
+    "label": "Concealed distress and unsupported listing-law assertion",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "9-mOvWiyYZw"
+    ],
+    "topics": [
+      "returns-and-exits"
+    ]
+  },
+  {
+    "id": "E239",
+    "label": "AI supplier acquiring incumbent customer economics",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "eN6nVKlUu3c"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "bolt-ons"
+    ]
+  },
+  {
+    "id": "E240",
+    "label": "Trailing earnings basis for cash-flow lending",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "Hvw5FAbRAZY"
+    ],
+    "topics": [
+      "ebitda",
+      "cash-flow",
+      "valuation-multiples",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "irr-and-moic"
+    ]
+  },
+  {
+    "id": "E241",
+    "label": "Independent collateral valuation rather than book value",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "Hvw5FAbRAZY"
+    ],
+    "topics": [
+      "enterprise-value",
+      "valuation-multiples",
+      "capital-stack",
+      "leverage",
+      "bank-debt",
+      "asset-based-lending",
+      "collateral"
+    ]
+  },
+  {
+    "id": "E242",
+    "label": "Named individual willing to assess viewer deals",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "Hvw5FAbRAZY"
+    ],
+    "topics": [
+      "investor-equity"
+    ]
+  },
+  {
+    "id": "E243",
+    "label": "Sukuk guest aside",
+    "type": "educational",
+    "confidence": "medium",
+    "videoIds": [
+      "mh1tKwDlnaE"
+    ],
+    "topics": [
+      "debt-pricing"
+    ]
+  }
+]

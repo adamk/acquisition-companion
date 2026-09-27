@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';import Crumbs from '../../components/Crumbs.astro';import Filters from '../../components/Filters.astro';import {providers} from '../../lib/data';
+---
+<Base title="Firms, capital providers and intermediaries" description="A source-linked index of 28 banks, investment firms, acquisition vehicles and intermediaries, with their roles and uncertainties distinguished." type="Provider index">
+ <Crumbs items={[{title:'Financing',url:'/financing/'},{title:'Firms & intermediaries'}]} /><header class="page-header"><p class="eyebrow">Names in context</p><h1>Who appears in the financing conversation?</h1><p>Twenty-eight named entries from the research: banks, investment firms, acquisition vehicles, platforms, and intermediaries. Inclusion is not a recommendation or evidence that the firm funded a deal.</p></header>
+ <p class="notice warning">A debt broker arranges introductions. An acquisition holding company receives capital. A prospective lender may never commit. Those roles are different.</p>
+ <Filters placeholder="Search a name, role, or qualification" label="Find a firm or intermediary" />
+ <p hidden data-empty-state class="empty-state">No matching entries. Try a name or broader role.</p>
+ <ul class="content-list index-grid">{providers.map(p=><li data-filter-item data-search={`${p.name} ${p.type} ${p.role} ${p.context}`}><span class:list={['badge',p.confidence==='low'&&'caution']}>{p.type}</span><h2 class="spaced"><a href={`/providers/${p.id.toLowerCase()}/`}>{p.name}</a></h2><p>{p.role}</p><p class="small">{p.status}</p></li>)}</ul>
+</Base>

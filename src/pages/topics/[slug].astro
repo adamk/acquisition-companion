@@ -1,0 +1,16 @@
+---
+import {getCollection,render} from 'astro:content';import Base from '../../layouts/Base.astro';import Crumbs from '../../components/Crumbs.astro';import Sources from '../../components/Sources.astro';import Related from '../../components/Related.astro';import {numbers,label} from '../../lib/data';
+import {selectNumberPreviews} from '../../lib/behavior.mjs';
+export async function getStaticPaths(){return (await getCollection('topics')).map(topic=>({params:{slug:topic.id},props:{topic}}));}
+const {topic}=Astro.props;const {Content}=await render(topic);const examples=(await getCollection('examples')).filter(x=>x.data.topics.includes(topic.id));const relatedNumbers=selectNumberPreviews(numbers,topic.id,5);
+---
+<Base title={topic.data.title} description={topic.data.description} type="Topic">
+ <Crumbs items={[{title:'Topics',url:'/topics/'},{title:topic.data.title}]} />
+ <article class="narrow"><header class="page-header"><p class="eyebrow">{topic.data.category} · Topic guide</p><h1>{topic.data.title}</h1><p>{topic.data.description}</p></header>
+ {topic.data.coverage==='limited' && <p class="notice warning"><strong>Limited source coverage.</strong> This page marks the boundary of the evidence. It is not a complete product, legal, or underwriting guide.</p>}
+ <p class="definition">{topic.data.definition}</p><div class="prose"><Content /></div>
+ {examples.length>0 && <section class="section"><h2>See it in an example</h2><ul class="content-list spaced">{examples.map(x=><li><span class="badge">{label(x.data.status)}</span><h3 class="spaced"><a href={`/examples/${x.id}/`}>{x.data.title}</a></h3><p>{x.data.description}</p></li>)}</ul></section>}
+ {relatedNumbers.length>0 && <section class="section"><h2>Numbers in context</h2><ul class="content-list spaced">{relatedNumbers.map(n=><li><a href={`/numbers/#${n.id}`}><strong>{n.metric}</strong> · {n.value}</a><span class="badge">{label(n.kind)}</span><p>{n.context}</p>{n.caution && <p class="record-caution">{n.caution}</p>}</li>)}</ul><a href={`/numbers/?category=${topic.id}`}>Browse related quantitative references →</a></section>}
+ <Sources ids={topic.data.sources} evidenceIds={topic.data.evidence} />
+ <Related topicIds={[topic.id,...topic.data.related]}/></article>
+</Base>

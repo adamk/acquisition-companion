@@ -1,0 +1,266 @@
+[
+  {
+    "id": "acquisition-entrepreneurship",
+    "term": "Acquisition entrepreneurship",
+    "definition": "Building a business career by buying and stewarding an existing company.",
+    "topic": "acquisition-entrepreneurship"
+  },
+  {
+    "id": "acquisition-process",
+    "term": "Acquisition process",
+    "definition": "The linked work of finding, agreeing, investigating, funding and completing a business purchase.",
+    "topic": "acquisition-process"
+  },
+  {
+    "id": "adjusted-ebitda",
+    "term": "Adjusted EBITDA",
+    "definition": "An estimate of sustainable operating earnings after explicitly justified adjustments to reported EBITDA.",
+    "topic": "adjusted-ebitda"
+  },
+  {
+    "id": "amortization",
+    "term": "Amortization",
+    "definition": "The scheduled repayment of a loan’s principal over time.",
+    "topic": "amortization"
+  },
+  {
+    "id": "asset-based-lending",
+    "term": "Asset-based lending",
+    "definition": "Borrowing sized in part against the eligible lending value of identifiable assets.",
+    "topic": "asset-based-lending"
+  },
+  {
+    "id": "bank-debt",
+    "term": "Bank debt",
+    "definition": "Borrowing from a bank under agreed repayment, pricing, security and conduct terms.",
+    "topic": "bank-debt"
+  },
+  {
+    "id": "bolt-ons",
+    "term": "Bolt-on acquisitions",
+    "definition": "Acquisitions added to an existing company or group rather than built as a wholly separate platform.",
+    "topic": "bolt-ons"
+  },
+  {
+    "id": "brokers",
+    "term": "Brokers",
+    "definition": "Intermediaries who help sellers, buyers or borrowers find and progress suitable counterparties.",
+    "topic": "brokers"
+  },
+  {
+    "id": "buyer-equity",
+    "term": "Buyer equity",
+    "definition": "The buyer or sponsor’s ownership interest and any cash capital they contribute to the acquisition.",
+    "topic": "buyer-equity"
+  },
+  {
+    "id": "capital-stack",
+    "term": "Capital stack",
+    "definition": "The combination of debt, seller funding and equity used to finance a transaction.",
+    "topic": "capital-stack"
+  },
+  {
+    "id": "cash-flow",
+    "term": "Cash flow",
+    "definition": "The timing and amount of money entering and leaving a business.",
+    "topic": "cash-flow"
+  },
+  {
+    "id": "collateral",
+    "term": "Collateral",
+    "definition": "Assets or rights pledged to support a lender’s recovery if obligations are not met.",
+    "topic": "collateral"
+  },
+  {
+    "id": "covenants",
+    "term": "Covenants",
+    "definition": "Contractual promises and tests that constrain a borrower’s finances or actions.",
+    "topic": "covenants"
+  },
+  {
+    "id": "customer-concentration",
+    "term": "Customer concentration",
+    "definition": "Dependence on a small number of customers or a shared source of demand.",
+    "topic": "customer-concentration"
+  },
+  {
+    "id": "debt-pricing",
+    "term": "Debt pricing",
+    "definition": "The interest, fees and other financial costs attached to a borrowing arrangement.",
+    "topic": "debt-pricing"
+  },
+  {
+    "id": "debt-service",
+    "term": "Debt service",
+    "definition": "Cash required to meet debt interest and principal payments during a period.",
+    "topic": "debt-service"
+  },
+  {
+    "id": "deferred-consideration",
+    "term": "Deferred consideration",
+    "definition": "An agreed part of the purchase price scheduled for payment after completion.",
+    "topic": "deferred-consideration"
+  },
+  {
+    "id": "due-diligence",
+    "term": "Due diligence",
+    "definition": "Investigation that tests the purchase assumptions and identifies risks before a binding commitment.",
+    "topic": "due-diligence"
+  },
+  {
+    "id": "earn-outs",
+    "term": "Earn-outs",
+    "definition": "Purchase payments whose entitlement or amount depends on agreed future performance conditions.",
+    "topic": "earn-outs"
+  },
+  {
+    "id": "ebitda",
+    "term": "EBITDA",
+    "definition": "Earnings before interest, tax, depreciation and amortization; an operating comparison measure rather than spendable cash.",
+    "topic": "ebitda"
+  },
+  {
+    "id": "enterprise-value",
+    "term": "Enterprise value",
+    "definition": "The negotiated value of the operating business before the agreed bridge to shareholder proceeds.",
+    "topic": "enterprise-value"
+  },
+  {
+    "id": "equity-value",
+    "term": "Equity value",
+    "definition": "The value attributable to shareholders after the agreed adjustments from enterprise value.",
+    "topic": "equity-value"
+  },
+  {
+    "id": "government-backed-lending",
+    "term": "Government-backed lending",
+    "definition": "Lending associated with a public support or guarantee scheme whose terms depend on its specific program.",
+    "topic": "government-backed-lending"
+  },
+  {
+    "id": "institutional-debt",
+    "term": "Institutional debt",
+    "definition": "Borrowing provided through an institutional capital organization rather than informal personal funding.",
+    "topic": "institutional-debt"
+  },
+  {
+    "id": "investor-equity",
+    "term": "Investor equity",
+    "definition": "Capital supplied for an ownership claim rather than a scheduled loan repayment.",
+    "topic": "investor-equity"
+  },
+  {
+    "id": "irr-and-moic",
+    "term": "IRR and MOIC",
+    "definition": "MOIC compares value returned with money invested; IRR expresses a return rate using the timing of cash flows.",
+    "topic": "irr-and-moic"
+  },
+  {
+    "id": "leverage",
+    "term": "Leverage",
+    "definition": "The use of borrowing to fund ownership, often measured as debt divided by annual earnings.",
+    "topic": "leverage"
+  },
+  {
+    "id": "loi",
+    "term": "Letter of intent",
+    "definition": "A preliminary record of the proposed purchase economics and the conditions for progressing a deal.",
+    "topic": "loi"
+  },
+  {
+    "id": "management",
+    "term": "Management",
+    "definition": "The people, responsibilities and reporting systems that keep the acquired business operating and accountable.",
+    "topic": "management"
+  },
+  {
+    "id": "personal-guarantees",
+    "term": "Personal guarantees",
+    "definition": "A person’s contractual promise to meet specified obligations if the primary borrower does not.",
+    "topic": "personal-guarantees"
+  },
+  {
+    "id": "preferred-equity",
+    "term": "Preferred equity",
+    "definition": "Equity with negotiated economic priority over another share class, such as priority in exit proceeds.",
+    "topic": "preferred-equity"
+  },
+  {
+    "id": "private-credit",
+    "term": "Private credit",
+    "definition": "Credit supplied outside deposit-taking banking, often using capital committed by investors to a lending strategy.",
+    "topic": "private-credit"
+  },
+  {
+    "id": "receivables-finance",
+    "term": "Receivables finance",
+    "definition": "Financing supported by eligible amounts customers owe for sales already made.",
+    "topic": "receivables-finance"
+  },
+  {
+    "id": "refinancing",
+    "term": "Refinancing",
+    "definition": "Replacing or revising existing borrowing with a new financing arrangement.",
+    "topic": "refinancing"
+  },
+  {
+    "id": "returns-and-exits",
+    "term": "Returns and exits",
+    "definition": "How shareholders realize value through distributions, sales or other liquidity events.",
+    "topic": "returns-and-exits"
+  },
+  {
+    "id": "roll-ups",
+    "term": "Roll-ups",
+    "definition": "Building a group through repeated acquisitions of businesses intended to fit a common strategy.",
+    "topic": "roll-ups"
+  },
+  {
+    "id": "rollover-equity",
+    "term": "Rollover equity",
+    "definition": "An ownership interest the seller retains or receives as part of the consideration for a sale.",
+    "topic": "rollover-equity"
+  },
+  {
+    "id": "seller-financing",
+    "term": "Seller financing",
+    "definition": "Purchase consideration the seller leaves at risk after completion through an agreed later-payment structure.",
+    "topic": "seller-financing"
+  },
+  {
+    "id": "senior-debt",
+    "term": "Senior debt",
+    "definition": "Debt granted priority over specified other claims under the financing arrangements.",
+    "topic": "senior-debt"
+  },
+  {
+    "id": "sourcing",
+    "term": "Sourcing",
+    "definition": "Creating and qualifying a pipeline of businesses whose owners may consider a sale.",
+    "topic": "sourcing"
+  },
+  {
+    "id": "subordination",
+    "term": "Subordination",
+    "definition": "An agreement that places one creditor’s rights behind another’s in specified circumstances.",
+    "topic": "subordination"
+  },
+  {
+    "id": "target-selection",
+    "term": "Target selection",
+    "definition": "Choosing businesses whose economics, financing needs and operating demands fit the buyer.",
+    "topic": "target-selection"
+  },
+  {
+    "id": "valuation-multiples",
+    "term": "Valuation multiples",
+    "definition": "A price expressed as a multiple of a clearly defined measure of annual earnings.",
+    "topic": "valuation-multiples"
+  },
+  {
+    "id": "working-capital",
+    "term": "Working capital",
+    "definition": "Money tied up in the everyday cycle of customers, stock, suppliers and other operating balances.",
+    "topic": "working-capital"
+  }
+]

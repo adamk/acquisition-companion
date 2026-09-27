@@ -1,0 +1,67 @@
+---
+title: "Build a capital stack the business can carry"
+description: "Connect debt, equity and seller funding to completion cash and later obligations."
+module: 7
+order: 10
+minutes: 5
+topics: ["capital-stack", "leverage", "bank-debt", "investor-equity", "seller-financing"]
+evidence: ["E009", "E079", "E216", "E017", "E222", "E019", "E075", "E235", "E194"]
+sources: ["Sj_SpzSpxw0", "mh1tKwDlnaE", "eN6nVKlUu3c", "YI3Shq4iXao", "VmRqlJuqCs8", "cvauHwc3guQ", "byJSV1CEYBk", "3U3uEsou3SM", "942nFYmky6Q", "Vy-GvO4SGvI", "zAlT_NNOb6U"]
+takeaway: "Funding the purchase price is only the first test; the stack must also work after completion."
+---
+
+## What it means
+The capital stack is the combination of funding claims used to acquire and own a business. In the recurring source model, bank borrowing covers part of the purchase, seller deferral covers another part and equity fills the remaining requirement. Each component has a different role and different expectations about repayment, participation and risk. [E009: original discussion](https://www.youtube.com/watch?v=Sj_SpzSpxw0)
+
+Leverage describes the use of borrowing alongside equity. The source often discusses debt relative to annual earnings, but also shows why the repayment calendar matters. Two structures with similar debt totals can create different cash pressure if one repays principal much faster. [E079: original discussion](https://www.youtube.com/watch?v=YI3Shq4iXao)
+
+## Why it matters
+A stack can balance the price without making the business resilient. Sellers, lenders and equity investors may all expect payments or protections that interact. The collection's worked debt-service example is especially useful because it follows the funding diagram into annual payments. The initial arrangement is only the start of the ownership economics. [E216: original discussion](https://www.youtube.com/watch?v=VmRqlJuqCs8)
+
+Nor does a low leverage multiple guarantee a lender will approve. Sey reports repeated refusals during a refinancing attempt despite seeking less than two times earnings. That is a personal account, not a market survey, but it challenges the idea that a multiple creates an entitlement to borrowing. [E017: original discussion](https://www.youtube.com/watch?v=cvauHwc3guQ)
+
+## How it works
+Begin with uses of funds: agreed completion payments and the additional transaction cash requirements you have identified. Then match them to actual funding sources and distinguish confirmed amounts from indications. The source's closing account shows why lender legal fees deducted from proceeds can leave a gap even when the headline facility appears sufficient. [E222: original discussion](https://www.youtube.com/watch?v=byJSV1CEYBk)
+
+Build a second schedule for the period after completion. Include bank interest and principal, seller installments and the operating needs that remain outside a simplified earnings calculation. Then identify who bears losses if the case underperforms. Equity participation may need to change to attract someone willing to supply the missing risk capital. [E216: original discussion](https://www.youtube.com/watch?v=VmRqlJuqCs8) [E009: original discussion](https://www.youtube.com/watch?v=Sj_SpzSpxw0)
+
+## Practical interpretation
+Ask three separate questions of every component: how much usable cash does it provide, what does it demand later, and what conditions must be satisfied? This editorial review tool follows the source's distinction between indicative financing and actual completion funds. A friendly lender conversation answers none of those questions conclusively. [E019: original discussion](https://www.youtube.com/watch?v=cvauHwc3guQ) [E222: original discussion](https://www.youtube.com/watch?v=byJSV1CEYBk)
+
+Keep sequence flexible. Deal-first, debt-next and equity-last is a recurring approach, but Stanley reports equity preceding debt. A separate all-equity platform proposal would buy first and seek refinancing later. That latter proposal remains a plan; it is not a demonstrated shortcut to reliable acquisition funding. [E075: original discussion](https://www.youtube.com/watch?v=942nFYmky6Q) [E235: original discussion](https://www.youtube.com/watch?v=Vy-GvO4SGvI)
+
+## A worked example
+**Source illustration.** A £3.5m purchase is represented by £2m bank borrowing, £1m seller deferral and £0.5m equity. Those sources sum to the headline consideration. In this version, £2.5m is available from bank and equity for immediate payment, while £1m is scheduled later. The example does not provide a complete fee budget or loan agreement. [E009: original discussion](https://www.youtube.com/watch?v=Sj_SpzSpxw0)
+
+Now ask what happens if usable bank proceeds are lower after fees. The arithmetic gap must be resolved with identified cash, changed terms or a different structure. The source's separate completion account shows that adding fresh money can itself introduce further checks. [E222: original discussion](https://www.youtube.com/watch?v=byJSV1CEYBk)
+
+## Common mistakes
+Do not add the speaker's alternative percentage ranges together as though they form one fixed recipe. Do not call deferred price equity merely because it reduces the initial cheque. And do not assume the sponsor's small cash contribution eliminates anyone's risk; obligations remain with the parties and entities that agreed to them. [E009: original discussion](https://www.youtube.com/watch?v=Sj_SpzSpxw0) [E194: original discussion](https://www.youtube.com/watch?v=zAlT_NNOb6U)
+
+## Related concepts
+[Bank debt](/topics/bank-debt/), [seller financing](/topics/seller-financing/) and [investor equity](/topics/investor-equity/) describe the principal components. [Debt service](/topics/debt-service/) tests the combined cash burden.
+
+## Further viewing
+Study the simple funding illustration alongside the repayment and completion-fee accounts. Together they distinguish a balanced headline stack from a fully funded, supportable transaction.
+
+**Zero to £100M | entrepreneur reveals BTS pitching an investor for capital (LIVE) | vlog 24** — [Watch the original →](https://www.youtube.com/watch?v=Sj_SpzSpxw0)
+
+**Zero to £100M | Merger & Acquisition entrepreneur doing business in Dubai Desert | vlog 5** — [Watch the original →](https://www.youtube.com/watch?v=mh1tKwDlnaE)
+
+**You Don’t Need to Be Rich: How to Buy A Business in 13 Minutes** — [Watch the original →](https://www.youtube.com/watch?v=eN6nVKlUu3c)
+
+**Investor’s BRUTAL honest opinion on Private Equity** — [Watch the original →](https://www.youtube.com/watch?v=YI3Shq4iXao)
+
+**Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3** — [Watch the original →](https://www.youtube.com/watch?v=VmRqlJuqCs8)
+
+**How I Would Buy a Business in Current Markets (2026)** — [Watch the original →](https://www.youtube.com/watch?v=cvauHwc3guQ)
+
+**Failure is inevitable in private equity (here’s how to fix it)** — [Watch the original →](https://www.youtube.com/watch?v=byJSV1CEYBk)
+
+**Zero to £100M | entrepreneur in dubai building a 9-figure business | vlog 4** — [Watch the original →](https://www.youtube.com/watch?v=3U3uEsou3SM)
+
+**Zero to £100M: 23 y/o Buying His First Business** — [Watch the original →](https://www.youtube.com/watch?v=942nFYmky6Q)
+
+**Zero to £100M | online entrepreneur buying profitable businesses | vlog 7** — [Watch the original →](https://www.youtube.com/watch?v=Vy-GvO4SGvI)
+
+**M&A entrepreneur on what to avoid when buying businesses** — [Watch the original →](https://www.youtube.com/watch?v=zAlT_NNOb6U)

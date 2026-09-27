@@ -1,0 +1,5426 @@
+[
+  {
+    "id": "N001",
+    "metric": "Traditional search-fund operator tenure",
+    "value": "5, 10, 15, 20 years",
+    "context": "The guest contrasts a long operating career in one acquired company with repeated acquisitions.",
+    "kind": "educational",
+    "confidence": "high",
+    "caution": "These are possible tenures, not measured search-fund outcomes.",
+    "videoIds": [
+      "--DvlTBzkW4"
+    ],
+    "topics": [
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N002",
+    "metric": "Steel portfolio before/after distress",
+    "value": "4 units/5 companies; 2 bankruptcies; £40m to £29–30m revenue; over 200 employees",
+    "context": "Sey describes a steel portfolio shrinking after two operating companies failed.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "Revenue dates and company counts are self-reported snapshots, not audited totals.",
+    "videoIds": [
+      "9OBSog0S5XU",
+      "1C5gI6LlWhA",
+      "8LNGpCPhTzU"
+    ],
+    "topics": [
+      "management",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N003",
+    "metric": "Aggregate portfolio revenue",
+    "value": "About £50m UK + £10m West Africa; described as about US$80m total",
+    "context": "The discussion adds the sales of UK and West African businesses to describe portfolio scale.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "Sales are not personal wealth; the dollar equivalent is approximate.",
+    "videoIds": [
+      "9OBSog0S5XU"
+    ],
+    "topics": [
+      "equity-value",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N004",
+    "metric": "Steel ownership",
+    "value": "32 shareholders total; Magnus <50%; speaker ~17%; others ~one third",
+    "context": "Several episodes describe Sey as a minority steel shareholder alongside Magnus and other investors.",
+    "kind": "personal-experience",
+    "confidence": "medium",
+    "caution": "Accounts differ between 31 and 32 shareholders; ownership percentages and dates do not fully reconcile. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "9OBSog0S5XU",
+      "xq5pwowli-0",
+      "vmAmd5vmK8o",
+      "SPMaYlRzACI",
+      "KsnY8Gpnkl4",
+      "9-mOvWiyYZw"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N005",
+    "metric": "HVAC ownership/revenue",
+    "value": "About 50% speaker; 25% Magnus; 5 other shareholders; combined £19m revenue",
+    "context": "HVAC sales and ownership are described across both a prospective acquisition and a later reported completion.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "The two companies had no common holding company; some revenue statements omit currency and cannot establish a single dated cap table. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "9OBSog0S5XU",
+      "kNoY1Wkr07E",
+      "byJSV1CEYBk"
+    ],
+    "topics": [
+      "acquisition-process",
+      "due-diligence",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N006",
+    "metric": "HVAC amortization",
+    "value": "£75,000/month for 36 months; preferred 4–5 years",
+    "context": "A monthly repayment burden motivates Sey's preference for a longer repayment schedule.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The payment is not separated into interest and principal.",
+    "videoIds": [
+      "9OBSog0S5XU"
+    ],
+    "topics": [
+      "preferred-equity",
+      "debt-pricing",
+      "amortization"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N007",
+    "metric": "West Africa loss",
+    "value": "$5m hit; working capital described as negative $5m",
+    "context": "Sey describes a major loss and working-capital problem in the West African businesses.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "No identified transaction or detailed financing terms support the account.",
+    "videoIds": [
+      "9OBSog0S5XU"
+    ],
+    "topics": [
+      "acquisition-process",
+      "working-capital",
+      "due-diligence"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N008",
+    "metric": "Suggested entry valuation",
+    "value": "1–3.5x annual profit; 10x called bad",
+    "context": "Sey argues for a modest entry price relative to annual earnings.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "This is his valuation preference, not a market-wide fair-price range.",
+    "videoIds": [
+      "Sj_SpzSpxw0"
+    ],
+    "topics": [
+      "enterprise-value",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N009",
+    "metric": "Illustrative stack",
+    "value": "£1m profit; £3.5m price; £2m bank; £1m deferred seller; £0.5m equity",
+    "context": "A purchase-price example combines bank funding, deferred seller payment and investor equity.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The illustrated stack does not describe a completed Stanley acquisition.",
+    "videoIds": [
+      "Sj_SpzSpxw0"
+    ],
+    "topics": [
+      "acquisition-process",
+      "investor-equity",
+      "deferred-consideration",
+      "bank-debt"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N010",
+    "metric": "Capital-return timing illustration",
+    "value": "$1m to $1.5m: 30 years versus 6 months; 50% nominal gain",
+    "context": "Two holding periods show why an identical cash gain can imply very different investment performance.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The discussion does not calculate an annualized IRR.",
+    "videoIds": [
+      "Sj_SpzSpxw0"
+    ],
+    "topics": [
+      "returns-and-exits",
+      "irr-and-moic"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N011",
+    "metric": "Suggested investor return horizon",
+    "value": "2–7 years",
+    "context": "The suggested holding period allows time to invest, realize value and repay investors.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "Actual liquidity depends on distributions and an achievable exit.",
+    "videoIds": [
+      "Sj_SpzSpxw0"
+    ],
+    "topics": [
+      "investor-equity",
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N012",
+    "metric": "HVAC institutional fundraising ambition",
+    "value": "$25m–$100m; $25m tranches; deployment 2.5–3 years",
+    "context": "The HVAC platform proposes raising institutional capital in successive deployment tranches.",
+    "kind": "target",
+    "confidence": "high",
+    "caution": "A fundraising ambition is not committed or received money.",
+    "videoIds": [
+      "Sj_SpzSpxw0"
+    ],
+    "topics": [
+      "target-selection",
+      "investor-equity"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N013",
+    "metric": "Steelway growth",
+    "value": "£12m to £22m revenue in 2.5 years",
+    "context": "Steelway's growth is described using several revenue endpoints in different episodes.",
+    "kind": "personal-experience",
+    "confidence": "medium",
+    "caution": "The stated 50% increase conflicts with £12m to £20m–£21m, which implies about 67%–75%; £22m and £26m are separate snapshots. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "Sj_SpzSpxw0",
+      "WBPmqD8jIKA"
+    ],
+    "topics": [
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N014",
+    "metric": "HVAC target financial normalization",
+    "value": "£7m revenue; FY March 2023 £1.9m PBT; FY March 2024 £1.7m PBT; normalized £1m EBITDA",
+    "context": "Historic pretax earnings are adjusted downward when discussing a sustainable HVAC earnings base.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "Later statements include both results and forecasts; PBT and EBITDA are different measures and the company name is uncertain. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "Sj_SpzSpxw0",
+      "fa2k4c1przg",
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "adjusted-ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N015",
+    "metric": "Target cash and seller funding",
+    "value": "£2.5m from own balance sheet; £0.5m apparently seller finance",
+    "context": "The account combines balance-sheet cash with an apparent seller-funded component.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "Missing terms prevent reconstruction of the complete purchase price and funding stack.",
+    "videoIds": [
+      "Sj_SpzSpxw0"
+    ],
+    "topics": [
+      "target-selection",
+      "enterprise-value",
+      "valuation-multiples",
+      "seller-financing"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N016",
+    "metric": "UK business-sale statistics",
+    "value": "97% not for sale; 3% for sale; 1 in 5 transact; 80% do not",
+    "context": "The speaker uses listing and completion estimates to argue for direct owner outreach.",
+    "kind": "unverified-claim",
+    "confidence": "medium",
+    "caution": "No dataset is supplied; a one-in-five completion claim cannot establish that a particular seller will wait five years. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "Sj_SpzSpxw0",
+      "SPMaYlRzACI",
+      "byJSV1CEYBk"
+    ],
+    "topics": [
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N017",
+    "metric": "HVAC acquisition target revenue",
+    "value": "£5m–£25m",
+    "context": "The HVAC search uses an annual-sales band to narrow suitable targets.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "A screening preference does not prove availability, quality or financeability.",
+    "videoIds": [
+      "Sj_SpzSpxw0"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N018",
+    "metric": "Preferred business revenue floor",
+    "value": "£5m",
+    "context": "The preferred target scale is intended to leave room for a professional management salary.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "A later steel screen also mentions £0.5m–£1m pretax profit; turnover alone cannot establish management affordability. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "JtJlEfANJsA",
+      "WBPmqD8jIKA"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "preferred-equity",
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N019",
+    "metric": "Smallest/largest purchase revenue",
+    "value": "£2.5m smallest; ~£12m largest, later £26m",
+    "context": "Sey compares the sales scale of his smallest purchase with a larger business that subsequently grew.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "One garbled large number is restated as £12m; acquisition revenue and later revenue refer to different dates.",
+    "videoIds": [
+      "JtJlEfANJsA",
+      "YI3Shq4iXao"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N020",
+    "metric": "Steel ownership",
+    "value": "16.85%; 31 shareholders",
+    "context": "Sey describes a precise minority interest in Northern Industries and a multi-investor ownership structure.",
+    "kind": "personal-experience",
+    "confidence": "medium",
+    "caution": "Other episodes use 32 shareholders and rounded stakes; do not combine those into a definitive current cap table. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "JtJlEfANJsA",
+      "NOU9AVeHjhI",
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "management",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N021",
+    "metric": "Illustrative insolvency compensation",
+    "value": "€500k revenue? text says half a million revenue; €150k pretax; €200k/year draw vs €100k/year comparator; 2–4 years",
+    "context": "An insolvency illustration compares owner compensation with an alternative annual salary.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Currencies switch and totals are unclear; the associated legal proposition is unverified.",
+    "videoIds": [
+      "JtJlEfANJsA"
+    ],
+    "topics": [
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N022",
+    "metric": "Refinance effort",
+    "value": "4 months; 31 bank refusals; 2 positive responses; about £8m",
+    "context": "A difficult refinancing search is described through elapsed time, bank rejections and tentative interest.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "Positive responses are not a closing; the anticipated date was October 2026.",
+    "videoIds": [
+      "cvauHwc3guQ"
+    ],
+    "topics": [
+      "acquisition-process",
+      "bank-debt",
+      "refinancing"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N023",
+    "metric": "Bank lending multiples",
+    "value": "Historical 2x–3x; difficult current request <2x",
+    "context": "Sey contrasts earlier bank leverage expectations with a more difficult refinancing request.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The earnings denominator switches between EBIT and EBITDA, limiting comparability.",
+    "videoIds": [
+      "cvauHwc3guQ"
+    ],
+    "topics": [
+      "ebitda",
+      "valuation-multiples",
+      "bank-debt"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N024",
+    "metric": "Credit committee cadence",
+    "value": "Weekly, sometimes twice weekly (Tuesday/Thursday example)",
+    "context": "The discussion describes a lender's internal credit decision meetings.",
+    "kind": "educational",
+    "confidence": "high",
+    "caution": "Meeting frequency is an example of process, not a timetable promised by every bank.",
+    "videoIds": [
+      "cvauHwc3guQ"
+    ],
+    "topics": [
+      "bank-debt"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N025",
+    "metric": "Information-package scale",
+    "value": "~30-page IM listed deal; ~5–6-page off-market summary",
+    "context": "Listed and directly sourced deals are contrasted by the amount of introductory material available.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "Page counts are preparation examples, not evidence that the information is sufficient.",
+    "videoIds": [
+      "cvauHwc3guQ"
+    ],
+    "topics": [
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N026",
+    "metric": "Family-office prospective equity",
+    "value": "£1m",
+    "context": "A family office is approached about contributing equity to the HVAC platform.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "This was a proposed equity investment, not a closed private-credit facility.",
+    "videoIds": [
+      "cvauHwc3guQ"
+    ],
+    "topics": [
+      "investor-equity",
+      "private-credit"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N027",
+    "metric": "LNG capital numbers",
+    "value": "$3bn total; $900m equity; ~$500m raised; $300m–$400m remaining",
+    "context": "An LNG fundraising conversation begins with estimates of project cost and remaining equity needs.",
+    "kind": "mixed",
+    "confidence": "high",
+    "caution": "The prospect later describes oversubscription, contradicting the initial funding-gap picture.",
+    "videoIds": [
+      "cvauHwc3guQ"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N028",
+    "metric": "Suggested entry multiple",
+    "value": "2x–3x; maximum 4x average profits from last 2 years",
+    "context": "The speaker anchors an offer to a short history of average earnings.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "His preferred ceiling changes in later discussions of distressed businesses.",
+    "videoIds": [
+      "IJIazMAuvmI"
+    ],
+    "topics": [
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N029",
+    "metric": "Target revenue/margin",
+    "value": "2m–20m revenue; 10% profit margin",
+    "context": "Revenue and margin examples describe the sort of established company the speaker wants to buy.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "Currency is absent in parts of the discussion; these are search preferences, not verified financials. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "IJIazMAuvmI",
+      "kwRtKv_dUL0"
+    ],
+    "topics": [
+      "target-selection"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N030",
+    "metric": "Illustrative debt-free timeline/stake",
+    "value": "Debt first 3–5 years; debt-free years 4–7; ownership 25%,35%,50%",
+    "context": "An ownership illustration separates the initial repayment years from a later debt-free period.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "No named loan's repayment schedule is established.",
+    "videoIds": [
+      "IJIazMAuvmI"
+    ],
+    "topics": [
+      "amortization"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N031",
+    "metric": "External financial DD fees",
+    "value": "£10k, £15k, £20k, £25k",
+    "context": "External financial diligence is treated as a cash expense that can arise before completion.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "Quoted fee examples are historical; one later case followed unreliable management accounts and a bank requirement. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "q5acehTXYXs",
+      "wd4Y23wruXU"
+    ],
+    "topics": [
+      "acquisition-process",
+      "due-diligence",
+      "bank-debt",
+      "management"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N032",
+    "metric": "Financial review horizon",
+    "value": "12 months bank statements; monthly management accounts",
+    "context": "The buyer is encouraged to compare bank movements with a history of monthly accounts.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "Suggested review periods vary; document volume alone does not establish reliable earnings. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "q5acehTXYXs",
+      "NnWl4wMoQhM"
+    ],
+    "topics": [
+      "due-diligence",
+      "bank-debt",
+      "management"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N033",
+    "metric": "Legal DD questionnaire completion",
+    "value": "50%–80% concretely answered out of hundreds of questions",
+    "context": "The speaker expects many legal diligence questions to receive incomplete responses.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "A response percentage is not a legal test for whether diligence is adequate.",
+    "videoIds": [
+      "q5acehTXYXs"
+    ],
+    "topics": [
+      "acquisition-process",
+      "due-diligence"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N034",
+    "metric": "Client-loss deal failure",
+    "value": "20% revenue and 100% profit lost weeks before closing",
+    "context": "A customer departure is used to explain why a purchase fell apart shortly before completion.",
+    "kind": "personal-experience",
+    "confidence": "medium",
+    "caution": "Episodes report 20% and 25%–30% lost revenue; it is unclear whether the same event and measurement are intended. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "q5acehTXYXs",
+      "NnWl4wMoQhM"
+    ],
+    "topics": [
+      "acquisition-process",
+      "customer-concentration",
+      "capital-stack",
+      "leverage"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N035",
+    "metric": "Second failed target size",
+    "value": "About 50m annual revenue",
+    "context": "A failed acquisition attempt is described as a relatively large revenue business.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The spoken amount does not specify a currency.",
+    "videoIds": [
+      "q5acehTXYXs"
+    ],
+    "topics": [
+      "target-selection"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N036",
+    "metric": "Sponsor credibility evidence",
+    "value": "Oscar reviewed ~200 companies",
+    "context": "Oscar's company-review work is offered as evidence of preparation when speaking to investors.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "Reviewing targets does not mean acquiring them.",
+    "videoIds": [
+      "Io8ctiLGjbs"
+    ],
+    "topics": [
+      "acquisition-process"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N037",
+    "metric": "Preferred upfront/deferred split",
+    "value": "~65% upfront; remainder equal annual payments over 5 years",
+    "context": "The seller is asked to accept a meaningful payment at completion and a multiyear deferred balance.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "The preferred split differs from the separate 75% upfront illustration.",
+    "videoIds": [
+      "vkKw1MeUors"
+    ],
+    "topics": [
+      "deferred-consideration",
+      "preferred-equity"
+    ],
+    "category": "Deal structure"
+  },
+  {
+    "id": "N038",
+    "metric": "Illustrative transaction",
+    "value": "£1m pretax earnings; 4x price=£4m; £3m upfront=75%; £1m later",
+    "context": "A simple offer splits the headline price between completion cash and later consideration.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Fixed deferral and an earn-out have different payment conditions and are not interchangeable.",
+    "videoIds": [
+      "vkKw1MeUors"
+    ],
+    "topics": [
+      "ebitda",
+      "valuation-multiples",
+      "deferred-consideration",
+      "earn-outs"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N039",
+    "metric": "Bank leverage guideline",
+    "value": "1.5x–2.5x",
+    "context": "Bank debt is discussed as one portion of a small-company purchase-price stack.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "The earnings definition is loose; the ratios are commentary, not lending commitments. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "vkKw1MeUors",
+      "mh1tKwDlnaE"
+    ],
+    "topics": [
+      "ebitda",
+      "valuation-multiples",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "bank-debt"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N040",
+    "metric": "Addback challenge example",
+    "value": "£0.5m actual + £0.5m removed marketing=£1m claimed",
+    "context": "A buyer challenges an earnings adjustment that removes marketing expenditure.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Removing a cost on paper does not show the business can operate without it.",
+    "videoIds": [
+      "vkKw1MeUors"
+    ],
+    "topics": [
+      "ebitda",
+      "adjusted-ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N041",
+    "metric": "Large-deal break-fee illustration",
+    "value": "$5bn buyer, $1bn target/offer, $30m breakup fee",
+    "context": "A large corporate acquisition is used to explain the purpose of a break fee.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The size and structure are not presented as normal requirements for small acquisitions.",
+    "videoIds": [
+      "vkKw1MeUors"
+    ],
+    "topics": [
+      "target-selection"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N042",
+    "metric": "Warranty disclosure threshold illustration",
+    "value": "£10k / $10k legal claims",
+    "context": "A warranty example sets a threshold for disclosing legal claims.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Pounds and dollars are used inconsistently; no executed agreement is shown.",
+    "videoIds": [
+      "vkKw1MeUors"
+    ],
+    "topics": [
+      "due-diligence"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N043",
+    "metric": "Recruiter retainer",
+    "value": "5k/10k/15k dollars or euros, then hire fee and possible 3-month fee",
+    "context": "Recruitment is presented as a possible upfront search payment followed by a success-related fee.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "Currencies and fee structures vary; no specific recruiter contract is established.",
+    "videoIds": [
+      "4KGWEet-vwE"
+    ],
+    "topics": [
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N044",
+    "metric": "Financial planning horizon",
+    "value": "6–18 months, possibly 36 months",
+    "context": "Forward budgets are proposed to test possible operating outcomes after buying a business.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "A planning horizon does not make a forecast reliable.",
+    "videoIds": [
+      "4KGWEet-vwE"
+    ],
+    "topics": [
+      "cash-flow"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N045",
+    "metric": "Growth target/result",
+    "value": "£0 HVAC revenue summer 2024 → £100m by December 2026; actual £19m; shortfall £81m",
+    "context": "Sey compares reported HVAC sales with a much larger end-2026 revenue ambition.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "£100m is a target for HVAC alone, not achieved revenue; the spoken time remaining is corrected from weeks to months. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "3z3NDUcOaNg",
+      "ykuS4w_Ocws"
+    ],
+    "topics": [
+      "target-selection"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N046",
+    "metric": "Possible next target",
+    "value": "£35m revenue; £4m pretax earnings",
+    "context": "A larger target is considered as a possible step up in HVAC platform sales.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "The acquisition had not completed, so its revenue cannot be treated as owned revenue.",
+    "videoIds": [
+      "3z3NDUcOaNg"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N047",
+    "metric": "Conservative entry multiple",
+    "value": "About 2x conservative future profit",
+    "context": "Experience with a cyclical downturn leads Sey to favor a lower price based on conservative future earnings.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "A personal risk preference is not a universal valuation formula.",
+    "videoIds": [
+      "3z3NDUcOaNg"
+    ],
+    "topics": [
+      "enterprise-value",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N048",
+    "metric": "Unrealized fundraise",
+    "value": "$100m from 2 PE firms",
+    "context": "Two investment-firm conversations underpin an ambition to raise a large amount of capital.",
+    "kind": "target",
+    "confidence": "high",
+    "caution": "Conditional projections are not enforceable funding commitments.",
+    "videoIds": [
+      "3z3NDUcOaNg"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N049",
+    "metric": "Claimed startup success threshold",
+    "value": "At least 1m pounds/dollars/euros annual revenue profitably; 95% allegedly fail to reach it",
+    "context": "Revenue thresholds and business-failure estimates are used to compare starting and buying a company.",
+    "kind": "unverified-claim",
+    "confidence": "low",
+    "caution": "The speaker expresses uncertainty; five-year failure and lifetime failure to reach £1m sales are different outcomes, neither independently verified. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "vmAmd5vmK8o",
+      "Kisa0C-YiY4",
+      "auNRmG6JcUM"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N050",
+    "metric": "Shareholder dividend example",
+    "value": "1m profit; 20%/25% ownership; 7-year debt payoff; 200k annual dividend at 20%",
+    "context": "A minority owner's potential dividend is illustrated after debt has been repaid.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The example assumes distributable cash and switches currencies; ownership alone does not guarantee dividends.",
+    "videoIds": [
+      "8LNGpCPhTzU"
+    ],
+    "topics": [
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N051",
+    "metric": "First acquisition stack",
+    "value": "3m price; 1m profit; 2m debt; 0.5m equity; 0.5m seller finance",
+    "context": "A first purchase combines senior borrowing, equity and seller finance.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Debt rises from 2x to 2.5x earnings when seller finance is included; currency is inconsistent.",
+    "videoIds": [
+      "8LNGpCPhTzU"
+    ],
+    "topics": [
+      "ebitda",
+      "valuation-multiples",
+      "leverage",
+      "investor-equity",
+      "seller-financing"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N052",
+    "metric": "Add-on price/earnings",
+    "value": "2m price; 1m additional earnings",
+    "context": "A bolt-on example adds another earnings stream for an additional purchase price.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Its funding mix is omitted, so final group leverage cannot be calculated.",
+    "videoIds": [
+      "8LNGpCPhTzU"
+    ],
+    "topics": [
+      "ebitda",
+      "capital-stack",
+      "leverage",
+      "roll-ups",
+      "bolt-ons"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N053",
+    "metric": "Acquisition experience",
+    "value": "7 businesses over 8 years",
+    "context": "Sey reflects on continued acquisition anxiety despite repeated purchases.",
+    "kind": "personal-experience",
+    "confidence": "medium",
+    "caution": "Separate episodes count six transactions in six years and seven businesses in eight years; dates and counting units differ. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "ekJRHTStpbk",
+      "eKGCCawHqjk"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N054",
+    "metric": "Suggested underserved Danish SME band",
+    "value": "£0.5m–£2m earnings",
+    "context": "Sey argues that smaller Danish acquisitions struggle to find suitable financing products.",
+    "kind": "opinion",
+    "confidence": "high",
+    "caution": "This is his experience-based assessment, not a surveyed financing-market boundary.",
+    "videoIds": [
+      "2maCpFUx4ks"
+    ],
+    "topics": [
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N055",
+    "metric": "Large Danish borrower example",
+    "value": "£100m–£200m earnings; \"a billion Danish cronis\"",
+    "context": "A much larger Danish borrower is contrasted with the small-company acquisition market.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The stated sterling and Danish-currency equivalents are loose and unverified.",
+    "videoIds": [
+      "2maCpFUx4ks"
+    ],
+    "topics": [
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N056",
+    "metric": "Acquisition count",
+    "value": "Initially 5 businesses / 4 transactions; later \"four businesses and five transactions\" then possibly \"five businesses and six transactions\"",
+    "context": "The speaker recounts his acquisition history using both business and transaction counts.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The counts contradict one another within the account and should not be reconciled silently.",
+    "videoIds": [
+      "2maCpFUx4ks"
+    ],
+    "topics": [
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N057",
+    "metric": "Portfolio revenues",
+    "value": "Steel roughly £30m; construction/HVAC roughly £20m",
+    "context": "An interview summarizes the sales scale of the steel and HVAC holdings.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The figures describe an episode-specific portfolio snapshot, not audited consolidation.",
+    "videoIds": [
+      "2maCpFUx4ks"
+    ],
+    "topics": [
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N058",
+    "metric": "Unrealized steel profit forecast",
+    "value": "Over £5m pretax profit in 2–3 years",
+    "context": "Management's pre-distress plan anticipated materially higher steel profits.",
+    "kind": "forecast",
+    "confidence": "high",
+    "caution": "The projection preceded failures and is not an achieved profit figure.",
+    "videoIds": [
+      "2maCpFUx4ks"
+    ],
+    "topics": [
+      "ebitda",
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N059",
+    "metric": "VC return expectations",
+    "value": "10–50x invested money; also 20/25/30x equity value",
+    "context": "Venture-capital return ambitions are contrasted with buying an established company.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "These multiples illustrate expectations, not realized investment returns.",
+    "videoIds": [
+      "2maCpFUx4ks"
+    ],
+    "topics": [
+      "target-selection",
+      "equity-value",
+      "valuation-multiples",
+      "investor-equity",
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N060",
+    "metric": "VC investment stake example",
+    "value": "€1m for 15–30%",
+    "context": "A startup funding illustration exchanges a cash investment for a minority stake.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The example is not evidence of a completed financing or a typical valuation.",
+    "videoIds": [
+      "2maCpFUx4ks"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N061",
+    "metric": "Biotech financing",
+    "value": "Hundreds of thousands of euros; under €1m",
+    "context": "Sey describes raising money for a biotech venture and later selling its intellectual property.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The sale reportedly recovered less than invested capital; exact proceeds are not given.",
+    "videoIds": [
+      "2maCpFUx4ks",
+      "JhqVeCE6yYk"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N062",
+    "metric": "First acquisition budget",
+    "value": "18 months",
+    "context": "An extended search budget is recommended while shorter actual and prospective timelines are discussed.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "The 18-month recommendation, September 2018–2019 experience and six-month forecast have different evidential status. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "WcYMjlTsUwA",
+      "iuC8eRD77I8"
+    ],
+    "topics": [
+      "preferred-equity"
+    ],
+    "category": "Deal structure"
+  },
+  {
+    "id": "N063",
+    "metric": "Part-time acquisition work",
+    "value": "10 hours/week",
+    "context": "The acquisition search is presented as something that can begin alongside another job.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "A suggested weekly commitment does not guarantee progress or completion.",
+    "videoIds": [
+      "WcYMjlTsUwA"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N064",
+    "metric": "Receivables advance rates",
+    "value": "70–90% versus 40–50%",
+    "context": "Receivables financing is compared across manufacturing invoices and more disputed project receivables.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "Advance rates are percentages of eligible receivables, not interest rates or current lender offers. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "WcYMjlTsUwA",
+      "18cB9LOaucs"
+    ],
+    "topics": [
+      "working-capital",
+      "receivables-finance"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N065",
+    "metric": "Customer collection windows",
+    "value": "30/60/90 days; also 2–3 months",
+    "context": "Payment delays are used to explain why a profitable business may need invoice-backed liquidity.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "Illustrative customer terms do not establish a specific borrowing base. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "WcYMjlTsUwA",
+      "b_Emk0J2yfw",
+      "oU1cEFem6j0"
+    ],
+    "topics": [
+      "receivables-finance",
+      "collateral"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N066",
+    "metric": "Niche service target size",
+    "value": "Often below £5m revenue; unlikely £10m–£20m",
+    "context": "Very narrow service niches are described as tending toward smaller company sizes.",
+    "kind": "opinion",
+    "confidence": "high",
+    "caution": "The speaker offers an impression, not a market dataset.",
+    "videoIds": [
+      "WcYMjlTsUwA"
+    ],
+    "topics": [
+      "target-selection"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N067",
+    "metric": "Information memorandum length",
+    "value": "12–16 pages",
+    "context": "A sell-side information memorandum is described as a relatively short initial overview.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "Length is not a substitute for checking the underlying records.",
+    "videoIds": [
+      "1C5gI6LlWhA"
+    ],
+    "topics": [
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N068",
+    "metric": "Plant/machinery advance",
+    "value": "50–60%; £500k–£600k on £1m",
+    "context": "Unencumbered machinery is used to illustrate an asset-backed borrowing limit.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "Existing security, valuation and eligibility could materially change available funding.",
+    "videoIds": [
+      "1C5gI6LlWhA"
+    ],
+    "topics": [
+      "asset-based-lending",
+      "collateral"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N069",
+    "metric": "Debtor book advance",
+    "value": "50–90%",
+    "context": "The debtor ledger is presented as collateral whose fundable proportion varies.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "Sector and trading terms matter; no universal advance rate is established.",
+    "videoIds": [
+      "1C5gI6LlWhA"
+    ],
+    "topics": [
+      "target-selection",
+      "receivables-finance"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N070",
+    "metric": "Customer concentration flags",
+    "value": "40% or 70%; real anecdote 90%",
+    "context": "Concentrated customer revenue is illustrated alongside a reported loss of a long-standing municipal account.",
+    "kind": "mixed",
+    "confidence": "high",
+    "caution": "Examples at 40% and 70% differ from the 90% anecdote; contract history did not assure renewal.",
+    "videoIds": [
+      "1C5gI6LlWhA"
+    ],
+    "topics": [
+      "customer-concentration"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N071",
+    "metric": "Small company board size",
+    "value": "3–6 incl chair; wider range 3–20",
+    "context": "The discussion considers how many people might sit on a smaller company's board.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "Board size alone says little about oversight quality or legal responsibilities.",
+    "videoIds": [
+      "xq5pwowli-0"
+    ],
+    "topics": [
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N072",
+    "metric": "Sey HVAC ownership",
+    "value": "About 50%, then \"just under 50%\"",
+    "context": "Sey gives several descriptions of his HVAC ownership position.",
+    "kind": "personal-experience",
+    "confidence": "medium",
+    "caution": "About half, just under half and majority ownership are not equivalent; the account does not resolve the difference. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "xq5pwowli-0",
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N073",
+    "metric": "Prospective first target",
+    "value": "Revenue >£1m; pretax profit \"200, 250\"",
+    "context": "Sey and Stanley discuss the earnings and sales scale of a possible first acquisition.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "The phrase 200, 250 omits units; the target was still prospective.",
+    "videoIds": [
+      "942nFYmky6Q"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N074",
+    "metric": "Search/deal duration",
+    "value": "~1.5–2 years overall; failed prior deal 7 months; present deal 6–8 months",
+    "context": "Stanley describes time spent on both an earlier failed deal and the current acquisition process.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The current deal remained open, so its final duration was unknown.",
+    "videoIds": [
+      "942nFYmky6Q"
+    ],
+    "topics": [
+      "target-selection"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N075",
+    "metric": "Closure probability claimed",
+    "value": "90–95%",
+    "context": "Sey expresses strong confidence that Stanley's acquisition will close.",
+    "kind": "opinion",
+    "confidence": "high",
+    "caution": "This is personal optimism, not a calibrated completion probability.",
+    "videoIds": [
+      "942nFYmky6Q"
+    ],
+    "topics": [
+      "acquisition-process"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N076",
+    "metric": "Stanley objective",
+    "value": "£100m exit",
+    "context": "Stanley's ambition is framed around an eventual exit valuation.",
+    "kind": "target",
+    "confidence": "high",
+    "caution": "An exit-value objective differs from a revenue target and from a realized sale.",
+    "videoIds": [
+      "942nFYmky6Q"
+    ],
+    "topics": [
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N077",
+    "metric": "Alt-PE target earnings",
+    "value": "£0.5m–£1.5m preferred; maximum ~£2m",
+    "context": "The preferred target has meaningful earnings while remaining small enough for deal-by-deal fundraising.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "Ranges and currencies vary across episodes; they are search criteria rather than financing rules. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "YI3Shq4iXao",
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "investor-equity",
+      "preferred-equity"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N078",
+    "metric": "Preferred entry multiple",
+    "value": "3–3.5–4x earnings; earlier ceiling 4–5x",
+    "context": "Sey discusses several acceptable entry multiples and warns against stretching the price.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "His stated ceilings vary by episode and example; the range is not transaction-market evidence. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "YI3Shq4iXao",
+      "wd4Y23wruXU",
+      "LgKz1bxdCMM",
+      "T3zG2Iaxy-k",
+      "x-BdgrSknEw"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples",
+      "preferred-equity"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N079",
+    "metric": "Committed-capital illustration",
+    "value": "50% debt, perhaps 30% equity, balance seller finance",
+    "context": "A capital stack example splits consideration among borrowing, investor equity and seller funding.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The percentages are conditional illustrations, not a closed acquisition's terms.",
+    "videoIds": [
+      "YI3Shq4iXao"
+    ],
+    "topics": [
+      "investor-equity",
+      "seller-financing"
+    ],
+    "category": "Deal structure"
+  },
+  {
+    "id": "N080",
+    "metric": "Small versus larger-company pricing",
+    "value": "£1m–£3m revenue: 2–2.5x earnings; £10m–£50m revenue at 10% margin: 4–6x earnings",
+    "context": "Smaller and larger companies are contrasted using rough earnings multiples and sales bands.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "The comparison is not based on a disclosed transaction sample.",
+    "videoIds": [
+      "YI3Shq4iXao"
+    ],
+    "topics": [
+      "ebitda",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N081",
+    "metric": "JHC and Steelway scale",
+    "value": "JHC £2.5m–£3m revenue; Steelway ~£12m revenue",
+    "context": "The discussion compares the sales scale of JHC and Steelway at acquisition.",
+    "kind": "personal-experience",
+    "confidence": "medium",
+    "caution": "Later accounts add an approximate September 2019 first close and earnings estimates; the purchase price remains undisclosed. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "YI3Shq4iXao",
+      "v3SrYOEUs7Q",
+      "oU1cEFem6j0",
+      "yB-Z25dC_OU"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "ebitda",
+      "due-diligence"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N082",
+    "metric": "Purported GameStop/eBay consideration",
+    "value": "US$55.5bn/US$56bn; half cash/half shares",
+    "context": "A proposed GameStop/eBay transaction is used as a large-company deal example.",
+    "kind": "unverified-claim",
+    "confidence": "high",
+    "caution": "The two speakers give different headline prices; this collection does not verify the news or a completed deal.",
+    "videoIds": [
+      "YI3Shq4iXao"
+    ],
+    "topics": [
+      "acquisition-process"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N083",
+    "metric": "Purported TD offer / GameStop liquidity",
+    "value": "~US$20bn credit; US$6bn cash + US$3bn noncash liquid assets",
+    "context": "The same external deal discussion separates a purported bank credit offer from available liquid assets.",
+    "kind": "unverified-claim",
+    "confidence": "high",
+    "caution": "Neither the offer nor completion is independently established, and no Sey borrowing relationship is implied.",
+    "videoIds": [
+      "YI3Shq4iXao"
+    ],
+    "topics": [
+      "acquisition-process",
+      "cash-flow"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N084",
+    "metric": "Purported merged ownership",
+    "value": "1/3 GameStop holders, 2/3 eBay holders",
+    "context": "A share-exchange illustration discusses the proposed ownership of a combined business.",
+    "kind": "unverified-claim",
+    "confidence": "high",
+    "caution": "The ownership split and associated cash terms are unverified external claims.",
+    "videoIds": [
+      "YI3Shq4iXao"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N085",
+    "metric": "Tiny website example",
+    "value": "80,000 revenue; 5,000 profits annually; currency not stated",
+    "context": "A small website purchase illustrates the difference between buying earnings and buying oneself a job.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The figures have no stated currency and describe an example, not a verified listing.",
+    "videoIds": [
+      "YI3Shq4iXao"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N086",
+    "metric": "Upper earnings category",
+    "value": "£/$5m earnings",
+    "context": "Sey places a boundary on his own acquisition experience by earnings size.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "He explicitly says he has not bought a business in this larger earnings category.",
+    "videoIds": [
+      "YI3Shq4iXao"
+    ],
+    "topics": [
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N087",
+    "metric": "Recent January target",
+    "value": "~£10m revenue; £1.7m then £1.6m pretax profit",
+    "context": "A January acquisition discussion gives approximate target revenue and pretax earnings.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "Profit changes from £1.7m to £1.6m within the account; the agreed price is withheld.",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N088",
+    "metric": "January day-one consideration",
+    "value": ">75% initially, then ~70–75%",
+    "context": "The January deal's consideration is described as mostly payable at completion.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The upfront percentage changes during the explanation and does not reveal the debt/equity mix.",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "leverage",
+      "investor-equity",
+      "deferred-consideration"
+    ],
+    "category": "Deal structure"
+  },
+  {
+    "id": "N089",
+    "metric": "Historical adjusted earnings",
+    "value": "Reported just over £1m EBITDA; adjusted sustainable ~£950k; rounded to £1m",
+    "context": "Reported EBITDA is reduced to an estimate of sustainable earnings before discussing price.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "Rounded £1m and adjusted £950k produce different multiples.",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "ebitda",
+      "adjusted-ebitda",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N090",
+    "metric": "Historical purchase economics",
+    "value": "£1.8m total; £1m close; £400k month 24; £400k month 36",
+    "context": "An anonymized purchase is described with a completion payment and two later instalments.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The speaker presents it as an unusually favorable result, not an ordinary available deal.",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "acquisition-process"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N091",
+    "metric": "Historical multiple",
+    "value": "1.8x using rounded £1m; ~1.895x using £950k adjusted EBITDA (calculated)",
+    "context": "The same purchase price is compared with rounded and adjusted EBITDA.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "About 1.895x is an arithmetic calculation from £950k, while 1.8x uses rounded £1m earnings.",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "ebitda",
+      "adjusted-ebitda",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N092",
+    "metric": "Seller balloon illustration",
+    "value": "£2m over 4 years at £500k/year versus £333k x3 plus stated £3m year 4",
+    "context": "A balloon-payment example aims to move more seller consideration to the final year.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The alternative payments total about £4m, conflicting with the starting £2m obligation.",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "sourcing",
+      "deferred-consideration"
+    ],
+    "category": "Deal structure"
+  },
+  {
+    "id": "N093",
+    "metric": "Early liquidity relief claim",
+    "value": "£200k/year",
+    "context": "The balloon illustration also claims an annual near-term cash saving.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "£500k minus £333k is about £167k, not the stated £200k.",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "cash-flow"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N094",
+    "metric": "High leverage interest example",
+    "value": "£7m debt x10% = £700k/year interest",
+    "context": "A high-debt example shows interest consuming much of the earnings available to the buyer.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Principal repayments, taxes and other cash needs still have to be funded.",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "ebitda",
+      "capital-stack",
+      "leverage",
+      "debt-pricing",
+      "amortization"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N095",
+    "metric": "Low leverage interest example",
+    "value": "£1m debt x10% = £100k/year, 10% of earnings",
+    "context": "A lower-debt example contrasts the interest burden at the same assumed interest rate.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Complete debt funding is a hypothetical assumption, not a documented capital stack.",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "ebitda",
+      "capital-stack",
+      "leverage",
+      "debt-pricing"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N096",
+    "metric": "DSCR examples",
+    "value": "£1m earnings / £1m service =1x; /£500k service =2x; desired >=1.3x",
+    "context": "Debt-service coverage is introduced by comparing earnings with annual debt payments.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "Earnings are a rough cash proxy; £700k service on £1m gives about 1.43x, and no lender covenant is established.",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "ebitda",
+      "valuation-multiples",
+      "debt-service"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N097",
+    "metric": "Prospective upfront funding",
+    "value": "€9m at 70% upfront",
+    "context": "A prospective European acquisition is discussed in terms of the cash needed at completion.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "€9m refers to upfront funding; it is not stated as the full purchase price.",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "ebitda",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N098",
+    "metric": "Prospective debt/equity",
+    "value": "2x debt ~€5m–€5.3m; 3x stated ~€7.3m; max €7m debt, min €2m equity",
+    "context": "The financing discussion compares possible borrowing levels and a minimum equity contribution.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "Some multiplication is inconsistent: 3x €2.5m–€2.6m is €7.5m–€7.8m, not €7.3m.",
+    "videoIds": [
+      "EL60pBzPd_k"
+    ],
+    "topics": [
+      "valuation-multiples",
+      "leverage",
+      "investor-equity"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N099",
+    "metric": "Steel trading companies and failures",
+    "value": "~5 companies; 2 failed",
+    "context": "Failures within the steel portfolio illustrate how cross-guarantees can spread financial damage.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The account is self-reported and does not disclose each company's facility documents.",
+    "videoIds": [
+      "np9jH5OyQnE"
+    ],
+    "topics": [
+      "personal-guarantees"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N100",
+    "metric": "Proposed Texas investor capital",
+    "value": "£80m / US$100m",
+    "context": "Conversations with a Texas-linked investor support several alternative platform fundraising ambitions.",
+    "kind": "target",
+    "confidence": "medium",
+    "caution": "The amounts were not locked in; sterling and dollar alternatives are not separate completed raises. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "np9jH5OyQnE",
+      "rVW6fyafA0s",
+      "18cB9LOaucs",
+      "WBPmqD8jIKA"
+    ],
+    "topics": [
+      "target-selection",
+      "investor-equity",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N101",
+    "metric": "Required recurring maintenance mix",
+    "value": "30–40–50% of combined revenue",
+    "context": "A prospective investor asks for a meaningful maintenance-revenue component in the HVAC group.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "Several percentages are discussed; no signed covenant or single firm threshold is shown.",
+    "videoIds": [
+      "np9jH5OyQnE"
+    ],
+    "topics": [
+      "investor-equity",
+      "covenants"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N102",
+    "metric": "Displaced acquisition pipeline",
+    "value": "About 4 deals",
+    "context": "A narrower HVAC investment mandate reportedly excludes deals already in the pipeline.",
+    "kind": "personal-experience",
+    "confidence": "medium",
+    "caution": "Accounts mention about four opportunities and two agreed targets, possibly reflecting different dates or scope. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "np9jH5OyQnE",
+      "NnWl4wMoQhM"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N103",
+    "metric": "Traditional PE fee",
+    "value": "2% of AUM; $20m/year on $1bn",
+    "context": "Traditional fund economics are illustrated through management fees on assets under management.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "Management fees and carried interest use different bases; the illustration is not a universal current fee schedule. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "7Zg5hGZLrDM",
+      "KsnY8Gpnkl4"
+    ],
+    "topics": [
+      "management",
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N104",
+    "metric": "Traditional carry",
+    "value": "20% above hurdle",
+    "context": "The discussion introduces a manager's share of investment profits above a hurdle.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "The waterfall is incomplete; carry is not loan interest or direct equity ownership.",
+    "videoIds": [
+      "7Zg5hGZLrDM"
+    ],
+    "topics": [
+      "preferred-equity",
+      "debt-pricing",
+      "returns-and-exits"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N105",
+    "metric": "New-manager hurdle",
+    "value": "10–12% compounded annually",
+    "context": "Sey suggests a compounded return hurdle for a new fund manager.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "Actual investor terms are negotiated and may differ substantially.",
+    "videoIds": [
+      "7Zg5hGZLrDM"
+    ],
+    "topics": [
+      "management",
+      "returns-and-exits",
+      "irr-and-moic"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N106",
+    "metric": "Fund life example",
+    "value": "10 years: 6 investing +4 realization; possible 2-year extension to12",
+    "context": "A fund-life example separates the investment period from time reserved for realizing investments.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "No executed fund agreement establishes these periods or the extension right.",
+    "videoIds": [
+      "7Zg5hGZLrDM"
+    ],
+    "topics": [
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N107",
+    "metric": "Alternative fund fee/carry",
+    "value": "~1–1.5% fee; 10/15/20/30% carry",
+    "context": "Alternative fee and carry examples show that fund economics can be negotiated.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "The figures are illustrative terms, not a survey or an offer to investors.",
+    "videoIds": [
+      "7Zg5hGZLrDM"
+    ],
+    "topics": [
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N108",
+    "metric": "S&P comparison",
+    "value": "6–8% annualized, described as \"safe\" / \"without risk\"",
+    "context": "An assumed stock-market return is used as a comparison when discussing a fund hurdle.",
+    "kind": "unverified-claim",
+    "confidence": "high",
+    "caution": "The source's risk-free description is misleading; equity-market returns are uncertain and the quoted range is unverified.",
+    "videoIds": [
+      "7Zg5hGZLrDM"
+    ],
+    "topics": [
+      "sourcing",
+      "returns-and-exits",
+      "irr-and-moic"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N109",
+    "metric": "Acquisition amortization / dividend examples",
+    "value": "3–5-year debt payoff; new deals year2/year4 reset; 10%/35% holders get corresponding dividend share",
+    "context": "A simple acquisition sequence shows new borrowing postponing the group's debt-free date.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "Paying off debt does not guarantee dividends or establish distributable cash. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "7Zg5hGZLrDM",
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "amortization",
+      "returns-and-exits"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N110",
+    "metric": "Offer-volume objective",
+    "value": "30 bona fide offers; hundreds reviewed / dozens offered",
+    "context": "The search process is framed as repeated serious offers following extensive target review.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "The suggested offer count does not establish a measured conversion rate.",
+    "videoIds": [
+      "vvw6brqjl2I"
+    ],
+    "topics": [
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N111",
+    "metric": "Single-family-office equity mismatch",
+    "value": "£4m sought; ~£1m comfort for first deal",
+    "context": "An informal family-office conversation reveals a gap between the equity sought and the investor's comfort level.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "Neither amount is a funding commitment.",
+    "videoIds": [
+      "vvw6brqjl2I"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N112",
+    "metric": "Buy-side broker fee",
+    "value": "£1,500–£2,000/month; ~£24k–£30k over year/15 months",
+    "context": "Monthly buy-side search retainers illustrate a cost of outsourcing target sourcing.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "This service differs from a debt broker reportedly paid by lenders; historical quotes are not current prices.",
+    "videoIds": [
+      "vvw6brqjl2I"
+    ],
+    "topics": [
+      "sourcing",
+      "brokers"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N113",
+    "metric": "Intern cadence",
+    "value": "2 interns x2 days/week; 2-hour weekly debrief",
+    "context": "The speaker proposes using interns for research with a regular weekly review meeting.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "Past staffing, planned recruitment and suggested hours differ; employment terms and legality are not established. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "OtjUJIlY_6Q",
+      "vBUWZPT9YuI",
+      "_CJLfixvoN4"
+    ],
+    "topics": [
+      "target-selection",
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N114",
+    "metric": "Group acquisition pipeline",
+    "value": "10–15 targets; hope 1–2 acquisitions in calendar 2026",
+    "context": "An AGM discussion links an active target list with hoped-for acquisitions during 2026.",
+    "kind": "forecast",
+    "confidence": "high",
+    "caution": "Targets under review and hoped-for completions are not acquired businesses.",
+    "videoIds": [
+      "OtjUJIlY_6Q"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "sourcing",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N115",
+    "metric": "CEO transition and AGM",
+    "value": "CEO until April 2025; FY July–June; AGM within 6 months",
+    "context": "The account describes a change from executive leadership to the chair role around the annual meeting.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "Dates and governance arrangements are self-reported; the AGM interval is not presented here as legal advice.",
+    "videoIds": [
+      "OtjUJIlY_6Q"
+    ],
+    "topics": [
+      "debt-pricing",
+      "management"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N116",
+    "metric": "Proposed fundraise",
+    "value": "£80m; following \"8000 million bucks\" corrupted",
+    "context": "The HVAC platform's fundraising ambition is expressed in sterling.",
+    "kind": "target",
+    "confidence": "medium",
+    "caution": "A corrupted dollar phrase cannot establish a reliable currency conversion or a separate raise. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "rVW6fyafA0s",
+      "vBUWZPT9YuI"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "investor-equity",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N117",
+    "metric": "Texas investor maintenance/recurring requirement",
+    "value": "40–50%",
+    "context": "A Texas-linked investor's proposed mandate favors recurring HVAC maintenance income.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "The range describes investment criteria under discussion, not a disclosed executed covenant.",
+    "videoIds": [
+      "rVW6fyafA0s"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N118",
+    "metric": "Rich-uncle example",
+    "value": "~$0.5m–$1.5m annual dividends; 4–5x value multiple; >$50m described as ultra-high net worth",
+    "context": "A wealthy-relative analogy links business dividends to a desired lifestyle.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Neither the valuation assumption nor the wealth-category boundary is independently established.",
+    "videoIds": [
+      "rVW6fyafA0s"
+    ],
+    "topics": [
+      "equity-value",
+      "valuation-multiples",
+      "investor-equity",
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N119",
+    "metric": "Langard revenue/profit",
+    "value": "Just over £7m revenue (~$10m); £1.2m pretax profit (~1.5–1.6m, currency unclear)",
+    "context": "The Langard acquisition account describes the operating business's revenue and pretax earnings.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The $10m headline denotes revenue, not purchase price; one converted profit amount has uncertain currency.",
+    "videoIds": [
+      "dUL-YXeWDQY"
+    ],
+    "topics": [
+      "ebitda",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N120",
+    "metric": "Steel group",
+    "value": "£33m revenue; 300 staff; £40m post-acquisition revenue",
+    "context": "Steel-group revenue and staffing are recounted before and after adding Langard.",
+    "kind": "personal-experience",
+    "confidence": "medium",
+    "caution": "Episodes give different dates, revenues and staff counts; they do not establish one current consolidated total. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "dUL-YXeWDQY",
+      "wd4Y23wruXU",
+      "NOU9AVeHjhI",
+      "VNXXyH4dr-I",
+      "oU1cEFem6j0"
+    ],
+    "topics": [
+      "management",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N121",
+    "metric": "HVAC/combined goal",
+    "value": "£17m HVAC; £57m combined annual revenue before Christmas",
+    "context": "A pending second HVAC purchase is projected to increase HVAC and combined portfolio sales.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "Combined figures depend on completion and use approximate currency conversions. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "dUL-YXeWDQY",
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "acquisition-process",
+      "sourcing",
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N122",
+    "metric": "Qualified LOI funnel",
+    "value": "~100 targets → 30 qualified LOIs → 1 deal",
+    "context": "A rough sourcing funnel connects broad target review to written offers and one acquisition.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "The ratios are personal estimates, not measured probabilities.",
+    "videoIds": [
+      "PqGjF6z1ZaM"
+    ],
+    "topics": [
+      "target-selection",
+      "loi"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N123",
+    "metric": "Hyperqualified LOI funnel",
+    "value": "5 → 1 acquisition",
+    "context": "Offers requested after substantive seller discussions are described as having a better conversion rate.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "The estimate does not guarantee that one in five offers will close.",
+    "videoIds": [
+      "PqGjF6z1ZaM"
+    ],
+    "topics": [
+      "loi"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N124",
+    "metric": "LOI economics example",
+    "value": "£1m earnings; £3.5m EV (3.5x); £2.5m at close (2.5x); £1m over 3 or 4 years",
+    "context": "An LOI example separates enterprise value, completion cash and later payments.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The later-payment period varies between three and four years; this is not a signed transaction.",
+    "videoIds": [
+      "PqGjF6z1ZaM"
+    ],
+    "topics": [
+      "acquisition-process",
+      "loi",
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples",
+      "capital-stack"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N125",
+    "metric": "LOI exclusivity",
+    "value": "3–6 months",
+    "context": "Exclusivity is discussed alongside financing and legal-work timescales.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "The periods overlap and vary; they should not be added as a guaranteed completion schedule. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "PqGjF6z1ZaM",
+      "lGkWzEfsu_c"
+    ],
+    "topics": [
+      "loi"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N126",
+    "metric": "Customer concentration",
+    "value": "One customer 100% versus largest customer 10% of revenue",
+    "context": "Contrasting customer shares illustrate how concentration can change a buyer's risk.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Losing a 10% customer may still erase profit or liquidity; revenue share alone cannot prove resilience.",
+    "videoIds": [
+      "PqGjF6z1ZaM"
+    ],
+    "topics": [
+      "cash-flow",
+      "customer-concentration"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N127",
+    "metric": "Buyer versus seller timing",
+    "value": "Seller built business 5–30 years; buyer seeks close in 6–12 months",
+    "context": "The seller's years of work are contrasted with the buyer's desired transaction timetable.",
+    "kind": "opinion",
+    "confidence": "high",
+    "caution": "These are expectation-setting examples, not findings from transaction data.",
+    "videoIds": [
+      "PqGjF6z1ZaM"
+    ],
+    "topics": [
+      "acquisition-process"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N128",
+    "metric": "Valuation basis",
+    "value": "2024 £750k + 2025 £1.25m → £1m average pretax profit; 3–4x; £3.5m example EV",
+    "context": "Averaging two completed years' pretax profits supplies an illustrative valuation denominator.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "Historical averaging does not itself establish sustainable future earnings. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "UAtbZfPN2zA",
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N129",
+    "metric": "Valuation ceiling",
+    "value": "≤4x for UK industrial companies below £2m pretax profit",
+    "context": "Sey sets a personal price ceiling for smaller UK industrial acquisitions.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "The ceiling reflects his financing approach, not an objective market maximum.",
+    "videoIds": [
+      "UAtbZfPN2zA"
+    ],
+    "topics": [
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N130",
+    "metric": "Payment split",
+    "value": "70%–80% completion; 20%–30% deferred",
+    "context": "The suggested structure reserves part of the seller's price for later payment.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "Deferral is subject to negotiation; timing and security still need explicit terms. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "UAtbZfPN2zA",
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "acquisition-process",
+      "deferred-consideration"
+    ],
+    "category": "Deal structure"
+  },
+  {
+    "id": "N131",
+    "metric": "UK lender universe",
+    "value": "More than 100 banks",
+    "context": "The speaker portrays the UK as having a wide pool of potential banks.",
+    "kind": "unverified-claim",
+    "confidence": "high",
+    "caution": "No supporting lender list or verified market count is provided.",
+    "videoIds": [
+      "UAtbZfPN2zA"
+    ],
+    "topics": [
+      "bank-debt"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N132",
+    "metric": "Buyside broker cost",
+    "value": "£1,500–£2,500/month",
+    "context": "A monthly retainer range illustrates paid acquisition sourcing.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "The estimate is not a current service quotation.",
+    "videoIds": [
+      "UAtbZfPN2zA"
+    ],
+    "topics": [
+      "brokers"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N133",
+    "metric": "Website/formation cost",
+    "value": "100 bucks website; 60/70/80 (currency unspecified) UK formation, <100 bucks",
+    "context": "Low initial website and company-formation costs are used to illustrate starting a search.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Currency is partly absent and prices have not been verified.",
+    "videoIds": [
+      "UAtbZfPN2zA"
+    ],
+    "topics": [
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N134",
+    "metric": "Target earnings",
+    "value": "About £500k profits",
+    "context": "A seller call discusses the earnings of a potential acquisition.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "The amount is preliminary and no completed purchase is established.",
+    "videoIds": [
+      "4DhN50eAkcA"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N135",
+    "metric": "First 100 days",
+    "value": "First 2–3 months / 100 days; first deal visit delayed 2 weeks",
+    "context": "A delayed first visit informs advice to communicate actively during the opening months of ownership.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "A hundred-day label is a planning device, not proof of a completed integration process.",
+    "videoIds": [
+      "4DhN50eAkcA"
+    ],
+    "topics": [
+      "acquisition-process"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N136",
+    "metric": "Manager evaluation",
+    "value": "Sales months; MD 2–3 quarters (6–9 months); group CEO 1–1.5 years",
+    "context": "Different leadership roles are given different periods before judging performance.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "These are suggested evaluation horizons, not guarantees of competence or turnaround.",
+    "videoIds": [
+      "4DhN50eAkcA"
+    ],
+    "topics": [
+      "enterprise-value",
+      "valuation-multiples",
+      "management",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N137",
+    "metric": "Operating profit fragility",
+    "value": "£5m revenue / £120k profit",
+    "context": "A thin-profit company illustrates why a senior hire can materially change the economics.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Sales size alone does not show capacity to fund management.",
+    "videoIds": [
+      "yqSF-IoKfEQ"
+    ],
+    "topics": [
+      "ebitda",
+      "senior-debt",
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N138",
+    "metric": "Human capital risk",
+    "value": "30 IT staff, lose top 5–7",
+    "context": "An IT-company example highlights the risk of losing a small group of essential employees.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Headcount does not measure the value or replaceability of each employee.",
+    "videoIds": [
+      "yqSF-IoKfEQ"
+    ],
+    "topics": [
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N139",
+    "metric": "Valuation base sensitivity",
+    "value": "3x 2024 earnings = 4.4x 2023–2024 average",
+    "context": "A broker conversation shows how switching the earnings period changes the quoted multiple.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "Underlying accounts are unavailable, so the calculation cannot be independently reconstructed.",
+    "videoIds": [
+      "yqSF-IoKfEQ"
+    ],
+    "topics": [
+      "brokers",
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples",
+      "due-diligence"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N140",
+    "metric": "Low-close target",
+    "value": "Roughly £500k profit; 1x down discussed",
+    "context": "A possible target is discussed with a low initial payment relative to earnings.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "No executed offer or complete capital stack is disclosed.",
+    "videoIds": [
+      "yqSF-IoKfEQ"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "valuation-multiples",
+      "due-diligence"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N141",
+    "metric": "Key person handover",
+    "value": "12–24 months",
+    "context": "Continued seller involvement is proposed to preserve operational knowledge after completion.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "Suggested handovers range from one to three years and require negotiated responsibilities. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "yqSF-IoKfEQ",
+      "B0s_vWFC60U",
+      "NTa6kB7cGg0"
+    ],
+    "topics": [
+      "working-capital",
+      "investor-equity",
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N142",
+    "metric": "Acquisition growth goal",
+    "value": "Steel £33m–£34m + ~£8m–£9m target → £40m/£43m/£44m; ~30% revenue and 20%–25% earnings growth",
+    "context": "Adding a prospective steel target is projected to increase both revenue and earnings.",
+    "kind": "forecast",
+    "confidence": "high",
+    "caution": "A garbled 89 million phrase appears to mean £8m–£9m; totals vary and no completed result is established.",
+    "videoIds": [
+      "b_Emk0J2yfw"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N143",
+    "metric": "Institutional funding",
+    "value": "Two funds; ~£5m equity; £80m capital ambition",
+    "context": "Live institutional discussions concern an equity contribution and a much broader capital ambition.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "The instruments and commitments are incompletely specified.",
+    "videoIds": [
+      "b_Emk0J2yfw"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N144",
+    "metric": "Balance-sheet target",
+    "value": "£3.6m revenue; roughly £400k–£500k pretax profit",
+    "context": "A target's modest earnings are considered alongside limited tangible assets and substantial current creditors.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Profit alone does not show how much finance the balance sheet can support.",
+    "videoIds": [
+      "b_Emk0J2yfw"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "working-capital",
+      "receivables-finance",
+      "collateral"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N145",
+    "metric": "Excess cash",
+    "value": "£1m annual after-tax profit x 3 years = £3m if no dividends",
+    "context": "Retaining several years of after-tax profit illustrates how excess cash might accumulate.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The calculation assumes no dividends or other cash uses and is not a cash-flow forecast.",
+    "videoIds": [
+      "b_Emk0J2yfw"
+    ],
+    "topics": [
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N146",
+    "metric": "Multiple arbitrage",
+    "value": "Buy 3x/4x/5x; group exit 8x/9x/10x; perhaps 10 years",
+    "context": "A roll-up thesis combines lower entry multiples with a hoped-for higher group exit multiple.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "No achieved exit supports the spread; integration, debt and buyer appetite affect realized value.",
+    "videoIds": [
+      "b_Emk0J2yfw"
+    ],
+    "topics": [
+      "valuation-multiples",
+      "roll-ups",
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N147",
+    "metric": "Cleaning target range",
+    "value": "£1m–£5m earnings",
+    "context": "Broker feedback suggests few commercial-cleaning targets meet the requested earnings scale.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "This is a sourcing anecdote, not a complete market census.",
+    "videoIds": [
+      "j4orWHw8kdA"
+    ],
+    "topics": [
+      "target-selection",
+      "brokers",
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N148",
+    "metric": "Broker marketing fee",
+    "value": "£10k–£20k upfront, £15k example",
+    "context": "Upfront fees are used to explain one possible sell-side broker business model.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "The amounts are examples, not a current fee schedule or universal practice.",
+    "videoIds": [
+      "j4orWHw8kdA"
+    ],
+    "topics": [
+      "brokers"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N149",
+    "metric": "Broker materials",
+    "value": "~25-page IM; one-page anonymized teaser",
+    "context": "Short teasers and longer memoranda are contrasted as stages of introducing a business or capital raise.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "Suggested document lengths differ across contexts; page count does not establish quality. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "j4orWHw8kdA",
+      "s8Hkxnq3-Bo"
+    ],
+    "topics": [
+      "sourcing",
+      "brokers",
+      "investor-equity"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N150",
+    "metric": "Sourcing productivity",
+    "value": "7-minute call, 90 leads within 2 hours; ~20% highlighted; Oscar ~500 teasers/month",
+    "context": "A live broker call and Oscar's review activity illustrate how quickly a pipeline can expand.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "Lead counts and highlighted teasers are not qualified opportunities or closed-deal conversion rates.",
+    "videoIds": [
+      "j4orWHw8kdA"
+    ],
+    "topics": [
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N151",
+    "metric": "Institutional outreach",
+    "value": "47 institutions; 4 General Atlantic meetings",
+    "context": "Sey recounts a broad institutional outreach effort and repeated General Atlantic meetings.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "Meeting counts do not imply an investment or a lending relationship.",
+    "videoIds": [
+      "j4orWHw8kdA"
+    ],
+    "topics": [
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N152",
+    "metric": "Debt proposal",
+    "value": "£33m debt requires £25m equity",
+    "context": "A debt term sheet is described as conditional on a substantial equity contribution.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "The facility did not close; the implied £58m total is arithmetic, not confirmed financing received.",
+    "videoIds": [
+      "j4orWHw8kdA"
+    ],
+    "topics": [
+      "acquisition-process",
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N153",
+    "metric": "Other proposal",
+    "value": "~$25bn AUM institution; requested ~57m; proposed $80m then £80m, two £40m tranches",
+    "context": "Another institutional conversation explores a large staged capital programme before a soft rejection.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "Currencies and amounts change, and the instrument is unclear; no completed commitment is established.",
+    "videoIds": [
+      "j4orWHw8kdA"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N154",
+    "metric": "HVAC search box",
+    "value": "£5m–£25m revenue; >£1m earnings",
+    "context": "HVAC search criteria are discussed alongside increasingly ambitious group revenue goals.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "Target company size and £100m–£250m platform ambitions are different concepts; none proves achieved scale. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "SPMaYlRzACI",
+      "WBPmqD8jIKA",
+      "s8Hkxnq3-Bo"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "investor-equity",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N155",
+    "metric": "Credit sizing",
+    "value": "2x EBITDA; £1m profits → £2m loan",
+    "context": "A bank-sizing heuristic relates borrowing to annual earnings.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "EBITDA and pretax profit are blurred; the source's £0.5m threshold wording conflicts with its own 2x arithmetic. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "SPMaYlRzACI",
+      "18cB9LOaucs",
+      "cBBwXTMtho4"
+    ],
+    "topics": [
+      "sourcing",
+      "ebitda",
+      "cash-flow",
+      "valuation-multiples",
+      "bank-debt"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N156",
+    "metric": "UK lenders/broker fee",
+    "value": "100+ lenders; no cure/no pay",
+    "context": "Different episodes describe a broad lender universe and success-based debt-broker compensation.",
+    "kind": "unverified-claim",
+    "confidence": "medium",
+    "caution": "Counts vary from roughly 100 to 300 and mix banks with nonbanks; no verified count or universal fee arrangement is established. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "SPMaYlRzACI",
+      "wd4Y23wruXU",
+      "3U3uEsou3SM",
+      "XC-Nls8KhCI",
+      "je7CsLaUm8w"
+    ],
+    "topics": [
+      "brokers",
+      "bank-debt",
+      "private-credit",
+      "management"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N157",
+    "metric": "Historical debt",
+    "value": "Eight figures; £10m/£15m/£20m wording",
+    "context": "Sey uses several rounded eight-figure amounts when describing historical borrowing.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The language is too loose to establish an audited debt total.",
+    "videoIds": [
+      "SPMaYlRzACI"
+    ],
+    "topics": [
+      "bank-debt"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N158",
+    "metric": "SPV creation",
+    "value": "2–4 weeks before closing",
+    "context": "The acquisition vehicle is described as being formed shortly before completion.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "Actual legal and financing requirements may require a different timetable.",
+    "videoIds": [
+      "SPMaYlRzACI"
+    ],
+    "topics": [
+      "acquisition-process"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N159",
+    "metric": "Management fee example",
+    "value": "£15m revenue; 10% pretax / £1.5m EBITDA; £75k annual sponsor fee",
+    "context": "An operating company's earnings are used to illustrate a sponsor management fee.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The example loosely equates EBITDA and pretax profit; the fee is not an executed agreement.",
+    "videoIds": [
+      "SPMaYlRzACI"
+    ],
+    "topics": [
+      "ebitda",
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N160",
+    "metric": "Multiple expansion",
+    "value": "£1m–£3m earnings targets at 3–5x; £1m profit 3.5x; £25m (profit implied) could exit 10x",
+    "context": "A larger group's earnings are multiplied by a higher assumed exit multiple.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "A future sale at 8x–12x is a thesis, not a contracted outcome; larger size may reduce the buyer pool. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "SPMaYlRzACI",
+      "WBPmqD8jIKA"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples",
+      "roll-ups",
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N161",
+    "metric": "Fundraise/wealth goals",
+    "value": "Pitch ~£57m; £20m–£30m personal wealth in 2–4 years; check December 2026",
+    "context": "A fundraising pitch is connected to aspirations for personal wealth over the next few years.",
+    "kind": "target",
+    "confidence": "high",
+    "caution": "Projected wealth is neither present liquidity nor a realized investment return.",
+    "videoIds": [
+      "SPMaYlRzACI"
+    ],
+    "topics": [
+      "equity-value",
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N162",
+    "metric": "Credit-company ask",
+    "value": "~£60m; counterpart multi-tens-of-billions dollars firm",
+    "context": "Discussions with a large credit-related institution involve a substantial requested programme.",
+    "kind": "target",
+    "confidence": "medium",
+    "caution": "£60m and £68m are different requested amounts, with no confirmed instrument or closing. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "H7R3OanjTfo",
+      "cBBwXTMtho4"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "institutional-debt"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N163",
+    "metric": "Sourcing cadence",
+    "value": "~5 targets reviewed per week across groups",
+    "context": "Sey describes an ongoing weekly rhythm of reviewing acquisition candidates across groups.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "Reviews do not establish offers, commitments or completed acquisitions.",
+    "videoIds": [
+      "H7R3OanjTfo"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N164",
+    "metric": "US HVAC maturity",
+    "value": "15 / 20 / 25 years earlier",
+    "context": "The US HVAC market is portrayed as further along in consolidation than the UK.",
+    "kind": "opinion",
+    "confidence": "high",
+    "caution": "The claimed lead in years is an unverified comparison.",
+    "videoIds": [
+      "H7R3OanjTfo"
+    ],
+    "topics": [
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N165",
+    "metric": "Pipeline/legal scale",
+    "value": "Six HVAC targets; ~80-page legal document example",
+    "context": "Several HVAC targets are described at different legal and diligence stages.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "One SPA draft and five diligence processes still represent prospective deals, not six acquisitions. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "CFibrbTI1Cg",
+      "cBBwXTMtho4"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "due-diligence"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N166",
+    "metric": "Earnings basis ambiguity",
+    "value": "5x earnings, fiscal year vs TTM vs LOI date 2–5 months before closing",
+    "context": "A multiple-based offer illustrates why the earnings period must be specified before completion.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "Fiscal-year, trailing and LOI-date earnings can differ materially.",
+    "videoIds": [
+      "JhqVeCE6yYk"
+    ],
+    "topics": [
+      "acquisition-process",
+      "loi",
+      "ebitda",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N167",
+    "metric": "Steel revenue growth",
+    "value": "2019 first acquisition; 2025 ~$45m revenue after 6 years",
+    "context": "Sey describes building steel-group sales over several years from the first acquisition.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "Revenue is not enterprise value, personal wealth or a verified investment return.",
+    "videoIds": [
+      "JhqVeCE6yYk"
+    ],
+    "topics": [
+      "enterprise-value",
+      "equity-value",
+      "valuation-multiples",
+      "investor-equity"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N168",
+    "metric": "HVAC current and goal",
+    "value": "£9m revenue ~8 months; £100m revenue / 10%–15% margins / £10m–£15m EBIT by Dec 2026",
+    "context": "An early HVAC revenue base is compared with an ambitious end-2026 sales and profit objective.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "The target and remaining months were episode-specific; they are not current results. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "JhqVeCE6yYk",
+      "XC-Nls8KhCI",
+      "nzh1e0oONqQ"
+    ],
+    "topics": [
+      "ebitda",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N169",
+    "metric": "Guest acquisition price",
+    "value": "0.7x seller discretionary earnings, characterized ~9 months profits",
+    "context": "An e-commerce guest describes buying a business for a low multiple of seller discretionary earnings.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "It is the guest's deal, not Sey's; no complete funding structure is supplied.",
+    "videoIds": [
+      "v41qQ3KC2b4"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship",
+      "ebitda",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N170",
+    "metric": "Guest growth goal",
+    "value": "3.5m to 10m annual revenue within 12–18 months; currency not stated",
+    "context": "The guest expects product and channel synergies to increase annual sales after acquisition.",
+    "kind": "forecast",
+    "confidence": "high",
+    "caution": "The currency is unstated and the growth remains a forecast.",
+    "videoIds": [
+      "v41qQ3KC2b4"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship",
+      "bolt-ons"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N171",
+    "metric": "Credit range/threshold",
+    "value": "£1m to £5m–£10m; ASR 510m; £1m minimum; £5m preferred over £500k",
+    "context": "Lender operating economics are used to explain a preference for larger credit requests.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "A garbled 510m phrase is interpreted as £5m–£10m; no lender's actual minimum is verified. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "v41qQ3KC2b4",
+      "iuC8eRD77I8"
+    ],
+    "topics": [
+      "preferred-equity",
+      "bank-debt"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N172",
+    "metric": "Exit goal",
+    "value": "Summer 2027 / next two years",
+    "context": "A group conversation discusses a possible future exit date.",
+    "kind": "target",
+    "confidence": "high",
+    "caution": "An aspiration to sell is not a completed disposal or enforceable liquidity event.",
+    "videoIds": [
+      "v41qQ3KC2b4"
+    ],
+    "topics": [
+      "valuation-multiples",
+      "roll-ups",
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N173",
+    "metric": "Failed listing",
+    "value": "~2 to 2.5 years effort; corporate lawyer ~3-year relationship",
+    "context": "Sey recounts the time consumed by an unsuccessful listing effort.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "Elapsed time does not establish a specific cash loss or professional-fee total.",
+    "videoIds": [
+      "rE2R3B0kiBc"
+    ],
+    "topics": [
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N174",
+    "metric": "Steel organic growth",
+    "value": "~9% topline; ~30% growth (profit implied but not explicitly metric); current year flat; next year 10%–15% expected",
+    "context": "Past growth, a flat current year and expected future improvement appear in one operating account.",
+    "kind": "mixed",
+    "confidence": "high",
+    "caution": "The 30% metric is ambiguous and the 10%–15% figure is a forecast; do not merge them into one realized growth rate.",
+    "videoIds": [
+      "rE2R3B0kiBc"
+    ],
+    "topics": [
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N175",
+    "metric": "Funding sought",
+    "value": "$25m–$100m; at least £20m this summer",
+    "context": "Several fundraising amounts are discussed as steps toward a larger future platform or fund.",
+    "kind": "target",
+    "confidence": "medium",
+    "caution": "Currencies, timings and alternatives differ; these are goals rather than money received. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "rE2R3B0kiBc",
+      "zAlT_NNOb6U"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N176",
+    "metric": "Historical capital raised",
+    "value": ">$15m and <$20m, closer to $15m, 2019–presummer 2025",
+    "context": "Sey gives a range for capital raised during the first years of acquisition activity.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The total combines equity, borrowing and later refinancings, so it is not net new investor equity.",
+    "videoIds": [
+      "rE2R3B0kiBc"
+    ],
+    "topics": [
+      "acquisition-process",
+      "investor-equity",
+      "refinancing"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N177",
+    "metric": "Change of control",
+    "value": "51% sale example",
+    "context": "A majority-share sale illustrates how a change-of-control restriction might be triggered.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The example does not establish any actual facility's control definition.",
+    "videoIds": [
+      "rE2R3B0kiBc"
+    ],
+    "topics": [
+      "covenants"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N178",
+    "metric": "Value extraction",
+    "value": "$1m salary example",
+    "context": "An excessive salary example explains why lenders may restrict cash extraction.",
+    "kind": "hypothetical",
+    "confidence": "high",
+    "caution": "The amount is illustrative; no executed payment limit is supplied.",
+    "videoIds": [
+      "rE2R3B0kiBc"
+    ],
+    "topics": [
+      "covenants"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N179",
+    "metric": "Steel cost shock",
+    "value": "~8% raw steel price increase",
+    "context": "A steel-input price increase is described as an operating cost shock.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "No underlying supplier evidence or price series is available in the collection.",
+    "videoIds": [
+      "bPk2dXuYV4M"
+    ],
+    "topics": [
+      "receivables-finance"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N180",
+    "metric": "Capital ambition",
+    "value": "Nine figures; counterparties billions/tens/hundreds of billions AUM",
+    "context": "Large institutional balance sheets are discussed in connection with a nine-figure fundraising ambition.",
+    "kind": "target",
+    "confidence": "high",
+    "caution": "An institution's assets under management do not establish mandate fit or willingness to fund the platform.",
+    "videoIds": [
+      "bPk2dXuYV4M"
+    ],
+    "topics": [
+      "investor-equity",
+      "collateral"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N181",
+    "metric": "Fundraising funnel",
+    "value": "27 firms pitched; 5 second meetings; 1 third meeting",
+    "context": "A point-in-time pitch funnel tracks first, second and third investor meetings.",
+    "kind": "personal-experience",
+    "confidence": "high",
+    "caution": "The counts do not show a closing rate or a funding commitment.",
+    "videoIds": [
+      "KEg9PMGnDxQ"
+    ],
+    "topics": [
+      "acquisition-process",
+      "sourcing",
+      "investor-equity"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N182",
+    "metric": "Institutional ticket",
+    "value": "~$100m minimum for some firms; ~$25m smaller fallback",
+    "context": "Potential institutional ticket sizes are compared with a smaller fallback raise.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "The discussion is about matching a proposal to investors, not confirmed capital received.",
+    "videoIds": [
+      "KEg9PMGnDxQ"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N183",
+    "metric": "Fundraising elapsed range",
+    "value": "3 weeks–3 years",
+    "context": "The speaker describes fundraising duration as highly variable.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "The extreme range is conversational, not a statistically supported planning forecast.",
+    "videoIds": [
+      "afyNTawqQgY"
+    ],
+    "topics": [
+      "investor-equity",
+      "debt-pricing"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N184",
+    "metric": "European seasonality",
+    "value": "Active to May; slower June–August; resumes September–November/December",
+    "context": "Seasonal patterns are proposed for scheduling European investor outreach.",
+    "kind": "rule-of-thumb",
+    "confidence": "high",
+    "caution": "The calendar reflects experience and cannot predict an individual investor's response.",
+    "videoIds": [
+      "afyNTawqQgY"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N185",
+    "metric": "UK cost of capital",
+    "value": "9–10%",
+    "context": "A meeting mentions a broad UK cost-of-capital estimate.",
+    "kind": "unverified-claim",
+    "confidence": "high",
+    "caution": "Instrument, observation date and fee treatment are absent; it is not a current borrowing quote.",
+    "videoIds": [
+      "IfAA5Hy-8Zw"
+    ],
+    "topics": [
+      "debt-pricing"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N186",
+    "metric": "Group revenue and debt repayment forecast",
+    "value": "£32m revenue; debt-free in 4 years",
+    "context": "Northern Industries' sales are discussed alongside an expected future debt-free date.",
+    "kind": "mixed",
+    "confidence": "high",
+    "caution": "Reported revenue and a repayment forecast are different; the forecast is not proof of achieved deleveraging.",
+    "videoIds": [
+      "IfAA5Hy-8Zw"
+    ],
+    "topics": [
+      "amortization",
+      "roll-ups"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N187",
+    "metric": "Internal acquisitions before listing",
+    "value": "1–2 acquisitions",
+    "context": "Internal funding is considered for more acquisitions before another possible listing.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "No purchase prices or completed expansion are established.",
+    "videoIds": [
+      "IfAA5Hy-8Zw"
+    ],
+    "topics": [
+      "management",
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N188",
+    "metric": "Airline proposal",
+    "value": "5 airplanes; a few million of unspecified currency",
+    "context": "A third-party airline idea is discussed with a small fleet and possible Qatar-linked funding.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "Currency, instrument and commitment status are unclear.",
+    "videoIds": [
+      "IfAA5Hy-8Zw"
+    ],
+    "topics": [
+      "acquisition-process"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N189",
+    "metric": "Holding-company liquidity and income goal",
+    "value": "2m cash; 1.5–2m annual income; compared with 100m wealth",
+    "context": "Desired holding-company cash and income are compared with a much larger headline wealth figure.",
+    "kind": "opinion",
+    "confidence": "high",
+    "caution": "Currency is unstated and the lifestyle equivalence is subjective.",
+    "videoIds": [
+      "msevrkpgZSM"
+    ],
+    "topics": [
+      "cash-flow",
+      "equity-value"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N190",
+    "metric": "Claimed local economic impact",
+    "value": "40% of local GDP",
+    "context": "The speaker attributes a large local economic effect to investment in a forestry community.",
+    "kind": "unverified-claim",
+    "confidence": "high",
+    "caution": "Investment equal to a share of GDP does not demonstrate GDP grew by that share; no calculation supports the claim.",
+    "videoIds": [
+      "msevrkpgZSM"
+    ],
+    "topics": [
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N191",
+    "metric": "Steel acquisition target revenue",
+    "value": "About £22m",
+    "context": "A steel target is discussed after agreeing headline pricing and structure in an LOI.",
+    "kind": "proposed",
+    "confidence": "high",
+    "caution": "The figure is target revenue, not price; an LOI is not a completed acquisition.",
+    "videoIds": [
+      "vj-7A6Z_mag"
+    ],
+    "topics": [
+      "target-selection",
+      "loi",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N192",
+    "metric": "Revenue / debtor-book illustration",
+    "value": "12m revenue / 3m debtors",
+    "context": "A business selling steadily on long payment terms illustrates the cash tied up in receivables.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "Advance rates apply to eligible invoices, not annual sales; seasonality and collections can change the estimated debtor balance. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "18cB9LOaucs",
+      "Hvw5FAbRAZY"
+    ],
+    "topics": [
+      "sourcing",
+      "working-capital",
+      "receivables-finance"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N193",
+    "metric": "Receivable age eligibility",
+    "value": "90 days; day 91 excluded",
+    "context": "An invoice-age cut-off illustrates how collateral can become ineligible overnight.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "No identified bank policy establishes this as a universal 90-day rule. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "18cB9LOaucs"
+    ],
+    "topics": [
+      "working-capital",
+      "bank-debt",
+      "receivables-finance"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N194",
+    "metric": "Retention example",
+    "value": "1m project; 95% paid / 5% retained; 6 or 12 months",
+    "context": "A construction contract example withholds part of payment for a later release.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "Currency varies and release depends on contract terms; retention is not immediately available cash. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "18cB9LOaucs"
+    ],
+    "topics": [
+      "working-capital",
+      "due-diligence"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N195",
+    "metric": "Irish target accounts age",
+    "value": "2 years old",
+    "context": "The Irish target's initial screen uses accounts that are already old.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "Stale accounts limit confidence in current earnings, cash and collateral. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "18cB9LOaucs"
+    ],
+    "topics": [
+      "target-selection",
+      "due-diligence"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N196",
+    "metric": "Irish target balance sheet",
+    "value": "451,000 tangible assets; 500,000 cash; 950,000/952,000 debtors",
+    "context": "The Irish balance-sheet discussion distinguishes physical assets, cash and debtors.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "The speaker switches between pounds and euros; assigning euros to every amount would overstate certainty. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "18cB9LOaucs"
+    ],
+    "topics": [
+      "target-selection",
+      "working-capital",
+      "receivables-finance",
+      "collateral"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N197",
+    "metric": "Eligible trade debtors",
+    "value": "~€600,000",
+    "context": "Only part of the Irish debtor balance is described as trade receivables available for financing.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "Intercompany balances should not be assumed to qualify on the same basis as customer invoices. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "18cB9LOaucs"
+    ],
+    "topics": [
+      "working-capital",
+      "receivables-finance",
+      "roll-ups"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N198",
+    "metric": "Illustrative target capital stack",
+    "value": "€3m EBITDA; 4x price; 2x debt; €6m gap; 1x seller; €3m equity",
+    "context": "A thin-asset acquisition example divides the price among debt, seller funding and equity.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The structure is a scenario, not lender-approved terms for the target. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "18cB9LOaucs"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "valuation-multiples",
+      "capital-stack",
+      "investor-equity"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N199",
+    "metric": "Fundraising elapsed/hypothetical timeline",
+    "value": "Summer 2025–summer 2026; 12/15/18 months",
+    "context": "An unresolved fundraising effort is compared with several possible fundraising durations.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "The summer-to-summer elapsed interval differs from the hypothetical 12-, 15- and 18-month cases. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "18cB9LOaucs"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N200",
+    "metric": "Pre-IPO horizon",
+    "value": "Within 6 months of listing",
+    "context": "The original IPO Capital approach aimed to invest close to a possible listing.",
+    "kind": "target",
+    "confidence": "medium",
+    "caution": "The stated horizon is a strategy target, not a realized exit. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "kwRtKv_dUL0"
+    ],
+    "topics": [
+      "target-selection",
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N201",
+    "metric": "Expensive purchase example",
+    "value": "£1m EBITDA; 9x/£9m price; 7x/£7m equity; 2x/£2m debt",
+    "context": "An expensive acquisition can still have manageable debt payments when equity funds most of the price.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "Debt serviceability does not prove the equity investment is attractively priced. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "wd4Y23wruXU"
+    ],
+    "topics": [
+      "ebitda",
+      "valuation-multiples",
+      "investor-equity",
+      "debt-service",
+      "management"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N202",
+    "metric": "DSCR examples",
+    "value": "£90k/£100k=0.9x; £350k/£100k=3.5x",
+    "context": "Two cash-coverage calculations show how debt payments compare with available cash.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The second numerator is explicitly free cash flow; a coverage ratio is only as useful as its cash definition. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "wd4Y23wruXU"
+    ],
+    "topics": [
+      "cash-flow",
+      "valuation-multiples",
+      "debt-service"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N203",
+    "metric": "Loan repayment example",
+    "value": "£1m advanced; £1.35m total repaid; 3–5 years",
+    "context": "A repayment illustration compares the original advance with total cash paid over several years.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "£350k is aggregate finance cost in the example, not 35% annual interest or APR; payment timing is missing. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "wd4Y23wruXU"
+    ],
+    "topics": [
+      "debt-pricing",
+      "amortization"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N204",
+    "metric": "Other steel-group introduction",
+    "value": "£40m–50m revenue",
+    "context": "An introduction concerns another steel group of substantial revenue scale.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "The counterparty is unnamed and no agreed acquisition is established. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "wd4Y23wruXU"
+    ],
+    "topics": [
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N205",
+    "metric": "Irish earnings conflicting readings",
+    "value": "First call FY26 2.9 / FY25 2.8; later 2.8 / 2.7; elsewhere ~€3m EBITDA",
+    "context": "An Irish target's earnings are read out with conflicting figures during the calls.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "Neither set is established as audited; selecting or averaging them would hide the conflict. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "MwejQUah14Y"
+    ],
+    "topics": [
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N206",
+    "metric": "Irish indicative offer",
+    "value": "3.5x last two years earnings; 50–70% at closing",
+    "context": "An indicative Irish offer links price to average earnings and leaves part payable later.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "These are contemplated terms, not an approved purchase agreement. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "MwejQUah14Y"
+    ],
+    "topics": [
+      "acquisition-process",
+      "loi",
+      "ebitda",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N207",
+    "metric": "Irish desired cash stack",
+    "value": "€6m cash-flow debt + €1.2m equity = €7.2m",
+    "context": "The buyer sketches the borrowing and equity needed for an Irish cash-at-close requirement.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "The debt is desired funding, not an offer from a lender. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "MwejQUah14Y"
+    ],
+    "topics": [
+      "cash-flow",
+      "investor-equity"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N208",
+    "metric": "Irish equity percentage remark",
+    "value": "15–20%",
+    "context": "A broker gives a rough equity-percentage comment during the Irish financing discussion.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "The denominator is unclear; €1.2m divided by €7.2m describes only the proposed cash funding, not necessarily enterprise value. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "MwejQUah14Y"
+    ],
+    "topics": [
+      "brokers",
+      "investor-equity"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N209",
+    "metric": "Irish raise remark",
+    "value": "€12m",
+    "context": "A conversational fundraising amount is mentioned for the Irish opportunity.",
+    "kind": "target",
+    "confidence": "medium",
+    "caution": "It does not reconcile with the stated 3.5x earnings offer and could include unspecified uses; it is not an assured price. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "MwejQUah14Y"
+    ],
+    "topics": [
+      "target-selection",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N210",
+    "metric": "Existing entity ownership idea",
+    "value": "51%",
+    "context": "The buyer considers placing control in an existing Ventilation Ventures entity to strengthen the financing story.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "The ownership arrangement is an idea under discussion, not a completed restructuring. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "MwejQUah14Y"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N211",
+    "metric": "Seller handover",
+    "value": "2–3 years",
+    "context": "The sellers indicate willingness to remain involved for an extended handover.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "Willingness is not a signed employment or transition commitment. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "MwejQUah14Y"
+    ],
+    "topics": [
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N212",
+    "metric": "Recent prior acquisition earnings",
+    "value": "~€2m EBIT; no depreciation",
+    "context": "A recent HVAC acquisition is described through approximate EBIT and an absence of depreciation.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "That does not establish all EBITDA adjustments or reveal purchase consideration. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "MwejQUah14Y"
+    ],
+    "topics": [
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N213",
+    "metric": "HVAC target operating size",
+    "value": "£40m sales / 10% EBIT; £50m / 10% next year",
+    "context": "A prospective HVAC target is described using current revenue and a larger next-year sales forecast.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "The business was not yet acquired, and forecast earnings cannot be treated as achieved results. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "fOjSk3VYZdc"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N214",
+    "metric": "Steel concentration/cycle",
+    "value": "70% water exposure; 5-year AMP; peak years 2/3/4",
+    "context": "Water-sector exposure and its spending cycle are used to explain pressure on steel orders.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "The concentration and cycle pattern are the speaker's account, not independently checked revenue data. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "fOjSk3VYZdc",
+      "oU1cEFem6j0"
+    ],
+    "topics": [
+      "sourcing",
+      "customer-concentration"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N215",
+    "metric": "Control offer",
+    "value": "£2m equity for 51%; 49% retained",
+    "context": "A steel transaction proposal exchanges new equity for majority control while leaving a minority stake.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "A suggested perpetual revenue participation has no stated percentage or final contract. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "fOjSk3VYZdc"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N216",
+    "metric": "Preference waterfall",
+    "value": "US$500m raised at $5bn; 1x=$500m; 3x=$1.5bn",
+    "context": "A preference example shows how senior equity claims can reduce proceeds available to common shareholders.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The simplified waterfall omits participation and election terms; actual payouts require the investment contract. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "fOjSk3VYZdc"
+    ],
+    "topics": [
+      "valuation-multiples",
+      "preferred-equity",
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N217",
+    "metric": "Prospective closing work",
+    "value": "4–6 months",
+    "context": "The prospective acquisition is expected to require several more months of work.",
+    "kind": "forecast",
+    "confidence": "medium",
+    "caution": "The estimate is not a completed transaction duration. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "fOjSk3VYZdc"
+    ],
+    "topics": [
+      "acquisition-process"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N218",
+    "metric": "Group personnel",
+    "value": "~300 steel staff; <10 / ~7 HVAC staff",
+    "context": "Operating-company staff counts are contrasted with a very small sponsor-level team.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "The figures describe different organizational levels and are self-reported snapshots. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "vBUWZPT9YuI"
+    ],
+    "topics": [
+      "management",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N219",
+    "metric": "Entry valuation example",
+    "value": "£2.5m profit at 3–5x = £7.5m–£12.5m",
+    "context": "A range of entry multiples is applied to an illustrative earnings amount.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "This is not a quoted offer for a particular target. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "WBPmqD8jIKA"
+    ],
+    "topics": [
+      "target-selection",
+      "enterprise-value",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N220",
+    "metric": "Manufacturing margins",
+    "value": "7–15% typical; 25% exceptional; 25% to20%=20% less profit",
+    "context": "Typical-margin claims are combined with an example of profit sensitivity to a margin decline.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "The market range is unverified; 25% to 20% is five percentage points and a 20% profit decline only at constant revenue. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "WBPmqD8jIKA"
+    ],
+    "topics": [
+      "preferred-equity"
+    ],
+    "category": "Deal structure"
+  },
+  {
+    "id": "N221",
+    "metric": "Margin improvement example",
+    "value": "£25m sales; £2.5m EBITDA; +2 percentage points=£0.5m; new £3m (+20%)",
+    "context": "A modest margin improvement is applied to a fixed sales base to illustrate earnings growth.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The calculation assumes unchanged revenue and does not model the cost of achieving the improvement. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "WBPmqD8jIKA"
+    ],
+    "topics": [
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N222",
+    "metric": "Intern response",
+    "value": "~400 applications; select4",
+    "context": "A large intern applicant pool is described alongside a plan to select a much smaller team.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "Applications are reported activity; intended hires are still a target. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "fa2k4c1przg"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N223",
+    "metric": "Small-deal investor fit",
+    "value": "Under £/$/€2m–3m EV",
+    "context": "Smaller acquisition sizes are matched with affluent individuals rather than institutional investors.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "Currencies are alternatives and investor suitability cannot be inferred from deal size alone. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "LgKz1bxdCMM"
+    ],
+    "topics": [
+      "enterprise-value",
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N224",
+    "metric": "Magnus investor history",
+    "value": "2015 to2026 / 11 years",
+    "context": "Sey recounts a long relationship with Magnus as an investor.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "The elapsed relationship is not a fund duration, debt term or guaranteed future backing. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "LgKz1bxdCMM"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N225",
+    "metric": "Factory training",
+    "value": "Age17/18; 18-month STEP program",
+    "context": "A factory training programme illustrates investment in early-career operating capability.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "The ages and duration concern workforce development, not acquisition financing. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "r1hHXDVg4cQ"
+    ],
+    "topics": [
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N226",
+    "metric": "Steelway workforce/design backlog",
+    "value": "~200 employees; illustrative £5m work at design stage; up to6 months/30 iterations",
+    "context": "The factory discussion distinguishes employees, design-stage work and the time needed before production.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "Staff count is reported; £5m of design work is illustrative, and six months or 30 iterations are claimed ranges, not averages. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "r1hHXDVg4cQ"
+    ],
+    "topics": [
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N227",
+    "metric": "Northern scale/goals",
+    "value": "£35m current revenue; £100m/150m/200m goals",
+    "context": "Northern's reported sales are compared with several larger ambitions.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "The future amounts are revenue goals, not purchase prices, achieved earnings or equity values. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "r1hHXDVg4cQ"
+    ],
+    "topics": [
+      "target-selection",
+      "equity-value",
+      "valuation-multiples",
+      "investor-equity"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N228",
+    "metric": "Candidate size contrast",
+    "value": "£10m/12m/15m revenue versus £60m target",
+    "context": "Different target revenue sizes are contrasted in a discussion of acquisition strategy.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The amounts are company sales scales, not offered prices. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "r1hHXDVg4cQ"
+    ],
+    "topics": [
+      "target-selection"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N229",
+    "metric": "Australian buyer target",
+    "value": "$9m revenue / $2m earnings",
+    "context": "An Australian buyer's possible acquisition provides context for a personal-guarantee discussion.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "The dollar denomination is unspecified and no completed financing is established. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "zAlT_NNOb6U"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "personal-guarantees"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N230",
+    "metric": "Long ownership horizon",
+    "value": "10/15/20 years",
+    "context": "A long ownership horizon is advocated in contrast to seeking a rapid resale.",
+    "kind": "opinion",
+    "confidence": "medium",
+    "caution": "These are preference examples, not contractual investment maturities. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "zAlT_NNOb6U"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N231",
+    "metric": "Future ownership and scale",
+    "value": "10% fully diluted steel;35% HVAC; each£100m revenue/10% profit margin",
+    "context": "A future wealth scenario assumes lower diluted ownership and much larger operating groups.",
+    "kind": "target",
+    "confidence": "medium",
+    "caution": "The 10% and 35% stakes are future assumptions, not proof of actual dilution from reported current holdings. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "NOU9AVeHjhI"
+    ],
+    "topics": [
+      "target-selection"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N232",
+    "metric": "First acquisition search",
+    "value": ">2,000 businesses reviewed during2018–19",
+    "context": "Sey describes extensive first-deal screening and proposes an active broker-contact routine.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "The personal count differs from guidance to future buyers; screened businesses are not offers or acquisitions. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "v3SrYOEUs7Q",
+      "cBBwXTMtho4"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "brokers"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N233",
+    "metric": "Lender monitoring",
+    "value": "Monthly",
+    "context": "An unnamed bank is described as checking business figures every month.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "The account does not disclose the reporting covenant or identify the facility. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "v3SrYOEUs7Q"
+    ],
+    "topics": [
+      "bank-debt",
+      "covenants"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N234",
+    "metric": "Pipeline",
+    "value": "153 HVAC targets;~30 talks;2 offers;£1.4bn summed target revenue",
+    "context": "The HVAC sourcing funnel is summarized through candidates, conversations and offers.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "£1.4bn is the sum of candidate sales, not owned revenue, committed purchases or capital raised. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "VNXXyH4dr-I"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N235",
+    "metric": "High-price funding",
+    "value": "£3m price; £2m debt; £0.8m seller component implied; £0.2m equity",
+    "context": "A purchase-funding example leaves a seller-related amount between bank borrowing and equity.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The exact sentence does not explicitly call the £800k deferred; seller finance is suggested by context, not confirmed wording. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "investor-equity",
+      "seller-financing"
+    ],
+    "category": "Deal structure"
+  },
+  {
+    "id": "N236",
+    "metric": "Low-price funding",
+    "value": "£1.5m price; £1m debt; £0.3m seller; £0.2m equity",
+    "context": "A lower purchase price is shown with the same buyer equity but less borrowing and seller funding.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The comparison is illustrative and leaves taxes, fees and cash adjustments outside the stack. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N237",
+    "metric": "Forecast PBT",
+    "value": "FY2026 ~£1m",
+    "context": "An owned project business is expected to generate a stated pretax profit in FY2026.",
+    "kind": "forecast",
+    "confidence": "medium",
+    "caution": "The amount is a forecast, not a completed-year result. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N238",
+    "metric": "Management organic net profit forecast",
+    "value": "£5m by summer 2029; Sey counter-goal £15m",
+    "context": "Management's organic profit forecast is contrasted with a more ambitious sponsor goal.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "Neither includes future acquisitions; the £15m counter-goal is not management's forecast. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "target-selection",
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N239",
+    "metric": "NAV example",
+    "value": "£500k property – £400k mortgage = £100k",
+    "context": "A property example subtracts secured borrowing from asset value to explain net asset value.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The calculation is illustrative and omits selling costs and other liabilities. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "T3zG2Iaxy-k"
+    ],
+    "topics": [
+      "equity-value"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N240",
+    "metric": "Lead universe",
+    "value": "1,000 companies >£3m revenue",
+    "context": "A mentee reports building a large list of companies above a chosen revenue threshold.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "A lead universe is not a verified acquisition pipeline or a set of willing sellers. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "B0s_vWFC60U"
+    ],
+    "topics": [
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N241",
+    "metric": "Creative growth goal",
+    "value": "5–10m pounds/dollars/euros revenue",
+    "context": "A media acquisition idea is framed around reaching a particular annual-sales scale.",
+    "kind": "target",
+    "confidence": "medium",
+    "caution": "The currencies are alternatives and the amount is a goal, not existing revenue. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "B0s_vWFC60U"
+    ],
+    "topics": [
+      "target-selection"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N242",
+    "metric": "Example targets",
+    "value": "£12–12.5m sales / £1.5m earnings; £4m/£1m; £3m/£0.7m",
+    "context": "Oscar's screening discussion compares several possible targets by sales and earnings.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "The first target's revenue varies between £12m and £12.5m; none is established as acquired. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "cBBwXTMtho4"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N243",
+    "metric": "Six-target EBIT",
+    "value": "£15m day one",
+    "context": "Several prospective targets are combined to describe possible day-one group EBIT.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "Pipeline earnings become owned earnings only if the transactions complete. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "cBBwXTMtho4"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N244",
+    "metric": "Fee deferral alternative",
+    "value": "6 months",
+    "context": "Deferring compensation is suggested as one way for a sponsor to demonstrate commitment.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The period is a proposed arrangement, not a signed fee concession. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "cBBwXTMtho4"
+    ],
+    "topics": [
+      "buyer-equity",
+      "deferred-consideration"
+    ],
+    "category": "Deal structure"
+  },
+  {
+    "id": "N245",
+    "metric": "Commercial cleaning aspiration",
+    "value": "£250m sales, 10–15% margin, 60 targets over 5 years",
+    "context": "An ambitious cleaning roll-up is described through target count, sales, margins and time.",
+    "kind": "target",
+    "confidence": "medium",
+    "caution": "The quantities are an aspiration, not evidence of an operating group of that scale. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "cBBwXTMtho4"
+    ],
+    "topics": [
+      "target-selection"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N246",
+    "metric": "Peter project",
+    "value": "€0.5bn; 5–7 years; 4 offers",
+    "context": "A private project conversation combines reported offers with a large multiyear ambition.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "The €0.5bn metric is unspecified; it is not proved capital raised, family-office assets or an acquisition price. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "NnWl4wMoQhM"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N247",
+    "metric": "Swedish target group",
+    "value": "80m SEK turnover; 10% EBIT; 3 companies",
+    "context": "A caller describes the operating size of a Swedish three-company target group.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "The currency is clarified as SEK after an unclear phrase; the figures remain caller-reported. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "NnWl4wMoQhM"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N248",
+    "metric": "Owner-operator cutoff",
+    "value": "More than 5 owners undesirable; example 6/25 staff",
+    "context": "The speaker expresses discomfort with businesses dependent on numerous working owners.",
+    "kind": "opinion",
+    "confidence": "medium",
+    "caution": "The preferred owner count is a personal screening rule, not an objective valuation threshold. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "NnWl4wMoQhM"
+    ],
+    "topics": [
+      "preferred-equity",
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N249",
+    "metric": "3x3 fee package",
+    "value": "3% EV + 3-year accounting contract + 30% fee increase",
+    "context": "A sourcing arrangement combines a transaction fee with a longer accounting engagement and higher fees.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The package is a proposal, not established market pricing or an executed agreement. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "_CJLfixvoN4"
+    ],
+    "topics": [
+      "sourcing",
+      "enterprise-value",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N250",
+    "metric": "JV cash resources",
+    "value": "£50k/£100k/£150k; separate £80k example",
+    "context": "A joint-venture partner is imagined contributing cash that complements the sponsor's work.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The alternative amounts are examples, not available investor commitments. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "_CJLfixvoN4"
+    ],
+    "topics": [
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N251",
+    "metric": "Seller rollover",
+    "value": "70–80% buyer interest; example 75%",
+    "context": "A partial acquisition leaves the seller with a continuing minority interest.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "Rollover terms, governance and later liquidity still require agreement. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "_CJLfixvoN4"
+    ],
+    "topics": [
+      "rollover-equity",
+      "debt-pricing"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N252",
+    "metric": "Price bridge",
+    "value": "4x demanded vs 3x affordable => 75%",
+    "context": "Buying only part of the equity is suggested as a way to bridge a valuation disagreement.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "Paying three-fourths of a requested price does not by itself prove equal economics or full financing feasibility. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "_CJLfixvoN4"
+    ],
+    "topics": [
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N253",
+    "metric": "Call option",
+    "value": "Typically 5 years; illustrative 4x remainder",
+    "context": "A later call option is proposed for acquiring the seller's remaining shares.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "Timing and price are example terms, not an enforceable option shown in the collection. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "_CJLfixvoN4"
+    ],
+    "topics": [
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N254",
+    "metric": "JHC actual ownership",
+    "value": "75% first close; 25% bought ~2 years later",
+    "context": "Sey recounts buying a majority of JHC first and the remaining minority later.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "This historical sequence does not establish the price or terms of either step. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "_CJLfixvoN4"
+    ],
+    "topics": [
+      "acquisition-process",
+      "rollover-equity"
+    ],
+    "category": "Deal structure"
+  },
+  {
+    "id": "N255",
+    "metric": "Search runway",
+    "value": "£100k–£150k; £5k–£10k monthly; 5/10/20% holdco",
+    "context": "Search expenses are paired with a possible holding-company stake for an early backer.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The cash and percentage alternatives are proposed economics, not a standard search-fund agreement. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "_CJLfixvoN4"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N256",
+    "metric": "Search and portfolio horizon",
+    "value": "12–18 months first search; 3–7 businesses in 4–5 years",
+    "context": "A suggested first-search duration is combined with a pitch for acquiring several businesses over time.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "The search heuristic and the multiyear portfolio scenario are not achieved outcomes. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "_CJLfixvoN4"
+    ],
+    "topics": [
+      "investor-equity",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N257",
+    "metric": "Sector commitment",
+    "value": "10–15 years",
+    "context": "The speaker recommends choosing a sector one can remain interested in for many years.",
+    "kind": "opinion",
+    "confidence": "medium",
+    "caution": "The horizon expresses commitment, not a contracted investment term. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "oU1cEFem6j0"
+    ],
+    "topics": [
+      "target-selection"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N258",
+    "metric": "Guarantor/equity negotiation",
+    "value": "10/20/30% to cash investor; guarantor stake unspecified",
+    "context": "A negotiation example distinguishes providing cash from supporting a personal guarantee.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The guarantor's stake is unspecified, so the final ownership split cannot be calculated. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "KsnY8Gpnkl4"
+    ],
+    "topics": [
+      "investor-equity",
+      "personal-guarantees"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N259",
+    "metric": "Sponsor/investor share split",
+    "value": "Sponsor20–50%; equity50–80%",
+    "context": "A first acquisition is discussed as a negotiation between sponsor work and investor capital.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "The ranges are heuristics; actual rights, dilution and contributions determine the agreement. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "KsnY8Gpnkl4",
+      "NTa6kB7cGg0"
+    ],
+    "topics": [
+      "sourcing",
+      "buyer-equity",
+      "investor-equity"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N260",
+    "metric": "Growth forecast",
+    "value": "Add £10m steel revenue by Q1 2026; £100m goal Q1",
+    "context": "Steel expansion is projected to add revenue by a stated future quarter.",
+    "kind": "target",
+    "confidence": "medium",
+    "caution": "The amounts and date are ambitions from the episode, not verified completed growth. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "KsnY8Gpnkl4"
+    ],
+    "topics": [
+      "target-selection"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N261",
+    "metric": "Term sheet",
+    "value": "6–12 pages; 2/4/6 month exclusivity; £10/20/50m capital examples",
+    "context": "A generic term sheet is described through document length, exclusivity and sample funding sizes.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "Page counts vary across episodes; exclusivity may bind even when commercial terms do not, and no live amount is established. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "KsnY8Gpnkl4"
+    ],
+    "topics": [
+      "loi"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N262",
+    "metric": "PG deal ownership",
+    "value": "50%",
+    "context": "Sey describes an acquisition involving a personal guarantee and a later refinancing.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "A 50% ownership account does not establish the guarantee's scope or terms of release. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "KsnY8Gpnkl4"
+    ],
+    "topics": [
+      "personal-guarantees",
+      "refinancing"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N263",
+    "metric": "Step-growth examples",
+    "value": "£9m+£7m=>£16m; +£36m=>£45m",
+    "context": "Adding different target revenues illustrates step changes in platform scale.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The alternatives are separate arithmetic examples and should not be added into one acquisition history. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "XC-Nls8KhCI"
+    ],
+    "topics": [
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N264",
+    "metric": "Sourcing starter cadence",
+    "value": "10 facilities-management targets in 8 days; £60 registration",
+    "context": "A mentee is given a short sourcing assignment alongside a company-registration cost mentioned at the time.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "The target count is an assignment; £60 is a historical quote, not a verified current fee. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "XC-Nls8KhCI"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing",
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N265",
+    "metric": "Portfolio valuation illustration",
+    "value": "£100m revenue;10%/£10m earnings;7–10x=>£70–100m EV",
+    "context": "A group revenue and margin assumption is converted into enterprise value using alternative earnings multiples.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The calculation is a valuation scenario, not an executable exit price. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "VmRqlJuqCs8"
+    ],
+    "topics": [
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N266",
+    "metric": "Equity value illustration",
+    "value": "£70m EV–£20m debt=£50m equity;20%=>£10m stake",
+    "context": "Debt is deducted from enterprise value before applying a minority ownership percentage.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The resulting stake value is hypothetical and illiquid, not cash proceeds or personal spendable wealth. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "VmRqlJuqCs8"
+    ],
+    "topics": [
+      "enterprise-value",
+      "equity-value",
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N267",
+    "metric": "LBO funding",
+    "value": "£3.5m price/£1m earnings;£2.5m bank+£0.5m equity+£0.5m seller",
+    "context": "A worked leveraged buyout combines bank debt, seller financing and outside equity.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The example does not establish actual availability of any funding component. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "VmRqlJuqCs8",
+      "mh1tKwDlnaE"
+    ],
+    "topics": [
+      "sourcing",
+      "ebitda",
+      "capital-stack",
+      "leverage",
+      "investor-equity",
+      "bank-debt"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N268",
+    "metric": "Bank amortization",
+    "value": "5 years,20%/£500k principal annually",
+    "context": "The bank portion of the worked buyout is repaid through equal annual principal instalments.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The schedule is an assumption; actual amortization may differ. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "VmRqlJuqCs8"
+    ],
+    "topics": [
+      "bank-debt",
+      "amortization"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N269",
+    "metric": "Interest pricing",
+    "value": "5% purported LIBOR +5%=10%;£250k year1",
+    "context": "A base-plus-margin interest illustration is applied to the assumed bank borrowing.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The speaker's LIBOR and central-bank explanation is erroneous; 10% is an assumed rate, not a current benchmark or facility quote. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "VmRqlJuqCs8"
+    ],
+    "topics": [
+      "debt-pricing"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N270",
+    "metric": "Cash residue",
+    "value": "£1m–£500k–£250k–£100k=£150k",
+    "context": "Bank principal, bank interest and seller payments are subtracted from the example's earnings.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The £150k remainder omits taxes, capital expenditure, working capital and hiring, so it is not proven distributable cash. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "VmRqlJuqCs8"
+    ],
+    "topics": [
+      "adjusted-ebitda",
+      "cash-flow",
+      "debt-service"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N271",
+    "metric": "Target pipeline",
+    "value": "5 companies;1 near lawyer kickoff,4 behind",
+    "context": "The speaker describes a five-target pipeline with one opportunity further along in legal preparation.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "Progress toward lawyers is not completion or a committed acquisition. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "iuC8eRD77I8"
+    ],
+    "topics": [
+      "target-selection",
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N272",
+    "metric": "Term-sheet length",
+    "value": "2–3 pages",
+    "context": "A short term sheet is offered as a generic document-format example.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "Another episode suggests longer documents; neither establishes a mandatory or legal page count. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "iuC8eRD77I8"
+    ],
+    "topics": [
+      "acquisition-process"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N273",
+    "metric": "Guest real estate return views",
+    "value": "Reject3%; city1–2%",
+    "context": "A guest discusses property-yield levels they find unattractive.",
+    "kind": "opinion",
+    "confidence": "medium",
+    "caution": "The figures are investment opinions with a loosely defined cost basis, not verified market yields. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "u3ZPPxS3NJ4"
+    ],
+    "topics": [
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N274",
+    "metric": "Acquisition size examples",
+    "value": "3–5x own size; 10x scale goal",
+    "context": "A guest uses relative size examples to argue for acquisition-led operating growth.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "Size ratios are strategic illustrations, not completed transaction performance. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "u3ZPPxS3NJ4"
+    ],
+    "topics": [
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N275",
+    "metric": "CEO setup period",
+    "value": "~12months",
+    "context": "A chief executive's early period is described as time spent establishing the role.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "A reported ramp-up interval is not a universal management timetable. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "x-BdgrSknEw"
+    ],
+    "topics": [
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N276",
+    "metric": "Unclear success-fee proposal",
+    "value": "3% first$10m;1% above$10m",
+    "context": "A fragment of conversation sets out a stepped success-fee percentage.",
+    "kind": "proposed",
+    "confidence": "low",
+    "caution": "The service and counterparty are unknown; it cannot be classified as a debt-broker fee, carried interest or signed contract. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "x-BdgrSknEw"
+    ],
+    "topics": [
+      "acquisition-process"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N277",
+    "metric": "Bank shopping",
+    "value": "20–30 banks",
+    "context": "The financing search is described as requiring approaches to many banks.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "A suggested outreach count does not imply any bank will approve the transaction. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "lGkWzEfsu_c"
+    ],
+    "topics": [
+      "brokers",
+      "bank-debt"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N278",
+    "metric": "Target example",
+    "value": "£10–15m sales,10% margin,2–3years earnings history",
+    "context": "A pitch example describes an established target with meaningful sales, margin and earnings history.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The numbers are a presentation scenario, not verified accounts for an identified business. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "lGkWzEfsu_c"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N279",
+    "metric": "Sukuk tenor",
+    "value": "5–7years",
+    "context": "A guest briefly discusses a possible tenor in an explanation of Sukuk.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "The aside does not define all Sukuk structures or demonstrate acquisition borrowing. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "mh1tKwDlnaE"
+    ],
+    "topics": [
+      "debt-pricing"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N280",
+    "metric": "Investor shares",
+    "value": "20/25/30/40/50%, potentially80%",
+    "context": "Alternative investor ownership percentages illustrate the range of possible equity negotiations.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "No single split is prescribed or shown as a completed agreement. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "mh1tKwDlnaE"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N281",
+    "metric": "Partner support",
+    "value": "Next2–3 acquisitions",
+    "context": "A partner voices an intention to support several future acquisitions.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "Verbal support is not committed capital or a binding obligation. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "mh1tKwDlnaE"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N282",
+    "metric": "Future ownership horizon",
+    "value": "20–22years",
+    "context": "A long holding period underpins a conditional wealth-building thesis.",
+    "kind": "target",
+    "confidence": "medium",
+    "caution": "The horizon and future result are aspirations, not realized performance. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "eKGCCawHqjk"
+    ],
+    "topics": [
+      "target-selection",
+      "equity-value"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N283",
+    "metric": "Oldest acquired business",
+    "value": "160years trading",
+    "context": "The age of an acquired business is used to illustrate operating durability.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "A long trading history does not guarantee future survival or credit quality. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "yB-Z25dC_OU"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N284",
+    "metric": "Portfolio construction goal",
+    "value": "7–20HVAC companies;£5m+sales;~1,000 candidates",
+    "context": "An HVAC roll-up ambition is paired with an estimate of the available target universe.",
+    "kind": "mixed",
+    "confidence": "medium",
+    "caution": "The candidate count is unsupported and the desired portfolio has not been established as built. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "-hqVGkoT0dQ"
+    ],
+    "topics": [
+      "target-selection",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N285",
+    "metric": "Capital leverage example",
+    "value": "£5m equity +£10–15m debt=>up to£20m purchasing",
+    "context": "Equity is combined with borrowing to illustrate a larger acquisition budget.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "Borrowing capacity, fees and cash needs must be established before treating the total as purchasing power. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "-hqVGkoT0dQ"
+    ],
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "investor-equity"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N286",
+    "metric": "Acquisition example",
+    "value": "£10m sales;£1m PBT;£4.5m price;£2.5m bank+£1m equity+£1m seller",
+    "context": "A purchase example allocates the price among bank debt, investor cash and seller consideration.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The operating profit and financing are assumptions rather than approved transaction terms. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "-hqVGkoT0dQ"
+    ],
+    "topics": [
+      "ebitda",
+      "investor-equity",
+      "bank-debt"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N287",
+    "metric": "Seller payment",
+    "value": "£3.5m closing;£1m over2–4years;£250k/year four-year case",
+    "context": "The same example separates completion cash from later seller instalments.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The four-year repayment arithmetic is one option within a wider proposed timing range. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "-hqVGkoT0dQ"
+    ],
+    "topics": [
+      "acquisition-process",
+      "deferred-consideration"
+    ],
+    "category": "Deal structure"
+  },
+  {
+    "id": "N288",
+    "metric": "Seagull disruption",
+    "value": "~2months site closure;at least£0.5m work",
+    "context": "A site disruption involving seagulls is described as affecting several months of work.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "The account does not distinguish permanently lost revenue, lost profit and delayed invoicing; the amount is not a verified profit loss. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "-hqVGkoT0dQ",
+      "v3SrYOEUs7Q"
+    ],
+    "topics": [
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N289",
+    "metric": "Document-length illustration",
+    "value": "LOI ~2 pages; SPA 60–70; full package 1,000 normal / 3,000 large",
+    "context": "The speaker contrasts short headline agreements with lengthy legal documentation packages.",
+    "kind": "unverified-claim",
+    "confidence": "medium",
+    "caution": "Page counts are broad estimates, not required document lengths or a verified deal inventory. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "byJSV1CEYBk"
+    ],
+    "topics": [
+      "loi"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N290",
+    "metric": "Irish earnings normalization",
+    "value": "~€3m to €2.6m",
+    "context": "The Irish offer discussion lowers the earnings base used for valuation.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "The revised €2.6m is not an audited correction and must be read alongside conflicting earlier earnings figures. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "akgHprIWcZU"
+    ],
+    "topics": [
+      "ebitda",
+      "adjusted-ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N291",
+    "metric": "Margin sensitivity claim",
+    "value": "25–28% to 20%; >€1m earnings lost; 4x -> €4m EV loss",
+    "context": "A margin downside example is translated into a possible loss of enterprise value.",
+    "kind": "hypothetical",
+    "confidence": "low",
+    "caution": "At revenue below €10m, a five-to-eight-point margin fall implies less than €0.5m–€0.8m, so the claimed loss above €1m is unsupported. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "akgHprIWcZU"
+    ],
+    "topics": [
+      "ebitda",
+      "enterprise-value",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N292",
+    "metric": "Refurbishment target",
+    "value": "£30m revenue; £2m earnings",
+    "context": "A refurbishment business is considered as an acquisition candidate using sales and earnings figures.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "The target was under review, not purchased. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "akgHprIWcZU"
+    ],
+    "topics": [
+      "target-selection",
+      "ebitda"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N293",
+    "metric": "Suggested minimum ticket",
+    "value": "€100,000",
+    "context": "A minimum investor cheque is suggested when discussing fundraising.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "The claimed regulatory inspiration is uncertain; €100,000 is not established here as a legal eligibility requirement. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "NTa6kB7cGg0"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N294",
+    "metric": "Search runway illustration",
+    "value": "£5k x 12 = £60k; x 18 = £90k; 20% holdco",
+    "context": "A monthly search budget is multiplied by alternative search periods and paired with a holdco stake.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The arithmetic is illustrative; 20% is proposed search compensation, not a standard term or acquisition valuation. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "tZBRCa9EW3A"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N295",
+    "metric": "Search goal",
+    "value": "12–18 months; £5m–£10m revenue at ~10% margin",
+    "context": "A proposed search aims to find an established business within a defined revenue and margin range.",
+    "kind": "target",
+    "confidence": "medium",
+    "caution": "The timetable and operating profile are objectives, not assured results. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "tZBRCa9EW3A"
+    ],
+    "topics": [
+      "target-selection"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N296",
+    "metric": "Actual search capitalization",
+    "value": "DKK600k; ~US$90k then/~$100k today; 50/50 ownership",
+    "context": "Sey describes the original Danish-krone capital used to fund an equally owned search vehicle.",
+    "kind": "reported-actual",
+    "confidence": "medium",
+    "caution": "Dollar equivalents are approximate speaker conversions; this is search capital, not acquisition equity or current foreign-exchange data. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "tZBRCa9EW3A"
+    ],
+    "topics": [
+      "acquisition-entrepreneurship"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N297",
+    "metric": "Acquisition equity tickets",
+    "value": "£100k, £250k, £500k",
+    "context": "Different cheque sizes illustrate possible acquisition-equity investor participation.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The figures do not document subscriptions or establish regulatory investor categories. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "tZBRCa9EW3A"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N298",
+    "metric": "Revenue covenant example",
+    "value": "£12m annual / £1m monthly; 20% deviation; £800k floor",
+    "context": "A revenue covenant example turns annual sales into a monthly floor after a permitted decline.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "This is neither a debt-service nor leverage covenant and is not taken from an executed facility. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "je7CsLaUm8w"
+    ],
+    "topics": [
+      "covenants"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N299",
+    "metric": "Private-credit scale claim",
+    "value": "Hundreds of billions of dollars; growth over 25–30 years",
+    "context": "The speaker tentatively describes the size and history of private credit.",
+    "kind": "unverified-claim",
+    "confidence": "low",
+    "caution": "The hesitant figures lack a dataset and date; they cannot support a current market-size claim. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "je7CsLaUm8w"
+    ],
+    "topics": [
+      "private-credit"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N300",
+    "metric": "CEO phased pay",
+    "value": "1/3 first acquisition; 2/3 second; full third",
+    "context": "A chief executive's pay is imagined increasing as further acquisitions create salary capacity.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The fractions do not specify a cash salary or a signed employment arrangement. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "NWQKr-gqNhc"
+    ],
+    "topics": [
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N301",
+    "metric": "CEO equity vesting",
+    "value": "15% over 3 years; 5% at 1-year cliff",
+    "context": "An equity incentive example introduces vesting with a first-year cliff.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "Later vesting timing, dilution basis and actual agreed CEO terms are not supplied. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "NWQKr-gqNhc"
+    ],
+    "topics": [
+      "acquisition-process",
+      "due-diligence",
+      "investor-equity",
+      "management"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N302",
+    "metric": "Target search parameters",
+    "value": "3 hours weekdays; £3m–£5m revenue filter; 2–4x profit offer",
+    "context": "A regular weekday search routine is paired with revenue filters and an opening valuation range.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "The schedule and multiples are suggested working habits, not a guarantee of suitable deals. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "p3EX7IpcYd0"
+    ],
+    "topics": [
+      "target-selection",
+      "valuation-multiples"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N303",
+    "metric": "Danish lead profit",
+    "value": "About £300k",
+    "context": "A Danish prospect's approximate earnings are mentioned before a planned visit is cancelled.",
+    "kind": "proposed",
+    "confidence": "medium",
+    "caution": "No purchase or completed diligence is established. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "p3EX7IpcYd0"
+    ],
+    "topics": [
+      "sourcing"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N304",
+    "metric": "IT financing gap",
+    "value": "8x price; 2–2.5x debt; 5.5–6x equity",
+    "context": "A high-multiple IT purchase leaves a large equity requirement after assumed bank borrowing.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The residual holds only without seller finance, fees or cash adjustments; the numbers are earnings multiples, not capital percentages. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "zRh8i5uPjA0"
+    ],
+    "topics": [
+      "valuation-multiples",
+      "investor-equity",
+      "deferred-consideration"
+    ],
+    "category": "Understanding the numbers"
+  },
+  {
+    "id": "N305",
+    "metric": "Magnus real estate",
+    "value": "~US$150m Denmark property",
+    "context": "A statement about Magnus's property holdings supports an anecdote about Danish financing difficulties.",
+    "kind": "unverified-claim",
+    "confidence": "medium",
+    "caution": "The amount is unverified and does not establish liquid wealth, available acquisition equity or a lending commitment. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "zRh8i5uPjA0"
+    ],
+    "topics": [
+      "bank-debt"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N306",
+    "metric": "Standby capital/acquisition model",
+    "value": "$100m; 5x price=2x equity+2x debt+1x seller; $500m revenue at 10% margins",
+    "context": "A scaled portfolio scenario combines standby equity, bank borrowing and seller finance with assumed margins.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The source mixes currencies and the capital is hypothetical; calculated purchasing scale is not money raised or a completed portfolio. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "Vy-GvO4SGvI"
+    ],
+    "topics": [
+      "target-selection",
+      "valuation-multiples",
+      "investor-equity",
+      "roll-ups"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N307",
+    "metric": "Deployment/closing ambition",
+    "value": "10–12 months capital deployment; 90 days each close",
+    "context": "An equity-first strategy proposes a rapid deployment period and repeated short closing timetables.",
+    "kind": "target",
+    "confidence": "medium",
+    "caution": "These are execution ambitions, not demonstrated deal durations or committed deployment. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "Vy-GvO4SGvI"
+    ],
+    "topics": [
+      "acquisition-process",
+      "target-selection",
+      "investor-equity"
+    ],
+    "category": "Finding deals"
+  },
+  {
+    "id": "N308",
+    "metric": "Operating/deleveraging forecast",
+    "value": "10% EBITDA margin; ~£3.5m earnings in 2 years; debt-free 3.5–4 years; ~£2.5m net FCF",
+    "context": "An operating plan combines future earnings, free cash flow and a hoped-for debt-free date.",
+    "kind": "forecast",
+    "confidence": "medium",
+    "caution": "No reconciled model connects the figures through taxes, capital expenditure, working capital and loan terms. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "Vy-GvO4SGvI"
+    ],
+    "topics": [
+      "ebitda",
+      "amortization"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N309",
+    "metric": "Failed listed-company timing",
+    "value": "Bankrupt 10 months after listing; case after ~12 years",
+    "context": "An unnamed third-party story describes insolvency after a listing and a much later legal case.",
+    "kind": "unverified-claim",
+    "confidence": "low",
+    "caution": "The account is unverified and is not established as Sey's acquisition; the two periods concern different stages. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "9-mOvWiyYZw"
+    ],
+    "topics": [
+      "returns-and-exits"
+    ],
+    "category": "Operating and exits"
+  },
+  {
+    "id": "N310",
+    "metric": "Financing proportion heuristics",
+    "value": "Bank 50–60%, up to70%; seller10–30%; equity10–30%",
+    "context": "Broad financing ranges are proposed for the bank, seller and equity portions of a purchase.",
+    "kind": "rule-of-thumb",
+    "confidence": "medium",
+    "caution": "The ranges cannot all be maximized together; an actual capital stack must total 100%. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "eN6nVKlUu3c"
+    ],
+    "topics": [
+      "investor-equity",
+      "bank-debt"
+    ],
+    "category": "Financing"
+  },
+  {
+    "id": "N311",
+    "metric": "Claimed Bezos AI manufacturing fund",
+    "value": "$100bn",
+    "context": "A question introduces a purported Bezos-linked AI and manufacturing fund.",
+    "kind": "unverified-claim",
+    "confidence": "low",
+    "caution": "The premise is not verified evidence of a real fund, Sey fundraising or acquisition credit. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "eN6nVKlUu3c"
+    ],
+    "topics": [
+      "investor-equity"
+    ],
+    "category": "Fundamentals"
+  },
+  {
+    "id": "N312",
+    "metric": "Equipment depreciation illustration",
+    "value": "£300k machine,10-year life,£30k/year",
+    "context": "A machine's cost is spread evenly across an assumed useful life to explain book depreciation.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "The calculation assumes no residual value; accounting depreciation does not determine liquidation value. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "Hvw5FAbRAZY"
+    ],
+    "topics": [
+      "preferred-equity",
+      "asset-based-lending"
+    ],
+    "category": "Deal structure"
+  },
+  {
+    "id": "N313",
+    "metric": "Collateral/appraisal illustration",
+    "value": "£1m book -> £800k ex-factory over120days;50–80%advance;£640k at80%",
+    "context": "An asset appraisal is reduced by a lending advance percentage to estimate collateral funding.",
+    "kind": "hypothetical",
+    "confidence": "medium",
+    "caution": "£640k is 80% of the £800k appraisal, not of book value; 120 days concerns disposal, not loan maturity. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "videoIds": [
+      "Hvw5FAbRAZY"
+    ],
+    "topics": [
+      "asset-based-lending",
+      "collateral"
+    ],
+    "category": "Financing"
+  }
+]

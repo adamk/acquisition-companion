@@ -1,0 +1,1678 @@
+{
+  "N001": {
+    "kind": "educational",
+    "context": "The guest contrasts a long operating career in one acquired company with repeated acquisitions.",
+    "caution": "These are possible tenures, not measured search-fund outcomes."
+  },
+  "N002": {
+    "kind": "personal-experience",
+    "context": "Sey describes a steel portfolio shrinking after two operating companies failed.",
+    "caution": "Revenue dates and company counts are self-reported snapshots, not audited totals."
+  },
+  "N003": {
+    "kind": "personal-experience",
+    "context": "The discussion adds the sales of UK and West African businesses to describe portfolio scale.",
+    "caution": "Sales are not personal wealth; the dollar equivalent is approximate."
+  },
+  "N004": {
+    "kind": "personal-experience",
+    "context": "Several episodes describe Sey as a minority steel shareholder alongside Magnus and other investors.",
+    "caution": "Accounts differ between 31 and 32 shareholders; ownership percentages and dates do not fully reconcile."
+  },
+  "N005": {
+    "kind": "mixed",
+    "context": "HVAC sales and ownership are described across both a prospective acquisition and a later reported completion.",
+    "caution": "The two companies had no common holding company; some revenue statements omit currency and cannot establish a single dated cap table."
+  },
+  "N006": {
+    "kind": "personal-experience",
+    "context": "A monthly repayment burden motivates Sey's preference for a longer repayment schedule.",
+    "caution": "The payment is not separated into interest and principal."
+  },
+  "N007": {
+    "kind": "personal-experience",
+    "context": "Sey describes a major loss and working-capital problem in the West African businesses.",
+    "caution": "No identified transaction or detailed financing terms support the account."
+  },
+  "N008": {
+    "kind": "rule-of-thumb",
+    "context": "Sey argues for a modest entry price relative to annual earnings.",
+    "caution": "This is his valuation preference, not a market-wide fair-price range."
+  },
+  "N009": {
+    "kind": "hypothetical",
+    "context": "A purchase-price example combines bank funding, deferred seller payment and investor equity.",
+    "caution": "The illustrated stack does not describe a completed Stanley acquisition."
+  },
+  "N010": {
+    "kind": "hypothetical",
+    "context": "Two holding periods show why an identical cash gain can imply very different investment performance.",
+    "caution": "The discussion does not calculate an annualized IRR."
+  },
+  "N011": {
+    "kind": "rule-of-thumb",
+    "context": "The suggested holding period allows time to invest, realize value and repay investors.",
+    "caution": "Actual liquidity depends on distributions and an achievable exit."
+  },
+  "N012": {
+    "kind": "target",
+    "context": "The HVAC platform proposes raising institutional capital in successive deployment tranches.",
+    "caution": "A fundraising ambition is not committed or received money."
+  },
+  "N013": {
+    "kind": "personal-experience",
+    "context": "Steelway's growth is described using several revenue endpoints in different episodes.",
+    "caution": "The stated 50% increase conflicts with £12m to £20m–£21m, which implies about 67%–75%; £22m and £26m are separate snapshots.",
+    "topics": [
+      "roll-ups"
+    ]
+  },
+  "N014": {
+    "kind": "mixed",
+    "context": "Historic pretax earnings are adjusted downward when discussing a sustainable HVAC earnings base.",
+    "caution": "Later statements include both results and forecasts; PBT and EBITDA are different measures and the company name is uncertain."
+  },
+  "N015": {
+    "kind": "personal-experience",
+    "context": "The account combines balance-sheet cash with an apparent seller-funded component.",
+    "caution": "Missing terms prevent reconstruction of the complete purchase price and funding stack."
+  },
+  "N016": {
+    "kind": "unverified-claim",
+    "context": "The speaker uses listing and completion estimates to argue for direct owner outreach.",
+    "caution": "No dataset is supplied; a one-in-five completion claim cannot establish that a particular seller will wait five years.",
+    "topics": [
+      "sourcing"
+    ]
+  },
+  "N017": {
+    "kind": "rule-of-thumb",
+    "context": "The HVAC search uses an annual-sales band to narrow suitable targets.",
+    "caution": "A screening preference does not prove availability, quality or financeability."
+  },
+  "N018": {
+    "kind": "rule-of-thumb",
+    "context": "The preferred target scale is intended to leave room for a professional management salary.",
+    "caution": "A later steel screen also mentions £0.5m–£1m pretax profit; turnover alone cannot establish management affordability."
+  },
+  "N019": {
+    "kind": "personal-experience",
+    "context": "Sey compares the sales scale of his smallest purchase with a larger business that subsequently grew.",
+    "caution": "One garbled large number is restated as £12m; acquisition revenue and later revenue refer to different dates.",
+    "topics": [
+      "acquisition-entrepreneurship"
+    ]
+  },
+  "N020": {
+    "kind": "personal-experience",
+    "context": "Sey describes a precise minority interest in Northern Industries and a multi-investor ownership structure.",
+    "caution": "Other episodes use 32 shareholders and rounded stakes; do not combine those into a definitive current cap table."
+  },
+  "N021": {
+    "kind": "hypothetical",
+    "context": "An insolvency illustration compares owner compensation with an alternative annual salary.",
+    "caution": "Currencies switch and totals are unclear; the associated legal proposition is unverified."
+  },
+  "N022": {
+    "kind": "proposed",
+    "context": "A difficult refinancing search is described through elapsed time, bank rejections and tentative interest.",
+    "caution": "Positive responses are not a closing; the anticipated date was October 2026."
+  },
+  "N023": {
+    "kind": "personal-experience",
+    "context": "Sey contrasts earlier bank leverage expectations with a more difficult refinancing request.",
+    "caution": "The earnings denominator switches between EBIT and EBITDA, limiting comparability."
+  },
+  "N024": {
+    "kind": "educational",
+    "context": "The discussion describes a lender's internal credit decision meetings.",
+    "caution": "Meeting frequency is an example of process, not a timetable promised by every bank.",
+    "topics": [
+      "bank-debt"
+    ]
+  },
+  "N025": {
+    "kind": "rule-of-thumb",
+    "context": "Listed and directly sourced deals are contrasted by the amount of introductory material available.",
+    "caution": "Page counts are preparation examples, not evidence that the information is sufficient."
+  },
+  "N026": {
+    "kind": "proposed",
+    "context": "A family office is approached about contributing equity to the HVAC platform.",
+    "caution": "This was a proposed equity investment, not a closed private-credit facility."
+  },
+  "N027": {
+    "kind": "mixed",
+    "context": "An LNG fundraising conversation begins with estimates of project cost and remaining equity needs.",
+    "caution": "The prospect later describes oversubscription, contradicting the initial funding-gap picture."
+  },
+  "N028": {
+    "kind": "rule-of-thumb",
+    "context": "The speaker anchors an offer to a short history of average earnings.",
+    "caution": "His preferred ceiling changes in later discussions of distressed businesses."
+  },
+  "N029": {
+    "kind": "rule-of-thumb",
+    "context": "Revenue and margin examples describe the sort of established company the speaker wants to buy.",
+    "caution": "Currency is absent in parts of the discussion; these are search preferences, not verified financials."
+  },
+  "N030": {
+    "kind": "hypothetical",
+    "context": "An ownership illustration separates the initial repayment years from a later debt-free period.",
+    "caution": "No named loan's repayment schedule is established."
+  },
+  "N031": {
+    "kind": "mixed",
+    "context": "External financial diligence is treated as a cash expense that can arise before completion.",
+    "caution": "Quoted fee examples are historical; one later case followed unreliable management accounts and a bank requirement."
+  },
+  "N032": {
+    "kind": "rule-of-thumb",
+    "context": "The buyer is encouraged to compare bank movements with a history of monthly accounts.",
+    "caution": "Suggested review periods vary; document volume alone does not establish reliable earnings."
+  },
+  "N033": {
+    "kind": "rule-of-thumb",
+    "context": "The speaker expects many legal diligence questions to receive incomplete responses.",
+    "caution": "A response percentage is not a legal test for whether diligence is adequate."
+  },
+  "N034": {
+    "kind": "personal-experience",
+    "context": "A customer departure is used to explain why a purchase fell apart shortly before completion.",
+    "caution": "Episodes report 20% and 25%–30% lost revenue; it is unclear whether the same event and measurement are intended."
+  },
+  "N035": {
+    "kind": "personal-experience",
+    "context": "A failed acquisition attempt is described as a relatively large revenue business.",
+    "caution": "The spoken amount does not specify a currency."
+  },
+  "N036": {
+    "kind": "personal-experience",
+    "context": "Oscar's company-review work is offered as evidence of preparation when speaking to investors.",
+    "caution": "Reviewing targets does not mean acquiring them."
+  },
+  "N037": {
+    "kind": "rule-of-thumb",
+    "context": "The seller is asked to accept a meaningful payment at completion and a multiyear deferred balance.",
+    "caution": "The preferred split differs from the separate 75% upfront illustration."
+  },
+  "N038": {
+    "kind": "hypothetical",
+    "context": "A simple offer splits the headline price between completion cash and later consideration.",
+    "caution": "Fixed deferral and an earn-out have different payment conditions and are not interchangeable."
+  },
+  "N039": {
+    "kind": "rule-of-thumb",
+    "context": "Bank debt is discussed as one portion of a small-company purchase-price stack.",
+    "caution": "The earnings definition is loose; the ratios are commentary, not lending commitments."
+  },
+  "N040": {
+    "kind": "hypothetical",
+    "context": "A buyer challenges an earnings adjustment that removes marketing expenditure.",
+    "caution": "Removing a cost on paper does not show the business can operate without it."
+  },
+  "N041": {
+    "kind": "hypothetical",
+    "context": "A large corporate acquisition is used to explain the purpose of a break fee.",
+    "caution": "The size and structure are not presented as normal requirements for small acquisitions."
+  },
+  "N042": {
+    "kind": "hypothetical",
+    "context": "A warranty example sets a threshold for disclosing legal claims.",
+    "caution": "Pounds and dollars are used inconsistently; no executed agreement is shown."
+  },
+  "N043": {
+    "kind": "rule-of-thumb",
+    "context": "Recruitment is presented as a possible upfront search payment followed by a success-related fee.",
+    "caution": "Currencies and fee structures vary; no specific recruiter contract is established."
+  },
+  "N044": {
+    "kind": "rule-of-thumb",
+    "context": "Forward budgets are proposed to test possible operating outcomes after buying a business.",
+    "caution": "A planning horizon does not make a forecast reliable.",
+    "topics": [
+      "cash-flow"
+    ]
+  },
+  "N045": {
+    "kind": "mixed",
+    "context": "Sey compares reported HVAC sales with a much larger end-2026 revenue ambition.",
+    "caution": "£100m is a target for HVAC alone, not achieved revenue; the spoken time remaining is corrected from weeks to months."
+  },
+  "N046": {
+    "kind": "proposed",
+    "context": "A larger target is considered as a possible step up in HVAC platform sales.",
+    "caution": "The acquisition had not completed, so its revenue cannot be treated as owned revenue."
+  },
+  "N047": {
+    "kind": "rule-of-thumb",
+    "context": "Experience with a cyclical downturn leads Sey to favor a lower price based on conservative future earnings.",
+    "caution": "A personal risk preference is not a universal valuation formula."
+  },
+  "N048": {
+    "kind": "target",
+    "context": "Two investment-firm conversations underpin an ambition to raise a large amount of capital.",
+    "caution": "Conditional projections are not enforceable funding commitments."
+  },
+  "N049": {
+    "kind": "unverified-claim",
+    "context": "Revenue thresholds and business-failure estimates are used to compare starting and buying a company.",
+    "caution": "The speaker expresses uncertainty; five-year failure and lifetime failure to reach £1m sales are different outcomes, neither independently verified.",
+    "topics": [
+      "acquisition-entrepreneurship"
+    ]
+  },
+  "N050": {
+    "kind": "hypothetical",
+    "context": "A minority owner's potential dividend is illustrated after debt has been repaid.",
+    "caution": "The example assumes distributable cash and switches currencies; ownership alone does not guarantee dividends."
+  },
+  "N051": {
+    "kind": "hypothetical",
+    "context": "A first purchase combines senior borrowing, equity and seller finance.",
+    "caution": "Debt rises from 2x to 2.5x earnings when seller finance is included; currency is inconsistent."
+  },
+  "N052": {
+    "kind": "hypothetical",
+    "context": "A bolt-on example adds another earnings stream for an additional purchase price.",
+    "caution": "Its funding mix is omitted, so final group leverage cannot be calculated."
+  },
+  "N053": {
+    "kind": "personal-experience",
+    "context": "Sey reflects on continued acquisition anxiety despite repeated purchases.",
+    "caution": "Separate episodes count six transactions in six years and seven businesses in eight years; dates and counting units differ.",
+    "topics": [
+      "acquisition-entrepreneurship"
+    ]
+  },
+  "N054": {
+    "kind": "opinion",
+    "context": "Sey argues that smaller Danish acquisitions struggle to find suitable financing products.",
+    "caution": "This is his experience-based assessment, not a surveyed financing-market boundary."
+  },
+  "N055": {
+    "kind": "hypothetical",
+    "context": "A much larger Danish borrower is contrasted with the small-company acquisition market.",
+    "caution": "The stated sterling and Danish-currency equivalents are loose and unverified."
+  },
+  "N056": {
+    "kind": "personal-experience",
+    "context": "The speaker recounts his acquisition history using both business and transaction counts.",
+    "caution": "The counts contradict one another within the account and should not be reconciled silently."
+  },
+  "N057": {
+    "kind": "personal-experience",
+    "context": "An interview summarizes the sales scale of the steel and HVAC holdings.",
+    "caution": "The figures describe an episode-specific portfolio snapshot, not audited consolidation."
+  },
+  "N058": {
+    "kind": "forecast",
+    "context": "Management's pre-distress plan anticipated materially higher steel profits.",
+    "caution": "The projection preceded failures and is not an achieved profit figure."
+  },
+  "N059": {
+    "kind": "hypothetical",
+    "context": "Venture-capital return ambitions are contrasted with buying an established company.",
+    "caution": "These multiples illustrate expectations, not realized investment returns."
+  },
+  "N060": {
+    "kind": "hypothetical",
+    "context": "A startup funding illustration exchanges a cash investment for a minority stake.",
+    "caution": "The example is not evidence of a completed financing or a typical valuation.",
+    "topics": [
+      "investor-equity"
+    ]
+  },
+  "N061": {
+    "kind": "personal-experience",
+    "context": "Sey describes raising money for a biotech venture and later selling its intellectual property.",
+    "caution": "The sale reportedly recovered less than invested capital; exact proceeds are not given.",
+    "topics": [
+      "acquisition-entrepreneurship"
+    ]
+  },
+  "N062": {
+    "kind": "mixed",
+    "context": "An extended search budget is recommended while shorter actual and prospective timelines are discussed.",
+    "caution": "The 18-month recommendation, September 2018–2019 experience and six-month forecast have different evidential status."
+  },
+  "N063": {
+    "kind": "rule-of-thumb",
+    "context": "The acquisition search is presented as something that can begin alongside another job.",
+    "caution": "A suggested weekly commitment does not guarantee progress or completion.",
+    "topics": [
+      "acquisition-entrepreneurship"
+    ]
+  },
+  "N064": {
+    "kind": "rule-of-thumb",
+    "context": "Receivables financing is compared across manufacturing invoices and more disputed project receivables.",
+    "caution": "Advance rates are percentages of eligible receivables, not interest rates or current lender offers."
+  },
+  "N065": {
+    "kind": "hypothetical",
+    "context": "Payment delays are used to explain why a profitable business may need invoice-backed liquidity.",
+    "caution": "Illustrative customer terms do not establish a specific borrowing base."
+  },
+  "N066": {
+    "kind": "opinion",
+    "context": "Very narrow service niches are described as tending toward smaller company sizes.",
+    "caution": "The speaker offers an impression, not a market dataset."
+  },
+  "N067": {
+    "kind": "rule-of-thumb",
+    "context": "A sell-side information memorandum is described as a relatively short initial overview.",
+    "caution": "Length is not a substitute for checking the underlying records.",
+    "topics": [
+      "sourcing"
+    ]
+  },
+  "N068": {
+    "kind": "rule-of-thumb",
+    "context": "Unencumbered machinery is used to illustrate an asset-backed borrowing limit.",
+    "caution": "Existing security, valuation and eligibility could materially change available funding."
+  },
+  "N069": {
+    "kind": "rule-of-thumb",
+    "context": "The debtor ledger is presented as collateral whose fundable proportion varies.",
+    "caution": "Sector and trading terms matter; no universal advance rate is established."
+  },
+  "N070": {
+    "kind": "mixed",
+    "context": "Concentrated customer revenue is illustrated alongside a reported loss of a long-standing municipal account.",
+    "caution": "Examples at 40% and 70% differ from the 90% anecdote; contract history did not assure renewal."
+  },
+  "N071": {
+    "kind": "rule-of-thumb",
+    "context": "The discussion considers how many people might sit on a smaller company's board.",
+    "caution": "Board size alone says little about oversight quality or legal responsibilities."
+  },
+  "N072": {
+    "kind": "personal-experience",
+    "context": "Sey gives several descriptions of his HVAC ownership position.",
+    "caution": "About half, just under half and majority ownership are not equivalent; the account does not resolve the difference.",
+    "topics": [
+      "investor-equity"
+    ]
+  },
+  "N073": {
+    "kind": "proposed",
+    "context": "Sey and Stanley discuss the earnings and sales scale of a possible first acquisition.",
+    "caution": "The phrase 200, 250 omits units; the target was still prospective."
+  },
+  "N074": {
+    "kind": "personal-experience",
+    "context": "Stanley describes time spent on both an earlier failed deal and the current acquisition process.",
+    "caution": "The current deal remained open, so its final duration was unknown."
+  },
+  "N075": {
+    "kind": "opinion",
+    "context": "Sey expresses strong confidence that Stanley's acquisition will close.",
+    "caution": "This is personal optimism, not a calibrated completion probability."
+  },
+  "N076": {
+    "kind": "target",
+    "context": "Stanley's ambition is framed around an eventual exit valuation.",
+    "caution": "An exit-value objective differs from a revenue target and from a realized sale."
+  },
+  "N077": {
+    "kind": "rule-of-thumb",
+    "context": "The preferred target has meaningful earnings while remaining small enough for deal-by-deal fundraising.",
+    "caution": "Ranges and currencies vary across episodes; they are search criteria rather than financing rules."
+  },
+  "N078": {
+    "kind": "rule-of-thumb",
+    "context": "Sey discusses several acceptable entry multiples and warns against stretching the price.",
+    "caution": "His stated ceilings vary by episode and example; the range is not transaction-market evidence."
+  },
+  "N079": {
+    "kind": "hypothetical",
+    "context": "A capital stack example splits consideration among borrowing, investor equity and seller funding.",
+    "caution": "The percentages are conditional illustrations, not a closed acquisition's terms."
+  },
+  "N080": {
+    "kind": "rule-of-thumb",
+    "context": "Smaller and larger companies are contrasted using rough earnings multiples and sales bands.",
+    "caution": "The comparison is not based on a disclosed transaction sample."
+  },
+  "N081": {
+    "kind": "personal-experience",
+    "context": "The discussion compares the sales scale of JHC and Steelway at acquisition.",
+    "caution": "Later accounts add an approximate September 2019 first close and earnings estimates; the purchase price remains undisclosed."
+  },
+  "N082": {
+    "kind": "unverified-claim",
+    "context": "A proposed GameStop/eBay transaction is used as a large-company deal example.",
+    "caution": "The two speakers give different headline prices; this collection does not verify the news or a completed deal.",
+    "topics": [
+      "acquisition-process"
+    ]
+  },
+  "N083": {
+    "kind": "unverified-claim",
+    "context": "The same external deal discussion separates a purported bank credit offer from available liquid assets.",
+    "caution": "Neither the offer nor completion is independently established, and no Sey borrowing relationship is implied."
+  },
+  "N084": {
+    "kind": "unverified-claim",
+    "context": "A share-exchange illustration discusses the proposed ownership of a combined business.",
+    "caution": "The ownership split and associated cash terms are unverified external claims.",
+    "topics": [
+      "investor-equity"
+    ]
+  },
+  "N085": {
+    "kind": "hypothetical",
+    "context": "A small website purchase illustrates the difference between buying earnings and buying oneself a job.",
+    "caution": "The figures have no stated currency and describe an example, not a verified listing.",
+    "topics": [
+      "acquisition-entrepreneurship"
+    ]
+  },
+  "N086": {
+    "kind": "personal-experience",
+    "context": "Sey places a boundary on his own acquisition experience by earnings size.",
+    "caution": "He explicitly says he has not bought a business in this larger earnings category."
+  },
+  "N087": {
+    "kind": "personal-experience",
+    "context": "A January acquisition discussion gives approximate target revenue and pretax earnings.",
+    "caution": "Profit changes from £1.7m to £1.6m within the account; the agreed price is withheld."
+  },
+  "N088": {
+    "kind": "personal-experience",
+    "context": "The January deal's consideration is described as mostly payable at completion.",
+    "caution": "The upfront percentage changes during the explanation and does not reveal the debt/equity mix."
+  },
+  "N089": {
+    "kind": "personal-experience",
+    "context": "Reported EBITDA is reduced to an estimate of sustainable earnings before discussing price.",
+    "caution": "Rounded £1m and adjusted £950k produce different multiples."
+  },
+  "N090": {
+    "kind": "personal-experience",
+    "context": "An anonymized purchase is described with a completion payment and two later instalments.",
+    "caution": "The speaker presents it as an unusually favorable result, not an ordinary available deal."
+  },
+  "N091": {
+    "kind": "personal-experience",
+    "context": "The same purchase price is compared with rounded and adjusted EBITDA.",
+    "caution": "About 1.895x is an arithmetic calculation from £950k, while 1.8x uses rounded £1m earnings."
+  },
+  "N092": {
+    "kind": "hypothetical",
+    "context": "A balloon-payment example aims to move more seller consideration to the final year.",
+    "caution": "The alternative payments total about £4m, conflicting with the starting £2m obligation."
+  },
+  "N093": {
+    "kind": "hypothetical",
+    "context": "The balloon illustration also claims an annual near-term cash saving.",
+    "caution": "£500k minus £333k is about £167k, not the stated £200k."
+  },
+  "N094": {
+    "kind": "hypothetical",
+    "context": "A high-debt example shows interest consuming much of the earnings available to the buyer.",
+    "caution": "Principal repayments, taxes and other cash needs still have to be funded."
+  },
+  "N095": {
+    "kind": "hypothetical",
+    "context": "A lower-debt example contrasts the interest burden at the same assumed interest rate.",
+    "caution": "Complete debt funding is a hypothetical assumption, not a documented capital stack."
+  },
+  "N096": {
+    "kind": "rule-of-thumb",
+    "context": "Debt-service coverage is introduced by comparing earnings with annual debt payments.",
+    "caution": "Earnings are a rough cash proxy; £700k service on £1m gives about 1.43x, and no lender covenant is established."
+  },
+  "N097": {
+    "kind": "proposed",
+    "context": "A prospective European acquisition is discussed in terms of the cash needed at completion.",
+    "caution": "€9m refers to upfront funding; it is not stated as the full purchase price."
+  },
+  "N098": {
+    "kind": "proposed",
+    "context": "The financing discussion compares possible borrowing levels and a minimum equity contribution.",
+    "caution": "Some multiplication is inconsistent: 3x €2.5m–€2.6m is €7.5m–€7.8m, not €7.3m."
+  },
+  "N099": {
+    "kind": "personal-experience",
+    "context": "Failures within the steel portfolio illustrate how cross-guarantees can spread financial damage.",
+    "caution": "The account is self-reported and does not disclose each company's facility documents."
+  },
+  "N100": {
+    "kind": "target",
+    "context": "Conversations with a Texas-linked investor support several alternative platform fundraising ambitions.",
+    "caution": "The amounts were not locked in; sterling and dollar alternatives are not separate completed raises."
+  },
+  "N101": {
+    "kind": "proposed",
+    "context": "A prospective investor asks for a meaningful maintenance-revenue component in the HVAC group.",
+    "caution": "Several percentages are discussed; no signed covenant or single firm threshold is shown."
+  },
+  "N102": {
+    "kind": "personal-experience",
+    "context": "A narrower HVAC investment mandate reportedly excludes deals already in the pipeline.",
+    "caution": "Accounts mention about four opportunities and two agreed targets, possibly reflecting different dates or scope."
+  },
+  "N103": {
+    "kind": "hypothetical",
+    "context": "Traditional fund economics are illustrated through management fees on assets under management.",
+    "caution": "Management fees and carried interest use different bases; the illustration is not a universal current fee schedule."
+  },
+  "N104": {
+    "kind": "rule-of-thumb",
+    "context": "The discussion introduces a manager's share of investment profits above a hurdle.",
+    "caution": "The waterfall is incomplete; carry is not loan interest or direct equity ownership."
+  },
+  "N105": {
+    "kind": "rule-of-thumb",
+    "context": "Sey suggests a compounded return hurdle for a new fund manager.",
+    "caution": "Actual investor terms are negotiated and may differ substantially."
+  },
+  "N106": {
+    "kind": "hypothetical",
+    "context": "A fund-life example separates the investment period from time reserved for realizing investments.",
+    "caution": "No executed fund agreement establishes these periods or the extension right.",
+    "topics": [
+      "returns-and-exits"
+    ]
+  },
+  "N107": {
+    "kind": "rule-of-thumb",
+    "context": "Alternative fee and carry examples show that fund economics can be negotiated.",
+    "caution": "The figures are illustrative terms, not a survey or an offer to investors."
+  },
+  "N108": {
+    "kind": "unverified-claim",
+    "context": "An assumed stock-market return is used as a comparison when discussing a fund hurdle.",
+    "caution": "The source's risk-free description is misleading; equity-market returns are uncertain and the quoted range is unverified."
+  },
+  "N109": {
+    "kind": "hypothetical",
+    "context": "A simple acquisition sequence shows new borrowing postponing the group's debt-free date.",
+    "caution": "Paying off debt does not guarantee dividends or establish distributable cash."
+  },
+  "N110": {
+    "kind": "rule-of-thumb",
+    "context": "The search process is framed as repeated serious offers following extensive target review.",
+    "caution": "The suggested offer count does not establish a measured conversion rate."
+  },
+  "N111": {
+    "kind": "proposed",
+    "context": "An informal family-office conversation reveals a gap between the equity sought and the investor's comfort level.",
+    "caution": "Neither amount is a funding commitment."
+  },
+  "N112": {
+    "kind": "rule-of-thumb",
+    "context": "Monthly buy-side search retainers illustrate a cost of outsourcing target sourcing.",
+    "caution": "This service differs from a debt broker reportedly paid by lenders; historical quotes are not current prices."
+  },
+  "N113": {
+    "kind": "mixed",
+    "context": "The speaker proposes using interns for research with a regular weekly review meeting.",
+    "caution": "Past staffing, planned recruitment and suggested hours differ; employment terms and legality are not established."
+  },
+  "N114": {
+    "kind": "forecast",
+    "context": "An AGM discussion links an active target list with hoped-for acquisitions during 2026.",
+    "caution": "Targets under review and hoped-for completions are not acquired businesses."
+  },
+  "N115": {
+    "kind": "personal-experience",
+    "context": "The account describes a change from executive leadership to the chair role around the annual meeting.",
+    "caution": "Dates and governance arrangements are self-reported; the AGM interval is not presented here as legal advice."
+  },
+  "N116": {
+    "kind": "target",
+    "context": "The HVAC platform's fundraising ambition is expressed in sterling.",
+    "caution": "A corrupted dollar phrase cannot establish a reliable currency conversion or a separate raise."
+  },
+  "N117": {
+    "kind": "proposed",
+    "context": "A Texas-linked investor's proposed mandate favors recurring HVAC maintenance income.",
+    "caution": "The range describes investment criteria under discussion, not a disclosed executed covenant."
+  },
+  "N118": {
+    "kind": "hypothetical",
+    "context": "A wealthy-relative analogy links business dividends to a desired lifestyle.",
+    "caution": "Neither the valuation assumption nor the wealth-category boundary is independently established."
+  },
+  "N119": {
+    "kind": "personal-experience",
+    "context": "The Langard acquisition account describes the operating business's revenue and pretax earnings.",
+    "caution": "The $10m headline denotes revenue, not purchase price; one converted profit amount has uncertain currency."
+  },
+  "N120": {
+    "kind": "personal-experience",
+    "context": "Steel-group revenue and staffing are recounted before and after adding Langard.",
+    "caution": "Episodes give different dates, revenues and staff counts; they do not establish one current consolidated total."
+  },
+  "N121": {
+    "kind": "proposed",
+    "context": "A pending second HVAC purchase is projected to increase HVAC and combined portfolio sales.",
+    "caution": "Combined figures depend on completion and use approximate currency conversions."
+  },
+  "N122": {
+    "kind": "rule-of-thumb",
+    "context": "A rough sourcing funnel connects broad target review to written offers and one acquisition.",
+    "caution": "The ratios are personal estimates, not measured probabilities."
+  },
+  "N123": {
+    "kind": "rule-of-thumb",
+    "context": "Offers requested after substantive seller discussions are described as having a better conversion rate.",
+    "caution": "The estimate does not guarantee that one in five offers will close."
+  },
+  "N124": {
+    "kind": "hypothetical",
+    "context": "An LOI example separates enterprise value, completion cash and later payments.",
+    "caution": "The later-payment period varies between three and four years; this is not a signed transaction."
+  },
+  "N125": {
+    "kind": "rule-of-thumb",
+    "context": "Exclusivity is discussed alongside financing and legal-work timescales.",
+    "caution": "The periods overlap and vary; they should not be added as a guaranteed completion schedule."
+  },
+  "N126": {
+    "kind": "hypothetical",
+    "context": "Contrasting customer shares illustrate how concentration can change a buyer's risk.",
+    "caution": "Losing a 10% customer may still erase profit or liquidity; revenue share alone cannot prove resilience."
+  },
+  "N127": {
+    "kind": "opinion",
+    "context": "The seller's years of work are contrasted with the buyer's desired transaction timetable.",
+    "caution": "These are expectation-setting examples, not findings from transaction data."
+  },
+  "N128": {
+    "kind": "hypothetical",
+    "context": "Averaging two completed years' pretax profits supplies an illustrative valuation denominator.",
+    "caution": "Historical averaging does not itself establish sustainable future earnings."
+  },
+  "N129": {
+    "kind": "rule-of-thumb",
+    "context": "Sey sets a personal price ceiling for smaller UK industrial acquisitions.",
+    "caution": "The ceiling reflects his financing approach, not an objective market maximum."
+  },
+  "N130": {
+    "kind": "rule-of-thumb",
+    "context": "The suggested structure reserves part of the seller's price for later payment.",
+    "caution": "Deferral is subject to negotiation; timing and security still need explicit terms."
+  },
+  "N131": {
+    "kind": "unverified-claim",
+    "context": "The speaker portrays the UK as having a wide pool of potential banks.",
+    "caution": "No supporting lender list or verified market count is provided."
+  },
+  "N132": {
+    "kind": "rule-of-thumb",
+    "context": "A monthly retainer range illustrates paid acquisition sourcing.",
+    "caution": "The estimate is not a current service quotation."
+  },
+  "N133": {
+    "kind": "hypothetical",
+    "context": "Low initial website and company-formation costs are used to illustrate starting a search.",
+    "caution": "Currency is partly absent and prices have not been verified.",
+    "topics": [
+      "sourcing"
+    ]
+  },
+  "N134": {
+    "kind": "proposed",
+    "context": "A seller call discusses the earnings of a potential acquisition.",
+    "caution": "The amount is preliminary and no completed purchase is established."
+  },
+  "N135": {
+    "kind": "personal-experience",
+    "context": "A delayed first visit informs advice to communicate actively during the opening months of ownership.",
+    "caution": "A hundred-day label is a planning device, not proof of a completed integration process.",
+    "topics": [
+      "acquisition-process"
+    ]
+  },
+  "N136": {
+    "kind": "rule-of-thumb",
+    "context": "Different leadership roles are given different periods before judging performance.",
+    "caution": "These are suggested evaluation horizons, not guarantees of competence or turnaround."
+  },
+  "N137": {
+    "kind": "hypothetical",
+    "context": "A thin-profit company illustrates why a senior hire can materially change the economics.",
+    "caution": "Sales size alone does not show capacity to fund management."
+  },
+  "N138": {
+    "kind": "hypothetical",
+    "context": "An IT-company example highlights the risk of losing a small group of essential employees.",
+    "caution": "Headcount does not measure the value or replaceability of each employee."
+  },
+  "N139": {
+    "kind": "personal-experience",
+    "context": "A broker conversation shows how switching the earnings period changes the quoted multiple.",
+    "caution": "Underlying accounts are unavailable, so the calculation cannot be independently reconstructed."
+  },
+  "N140": {
+    "kind": "proposed",
+    "context": "A possible target is discussed with a low initial payment relative to earnings.",
+    "caution": "No executed offer or complete capital stack is disclosed."
+  },
+  "N141": {
+    "kind": "rule-of-thumb",
+    "context": "Continued seller involvement is proposed to preserve operational knowledge after completion.",
+    "caution": "Suggested handovers range from one to three years and require negotiated responsibilities."
+  },
+  "N142": {
+    "kind": "forecast",
+    "context": "Adding a prospective steel target is projected to increase both revenue and earnings.",
+    "caution": "A garbled 89 million phrase appears to mean £8m–£9m; totals vary and no completed result is established."
+  },
+  "N143": {
+    "kind": "proposed",
+    "context": "Live institutional discussions concern an equity contribution and a much broader capital ambition.",
+    "caution": "The instruments and commitments are incompletely specified."
+  },
+  "N144": {
+    "kind": "hypothetical",
+    "context": "A target's modest earnings are considered alongside limited tangible assets and substantial current creditors.",
+    "caution": "Profit alone does not show how much finance the balance sheet can support."
+  },
+  "N145": {
+    "kind": "hypothetical",
+    "context": "Retaining several years of after-tax profit illustrates how excess cash might accumulate.",
+    "caution": "The calculation assumes no dividends or other cash uses and is not a cash-flow forecast."
+  },
+  "N146": {
+    "kind": "hypothetical",
+    "context": "A roll-up thesis combines lower entry multiples with a hoped-for higher group exit multiple.",
+    "caution": "No achieved exit supports the spread; integration, debt and buyer appetite affect realized value."
+  },
+  "N147": {
+    "kind": "personal-experience",
+    "context": "Broker feedback suggests few commercial-cleaning targets meet the requested earnings scale.",
+    "caution": "This is a sourcing anecdote, not a complete market census."
+  },
+  "N148": {
+    "kind": "rule-of-thumb",
+    "context": "Upfront fees are used to explain one possible sell-side broker business model.",
+    "caution": "The amounts are examples, not a current fee schedule or universal practice."
+  },
+  "N149": {
+    "kind": "rule-of-thumb",
+    "context": "Short teasers and longer memoranda are contrasted as stages of introducing a business or capital raise.",
+    "caution": "Suggested document lengths differ across contexts; page count does not establish quality."
+  },
+  "N150": {
+    "kind": "personal-experience",
+    "context": "A live broker call and Oscar's review activity illustrate how quickly a pipeline can expand.",
+    "caution": "Lead counts and highlighted teasers are not qualified opportunities or closed-deal conversion rates."
+  },
+  "N151": {
+    "kind": "personal-experience",
+    "context": "Sey recounts a broad institutional outreach effort and repeated General Atlantic meetings.",
+    "caution": "Meeting counts do not imply an investment or a lending relationship."
+  },
+  "N152": {
+    "kind": "proposed",
+    "context": "A debt term sheet is described as conditional on a substantial equity contribution.",
+    "caution": "The facility did not close; the implied £58m total is arithmetic, not confirmed financing received."
+  },
+  "N153": {
+    "kind": "proposed",
+    "context": "Another institutional conversation explores a large staged capital programme before a soft rejection.",
+    "caution": "Currencies and amounts change, and the instrument is unclear; no completed commitment is established.",
+    "topics": [
+      "investor-equity"
+    ]
+  },
+  "N154": {
+    "kind": "mixed",
+    "context": "HVAC search criteria are discussed alongside increasingly ambitious group revenue goals.",
+    "caution": "Target company size and £100m–£250m platform ambitions are different concepts; none proves achieved scale."
+  },
+  "N155": {
+    "kind": "rule-of-thumb",
+    "context": "A bank-sizing heuristic relates borrowing to annual earnings.",
+    "caution": "EBITDA and pretax profit are blurred; the source's £0.5m threshold wording conflicts with its own 2x arithmetic."
+  },
+  "N156": {
+    "kind": "unverified-claim",
+    "context": "Different episodes describe a broad lender universe and success-based debt-broker compensation.",
+    "caution": "Counts vary from roughly 100 to 300 and mix banks with nonbanks; no verified count or universal fee arrangement is established."
+  },
+  "N157": {
+    "kind": "personal-experience",
+    "context": "Sey uses several rounded eight-figure amounts when describing historical borrowing.",
+    "caution": "The language is too loose to establish an audited debt total.",
+    "topics": [
+      "bank-debt"
+    ]
+  },
+  "N158": {
+    "kind": "rule-of-thumb",
+    "context": "The acquisition vehicle is described as being formed shortly before completion.",
+    "caution": "Actual legal and financing requirements may require a different timetable."
+  },
+  "N159": {
+    "kind": "hypothetical",
+    "context": "An operating company's earnings are used to illustrate a sponsor management fee.",
+    "caution": "The example loosely equates EBITDA and pretax profit; the fee is not an executed agreement."
+  },
+  "N160": {
+    "kind": "hypothetical",
+    "context": "A larger group's earnings are multiplied by a higher assumed exit multiple.",
+    "caution": "A future sale at 8x–12x is a thesis, not a contracted outcome; larger size may reduce the buyer pool."
+  },
+  "N161": {
+    "kind": "target",
+    "context": "A fundraising pitch is connected to aspirations for personal wealth over the next few years.",
+    "caution": "Projected wealth is neither present liquidity nor a realized investment return."
+  },
+  "N162": {
+    "kind": "target",
+    "context": "Discussions with a large credit-related institution involve a substantial requested programme.",
+    "caution": "£60m and £68m are different requested amounts, with no confirmed instrument or closing."
+  },
+  "N163": {
+    "kind": "personal-experience",
+    "context": "Sey describes an ongoing weekly rhythm of reviewing acquisition candidates across groups.",
+    "caution": "Reviews do not establish offers, commitments or completed acquisitions."
+  },
+  "N164": {
+    "kind": "opinion",
+    "context": "The US HVAC market is portrayed as further along in consolidation than the UK.",
+    "caution": "The claimed lead in years is an unverified comparison.",
+    "topics": [
+      "roll-ups"
+    ]
+  },
+  "N165": {
+    "kind": "proposed",
+    "context": "Several HVAC targets are described at different legal and diligence stages.",
+    "caution": "One SPA draft and five diligence processes still represent prospective deals, not six acquisitions."
+  },
+  "N166": {
+    "kind": "hypothetical",
+    "context": "A multiple-based offer illustrates why the earnings period must be specified before completion.",
+    "caution": "Fiscal-year, trailing and LOI-date earnings can differ materially."
+  },
+  "N167": {
+    "kind": "personal-experience",
+    "context": "Sey describes building steel-group sales over several years from the first acquisition.",
+    "caution": "Revenue is not enterprise value, personal wealth or a verified investment return."
+  },
+  "N168": {
+    "kind": "mixed",
+    "context": "An early HVAC revenue base is compared with an ambitious end-2026 sales and profit objective.",
+    "caution": "The target and remaining months were episode-specific; they are not current results."
+  },
+  "N169": {
+    "kind": "personal-experience",
+    "context": "An e-commerce guest describes buying a business for a low multiple of seller discretionary earnings.",
+    "caution": "It is the guest's deal, not Sey's; no complete funding structure is supplied."
+  },
+  "N170": {
+    "kind": "forecast",
+    "context": "The guest expects product and channel synergies to increase annual sales after acquisition.",
+    "caution": "The currency is unstated and the growth remains a forecast."
+  },
+  "N171": {
+    "kind": "rule-of-thumb",
+    "context": "Lender operating economics are used to explain a preference for larger credit requests.",
+    "caution": "A garbled 510m phrase is interpreted as £5m–£10m; no lender's actual minimum is verified."
+  },
+  "N172": {
+    "kind": "target",
+    "context": "A group conversation discusses a possible future exit date.",
+    "caution": "An aspiration to sell is not a completed disposal or enforceable liquidity event."
+  },
+  "N173": {
+    "kind": "personal-experience",
+    "context": "Sey recounts the time consumed by an unsuccessful listing effort.",
+    "caution": "Elapsed time does not establish a specific cash loss or professional-fee total."
+  },
+  "N174": {
+    "kind": "mixed",
+    "context": "Past growth, a flat current year and expected future improvement appear in one operating account.",
+    "caution": "The 30% metric is ambiguous and the 10%–15% figure is a forecast; do not merge them into one realized growth rate.",
+    "topics": [
+      "roll-ups"
+    ]
+  },
+  "N175": {
+    "kind": "target",
+    "context": "Several fundraising amounts are discussed as steps toward a larger future platform or fund.",
+    "caution": "Currencies, timings and alternatives differ; these are goals rather than money received."
+  },
+  "N176": {
+    "kind": "personal-experience",
+    "context": "Sey gives a range for capital raised during the first years of acquisition activity.",
+    "caution": "The total combines equity, borrowing and later refinancings, so it is not net new investor equity."
+  },
+  "N177": {
+    "kind": "hypothetical",
+    "context": "A majority-share sale illustrates how a change-of-control restriction might be triggered.",
+    "caution": "The example does not establish any actual facility's control definition."
+  },
+  "N178": {
+    "kind": "hypothetical",
+    "context": "An excessive salary example explains why lenders may restrict cash extraction.",
+    "caution": "The amount is illustrative; no executed payment limit is supplied."
+  },
+  "N179": {
+    "kind": "personal-experience",
+    "context": "A steel-input price increase is described as an operating cost shock.",
+    "caution": "No underlying supplier evidence or price series is available in the collection."
+  },
+  "N180": {
+    "kind": "target",
+    "context": "Large institutional balance sheets are discussed in connection with a nine-figure fundraising ambition.",
+    "caution": "An institution's assets under management do not establish mandate fit or willingness to fund the platform."
+  },
+  "N181": {
+    "kind": "personal-experience",
+    "context": "A point-in-time pitch funnel tracks first, second and third investor meetings.",
+    "caution": "The counts do not show a closing rate or a funding commitment."
+  },
+  "N182": {
+    "kind": "proposed",
+    "context": "Potential institutional ticket sizes are compared with a smaller fallback raise.",
+    "caution": "The discussion is about matching a proposal to investors, not confirmed capital received.",
+    "topics": [
+      "investor-equity"
+    ]
+  },
+  "N183": {
+    "kind": "rule-of-thumb",
+    "context": "The speaker describes fundraising duration as highly variable.",
+    "caution": "The extreme range is conversational, not a statistically supported planning forecast."
+  },
+  "N184": {
+    "kind": "rule-of-thumb",
+    "context": "Seasonal patterns are proposed for scheduling European investor outreach.",
+    "caution": "The calendar reflects experience and cannot predict an individual investor's response."
+  },
+  "N185": {
+    "kind": "unverified-claim",
+    "context": "A meeting mentions a broad UK cost-of-capital estimate.",
+    "caution": "Instrument, observation date and fee treatment are absent; it is not a current borrowing quote."
+  },
+  "N186": {
+    "kind": "mixed",
+    "context": "Northern Industries' sales are discussed alongside an expected future debt-free date.",
+    "caution": "Reported revenue and a repayment forecast are different; the forecast is not proof of achieved deleveraging."
+  },
+  "N187": {
+    "kind": "proposed",
+    "context": "Internal funding is considered for more acquisitions before another possible listing.",
+    "caution": "No purchase prices or completed expansion are established."
+  },
+  "N188": {
+    "kind": "proposed",
+    "context": "A third-party airline idea is discussed with a small fleet and possible Qatar-linked funding.",
+    "caution": "Currency, instrument and commitment status are unclear."
+  },
+  "N189": {
+    "kind": "opinion",
+    "context": "Desired holding-company cash and income are compared with a much larger headline wealth figure.",
+    "caution": "Currency is unstated and the lifestyle equivalence is subjective."
+  },
+  "N190": {
+    "kind": "unverified-claim",
+    "context": "The speaker attributes a large local economic effect to investment in a forestry community.",
+    "caution": "Investment equal to a share of GDP does not demonstrate GDP grew by that share; no calculation supports the claim.",
+    "topics": [
+      "returns-and-exits"
+    ]
+  },
+  "N191": {
+    "kind": "proposed",
+    "context": "A steel target is discussed after agreeing headline pricing and structure in an LOI.",
+    "caution": "The figure is target revenue, not price; an LOI is not a completed acquisition."
+  },
+  "N192": {
+    "kind": "hypothetical",
+    "context": "A business selling steadily on long payment terms illustrates the cash tied up in receivables.",
+    "caution": "Advance rates apply to eligible invoices, not annual sales; seasonality and collections can change the estimated debtor balance."
+  },
+  "N193": {
+    "kind": "rule-of-thumb",
+    "context": "An invoice-age cut-off illustrates how collateral can become ineligible overnight.",
+    "caution": "No identified bank policy establishes this as a universal 90-day rule."
+  },
+  "N194": {
+    "kind": "hypothetical",
+    "context": "A construction contract example withholds part of payment for a later release.",
+    "caution": "Currency varies and release depends on contract terms; retention is not immediately available cash."
+  },
+  "N195": {
+    "kind": "reported-actual",
+    "context": "The Irish target's initial screen uses accounts that are already old.",
+    "caution": "Stale accounts limit confidence in current earnings, cash and collateral."
+  },
+  "N196": {
+    "kind": "reported-actual",
+    "context": "The Irish balance-sheet discussion distinguishes physical assets, cash and debtors.",
+    "caution": "The speaker switches between pounds and euros; assigning euros to every amount would overstate certainty."
+  },
+  "N197": {
+    "kind": "reported-actual",
+    "context": "Only part of the Irish debtor balance is described as trade receivables available for financing.",
+    "caution": "Intercompany balances should not be assumed to qualify on the same basis as customer invoices."
+  },
+  "N198": {
+    "kind": "hypothetical",
+    "context": "A thin-asset acquisition example divides the price among debt, seller funding and equity.",
+    "caution": "The structure is a scenario, not lender-approved terms for the target."
+  },
+  "N199": {
+    "kind": "mixed",
+    "context": "An unresolved fundraising effort is compared with several possible fundraising durations.",
+    "caution": "The summer-to-summer elapsed interval differs from the hypothetical 12-, 15- and 18-month cases."
+  },
+  "N200": {
+    "kind": "target",
+    "context": "The original IPO Capital approach aimed to invest close to a possible listing.",
+    "caution": "The stated horizon is a strategy target, not a realized exit."
+  },
+  "N201": {
+    "kind": "hypothetical",
+    "context": "An expensive acquisition can still have manageable debt payments when equity funds most of the price.",
+    "caution": "Debt serviceability does not prove the equity investment is attractively priced."
+  },
+  "N202": {
+    "kind": "hypothetical",
+    "context": "Two cash-coverage calculations show how debt payments compare with available cash.",
+    "caution": "The second numerator is explicitly free cash flow; a coverage ratio is only as useful as its cash definition."
+  },
+  "N203": {
+    "kind": "hypothetical",
+    "context": "A repayment illustration compares the original advance with total cash paid over several years.",
+    "caution": "£350k is aggregate finance cost in the example, not 35% annual interest or APR; payment timing is missing."
+  },
+  "N204": {
+    "kind": "proposed",
+    "context": "An introduction concerns another steel group of substantial revenue scale.",
+    "caution": "The counterparty is unnamed and no agreed acquisition is established."
+  },
+  "N205": {
+    "kind": "proposed",
+    "context": "An Irish target's earnings are read out with conflicting figures during the calls.",
+    "caution": "Neither set is established as audited; selecting or averaging them would hide the conflict."
+  },
+  "N206": {
+    "kind": "proposed",
+    "context": "An indicative Irish offer links price to average earnings and leaves part payable later.",
+    "caution": "These are contemplated terms, not an approved purchase agreement."
+  },
+  "N207": {
+    "kind": "proposed",
+    "context": "The buyer sketches the borrowing and equity needed for an Irish cash-at-close requirement.",
+    "caution": "The debt is desired funding, not an offer from a lender."
+  },
+  "N208": {
+    "kind": "proposed",
+    "context": "A broker gives a rough equity-percentage comment during the Irish financing discussion.",
+    "caution": "The denominator is unclear; €1.2m divided by €7.2m describes only the proposed cash funding, not necessarily enterprise value."
+  },
+  "N209": {
+    "kind": "target",
+    "context": "A conversational fundraising amount is mentioned for the Irish opportunity.",
+    "caution": "It does not reconcile with the stated 3.5x earnings offer and could include unspecified uses; it is not an assured price."
+  },
+  "N210": {
+    "kind": "proposed",
+    "context": "The buyer considers placing control in an existing Ventilation Ventures entity to strengthen the financing story.",
+    "caution": "The ownership arrangement is an idea under discussion, not a completed restructuring.",
+    "topics": [
+      "investor-equity"
+    ]
+  },
+  "N211": {
+    "kind": "proposed",
+    "context": "The sellers indicate willingness to remain involved for an extended handover.",
+    "caution": "Willingness is not a signed employment or transition commitment."
+  },
+  "N212": {
+    "kind": "reported-actual",
+    "context": "A recent HVAC acquisition is described through approximate EBIT and an absence of depreciation.",
+    "caution": "That does not establish all EBITDA adjustments or reveal purchase consideration."
+  },
+  "N213": {
+    "kind": "mixed",
+    "context": "A prospective HVAC target is described using current revenue and a larger next-year sales forecast.",
+    "caution": "The business was not yet acquired, and forecast earnings cannot be treated as achieved results."
+  },
+  "N214": {
+    "kind": "reported-actual",
+    "context": "Water-sector exposure and its spending cycle are used to explain pressure on steel orders.",
+    "caution": "The concentration and cycle pattern are the speaker's account, not independently checked revenue data."
+  },
+  "N215": {
+    "kind": "proposed",
+    "context": "A steel transaction proposal exchanges new equity for majority control while leaving a minority stake.",
+    "caution": "A suggested perpetual revenue participation has no stated percentage or final contract."
+  },
+  "N216": {
+    "kind": "hypothetical",
+    "context": "A preference example shows how senior equity claims can reduce proceeds available to common shareholders.",
+    "caution": "The simplified waterfall omits participation and election terms; actual payouts require the investment contract."
+  },
+  "N217": {
+    "kind": "forecast",
+    "context": "The prospective acquisition is expected to require several more months of work.",
+    "caution": "The estimate is not a completed transaction duration."
+  },
+  "N218": {
+    "kind": "reported-actual",
+    "context": "Operating-company staff counts are contrasted with a very small sponsor-level team.",
+    "caution": "The figures describe different organizational levels and are self-reported snapshots."
+  },
+  "N219": {
+    "kind": "hypothetical",
+    "context": "A range of entry multiples is applied to an illustrative earnings amount.",
+    "caution": "This is not a quoted offer for a particular target."
+  },
+  "N220": {
+    "kind": "mixed",
+    "context": "Typical-margin claims are combined with an example of profit sensitivity to a margin decline.",
+    "caution": "The market range is unverified; 25% to 20% is five percentage points and a 20% profit decline only at constant revenue."
+  },
+  "N221": {
+    "kind": "hypothetical",
+    "context": "A modest margin improvement is applied to a fixed sales base to illustrate earnings growth.",
+    "caution": "The calculation assumes unchanged revenue and does not model the cost of achieving the improvement."
+  },
+  "N222": {
+    "kind": "mixed",
+    "context": "A large intern applicant pool is described alongside a plan to select a much smaller team.",
+    "caution": "Applications are reported activity; intended hires are still a target."
+  },
+  "N223": {
+    "kind": "rule-of-thumb",
+    "context": "Smaller acquisition sizes are matched with affluent individuals rather than institutional investors.",
+    "caution": "Currencies are alternatives and investor suitability cannot be inferred from deal size alone."
+  },
+  "N224": {
+    "kind": "reported-actual",
+    "context": "Sey recounts a long relationship with Magnus as an investor.",
+    "caution": "The elapsed relationship is not a fund duration, debt term or guaranteed future backing."
+  },
+  "N225": {
+    "kind": "reported-actual",
+    "context": "A factory training programme illustrates investment in early-career operating capability.",
+    "caution": "The ages and duration concern workforce development, not acquisition financing.",
+    "topics": [
+      "management"
+    ]
+  },
+  "N226": {
+    "kind": "mixed",
+    "context": "The factory discussion distinguishes employees, design-stage work and the time needed before production.",
+    "caution": "Staff count is reported; £5m of design work is illustrative, and six months or 30 iterations are claimed ranges, not averages."
+  },
+  "N227": {
+    "kind": "mixed",
+    "context": "Northern's reported sales are compared with several larger ambitions.",
+    "caution": "The future amounts are revenue goals, not purchase prices, achieved earnings or equity values."
+  },
+  "N228": {
+    "kind": "hypothetical",
+    "context": "Different target revenue sizes are contrasted in a discussion of acquisition strategy.",
+    "caution": "The amounts are company sales scales, not offered prices."
+  },
+  "N229": {
+    "kind": "proposed",
+    "context": "An Australian buyer's possible acquisition provides context for a personal-guarantee discussion.",
+    "caution": "The dollar denomination is unspecified and no completed financing is established."
+  },
+  "N230": {
+    "kind": "opinion",
+    "context": "A long ownership horizon is advocated in contrast to seeking a rapid resale.",
+    "caution": "These are preference examples, not contractual investment maturities.",
+    "topics": [
+      "acquisition-entrepreneurship"
+    ]
+  },
+  "N231": {
+    "kind": "target",
+    "context": "A future wealth scenario assumes lower diluted ownership and much larger operating groups.",
+    "caution": "The 10% and 35% stakes are future assumptions, not proof of actual dilution from reported current holdings."
+  },
+  "N232": {
+    "kind": "mixed",
+    "context": "Sey describes extensive first-deal screening and proposes an active broker-contact routine.",
+    "caution": "The personal count differs from guidance to future buyers; screened businesses are not offers or acquisitions."
+  },
+  "N233": {
+    "kind": "reported-actual",
+    "context": "An unnamed bank is described as checking business figures every month.",
+    "caution": "The account does not disclose the reporting covenant or identify the facility."
+  },
+  "N234": {
+    "kind": "reported-actual",
+    "context": "The HVAC sourcing funnel is summarized through candidates, conversations and offers.",
+    "caution": "£1.4bn is the sum of candidate sales, not owned revenue, committed purchases or capital raised."
+  },
+  "N235": {
+    "kind": "hypothetical",
+    "context": "A purchase-funding example leaves a seller-related amount between bank borrowing and equity.",
+    "caution": "The exact sentence does not explicitly call the £800k deferred; seller finance is suggested by context, not confirmed wording."
+  },
+  "N236": {
+    "kind": "hypothetical",
+    "context": "A lower purchase price is shown with the same buyer equity but less borrowing and seller funding.",
+    "caution": "The comparison is illustrative and leaves taxes, fees and cash adjustments outside the stack."
+  },
+  "N237": {
+    "kind": "forecast",
+    "context": "An owned project business is expected to generate a stated pretax profit in FY2026.",
+    "caution": "The amount is a forecast, not a completed-year result."
+  },
+  "N238": {
+    "kind": "mixed",
+    "context": "Management's organic profit forecast is contrasted with a more ambitious sponsor goal.",
+    "caution": "Neither includes future acquisitions; the £15m counter-goal is not management's forecast."
+  },
+  "N239": {
+    "kind": "hypothetical",
+    "context": "A property example subtracts secured borrowing from asset value to explain net asset value.",
+    "caution": "The calculation is illustrative and omits selling costs and other liabilities.",
+    "topics": [
+      "equity-value"
+    ]
+  },
+  "N240": {
+    "kind": "reported-actual",
+    "context": "A mentee reports building a large list of companies above a chosen revenue threshold.",
+    "caution": "A lead universe is not a verified acquisition pipeline or a set of willing sellers.",
+    "topics": [
+      "sourcing"
+    ]
+  },
+  "N241": {
+    "kind": "target",
+    "context": "A media acquisition idea is framed around reaching a particular annual-sales scale.",
+    "caution": "The currencies are alternatives and the amount is a goal, not existing revenue."
+  },
+  "N242": {
+    "kind": "proposed",
+    "context": "Oscar's screening discussion compares several possible targets by sales and earnings.",
+    "caution": "The first target's revenue varies between £12m and £12.5m; none is established as acquired."
+  },
+  "N243": {
+    "kind": "proposed",
+    "context": "Several prospective targets are combined to describe possible day-one group EBIT.",
+    "caution": "Pipeline earnings become owned earnings only if the transactions complete."
+  },
+  "N244": {
+    "kind": "hypothetical",
+    "context": "Deferring compensation is suggested as one way for a sponsor to demonstrate commitment.",
+    "caution": "The period is a proposed arrangement, not a signed fee concession."
+  },
+  "N245": {
+    "kind": "target",
+    "context": "An ambitious cleaning roll-up is described through target count, sales, margins and time.",
+    "caution": "The quantities are an aspiration, not evidence of an operating group of that scale."
+  },
+  "N246": {
+    "kind": "mixed",
+    "context": "A private project conversation combines reported offers with a large multiyear ambition.",
+    "caution": "The €0.5bn metric is unspecified; it is not proved capital raised, family-office assets or an acquisition price."
+  },
+  "N247": {
+    "kind": "proposed",
+    "context": "A caller describes the operating size of a Swedish three-company target group.",
+    "caution": "The currency is clarified as SEK after an unclear phrase; the figures remain caller-reported."
+  },
+  "N248": {
+    "kind": "opinion",
+    "context": "The speaker expresses discomfort with businesses dependent on numerous working owners.",
+    "caution": "The preferred owner count is a personal screening rule, not an objective valuation threshold."
+  },
+  "N249": {
+    "kind": "hypothetical",
+    "context": "A sourcing arrangement combines a transaction fee with a longer accounting engagement and higher fees.",
+    "caution": "The package is a proposal, not established market pricing or an executed agreement."
+  },
+  "N250": {
+    "kind": "hypothetical",
+    "context": "A joint-venture partner is imagined contributing cash that complements the sponsor's work.",
+    "caution": "The alternative amounts are examples, not available investor commitments."
+  },
+  "N251": {
+    "kind": "hypothetical",
+    "context": "A partial acquisition leaves the seller with a continuing minority interest.",
+    "caution": "Rollover terms, governance and later liquidity still require agreement."
+  },
+  "N252": {
+    "kind": "hypothetical",
+    "context": "Buying only part of the equity is suggested as a way to bridge a valuation disagreement.",
+    "caution": "Paying three-fourths of a requested price does not by itself prove equal economics or full financing feasibility."
+  },
+  "N253": {
+    "kind": "hypothetical",
+    "context": "A later call option is proposed for acquiring the seller's remaining shares.",
+    "caution": "Timing and price are example terms, not an enforceable option shown in the collection."
+  },
+  "N254": {
+    "kind": "reported-actual",
+    "context": "Sey recounts buying a majority of JHC first and the remaining minority later.",
+    "caution": "This historical sequence does not establish the price or terms of either step."
+  },
+  "N255": {
+    "kind": "hypothetical",
+    "context": "Search expenses are paired with a possible holding-company stake for an early backer.",
+    "caution": "The cash and percentage alternatives are proposed economics, not a standard search-fund agreement."
+  },
+  "N256": {
+    "kind": "mixed",
+    "context": "A suggested first-search duration is combined with a pitch for acquiring several businesses over time.",
+    "caution": "The search heuristic and the multiyear portfolio scenario are not achieved outcomes."
+  },
+  "N257": {
+    "kind": "opinion",
+    "context": "The speaker recommends choosing a sector one can remain interested in for many years.",
+    "caution": "The horizon expresses commitment, not a contracted investment term."
+  },
+  "N258": {
+    "kind": "hypothetical",
+    "context": "A negotiation example distinguishes providing cash from supporting a personal guarantee.",
+    "caution": "The guarantor's stake is unspecified, so the final ownership split cannot be calculated."
+  },
+  "N259": {
+    "kind": "rule-of-thumb",
+    "context": "A first acquisition is discussed as a negotiation between sponsor work and investor capital.",
+    "caution": "The ranges are heuristics; actual rights, dilution and contributions determine the agreement."
+  },
+  "N260": {
+    "kind": "target",
+    "context": "Steel expansion is projected to add revenue by a stated future quarter.",
+    "caution": "The amounts and date are ambitions from the episode, not verified completed growth."
+  },
+  "N261": {
+    "kind": "mixed",
+    "context": "A generic term sheet is described through document length, exclusivity and sample funding sizes.",
+    "caution": "Page counts vary across episodes; exclusivity may bind even when commercial terms do not, and no live amount is established."
+  },
+  "N262": {
+    "kind": "reported-actual",
+    "context": "Sey describes an acquisition involving a personal guarantee and a later refinancing.",
+    "caution": "A 50% ownership account does not establish the guarantee's scope or terms of release."
+  },
+  "N263": {
+    "kind": "hypothetical",
+    "context": "Adding different target revenues illustrates step changes in platform scale.",
+    "caution": "The alternatives are separate arithmetic examples and should not be added into one acquisition history.",
+    "topics": [
+      "roll-ups"
+    ]
+  },
+  "N264": {
+    "kind": "mixed",
+    "context": "A mentee is given a short sourcing assignment alongside a company-registration cost mentioned at the time.",
+    "caution": "The target count is an assignment; £60 is a historical quote, not a verified current fee."
+  },
+  "N265": {
+    "kind": "hypothetical",
+    "context": "A group revenue and margin assumption is converted into enterprise value using alternative earnings multiples.",
+    "caution": "The calculation is a valuation scenario, not an executable exit price."
+  },
+  "N266": {
+    "kind": "hypothetical",
+    "context": "Debt is deducted from enterprise value before applying a minority ownership percentage.",
+    "caution": "The resulting stake value is hypothetical and illiquid, not cash proceeds or personal spendable wealth."
+  },
+  "N267": {
+    "kind": "hypothetical",
+    "context": "A worked leveraged buyout combines bank debt, seller financing and outside equity.",
+    "caution": "The example does not establish actual availability of any funding component."
+  },
+  "N268": {
+    "kind": "hypothetical",
+    "context": "The bank portion of the worked buyout is repaid through equal annual principal instalments.",
+    "caution": "The schedule is an assumption; actual amortization may differ."
+  },
+  "N269": {
+    "kind": "hypothetical",
+    "context": "A base-plus-margin interest illustration is applied to the assumed bank borrowing.",
+    "caution": "The speaker's LIBOR and central-bank explanation is erroneous; 10% is an assumed rate, not a current benchmark or facility quote."
+  },
+  "N270": {
+    "kind": "hypothetical",
+    "context": "Bank principal, bank interest and seller payments are subtracted from the example's earnings.",
+    "caution": "The £150k remainder omits taxes, capital expenditure, working capital and hiring, so it is not proven distributable cash."
+  },
+  "N271": {
+    "kind": "reported-actual",
+    "context": "The speaker describes a five-target pipeline with one opportunity further along in legal preparation.",
+    "caution": "Progress toward lawyers is not completion or a committed acquisition."
+  },
+  "N272": {
+    "kind": "rule-of-thumb",
+    "context": "A short term sheet is offered as a generic document-format example.",
+    "caution": "Another episode suggests longer documents; neither establishes a mandatory or legal page count.",
+    "topics": [
+      "acquisition-process"
+    ]
+  },
+  "N273": {
+    "kind": "opinion",
+    "context": "A guest discusses property-yield levels they find unattractive.",
+    "caution": "The figures are investment opinions with a loosely defined cost basis, not verified market yields."
+  },
+  "N274": {
+    "kind": "hypothetical",
+    "context": "A guest uses relative size examples to argue for acquisition-led operating growth.",
+    "caution": "Size ratios are strategic illustrations, not completed transaction performance."
+  },
+  "N275": {
+    "kind": "reported-actual",
+    "context": "A chief executive's early period is described as time spent establishing the role.",
+    "caution": "A reported ramp-up interval is not a universal management timetable."
+  },
+  "N276": {
+    "kind": "proposed",
+    "context": "A fragment of conversation sets out a stepped success-fee percentage.",
+    "caution": "The service and counterparty are unknown; it cannot be classified as a debt-broker fee, carried interest or signed contract.",
+    "topics": [
+      "acquisition-process"
+    ]
+  },
+  "N277": {
+    "kind": "rule-of-thumb",
+    "context": "The financing search is described as requiring approaches to many banks.",
+    "caution": "A suggested outreach count does not imply any bank will approve the transaction."
+  },
+  "N278": {
+    "kind": "hypothetical",
+    "context": "A pitch example describes an established target with meaningful sales, margin and earnings history.",
+    "caution": "The numbers are a presentation scenario, not verified accounts for an identified business."
+  },
+  "N279": {
+    "kind": "rule-of-thumb",
+    "context": "A guest briefly discusses a possible tenor in an explanation of Sukuk.",
+    "caution": "The aside does not define all Sukuk structures or demonstrate acquisition borrowing.",
+    "topics": [
+      "debt-pricing"
+    ]
+  },
+  "N280": {
+    "kind": "hypothetical",
+    "context": "Alternative investor ownership percentages illustrate the range of possible equity negotiations.",
+    "caution": "No single split is prescribed or shown as a completed agreement."
+  },
+  "N281": {
+    "kind": "proposed",
+    "context": "A partner voices an intention to support several future acquisitions.",
+    "caution": "Verbal support is not committed capital or a binding obligation.",
+    "topics": [
+      "investor-equity"
+    ]
+  },
+  "N282": {
+    "kind": "target",
+    "context": "A long holding period underpins a conditional wealth-building thesis.",
+    "caution": "The horizon and future result are aspirations, not realized performance."
+  },
+  "N283": {
+    "kind": "reported-actual",
+    "context": "The age of an acquired business is used to illustrate operating durability.",
+    "caution": "A long trading history does not guarantee future survival or credit quality.",
+    "topics": [
+      "acquisition-entrepreneurship"
+    ]
+  },
+  "N284": {
+    "kind": "mixed",
+    "context": "An HVAC roll-up ambition is paired with an estimate of the available target universe.",
+    "caution": "The candidate count is unsupported and the desired portfolio has not been established as built."
+  },
+  "N285": {
+    "kind": "hypothetical",
+    "context": "Equity is combined with borrowing to illustrate a larger acquisition budget.",
+    "caution": "Borrowing capacity, fees and cash needs must be established before treating the total as purchasing power."
+  },
+  "N286": {
+    "kind": "hypothetical",
+    "context": "A purchase example allocates the price among bank debt, investor cash and seller consideration.",
+    "caution": "The operating profit and financing are assumptions rather than approved transaction terms."
+  },
+  "N287": {
+    "kind": "hypothetical",
+    "context": "The same example separates completion cash from later seller instalments.",
+    "caution": "The four-year repayment arithmetic is one option within a wider proposed timing range."
+  },
+  "N288": {
+    "kind": "reported-actual",
+    "context": "A site disruption involving seagulls is described as affecting several months of work.",
+    "caution": "The account does not distinguish permanently lost revenue, lost profit and delayed invoicing; the amount is not a verified profit loss."
+  },
+  "N289": {
+    "kind": "unverified-claim",
+    "context": "The speaker contrasts short headline agreements with lengthy legal documentation packages.",
+    "caution": "Page counts are broad estimates, not required document lengths or a verified deal inventory."
+  },
+  "N290": {
+    "kind": "proposed",
+    "context": "The Irish offer discussion lowers the earnings base used for valuation.",
+    "caution": "The revised €2.6m is not an audited correction and must be read alongside conflicting earlier earnings figures."
+  },
+  "N291": {
+    "kind": "hypothetical",
+    "context": "A margin downside example is translated into a possible loss of enterprise value.",
+    "caution": "At revenue below €10m, a five-to-eight-point margin fall implies less than €0.5m–€0.8m, so the claimed loss above €1m is unsupported."
+  },
+  "N292": {
+    "kind": "proposed",
+    "context": "A refurbishment business is considered as an acquisition candidate using sales and earnings figures.",
+    "caution": "The target was under review, not purchased."
+  },
+  "N293": {
+    "kind": "rule-of-thumb",
+    "context": "A minimum investor cheque is suggested when discussing fundraising.",
+    "caution": "The claimed regulatory inspiration is uncertain; €100,000 is not established here as a legal eligibility requirement.",
+    "topics": [
+      "investor-equity"
+    ]
+  },
+  "N294": {
+    "kind": "hypothetical",
+    "context": "A monthly search budget is multiplied by alternative search periods and paired with a holdco stake.",
+    "caution": "The arithmetic is illustrative; 20% is proposed search compensation, not a standard term or acquisition valuation."
+  },
+  "N295": {
+    "kind": "target",
+    "context": "A proposed search aims to find an established business within a defined revenue and margin range.",
+    "caution": "The timetable and operating profile are objectives, not assured results."
+  },
+  "N296": {
+    "kind": "reported-actual",
+    "context": "Sey describes the original Danish-krone capital used to fund an equally owned search vehicle.",
+    "caution": "Dollar equivalents are approximate speaker conversions; this is search capital, not acquisition equity or current foreign-exchange data."
+  },
+  "N297": {
+    "kind": "hypothetical",
+    "context": "Different cheque sizes illustrate possible acquisition-equity investor participation.",
+    "caution": "The figures do not document subscriptions or establish regulatory investor categories."
+  },
+  "N298": {
+    "kind": "hypothetical",
+    "context": "A revenue covenant example turns annual sales into a monthly floor after a permitted decline.",
+    "caution": "This is neither a debt-service nor leverage covenant and is not taken from an executed facility."
+  },
+  "N299": {
+    "kind": "unverified-claim",
+    "context": "The speaker tentatively describes the size and history of private credit.",
+    "caution": "The hesitant figures lack a dataset and date; they cannot support a current market-size claim."
+  },
+  "N300": {
+    "kind": "hypothetical",
+    "context": "A chief executive's pay is imagined increasing as further acquisitions create salary capacity.",
+    "caution": "The fractions do not specify a cash salary or a signed employment arrangement."
+  },
+  "N301": {
+    "kind": "hypothetical",
+    "context": "An equity incentive example introduces vesting with a first-year cliff.",
+    "caution": "Later vesting timing, dilution basis and actual agreed CEO terms are not supplied."
+  },
+  "N302": {
+    "kind": "rule-of-thumb",
+    "context": "A regular weekday search routine is paired with revenue filters and an opening valuation range.",
+    "caution": "The schedule and multiples are suggested working habits, not a guarantee of suitable deals."
+  },
+  "N303": {
+    "kind": "proposed",
+    "context": "A Danish prospect's approximate earnings are mentioned before a planned visit is cancelled.",
+    "caution": "No purchase or completed diligence is established."
+  },
+  "N304": {
+    "kind": "hypothetical",
+    "context": "A high-multiple IT purchase leaves a large equity requirement after assumed bank borrowing.",
+    "caution": "The residual holds only without seller finance, fees or cash adjustments; the numbers are earnings multiples, not capital percentages."
+  },
+  "N305": {
+    "kind": "unverified-claim",
+    "context": "A statement about Magnus's property holdings supports an anecdote about Danish financing difficulties.",
+    "caution": "The amount is unverified and does not establish liquid wealth, available acquisition equity or a lending commitment."
+  },
+  "N306": {
+    "kind": "hypothetical",
+    "context": "A scaled portfolio scenario combines standby equity, bank borrowing and seller finance with assumed margins.",
+    "caution": "The source mixes currencies and the capital is hypothetical; calculated purchasing scale is not money raised or a completed portfolio."
+  },
+  "N307": {
+    "kind": "target",
+    "context": "An equity-first strategy proposes a rapid deployment period and repeated short closing timetables.",
+    "caution": "These are execution ambitions, not demonstrated deal durations or committed deployment."
+  },
+  "N308": {
+    "kind": "forecast",
+    "context": "An operating plan combines future earnings, free cash flow and a hoped-for debt-free date.",
+    "caution": "No reconciled model connects the figures through taxes, capital expenditure, working capital and loan terms."
+  },
+  "N309": {
+    "kind": "unverified-claim",
+    "context": "An unnamed third-party story describes insolvency after a listing and a much later legal case.",
+    "caution": "The account is unverified and is not established as Sey's acquisition; the two periods concern different stages."
+  },
+  "N310": {
+    "kind": "rule-of-thumb",
+    "context": "Broad financing ranges are proposed for the bank, seller and equity portions of a purchase.",
+    "caution": "The ranges cannot all be maximized together; an actual capital stack must total 100%."
+  },
+  "N311": {
+    "kind": "unverified-claim",
+    "context": "A question introduces a purported Bezos-linked AI and manufacturing fund.",
+    "caution": "The premise is not verified evidence of a real fund, Sey fundraising or acquisition credit.",
+    "topics": [
+      "investor-equity"
+    ]
+  },
+  "N312": {
+    "kind": "hypothetical",
+    "context": "A machine's cost is spread evenly across an assumed useful life to explain book depreciation.",
+    "caution": "The calculation assumes no residual value; accounting depreciation does not determine liquidation value."
+  },
+  "N313": {
+    "kind": "hypothetical",
+    "context": "An asset appraisal is reduced by a lending advance percentage to estimate collateral funding.",
+    "caution": "£640k is 80% of the £800k appraisal, not of book value; 120 days concerns disposal, not loan maturity."
+  }
+}

@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';import Crumbs from '../../components/Crumbs.astro';
+import {getCollection} from 'astro:content';import {modules} from '../../lib/data';
+const lessons=(await getCollection('lessons')).sort((a,b)=>a.data.order-b.data.order);
+---
+<Base title="Free course: buying and financing a business" description="Twenty source-linked lessons on acquisition entrepreneurship, valuation, deal structure, financing and operating a business." type="Course">
+ <Crumbs items={[{title:'Course'}]} />
+ <header class="page-header"><p class="eyebrow">The free course</p><h1>From the first search to life after closing.</h1><p>Twenty lessons in fourteen modules. Start at the beginning or choose the decision you are working through. There is no account, enrollment, or paid tier.</p></header>
+ <div class="progress-panel" data-progress-root data-lesson-ids={lessons.map(x=>x.id).join(',')}><div><strong>Your reading progress</strong><p data-progress-status>Optional. Saved in this browser only when JavaScript is available.</p></div><div class="actions"><a class="button" data-resume href={`/course/${lessons[0]?.id}/`}>Begin the course</a><button class="button secondary" data-reset-progress>Reset progress</button></div></div>
+ {modules.map(m=><section class="course-module" id={`module-${m.number}`}><span class="module-number" aria-hidden="true">{String(m.number).padStart(2,'0')}</span><div><h2>{m.title}</h2><p>{m.description}</p><ol class="lesson-list">{lessons.filter(x=>x.data.module===m.number).map(x=><li><a href={`/course/${x.id}/`}>{x.data.title}</a><span class="lesson-meta"><span class="complete-state" data-lesson-state={x.id}></span>{x.data.minutes} min read</span></li>)}</ol><span class="small muted" data-module-progress data-module-lessons={lessons.filter(x=>x.data.module===m.number).map(x=>x.id).join(',')}></span></div></section>)}
+ <p class="notice">This course teaches how to interpret practitioner material. It does not supply a complete investment model or replace transaction-specific legal, tax, financing, and diligence work. <a href="/methodology/">Read the evidence policy.</a></p>
+ <script src="../../scripts/progress.ts"></script>
+</Base>

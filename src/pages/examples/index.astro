@@ -1,0 +1,8 @@
+---
+import {getCollection} from 'astro:content';import Base from '../../layouts/Base.astro';import Crumbs from '../../components/Crumbs.astro';import {label} from '../../lib/data';
+const examples=await getCollection('examples');
+---
+<Base title="Worked business acquisition examples" description="Source-linked capital stacks, seller-finance structures, collateral calculations and acquisition examples, with deal status explicit." type="Examples">
+ <Crumbs items={[{title:'Examples'}]} /><header class="page-header"><p class="eyebrow">From explanation to application</p><h1>Work through the deal mechanics.</h1><p>These examples isolate a decision or calculation. Their labels distinguish hypothetical illustrations, proposals, and reported experience. None is a ready-made investment case.</p></header>
+ <ul class="content-list index-grid">{examples.map(x=><li><span class="badge">{label(x.data.status)}</span><h2 class="spaced"><a href={`/examples/${x.id}/`}>{x.data.title}</a></h2><p>{x.data.description}</p></li>)}</ul>
+</Base>

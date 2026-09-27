@@ -1,0 +1,22 @@
+---
+import {getCollection,render} from 'astro:content';
+import Base from '../../layouts/Base.astro';import Crumbs from '../../components/Crumbs.astro';import Sources from '../../components/Sources.astro';import Related from '../../components/Related.astro';import {modules} from '../../lib/data';
+export async function getStaticPaths(){return (await getCollection('lessons')).map(lesson=>({params:{slug:lesson.id},props:{lesson}}));}
+const {lesson}=Astro.props;const {Content}=await render(lesson);
+const all=(await getCollection('lessons')).sort((a,b)=>a.data.order-b.data.order);
+const pos=all.findIndex(x=>x.id===lesson.id);const previous=all[pos-1],next=all[pos+1];const module=modules.find(x=>x.number===lesson.data.module);
+---
+<Base title={lesson.data.title} description={lesson.data.description} type="Lesson">
+ <Crumbs items={[{title:'Course',url:'/course/'},{title:`Module ${lesson.data.module}`,url:`/course/#module-${lesson.data.module}`},{title:lesson.data.title}]} />
+ <div class="reading-layout"><aside class="lesson-sidebar" data-pagefind-ignore><details open><summary>Course contents</summary>{modules.map(m=><div><h3>{String(m.number).padStart(2,'0')} · {m.title}</h3><ol>{all.filter(x=>x.data.module===m.number).map(x=><li><a href={`/course/${x.id}/`} aria-current={x.id===lesson.id?'page':undefined}>{x.data.title}</a></li>)}</ol></div>)}</details></aside><article class="reading-main">
+  <header class="page-header"><p class="eyebrow">Module {String(lesson.data.module).padStart(2,'0')} · {module?.title}</p><h1>{lesson.data.title}</h1><p>{lesson.data.description}</p><div class="small muted spaced">Lesson {lesson.data.order} of {all.length} · {lesson.data.minutes} min read</div></header>
+  <div class="takeaway"><p class="eyebrow">The key idea</p><p>{lesson.data.takeaway}</p></div>
+  <div class="prose"><Content /></div>
+  <Sources ids={lesson.data.sources} evidenceIds={lesson.data.evidence} />
+  <div data-progress-root data-lesson-ids={all.map(x=>x.id).join(',')}><div class="progress-control"><input type="checkbox" id="lesson-complete" data-complete-lesson={lesson.id}/><label for="lesson-complete">Mark this lesson complete</label></div><p class="small muted" data-progress-status>Optional progress stays in your browser.</p></div>
+  <nav class="lesson-pagination" aria-label="Lesson navigation" data-pagefind-ignore>{previous?<a href={`/course/${previous.id}/`}><span>Previous lesson</span>{previous.data.title}</a>:<a href="/course/"><span>Back to</span>Course overview</a>}{next?<a href={`/course/${next.id}/`}><span>Next lesson</span>{next.data.title}</a>:<a href="/course/"><span>Course complete</span>Review your learning</a>}</nav>
+  <Related topicIds={lesson.data.topics} currentLesson={lesson.id}/>
+ </article></div>
+ <script src="../../scripts/progress.ts"></script>
+ <script>if(window.matchMedia('(max-width:740px)').matches){document.querySelector('.lesson-sidebar details')?.removeAttribute('open');}</script>
+</Base>

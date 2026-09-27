@@ -1,0 +1,6 @@
+---
+import {getCollection,render} from 'astro:content';import Base from '../../layouts/Base.astro';import Crumbs from '../../components/Crumbs.astro';import Sources from '../../components/Sources.astro';import Related from '../../components/Related.astro';import {numbers,label} from '../../lib/data';
+export async function getStaticPaths(){return (await getCollection('examples')).map(example=>({params:{slug:example.id},props:{example}}));}
+const {example}=Astro.props;const {Content}=await render(example);const refs=numbers.filter(x=>example.data.numbers.includes(x.id));
+---
+<Base title={example.data.title} description={example.data.description} type="Example"><Crumbs items={[{title:'Examples',url:'/examples/'},{title:example.data.title}]} /><article class="narrow"><header class="page-header"><p class="eyebrow">Worked example</p><h1>{example.data.title}</h1><p>{example.data.description}</p><span class="badge spaced">{label(example.data.status)}</span></header><div class="prose"><Content /></div>{refs.length>0 && <section class="section"><h2>Underlying numerical references</h2><ul class="content-list spaced">{refs.map(x=><li><a href={`/numbers/#${x.id}`}>{x.metric}: {x.value}</a></li>)}</ul></section>}<Sources ids={example.data.sources} evidenceIds={example.data.evidence} /><Related topicIds={example.data.topics}/></article></Base>

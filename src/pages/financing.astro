@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';import Crumbs from '../components/Crumbs.astro';import Sources from '../components/Sources.astro';
+const routes=[
+ ['capital-stack','Start with the whole capital stack','Understand how the sources of funds add up and why their claims are not interchangeable.'],
+ ['buyer-equity','Buyer equity and search capital','Separate money to support the search from money invested in an acquisition.'],
+ ['bank-debt','Bank borrowing','Follow the path from borrower story and lender interest to credit approval and conditions.'],
+ ['seller-financing','Seller financing','Distinguish deferred payment, repayment capacity, creditor priority and future refinancing risk.'],
+ ['asset-based-lending','Asset-based lending','Read collateral quality and lender valuation assumptions before applying an advance rate.'],
+ ['investor-equity','Equity partners','Understand ownership dilution, investor fit and the difference between interest and a funded subscription.'],
+ ['private-credit','Private credit','Explore non-bank, investor-funded credit and the limits of what the source evidence demonstrates.'],
+ ['institutional-debt','Institutional debt','Keep a proposed institutional package separate from committed and completed financing.'],
+ ['subordination','Subordination and seniority','Understand bank-senior and seller-junior ranking. Mezzanine product detail remains outside the developed source coverage.'],
+ ['preferred-equity','Hybrid economic structures','Examine preferred ownership and equity with revenue participation without relabeling them as ordinary loans.'],
+ ['government-backed-lending','Government-backed lending: the evidence boundary','The collection does not teach a complete SBA acquisition-finance process. Apparent transcript references are qualified.'],
+ ['debt-service','Debt service and cash capacity','Model principal, interest and seller payments together; distinguish earnings from available cash.'],
+];
+---
+<Base title="Acquisition financing: debt, equity and seller finance" description="A practical source-linked guide to acquisition capital stacks, bank debt, seller financing, asset-based lending, investor equity and private credit." type="Financing">
+ <Crumbs items={[{title:'Financing'}]}/><header class="page-header"><p class="eyebrow">Acquisition finance</p><h1>Build a funding plan the business can carry.</h1><p>Financing is more than finding someone willing to lend. Understand the source of funds, the repayment timetable, the security, and what happens if performance changes.</p></header>
+ <div class="split"><div class="prose"><h2>The same purchase price can hide different obligations.</h2><p>Bank debt, seller balances, and equity can all contribute to an acquisition. Their economics differ. A lender expects repayment under a credit agreement; an equity partner accepts ownership risk; a seller may wait for a fixed payment or accept a contingent earn-out.</p><p>The guide starts with the full payment schedule and then examines each funding source. It treats the source’s leverage ratios and borrowing costs as contextual examples, not offers available to every buyer.</p><a class="button" href="/course/building-the-capital-stack/">Start the financing lessons</a></div><aside class="notice"><h2>Private credit: what this collection establishes</h2><p>Meaningful discussion of LP-funded non-bank institutions and institutional acquisition debt.</p><p><strong>No named completed private-credit facility established.</strong> Duke Royalty appears as a proposed contact, not a confirmed funded transaction.</p><p><a href="/topics/private-credit/">Read the evidence and its limits →</a></p></aside></div>
+ <section class="section spaced"><div class="section-head"><h2>Explore the financing choices</h2><a href="/providers/">Firms &amp; intermediaries →</a></div><ul class="content-list index-grid">{routes.map(([slug,title,description])=><li><h3><a href={`/topics/${slug}/`}>{title}</a></h3><p>{description}</p></li>)}</ul></section>
+ <section class="section"><h2>Read the conditions, not only the headline amount.</h2><div class="terms-grid spaced"><div><a href="/topics/debt-pricing/">Pricing</a><p>Separate an illustrative benchmark and spread from an actual lender quote.</p></div><div><a href="/topics/amortization/">Amortization</a><p>See how principal payments change the annual cash burden.</p></div><div><a href="/topics/covenants/">Covenants</a><p>Understand monitoring and restrictions before a business misses a test.</p></div><div><a href="/topics/personal-guarantees/">Guarantees</a><p>Distinguish company obligations from personal exposure.</p></div></div></section>
+ <Sources ids={['NnWl4wMoQhM','je7CsLaUm8w','MwejQUah14Y','VmRqlJuqCs8','byJSV1CEYBk','Hvw5FAbRAZY','KsnY8Gpnkl4']} />
+</Base>

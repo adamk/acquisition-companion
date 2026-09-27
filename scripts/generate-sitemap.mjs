@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {siteConfig} from '../src/site-config.mjs';
+import {canonicalUrl} from '../src/lib/behavior.mjs';
+const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(x=>x.isDirectory()?walk(path.join(dir,x.name)):[path.join(dir,x.name)]);
+const pages=walk('dist').filter(x=>x.endsWith('.html')&&!x.endsWith('/404.html')&&!x.includes('/search/')).map(x=>'/'+x.replace(/^dist\//,'').replace(/index\.html$/,'')).sort();
+const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
+const urls=siteConfig.canonicalDomain?pages.map(p=>`<url><loc>${escape(canonicalUrl(siteConfig.canonicalDomain,p))}</loc></url>`).join('\n'):'';
+fs.writeFileSync('dist/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
+console.log(siteConfig.canonicalDomain?`Sitemap: ${pages.length} canonical URLs`:'Sitemap ready; empty until SITE_URL is set. Preview pages are noindex.');
