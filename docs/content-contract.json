@@ -1,0 +1,14 @@
+{
+  "researchRoot":"/path/to/yusufa_analysis",
+  "evidenceIds":"E001 through E243 are 1-based CSV data-row ordinals",
+  "numberIds":"N001 through N313 are 1-based Markdown quantitative-table data-row ordinals",
+  "providerIds":"P001 through P028 are first table data-row ordinals in provider research",
+  "topics":["acquisition-entrepreneurship","acquisition-process","target-selection","sourcing","brokers","loi","ebitda","adjusted-ebitda","cash-flow","working-capital","enterprise-value","equity-value","valuation-multiples","due-diligence","customer-concentration","capital-stack","leverage","buyer-equity","investor-equity","seller-financing","deferred-consideration","earn-outs","rollover-equity","preferred-equity","bank-debt","government-backed-lending","asset-based-lending","receivables-finance","private-credit","institutional-debt","senior-debt","subordination","debt-pricing","amortization","debt-service","covenants","collateral","personal-guarantees","refinancing","management","roll-ups","bolt-ons","returns-and-exits","irr-and-moic"],
+  "lessons":[
+    [1,"acquisition-entrepreneurship"],[1,"anatomy-of-an-acquisition"],[2,"choosing-a-target"],[3,"building-a-deal-pipeline"],[4,"earnings-versus-cash"],[4,"working-capital-and-collateral"],[5,"valuing-a-small-business"],[6,"structuring-the-price"],[6,"rollover-and-preferred-equity"],[7,"building-the-capital-stack"],[7,"asset-based-finance"],[7,"investor-fundraising"],[8,"understanding-private-credit"],[8,"debt-terms-and-covenants"],[9,"negotiating-an-loi"],[10,"diligencing-the-business"],[11,"getting-to-completion"],[12,"management-after-acquisition"],[13,"building-a-group"],[14,"returns-and-exits"]
+  ],
+  "lessonFrontmatter":{"title":"string","description":"string","module":"number 1..14","order":"number 1..20","minutes":"number","topics":["topic slug"],"evidence":["E001"],"sources":["original video ID"],"takeaway":"one sentence"},
+  "lessonSections":["What it means","Why it matters","How it works","Practical interpretation","A worked example","Common mistakes","Related concepts","Further viewing"],
+  "topicFrontmatter":{"title":"string","description":"string","definition":"one/two sentences","category":"Fundamentals|Finding deals|Understanding the numbers|Deal structure|Financing|Operating and exits","coverage":"substantive|introductory|limited","related":["topic slug"],"evidence":["E001"],"sources":["video ID"]},
+  "exampleFrontmatter":{"title":"string","description":"string","status":"hypothetical|proposed|reported-completed|personal-experience|unclear","topics":["topic slug"],"evidence":["E001"],"sources":["video ID"],"numbers":["N001"]}
+}
