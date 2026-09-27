@@ -1,6 +1,6 @@
 ---
 title: "£5k a month funds a search, not the acquisition"
-description: "£5k a month funds a search, not the acquisition. A source-grounded explanation of the figures, assumptions and limits."
+description: "Compare search duration, monthly spending and the ownership offered to an early backer."
 status: "hypothetical"
 topics: ["buyer-equity", "investor-equity", "sourcing"]
 evidence: ["E209"]
@@ -10,7 +10,7 @@ numbers: ["N294"]
 
 ## The runway illustration
 
-The collection describes a potential backer paying £5k monthly while a sponsor searches for an acquisition, with an illustrative 20% holding-company interest. This is hypothetical search funding, not an acquisition-equity cheque or a standard ownership arrangement. It pays for the time and costs needed to find and advance a transaction before an acquired business can support the sponsor. [Source · E209](https://www.youtube.com/watch?v=tZBRCa9EW3A)
+The collection describes a potential backer paying £5k monthly while a sponsor searches for an acquisition, with an illustrative 20% holding-company interest. This is hypothetical search funding, not an acquisition-equity cheque or a standard ownership arrangement. It pays for the time and costs needed to find and advance a transaction before an acquired business can support the sponsor. [Watch source](https://www.youtube.com/watch?v=tZBRCa9EW3A)
 
 ## Match budget and duration
 
@@ -27,4 +27,4 @@ The buyer still needs separate capital for the purchase, fees and any operating 
 
 The economic exchange can outlast the search if the backer owns a permanent holding-company stake. A sponsor therefore trades some future participation and autonomy for time to execute now. The source explicitly associates outside backing with accountability, while recognizing that a funded search can still fail.
 
-Do not use the £90k illustration as an implied target-business valuation, or mix it with the separate reported DKK600k historical capitalization. They are different examples with different status and currencies. The practical output is a realistic search budget plus an explicit account of what ownership the funding purchases. Continue with [buyer equity](/topics/buyer-equity/) and [sourcing](/topics/sourcing/).
+Do not use the £90k illustration as an implied target-business valuation, or mix it with the separate reported DKK600k historical capitalization. They are different examples with different status and currencies. Set out the search budget and the ownership the backer receives. Continue with [buyer equity](/topics/buyer-equity/) and [sourcing](/topics/sourcing/).

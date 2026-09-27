@@ -1,6 +1,6 @@
 ---
 title: "Why £1m of machinery supports £640k in the illustration"
-description: "Why £1m of machinery supports £640k in the illustration. A source-grounded explanation of the figures, assumptions and limits."
+description: "Follow the reductions from machinery book value to appraisal and potential borrowing."
 status: "hypothetical"
 topics: ["collateral", "asset-based-lending"]
 evidence: ["E241"]
@@ -10,7 +10,7 @@ numbers: ["N313"]
 
 ## The situation
 
-The collection gives a machinery-financing illustration with three distinct amounts: £1m accounting book value, £800k appraised realization value and an advance calculated against that appraisal. The stated valuation basis assumes an ex-factory disposal over 120 days. This is hypothetical teaching from a recovered audio transcript, not an independently verified appraisal or an executed lending offer. [Source · E241](https://www.youtube.com/watch?v=Hvw5FAbRAZY)
+The collection gives a machinery-financing illustration with three distinct amounts: £1m accounting book value, £800k appraised realization value and an advance calculated against that appraisal. The stated valuation basis assumes an ex-factory disposal over 120 days. This is hypothetical teaching from a recovered audio transcript, not an independently verified appraisal or an executed lending offer. [Watch source](https://www.youtube.com/watch?v=Hvw5FAbRAZY)
 
 ## Apply the right denominator
 

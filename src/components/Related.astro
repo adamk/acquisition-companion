@@ -1,8 +1,8 @@
 ---
 import {getCollection} from 'astro:content';
-interface Props{topicIds:string[];currentLesson?:string;}
-const {topicIds,currentLesson}=Astro.props;
-const topics=(await getCollection('topics')).filter(x=>topicIds.includes(x.id));
+interface Props{topicIds:string[];currentLesson?:string;currentTopic?:string;}
+const {topicIds,currentLesson,currentTopic}=Astro.props;
+const topics=(await getCollection('topics')).filter(x=>x.id!==currentTopic && topicIds.includes(x.id));
 const lessons=(await getCollection('lessons')).filter(x=>x.id!==currentLesson && x.data.topics.some(t=>topicIds.includes(t))).sort((a,b)=>a.data.order-b.data.order).slice(0,5);
 ---
 <aside class="related" data-pagefind-ignore><h2>Keep learning</h2><div class="related-columns"><div><h3>Related concepts</h3><ul>{topics.map(x=><li><a href={`/topics/${x.id}/`}>{x.data.title}</a></li>)}</ul></div><div><h3>In the course</h3><ul>{lessons.map(x=><li><a href={`/course/${x.id}/`}>{x.data.title}</a></li>)}</ul></div></div></aside>

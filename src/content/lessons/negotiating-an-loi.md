@@ -11,51 +11,35 @@ takeaway: "An effective LOI makes the proposed economics and unresolved conditio
 ---
 
 ## What it means
-A letter of intent, also called heads of terms in the source, records the main proposed terms before the full acquisition documentation is completed. Sey's examples identify the buyer, price, earnings basis, payment structure and assumptions about cash, debt, working capital and handover. It is a framework for further work, not evidence that every condition has been resolved. [E032: original discussion](https://www.youtube.com/watch?v=vkKw1MeUors)
+A letter of intent, also called heads of terms in the source, records the main proposed terms before the full acquisition documentation is completed. Sey's examples identify the buyer, price, earnings basis, payment structure and assumptions about cash, debt, working capital and handover. It is a framework for further work, not evidence that every condition has been resolved. [Watch source](https://www.youtube.com/watch?v=vkKw1MeUors)
 
-The source generally describes these offers as nonbinding and subject to diligence and final agreements. It also recognizes exceptions and other commitments. Do not infer the legal effect of an actual document solely from its title or from this course's summary. [E032: original discussion](https://www.youtube.com/watch?v=vkKw1MeUors)
+The source generally describes these offers as nonbinding and subject to diligence and final agreements. It also recognizes exceptions and other commitments. Do not infer the legal effect of an actual document solely from its title or from this course's summary. [Watch source](https://www.youtube.com/watch?v=vkKw1MeUors)
 
 ## Why it matters
-A headline price can conceal disagreement. Buyer and seller may both say four times earnings while referring to different years, different adjustments or different completion payments. Sey's earnings-period discussion shows why apparently simple commercial language can become a problem months later. [E153: original discussion](https://www.youtube.com/watch?v=JhqVeCE6yYk)
+A headline price can conceal disagreement. Buyer and seller may both say four times earnings while referring to different years, different adjustments or different completion payments. Sey's earnings-period discussion shows why apparently simple commercial language can become a problem months later. [Watch source](https://www.youtube.com/watch?v=JhqVeCE6yYk)
 
-The LOI also affects trust. A seller may commit time, disclose information and pause other conversations. Sey rejects deliberately overstating an initial offer with the intention of cutting it after the seller becomes invested in the process. He distinguishes that tactic from renegotiating after genuinely new material information appears. [E027: original discussion](https://www.youtube.com/watch?v=q5acehTXYXs)
+The LOI also affects trust. A seller may commit time, disclose information and pause other conversations. Sey rejects deliberately overstating an initial offer with the intention of cutting it after the seller becomes invested in the process. He distinguishes that tactic from renegotiating after genuinely new material information appears. [Watch source](https://www.youtube.com/watch?v=q5acehTXYXs)
 
 ## How it works
-Start with a qualified discussion. Establish whether the seller wants to transact and whether the parties' economic expectations overlap before sending a formal offer. The source treats this as the difference between a serious LOI and a large volume of weakly qualified proposals. [E117: original discussion](https://www.youtube.com/watch?v=PqGjF6z1ZaM)
+Start with a qualified discussion. Establish whether the seller wants to transact and whether the parties' economic expectations overlap before sending a formal offer. The source treats this as the difference between a serious LOI and a large volume of weakly qualified proposals. [Watch source](https://www.youtube.com/watch?v=PqGjF6z1ZaM)
 
-Then explain the proposed consideration in components. Identify completion cash, later fixed payments and any performance conditions. State the financial period and the assumptions still to be checked. Sey's framework also includes the intended acquisition entity and seller involvement after completion. Each term should reduce ambiguity rather than hide it behind broad language. [E032: original discussion](https://www.youtube.com/watch?v=vkKw1MeUors)
+Then explain the proposed consideration in components. Identify completion cash, later fixed payments and any performance conditions. State the financial period and the assumptions still to be checked. Sey's framework also includes the intended acquisition entity and seller involvement after completion. Each term should reduce ambiguity rather than hide it behind broad language. [Watch source](https://www.youtube.com/watch?v=vkKw1MeUors)
 
 ## Practical interpretation
-Read the draft from the seller's perspective. Could they explain what they would receive, when, and what could change? Then read it from the lender's perspective. Are the price and timing consistent with the financing you intend to explore? This editorial review exercise follows the source's emphasis on linking commercial terms and financing evidence. [E032: original discussion](https://www.youtube.com/watch?v=vkKw1MeUors)
+Read the draft from the seller's perspective. Could they explain what they would receive, when, and what could change? Then read it from the lender's perspective. Are the price and timing consistent with the financing you intend to explore? This editorial review exercise follows the source's emphasis on linking commercial terms and financing evidence. [Watch source](https://www.youtube.com/watch?v=vkKw1MeUors)
 
-Keep exclusivity distinct from the price offer. Sey describes typical exclusivity preferences, but also proposes a nonexclusive standing offer where seller expectations remain higher. That is a negotiating option from the source, not a universal recommendation or a statement that either form is automatically enforceable. [E118: original discussion](https://www.youtube.com/watch?v=PqGjF6z1ZaM)
+Keep exclusivity distinct from the price offer. Sey describes typical exclusivity preferences, but also proposes a nonexclusive standing offer where seller expectations remain higher. That is a negotiating option from the source, not a universal recommendation or a statement that either form is automatically enforceable. [Watch source](https://www.youtube.com/watch?v=PqGjF6z1ZaM)
 
 ## A worked example
-**Source illustration.** An offer values a company with £1m annual earnings at £4m, with £3m at completion and £1m later. Before treating that as a clear agreement, identify whether the later £1m is fixed deferred consideration or depends on performance. The source distinguishes those mechanisms; the same headline amount can therefore describe materially different outcomes. [E034: original discussion](https://www.youtube.com/watch?v=vkKw1MeUors) [E033: original discussion](https://www.youtube.com/watch?v=vkKw1MeUors)
+**Source illustration.** An offer values a company with £1m annual earnings at £4m, with £3m at completion and £1m later. Before treating that as a clear agreement, identify whether the later £1m is fixed deferred consideration or depends on performance. The source distinguishes those mechanisms; the same headline amount can therefore describe materially different outcomes. [Watch source](https://www.youtube.com/watch?v=vkKw1MeUors) [Watch source](https://www.youtube.com/watch?v=vkKw1MeUors)
 
-An editorial next step is to specify the earnings period and state what evidence remains outstanding. If the offer assumes the seller stays to manage customer relationships, put that expectation into the commercial discussion rather than discovering it after diligence begins. [E032: original discussion](https://www.youtube.com/watch?v=vkKw1MeUors) [E153: original discussion](https://www.youtube.com/watch?v=JhqVeCE6yYk)
+An editorial next step is to specify the earnings period and state what evidence remains outstanding. If the offer assumes the seller stays to manage customer relationships, put that expectation into the commercial discussion rather than discovering it after diligence begins. [Watch source](https://www.youtube.com/watch?v=vkKw1MeUors) [Watch source](https://www.youtube.com/watch?v=JhqVeCE6yYk)
 
 ## Common mistakes
-Do not mass-send detailed offers before understanding the seller's position. Do not describe a signed LOI as completed financing. And do not use a newly formed acquisition entity as a blanket promise of personal protection: the source describes that as Sey's approach without establishing a universal legal guarantee. [E117: original discussion](https://www.youtube.com/watch?v=PqGjF6z1ZaM) [E019: original discussion](https://www.youtube.com/watch?v=cvauHwc3guQ) [E116: original discussion](https://www.youtube.com/watch?v=PqGjF6z1ZaM)
+Do not mass-send detailed offers before understanding the seller's position. Do not describe a signed LOI as completed financing. And do not use a newly formed acquisition entity as a blanket promise of personal protection: the source describes that as Sey's approach without establishing a universal legal guarantee. [Watch source](https://www.youtube.com/watch?v=PqGjF6z1ZaM) [Watch source](https://www.youtube.com/watch?v=cvauHwc3guQ) [Watch source](https://www.youtube.com/watch?v=PqGjF6z1ZaM)
 
 ## Related concepts
 [The acquisition process](/topics/acquisition-process/) places the LOI in sequence. [Working capital](/topics/working-capital/) explains an important price assumption, while [earn-outs](/topics/earn-outs/) and [deferred consideration](/topics/deferred-consideration/) clarify later payments.
 
 ## Further viewing
 Watch the offer-content discussion before the funnel and negotiation examples. The aim is commercial clarity and visible conditions, not copying a video explanation into a legal document.
-
-**If you ever feel confused… here’s how you buy a BUSINESS** — [Watch the original →](https://www.youtube.com/watch?v=vkKw1MeUors)
-
-**The Most Important Financial Document You’ll Ever Make** — [Watch the original →](https://www.youtube.com/watch?v=PqGjF6z1ZaM)
-
-**Stop Building Businesses (Do This Instead)** — [Watch the original →](https://www.youtube.com/watch?v=JhqVeCE6yYk)
-
-**Private Equity Investor: "We Dodged A Bullet"** — [Watch the original →](https://www.youtube.com/watch?v=q5acehTXYXs)
-
-**If you wanna know what a business is worth... please watch this** — [Watch the original →](https://www.youtube.com/watch?v=T3zG2Iaxy-k)
-
-**Zero to £100M | gambian entrepreneur building a 9-figure business in the UK | vlog 1** — [Watch the original →](https://www.youtube.com/watch?v=-hqVGkoT0dQ)
-
-**How I Would Buy a Business in Current Markets (2026)** — [Watch the original →](https://www.youtube.com/watch?v=cvauHwc3guQ)
-
-**Zero to £100M | entrepreneur in dubai building a 9-figure business | vlog 4** — [Watch the original →](https://www.youtube.com/watch?v=3U3uEsou3SM)

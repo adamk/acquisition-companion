@@ -1,6 +1,6 @@
 ---
 title: "A £3.5m valuation from two years of earnings"
-description: "A £3.5m valuation from two years of earnings. A source-grounded explanation of the figures, assumptions and limits."
+description: "Average the stated pretax profits and compare how the chosen year changes the apparent multiple."
 status: "hypothetical"
 topics: ["valuation-multiples", "adjusted-ebitda", "enterprise-value"]
 evidence: ["E121"]
@@ -10,7 +10,7 @@ numbers: ["N128"]
 
 ## The illustration
 
-The source proposes looking at two years of pretax earnings for a smaller industrial or business-service acquisition. Its example uses £750k in one year and £1.25m in the next, then applies a multiple to their average. This is a hypothetical valuation framework reflecting the speaker's acquisition preferences, not a market quotation or a completed offer. [Source · E121](https://www.youtube.com/watch?v=UAtbZfPN2zA)
+The source proposes looking at two years of pretax earnings for a smaller industrial or business-service acquisition. Its example uses £750k in one year and £1.25m in the next, then applies a multiple to their average. This is a hypothetical valuation framework reflecting the speaker's acquisition preferences, not a market quotation or a completed offer. [Watch source](https://www.youtube.com/watch?v=UAtbZfPN2zA)
 
 ## Reproduce the arithmetic
 

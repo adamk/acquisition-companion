@@ -1,6 +1,6 @@
 ---
 title: "£1m earnings, £150k left before other cash needs"
-description: "£1m earnings, £150k left before other cash needs. A source-grounded explanation of the figures, assumptions and limits."
+description: "Calculate the illustrated bank and seller payments, then identify the cash needs still missing from the remainder."
 status: "hypothetical"
 topics: ["debt-service", "cash-flow", "amortization"]
 evidence: ["E216"]
@@ -10,7 +10,7 @@ numbers: ["N267", "N268", "N269", "N270"]
 
 ## The situation
 
-The source illustrates a £3.5m purchase funded by £2.5m bank borrowing, £0.5m equity and £0.5m seller finance. Assumed annual earnings are £1m. Bank principal is repaid evenly over five years, the example uses 10% first-year interest on the starting balance, and seller payments are £100k annually. This is a hypothetical model, not a disclosed loan agreement. [Source · E216](https://www.youtube.com/watch?v=VmRqlJuqCs8)
+The source illustrates a £3.5m purchase funded by £2.5m bank borrowing, £0.5m equity and £0.5m seller finance. Assumed annual earnings are £1m. Bank principal is repaid evenly over five years, the example uses 10% first-year interest on the starting balance, and seller payments are £100k annually. This is a hypothetical model, not a disclosed loan agreement. [Watch source](https://www.youtube.com/watch?v=VmRqlJuqCs8)
 
 ## Calculate the first-year burden
 
@@ -26,4 +26,4 @@ Those payments consume 85% of the assumed earnings. This is the source's annual 
 
 The £150k is not demonstrated free cash flow or a safe dividend. Tax, capital expenditure, working-capital changes and other costs have not been reconciled. It also assumes the £1m earnings survive the ownership change. A business with apparently substantial profit could have little room for a new executive or a delayed project payment after financing demands.
 
-This example is useful precisely because the subtraction is simple: purchasing power at completion creates obligations afterward. The extension is a monthly cash schedule using consistent earnings definitions and the actual loan terms. Do not call £1m divided by these payments the lender's contractual coverage ratio unless its numerator and included obligations match. Continue with [cash flow](/topics/cash-flow/) and [debt service](/topics/debt-service/).
+Next, turn the annual illustration into a monthly cash schedule using consistent earnings definitions and the actual loan terms. Do not call £1m divided by these payments the lender's contractual coverage ratio unless its numerator and included obligations match. Continue with [cash flow](/topics/cash-flow/) and [debt service](/topics/debt-service/).

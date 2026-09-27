@@ -12,3 +12,11 @@ test('topic and example libraries are populated',()=>{
  assert.equal(fs.readdirSync(new URL('src/content/topics/',root)).filter(x=>x.endsWith('.md')).length,44);
  assert.equal(fs.readdirSync(new URL('src/content/examples/',root)).filter(x=>x.endsWith('.md')).length,12);
 });
+
+test('key rewritten explanations retain adjacent original-source links',()=>{
+ const read=name=>fs.readFileSync(new URL('src/content/lessons/'+name+'.md',root),'utf8');
+ const privateCredit=read('understanding-private-credit').split('## What it means')[1].split('## Why it matters')[0];
+ assert.match(privateCredit,/https:\/\/www\.youtube\.com\/watch\?v=NnWl4wMoQhM/);
+ const calculation=read('earnings-versus-cash').split('## A worked example')[1].split('## Common mistakes')[0];
+ assert.match(calculation,/https:\/\/www\.youtube\.com\/watch\?v=VmRqlJuqCs8/);
+});

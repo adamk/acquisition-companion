@@ -18,3 +18,5 @@
 - Final-location Chrome QA passed on 13 routes with zero automated axe violations or browser errors; search, filtering, optional progress, denied storage, no-JavaScript content and three viewport widths verified.
 - Canonical-origin smoke test passed; final build restores an unset domain and noindex preview state. Desktop/mobile/search screenshots visually reviewed.
 - All 73 protected source hashes remain unchanged. Final output scan again found zero normalized 50-word transcript matches. Local preview is available on 127.0.0.1:4321; nothing publicly deployed.
+
+- Editorial refinement complete: Acquisition Companion brand/subtitle; course/reference copy, duplicated source presentation and navigation improved within the existing scope. See docs/editorial-review.md. Full validation rerun: 20 tests, 236 pages, 10,078 links, 13 browser routes, no automated accessibility violations. Protected inputs and private provenance unchanged.

@@ -3445,12 +3445,12 @@
   },
   {
     "id": "N197",
-    "metric": "Eligible trade debtors",
+    "metric": "Trade debtors identified",
     "value": "~€600,000",
-    "context": "Only part of the Irish debtor balance is described as trade receivables available for financing.",
+    "context": "The Irish discussion separates customer trade receivables from the wider debtor balance.",
     "kind": "reported-actual",
     "confidence": "medium",
-    "caution": "Intercompany balances should not be assumed to qualify on the same basis as customer invoices. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
+    "caution": "Identification as trade debtors does not establish lender eligibility. Intercompany balances should not be assumed to qualify on the same basis as customer invoices. Includes audio recovered with Whisper; amounts and wording have not been independently verified.",
     "videoIds": [
       "18cB9LOaucs"
     ],

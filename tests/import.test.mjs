@@ -64,3 +64,9 @@ test('private audit maps exact source rows without leaking supporting prose into
  assert.equal(new Set(n.map(x=>x.context)).size,313);
  n.forEach((r,i)=>assert.notEqual(r.context,audit.numbers[i].original.Context));
 });
+
+test('identified receivables are not represented as lender-approved collateral',()=>{
+ const record=read('numbers').find(x=>x.id==='N197');
+ assert.equal(record.metric,'Trade debtors identified');
+ assert.match(record.caution,/eligible|eligibility/i);
+});

@@ -1,6 +1,6 @@
-# The M&A Companion
+# Acquisition Companion
 
-A free, independent, source-linked guide to buying, financing, and building businesses.
+The free, source-linked guide to buying, financing, and building businesses.
 
 Static Astro website, ready for local review and Cloudflare Pages. No accounts, payments, advertising, affiliate links, server runtime, or public transcript corpus. Nothing is deployed automatically.
 
@@ -129,5 +129,6 @@ There are four unusable substantive recoveries and two other incomplete recoveri
 - `docs/superpowers/plans/2026-09-27-site.md`
 - `docs/implementation-ledger.md`
 - `docs/validation.md`
+- `docs/editorial-review.md`
 
 Only `dist/` is the deployable artifact. Keep the research inputs, `private/`, scripts and repository metadata out of any manually configured static web root.

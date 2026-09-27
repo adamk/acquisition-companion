@@ -8,7 +8,7 @@ const pos=all.findIndex(x=>x.id===lesson.id);const previous=all[pos-1],next=all[
 ---
 <Base title={lesson.data.title} description={lesson.data.description} type="Lesson">
  <Crumbs items={[{title:'Course',url:'/course/'},{title:`Module ${lesson.data.module}`,url:`/course/#module-${lesson.data.module}`},{title:lesson.data.title}]} />
- <div class="reading-layout"><aside class="lesson-sidebar" data-pagefind-ignore><details open><summary>Course contents</summary>{modules.map(m=><div><h3>{String(m.number).padStart(2,'0')} · {m.title}</h3><ol>{all.filter(x=>x.data.module===m.number).map(x=><li><a href={`/course/${x.id}/`} aria-current={x.id===lesson.id?'page':undefined}>{x.data.title}</a></li>)}</ol></div>)}</details></aside><article class="reading-main">
+ <div class="reading-layout"><aside class="lesson-sidebar" data-pagefind-ignore><p class="eyebrow">This module</p><ol>{all.filter(x=>x.data.module===lesson.data.module).map(x=><li><a href={`/course/${x.id}/`} aria-current={x.id===lesson.id?'page':undefined}>{x.data.title}</a></li>)}</ol><details><summary>All course lessons</summary>{modules.map(m=><div><h3>{String(m.number).padStart(2,'0')} · {m.title}</h3><ol>{all.filter(x=>x.data.module===m.number).map(x=><li><a href={`/course/${x.id}/`} aria-current={x.id===lesson.id?'page':undefined}>{x.data.title}</a></li>)}</ol></div>)}</details></aside><article class="reading-main">
   <header class="page-header"><p class="eyebrow">Module {String(lesson.data.module).padStart(2,'0')} · {module?.title}</p><h1>{lesson.data.title}</h1><p>{lesson.data.description}</p><div class="small muted spaced">Lesson {lesson.data.order} of {all.length} · {lesson.data.minutes} min read</div></header>
   <div class="takeaway"><p class="eyebrow">The key idea</p><p>{lesson.data.takeaway}</p></div>
   <div class="prose"><Content /></div>
@@ -18,5 +18,4 @@ const pos=all.findIndex(x=>x.id===lesson.id);const previous=all[pos-1],next=all[
   <Related topicIds={lesson.data.topics} currentLesson={lesson.id}/>
  </article></div>
  <script src="../../scripts/progress.ts"></script>
- <script>if(window.matchMedia('(max-width:740px)').matches){document.querySelector('.lesson-sidebar details')?.removeAttribute('open');}</script>
 </Base>

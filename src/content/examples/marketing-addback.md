@@ -1,6 +1,6 @@
 ---
 title: "When an addback doubles claimed earnings"
-description: "When an addback doubles claimed earnings. A source-grounded explanation of the figures, assumptions and limits."
+description: "Test the operating assumption behind a marketing adjustment before using it to value a business."
 status: "hypothetical"
 topics: ["adjusted-ebitda", "due-diligence", "valuation-multiples"]
 evidence: ["E035"]
@@ -10,7 +10,7 @@ numbers: ["N040"]
 
 ## The claim to test
 
-The source challenges an illustrative £1m earnings presentation built from £0.5m actual earnings plus a proposed £0.5m marketing addback. The arithmetic is simple; the commercial assumption is not. The disputed question is whether the revenue can continue if that spending is removed. This is a hypothetical earnings-quality example, not a verified company forecast. [Source · E035](https://www.youtube.com/watch?v=vkKw1MeUors)
+The source challenges an illustrative £1m earnings presentation built from £0.5m actual earnings plus a proposed £0.5m marketing addback. The arithmetic is simple; the commercial assumption is not. The disputed question is whether the revenue can continue if that spending is removed. This is a hypothetical earnings-quality example, not a verified company forecast. [Watch source](https://www.youtube.com/watch?v=vkKw1MeUors)
 
 ## Separate calculation from evidence
 

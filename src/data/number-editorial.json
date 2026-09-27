@@ -1053,8 +1053,9 @@
   },
   "N197": {
     "kind": "reported-actual",
-    "context": "Only part of the Irish debtor balance is described as trade receivables available for financing.",
-    "caution": "Intercompany balances should not be assumed to qualify on the same basis as customer invoices."
+    "context": "The Irish discussion separates customer trade receivables from the wider debtor balance.",
+    "caution": "Identification as trade debtors does not establish lender eligibility. Intercompany balances should not be assumed to qualify on the same basis as customer invoices.",
+    "metric": "Trade debtors identified"
   },
   "N198": {
     "kind": "hypothetical",

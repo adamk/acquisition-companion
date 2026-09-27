@@ -1,6 +1,6 @@
 ---
 title: "Funding a £3.5m purchase"
-description: "Funding a £3.5m purchase. A source-grounded explanation of the figures, assumptions and limits."
+description: "Allocate the illustrated purchase price among bank debt, seller deferral and equity without confusing funding with ownership."
 status: "hypothetical"
 topics: ["capital-stack", "seller-financing", "investor-equity"]
 evidence: ["E009"]
@@ -10,7 +10,7 @@ numbers: ["N009"]
 
 ## The situation
 
-A source illustration starts with a business earning £1m annually and a £3.5m purchase price. It proposes £2m from a bank, £1m left with the seller as deferred consideration and £0.5m of equity. This is a hypothetical financing explanation, not evidence of a completed acquisition. The source calls the denominator profit; it should not silently become EBITDA or free cash flow. [Source · E009](https://www.youtube.com/watch?v=Sj_SpzSpxw0)
+A source illustration starts with a business earning £1m annually and a £3.5m purchase price. It proposes £2m from a bank, £1m left with the seller as deferred consideration and £0.5m of equity. This is a hypothetical financing explanation, not evidence of a completed acquisition. The source calls the denominator profit; it should not silently become EBITDA or free cash flow. [Watch source](https://www.youtube.com/watch?v=Sj_SpzSpxw0)
 
 ## Follow the money
 

@@ -1,6 +1,6 @@
 ---
 title: "Bridging a four-times price with a 75% purchase"
-description: "Bridging a four-times price with a 75% purchase. A source-grounded explanation of the figures, assumptions and limits."
+description: "Follow the proportional price calculation, then examine what the seller still owns and risks."
 status: "hypothetical"
 topics: ["rollover-equity", "seller-financing", "equity-value"]
 evidence: ["E208"]
@@ -10,7 +10,7 @@ numbers: ["N251", "N252", "N253"]
 
 ## The suggested structure
 
-The source discusses a seller wanting four times earnings while a buyer can fund three times, and uses a 75% economic interest as a way to bridge that gap. It suggests sellers can transfer the operating company to a holding company and receive holding-company shares for the retained portion. This is a hypothetical structuring idea, not a disclosed completed transaction on these exact terms. [Source · E208](https://www.youtube.com/watch?v=_CJLfixvoN4)
+The source discusses a seller wanting four times earnings while a buyer can fund three times, and uses a 75% economic interest as a way to bridge that gap. It suggests sellers can transfer the operating company to a holding company and receive holding-company shares for the retained portion. This is a hypothetical structuring idea, not a disclosed completed transaction on these exact terms. [Watch source](https://www.youtube.com/watch?v=_CJLfixvoN4)
 
 ## Understand the proportional arithmetic
 

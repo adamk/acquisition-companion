@@ -1,6 +1,6 @@
 ---
 title: "£33m debt conditional on £25m equity"
-description: "£33m debt conditional on £25m equity. A source-grounded explanation of the figures, assumptions and limits."
+description: "See why a large debt proposal can remain unavailable until its equity condition is met."
 status: "proposed"
 topics: ["institutional-debt", "investor-equity", "capital-stack"]
 evidence: ["E141"]
@@ -10,7 +10,7 @@ numbers: ["N152"]
 
 ## What was actually discussed
 
-Sey reports an unnamed institution's £33m debt proposal requiring £25m equity. This is a proposed financing structure, not evidence that either amount was raised or deployed. The collection also contains other large institutional conversations, including a different $80m/£80m proposal. Similar scale does not justify combining their identities or treating them as one committed facility. [Source · E141](https://www.youtube.com/watch?v=j4orWHw8kdA)
+Sey reports an unnamed institution's £33m debt proposal requiring £25m equity. This is a proposed financing structure, not evidence that either amount was raised or deployed. The collection also contains other large institutional conversations, including a different $80m/£80m proposal. Similar scale does not justify combining their identities or treating them as one committed facility. [Watch source](https://www.youtube.com/watch?v=j4orWHw8kdA)
 
 ## Read the dependency
 
@@ -27,4 +27,4 @@ These are editorial calculations on the proposal. They do not establish debt-to-
 
 The equity condition is not incidental. If the equity cannot be assembled on compatible terms, the described debt is not an independent pool of purchase money. Investor selection, target eligibility and legal structure remain linked. The collection's broader term-sheet discussion also distinguishes an intention to investigate from final binding finance.
 
-Do not infer an executed private-credit facility or a named lender from the headline amount. The institution is unnamed, and the proposal's ultimate outcome is not established here. The worthwhile lesson is how apparent borrowing capacity can depend on a substantial equity commitment. Track each requirement, who must satisfy it and whether the available evidence is conversation, proposal, commitment or actual cash. Continue with [institutional debt](/topics/institutional-debt/) and [investor equity](/topics/investor-equity/).
+Do not infer an executed private-credit facility or a named lender from the headline amount. The institution is unnamed, and the proposal's ultimate outcome is not established here. The borrowing depends on securing the required equity. Track each requirement, who must satisfy it and whether the available evidence is conversation, proposal, commitment or actual cash. Continue with [institutional debt](/topics/institutional-debt/) and [investor equity](/topics/investor-equity/).

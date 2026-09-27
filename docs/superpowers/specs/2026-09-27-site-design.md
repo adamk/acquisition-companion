@@ -1,4 +1,4 @@
-# The M&A Companion: v1 design
+# Acquisition Companion: v1 design
 
 ## Purpose and authority
 A free independent course and reference library about buying, financing and operating businesses. The first source collection is Yusufa Sey's 117-video corpus. Original educational synthesis links readers to videos; it never publishes transcript text. The user explicitly authorized the complete implementation without routine design approval stops. This written design records decisions before implementation.

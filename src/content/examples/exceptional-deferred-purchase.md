@@ -1,6 +1,6 @@
 ---
 title: "The reported £1.8m acquisition"
-description: "The reported £1.8m acquisition. A source-grounded explanation of the figures, assumptions and limits."
+description: "Reconcile the reported payment schedule and see how rounded earnings change the purchase multiple."
 status: "reported-completed"
 topics: ["valuation-multiples", "deferred-consideration", "adjusted-ebitda"]
 evidence: ["E084"]
@@ -10,7 +10,7 @@ numbers: ["N089", "N090", "N091"]
 
 ## The reported transaction
 
-Sey describes a historical acquisition with roughly £950k adjusted sustainable EBITDA, rounded to £1m in conversation. The disclosed total price is £1.8m: £1m at completion, £400k at month 24 and £400k at month 36. He presents it as an unusually favorable deal enabled by the seller family's circumstances. The status is reported completed; the source account is not independent verification of the transaction or subsequent performance. [Source · E084](https://www.youtube.com/watch?v=EL60pBzPd_k)
+Sey describes a historical acquisition with roughly £950k adjusted sustainable EBITDA, rounded to £1m in conversation. The disclosed total price is £1.8m: £1m at completion, £400k at month 24 and £400k at month 36. He presents it as an unusually favorable deal enabled by the seller family's circumstances. The status is reported completed; the source account is not independent verification of the transaction or subsequent performance. [Watch source](https://www.youtube.com/watch?v=EL60pBzPd_k)
 
 ## Reconcile the price
 

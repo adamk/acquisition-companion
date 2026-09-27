@@ -1,8 +1,8 @@
 import {canonicalUrl} from './lib/behavior.mjs';
 /** The only brand, domain, contact, analytics and source-display configuration. */
 export const siteConfig = {
-  name: 'The M&A Companion',
-  subtitle: 'A free, independent, source-linked guide to buying, financing, and building businesses.',
+  name: 'Acquisition Companion',
+  subtitle: 'The free, source-linked guide to buying, financing, and building businesses.',
   canonicalDomain: process.env.SITE_URL || '',
   contactEmail: '',
   analytics: {enabled: false, provider: 'cloudflare', token: ''},

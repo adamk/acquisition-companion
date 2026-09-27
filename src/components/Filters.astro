@@ -1,12 +1,12 @@
 ---
-interface Props {placeholder?:string;categories?:string[];kinds?:string[];label?:string;}
-const {placeholder='Search this collection',categories=[],kinds=[],label='Search records'}=Astro.props;
+interface Props {placeholder?:string;categories?:string[];kinds?:string[];label?:string;kindLabel?:string;}
+const {placeholder='Search this collection',categories=[],kinds=[],label='Search records',kindLabel='Evidence type'}=Astro.props;
 import {label as humanize} from '../lib/data';
 ---
 <form class="filters" data-filter-form role="search" data-pagefind-ignore>
  <div class="filter-query"><label for="filter-query">{label}</label><input type="search" id="filter-query" name="query" placeholder={placeholder} autocomplete="off" /></div>
  {categories.length>0 && <div><label for="filter-category">Category</label><select id="filter-category" name="category"><option value="all">All categories</option>{categories.map(x=><option value={x}>{humanize(x)}</option>)}</select></div>}
- {kinds.length>0 && <div><label for="filter-kind">Evidence type</label><select id="filter-kind" name="kind"><option value="all">All types</option>{kinds.map(x=><option value={x}>{humanize(x)}</option>)}</select></div>}
+ {kinds.length>0 && <div><label for="filter-kind">{kindLabel}</label><select id="filter-kind" name="kind"><option value="all">All types</option>{kinds.map(x=><option value={x}>{humanize(x)}</option>)}</select></div>}
  <button class="button secondary" type="reset">Clear filters</button>
  <p class="filter-result" data-result-count aria-live="polite" role="status"></p>
 </form>

@@ -2,13 +2,13 @@
   {
     "id": "acquisition-entrepreneurship",
     "term": "Acquisition entrepreneurship",
-    "definition": "Building a business career by buying and stewarding an existing company.",
+    "definition": "Buying and taking responsibility for an existing business as a path to entrepreneurship.",
     "topic": "acquisition-entrepreneurship"
   },
   {
     "id": "acquisition-process",
     "term": "Acquisition process",
-    "definition": "The linked work of finding, agreeing, investigating, funding and completing a business purchase.",
+    "definition": "The steps involved in finding, negotiating, investigating, financing and completing a business purchase.",
     "topic": "acquisition-process"
   },
   {
@@ -44,7 +44,7 @@
   {
     "id": "brokers",
     "term": "Brokers",
-    "definition": "Intermediaries who help sellers, buyers or borrowers find and progress suitable counterparties.",
+    "definition": "Intermediaries who help sellers find buyers, buyers find businesses, or borrowers find lenders.",
     "topic": "brokers"
   },
   {
@@ -122,7 +122,7 @@
   {
     "id": "enterprise-value",
     "term": "Enterprise value",
-    "definition": "The negotiated value of the operating business before the agreed bridge to shareholder proceeds.",
+    "definition": "The value of the operating business before agreed adjustments for cash, debt and other balances.",
     "topic": "enterprise-value"
   },
   {
@@ -140,7 +140,7 @@
   {
     "id": "institutional-debt",
     "term": "Institutional debt",
-    "definition": "Borrowing provided through an institutional capital organization rather than informal personal funding.",
+    "definition": "Borrowing from a bank, credit organization or investment firm under its lending mandate.",
     "topic": "institutional-debt"
   },
   {
@@ -152,7 +152,7 @@
   {
     "id": "irr-and-moic",
     "term": "IRR and MOIC",
-    "definition": "MOIC compares value returned with money invested; IRR expresses a return rate using the timing of cash flows.",
+    "definition": "MOIC compares an investment's total value with the amount invested; IRR also accounts for cash-flow timing.",
     "topic": "irr-and-moic"
   },
   {

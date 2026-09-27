@@ -157,7 +157,7 @@ def main():
         ident=f'N{ordinal:03}';ed=number_ed[ident];sources=table_sources(row[4],row[5]);ts=ed.get('topics') or topics_for(' '.join(row[:4]))
         caution=ed['caution']
         if 'mlx_whisper_audio' in row[6]:caution+=' Includes audio recovered with Whisper; amounts and wording have not been independently verified.'
-        numbers.append(dict(id=ident,metric=row[0],value=row[1],context=ed['context'],kind=ed['kind'],confidence=confidence(row[7]),caution=caution,videoIds=[s['id'] for s in sources],topics=ts,category=category(ts)))
+        numbers.append(dict(id=ident,metric=ed.get('metric',row[0]),value=row[1],context=ed['context'],kind=ed['kind'],confidence=confidence(row[7]),caution=caution,videoIds=[s['id'] for s in sources],topics=ts,category=category(ts)))
         provenance['numbers'].append(dict(id=ident,sourceDocument=FILES[4],dataRow=ordinal,original=dict(zip(number_headers,row)),sources=sources))
     providers=[]
     for ordinal,row in enumerate(provider_rows,1):
