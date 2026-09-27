@@ -47,6 +47,8 @@ The command runs unit/content checks, Astro/TypeScript checks, the static build,
 
 With `SITE_URL` unset, the site omits canonical URLs, emits an empty sitemap, and marks preview pages `noindex`; robots disallows crawling. Public source links remain the creators' original URLs regardless of the site domain. Domain and DNS account changes should be made only after ownership and current records are verified.
 
+The current GitHub check reports **Workers Builds: acquisition-companion**. For that integration, add `PUBLIC_GA_MEASUREMENT_ID` under **Workers & Pages → acquisition-companion → Settings → Build → Build Variables and Secrets**, then retry a production build. This is a build variable because Astro generates static HTML; adding a runtime Worker variable alone will not enable the banner. The value is public and should be stored as text, not a secret.
+
 Official references: [Astro content collections](https://docs.astro.build/en/guides/content-collections/), [Cloudflare Pages build settings](https://developers.cloudflare.com/pages/configuration/build-configuration/), [Pagefind indexing](https://pagefind.app/docs/running-pagefind/).
 
 ## Configuration
