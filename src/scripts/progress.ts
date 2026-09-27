@@ -16,7 +16,13 @@ if(root){
   document.querySelectorAll<HTMLElement>('[data-module-progress]').forEach(el=>{const moduleIds=(el.dataset.moduleLessons||'').split(',');el.textContent=`${moduleIds.filter(id=>completed.includes(id)).length}/${moduleIds.length} complete`;});
  }
  function save(){try{localStorage.setItem(key,JSON.stringify(completed));}catch{available=false;}render();}
- controls.forEach(box=>box.addEventListener('change',()=>{completed=toggleProgress(completed,box.dataset.completeLesson!,box.checked);save();}));
+ controls.forEach(box=>box.addEventListener('change',()=>{completed=toggleProgress(completed,box.dataset.completeLesson!,box.checked);save();if(available&&box.checked)(window as Window & {acquisitionAnalytics?:{track:(name:string,params:Record<string,string|number>)=>boolean}}).acquisitionAnalytics?.track('lesson_complete',{lesson_slug:box.dataset.completeLesson!,lesson_title:box.dataset.lessonTitle||'',module:Number(box.dataset.lessonModule||0)});}));
+ document.querySelector('[data-resume]')?.addEventListener('click',()=>{
+  if(completed.length || !available)return;
+  const startKey='acquisition-companion-course-started';
+  try{if(localStorage.getItem(startKey))return;localStorage.setItem(startKey,'1');}catch{return;}
+  (window as Window & {acquisitionAnalytics?:{track:(name:string,params?:Record<string,string|number>)=>boolean}}).acquisitionAnalytics?.track('course_start');
+ });
  document.querySelector('[data-reset-progress]')?.addEventListener('click',()=>{completed=[];save();});
  render();
 }

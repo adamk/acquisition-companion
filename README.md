@@ -42,7 +42,7 @@ The command runs unit/content checks, Astro/TypeScript checks, the static build,
 1. Review the local production preview and the editorial limitations below.
 2. In Cloudflare, choose **Workers & Pages → Create → Pages**, then connect `adamk/acquisition-companion` through GitHub. Choose the **Astro** framework preset and production branch `main`.
 4. Set **Build command** to `npm run build` and **Build output directory** to `dist`. Root directory is the repository root. No Cloudflare adapter or SSR functions are required.
-5. Set `NODE_VERSION=22.23.0` and `SITE_URL=https://acquisitioncompanion.com` in the Pages production build environment.
+5. Set `NODE_VERSION=22.23.0`, `SITE_URL=https://acquisitioncompanion.com`, and `PUBLIC_GA_MEASUREMENT_ID=G-L37H8G797Y` in the Pages production build environment. The GA Measurement ID is public. Omit it to disable analytics and the consent banner.
 6. After domain ownership is confirmed, add `acquisitioncompanion.com` as a Pages custom domain. The apex domain requires a Cloudflare DNS zone and Cloudflare authoritative nameservers. Configure `www.acquisitioncompanion.com` to redirect permanently to the apex. Verify HTTPS, redirects, source links, search, headers, canonical tags, sitemap, robots file, and mobile layout on the live deployment.
 
 With `SITE_URL` unset, the site omits canonical URLs, emits an empty sitemap, and marks preview pages `noindex`; robots disallows crawling. Public source links remain the creators' original URLs regardless of the site domain. Domain and DNS account changes should be made only after ownership and current records are verified.
@@ -56,10 +56,10 @@ Edit **`src/site-config.mjs`**. It is the central configuration for:
 - Site name and subtitle.
 - Canonical domain (`SITE_URL` can override it during a build).
 - Contact email (blank until chosen; no invented contact address).
-- Analytics configuration (disabled by default).
+- Optional consent-gated Google Analytics (`PUBLIC_GA_MEASUREMENT_ID`).
 - Source-collection display names and descriptions.
 
-No permanent production domain is hardcoded. Analytics are optional and off. If enabling analytics, review the associated privacy disclosure. The site loads no third-party fonts, ads, or embedded videos. The favicon is an original placeholder mark, replaceable in `public/favicon.svg`.
+No permanent production domain is hardcoded. Analytics stay off when the public Measurement ID is absent or a visitor declines. The site loads direct `gtag.js` only after consent, disables Google advertising signals, and links to a short privacy explanation and a footer preference control. It loads no third-party fonts, ads, or embedded videos. The favicon is an original placeholder mark, replaceable in `public/favicon.svg`.
 
 ## Content and relationships
 

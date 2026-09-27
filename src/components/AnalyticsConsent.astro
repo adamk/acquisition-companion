@@ -1,0 +1,30 @@
+---
+import {siteConfig} from '../site-config.mjs';
+---
+<aside class="analytics-consent" data-analytics-consent data-measurement-id={siteConfig.analytics.measurementId} aria-labelledby="analytics-consent-title" hidden>
+ <div><h2 id="analytics-consent-title">Analytics cookies</h2><p>Acquisition Companion uses Google Analytics to understand how this free educational site is used. <a href="/privacy/">Privacy details</a></p></div>
+ <div class="analytics-consent-actions"><button class="button secondary" data-analytics-deny>No thanks</button><button class="button secondary" data-analytics-allow>Allow analytics</button></div>
+</aside>
+<script>
+ import {createAnalyticsController} from '../lib/analytics.mjs';
+ const banner=document.querySelector<HTMLElement>('[data-analytics-consent]');
+ if(banner){
+  const controller=createAnalyticsController({window,document,measurementId:banner.dataset.measurementId||''});
+  (window as Window & {acquisitionAnalytics?:{track:(name:string,params?:Record<string,string|number>)=>boolean}}).acquisitionAnalytics={track:controller.track};
+  if(controller.choice()==='granted')controller.load();
+  else if(!controller.choice())banner.hidden=false;
+  const show=()=>{banner.hidden=false;banner.querySelector<HTMLButtonElement>('[data-analytics-deny]')?.focus();};
+  document.querySelector('[data-analytics-preferences]')?.addEventListener('click',show);
+  banner.querySelector('[data-analytics-allow]')?.addEventListener('click',()=>{if(controller.setChoice('granted'))banner.hidden=true;});
+  banner.querySelector('[data-analytics-deny]')?.addEventListener('click',()=>{
+   const wasLoaded=controller.isInitialized();
+   if(controller.setChoice('denied')){banner.hidden=true;if(wasLoaded)window.location.reload();}
+  });
+  document.addEventListener('click',event=>{
+   const link=(event.target as Element).closest<HTMLAnchorElement>('a[href^="https://www.youtube.com/watch?"]');
+   if(!link)return;
+   const url=new URL(link.href);const videoId=url.searchParams.get('v');
+   if(videoId)controller.track('source_video_click',{video_id:videoId,source_collection:'yusufa-sey',...(link.dataset.sourceTitle?{source_title:link.dataset.sourceTitle}:{})});
+  });
+ }
+</script>

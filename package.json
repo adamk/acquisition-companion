@@ -14,7 +14,8 @@
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview --host 127.0.0.1",
     "validate": "node scripts/validate-dist.mjs",
     "import:research": "python3 scripts/import-research.py",
-    "test:browser": "node scripts/browser-check.mjs"
+    "test:browser": "node scripts/browser-check.mjs",
+    "test:analytics-browser": "node scripts/browser-analytics-check.mjs"
   },
   "dependencies": {
     "@astrojs/check": "0.9.10",

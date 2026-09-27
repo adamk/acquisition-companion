@@ -5,7 +5,7 @@ export const siteConfig = {
   subtitle: 'The free, source-linked guide to buying, financing, and building businesses.',
   canonicalDomain: process.env.SITE_URL || '',
   contactEmail: '',
-  analytics: {enabled: false, provider: 'cloudflare', token: ''},
+  analytics: {measurementId: process.env.PUBLIC_GA_MEASUREMENT_ID || ''},
   collections: {
     'yusufa-sey': {name: 'Yusufa Sey', description: 'Practitioner education on business acquisitions and financing.', url: '/sources/yusufa-sey/'},
     'fund-launch': {name: 'Fund Launch', description: 'Public educational guides on capital providers and private funds.', url: '/sources/fund-launch/'},

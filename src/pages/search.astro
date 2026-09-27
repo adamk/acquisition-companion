@@ -10,6 +10,17 @@ import Base from '../layouts/Base.astro';import Crumbs from '../components/Crumb
   if(typeof PagefindUI!=='undefined'){
    status.remove();const ui=new PagefindUI({element:'#search',showSubResults:true,showImages:false,resetStyles:false,autofocus:true,translations:{placeholder:'Search the guide…'}});
    const query=new URLSearchParams(location.search).get('q');if(query)ui.triggerSearch(query);
+   let timer;let lastTracked='';
+   document.getElementById('search').addEventListener('input',event=>{
+    if(!event.target.matches('.pagefind-ui__search-input'))return;
+    clearTimeout(timer);
+    timer=setTimeout(()=>{
+     const term=event.target.value.trim().replace(/\s+/g,' ');
+     if(term.length<2 || term===lastTracked || !document.querySelector('.pagefind-ui__results, .pagefind-ui__message'))return;
+     lastTracked=term;
+     window.acquisitionAnalytics?.track('site_search',{search_term:term});
+    },800);
+   });
   }else{status.textContent='Search could not load.';document.getElementById('search-fallback').hidden=false;}
  </script>
 </Base>

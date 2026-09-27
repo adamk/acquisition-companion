@@ -13,7 +13,7 @@ const pos=all.findIndex(x=>x.id===lesson.id);const previous=all[pos-1],next=all[
   <div class="takeaway"><p class="eyebrow">The key idea</p><p>{lesson.data.takeaway}</p></div>
   <div class="prose"><Content /></div>
   <Sources ids={lesson.data.sources} evidenceIds={lesson.data.evidence} fundIds={lesson.data.fundSources} />
-  <div data-progress-root data-lesson-ids={all.map(x=>x.id).join(',')}><div class="progress-control"><input type="checkbox" id="lesson-complete" data-complete-lesson={lesson.id}/><label for="lesson-complete">Mark this lesson complete</label></div><p class="small muted" data-progress-status>Optional progress stays in your browser.</p></div>
+  <div data-progress-root data-lesson-ids={all.map(x=>x.id).join(',')}><div class="progress-control"><input type="checkbox" id="lesson-complete" data-complete-lesson={lesson.id} data-lesson-title={lesson.data.title} data-lesson-module={lesson.data.module}/><label for="lesson-complete">Mark this lesson complete</label></div><p class="small muted" data-progress-status>Optional progress stays in your browser.</p></div>
   <nav class="lesson-pagination" aria-label="Lesson navigation" data-pagefind-ignore>{previous?<a href={`/course/${previous.id}/`}><span>Previous lesson</span>{previous.data.title}</a>:<a href="/course/"><span>Back to</span>Course overview</a>}{next?<a href={`/course/${next.id}/`}><span>Next lesson</span>{next.data.title}</a>:<a href="/course/"><span>Course complete</span>Review your learning</a>}</nav>
   <Related topicIds={lesson.data.topics} currentLesson={lesson.id}/>
  </article></div>
