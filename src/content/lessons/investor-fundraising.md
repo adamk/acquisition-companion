@@ -7,6 +7,7 @@ minutes: 5
 topics: ["investor-equity", "buyer-equity", "capital-stack", "management"]
 evidence: ["E123", "E209", "E029", "E105", "E229", "E100", "E030", "E162", "E219", "E020", "E227"]
 sources: ["UAtbZfPN2zA", "LgKz1bxdCMM", "s8Hkxnq3-Bo", "zRh8i5uPjA0", "_CJLfixvoN4", "tZBRCa9EW3A", "Io8ctiLGjbs", "rE2R3B0kiBc", "vvw6brqjl2I", "NTa6kB7cGg0", "7Zg5hGZLrDM", "KsnY8Gpnkl4", "KEg9PMGnDxQ", "mh1tKwDlnaE", "cvauHwc3guQ"]
+fundSources: ["independent-sponsor-fund"]
 takeaway: "Investor interest becomes useful only when amount, purpose, conditions and fit are clear."
 ---
 
@@ -39,7 +40,7 @@ An editorial follow-up is to show two separate budgets: search runway and transa
 Do not treat someone else's allocation choice as evidence your target has no merit. Equally, do not keep pitching a capital provider whose mandate cannot fit. Avoid using the corpus's uncertain investor-qualification and public-marketing thresholds as legal rules; it does not provide a reliable framework for conducting a securities offering. [Watch source](https://www.youtube.com/watch?v=cvauHwc3guQ) [Watch source](https://www.youtube.com/watch?v=NTa6kB7cGg0)
 
 ## Related concepts
-[Investor equity](/topics/investor-equity/) explains the capital contribution. [Buyer equity](/topics/buyer-equity/) separates sponsor economics, while [management](/topics/management/) strengthens the operating case investors are being asked to support.
+[Investor equity](/topics/investor-equity/) explains the capital contribution. [Buyer equity](/topics/buyer-equity/) separates sponsor economics, while [management](/topics/management/) strengthens the operating case investors are being asked to support. For repeat transactions, an [independent sponsor](/topics/independent-sponsor/) may raise equity deal by deal; [committed capital](/topics/committed-fund/) is an optional later structure. Fund Launch explains the trade from the manager and LP sides. [Read the guide](https://www.fundlaunch.com/launch/independent-sponsor-fund)
 
 ## Further viewing
 Compare investor-fit conversations with the search-prefinancing explanation. These examples teach purpose and process; they do not establish that any viewer can raise a stated amount or offer investments under the same terms.

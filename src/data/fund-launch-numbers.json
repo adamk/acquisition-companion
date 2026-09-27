@@ -1,0 +1,14 @@
+[
+  {
+    "id": "FLN01", "metric": "Committed fund fee illustration", "value": "$500,000/year", "context": "Fund Launch illustrates a 2% annual management fee on $25 million of commitments for a sponsor considering a first fund.", "kind": "example", "confidence": "high", "caution": "Arithmetic illustration, before fund expenses and any fee offsets; not a fee recommendation. Checked 27 September 2026.", "sourceId": "independent-sponsor-fund", "sourceUrl": "https://www.fundlaunch.com/launch/independent-sponsor-fund", "topics": ["committed-fund"], "timeSensitive": true
+  },
+  {
+    "id": "FLN02", "metric": "Private credit fund term", "value": "5–8 years", "context": "Fund Launch's stated typical range for an emerging-manager private-credit fund, linked to loan duration.", "kind": "source-reported typical range", "confidence": "high", "caution": "Published guide checked 27 September 2026. Strategy and negotiated documents can differ; do not treat as a current market quote.", "sourceId": "private-credit-fund", "sourceUrl": "https://www.fundlaunch.com/launch/private-credit-fund", "topics": ["private-credit"], "timeSensitive": true
+  },
+  {
+    "id": "FLN03", "metric": "Direct lending investment period", "value": "2–3 years", "context": "Fund Launch describes this range for emerging lower-middle-market direct lending funds, with possible recycling of repaid principal during the period.", "kind": "source-reported typical range", "confidence": "high", "caution": "Published guide checked 27 September 2026; fund terms are negotiated and strategy-specific.", "sourceId": "direct-lending-fund", "sourceUrl": "https://www.fundlaunch.com/launch/direct-lending-fund", "topics": ["direct-lending"], "timeSensitive": true
+  },
+  {
+    "id": "FLN04", "metric": "Mezzanine fund term", "value": "7–10 years", "context": "Fund Launch's stated typical range for an emerging mezzanine fund, whose positions may remain outstanding until an exit or refinancing.", "kind": "source-reported typical range", "confidence": "high", "caution": "Published guide checked 27 September 2026; this is a fund duration, not a promised loan maturity or investor return.", "sourceId": "mezzanine-fund", "sourceUrl": "https://www.fundlaunch.com/launch/mezzanine-fund", "topics": ["mezzanine-debt"], "timeSensitive": true
+  }
+]

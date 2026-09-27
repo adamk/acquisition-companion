@@ -11,6 +11,6 @@ const {topic}=Astro.props;const {Content}=await render(topic);const examples=(aw
  <p class="definition">{topic.data.definition}</p><div class="prose"><Content /></div>
  {examples.length>0 && <section class="section"><h2>See it in an example</h2><ul class="content-list spaced">{examples.map(x=><li><span class="badge">{label(x.data.status)}</span><h3 class="spaced"><a href={`/examples/${x.id}/`}>{x.data.title}</a></h3><p>{x.data.description}</p></li>)}</ul></section>}
  {relatedNumbers.length>0 && <section class="section"><h2>Numbers in context</h2><ul class="content-list spaced">{relatedNumbers.map(n=><li><a href={`/numbers/#${n.id}`}><strong>{n.metric}</strong> · {n.value}</a><span class="badge">{label(n.kind)}</span><p>{n.context}</p>{n.caution && <p class="record-caution">{n.caution}</p>}</li>)}</ul><a href={`/numbers/?category=${topic.id}`}>Browse related quantitative references →</a></section>}
- <Sources ids={topic.data.sources} evidenceIds={topic.data.evidence} />
+ <Sources ids={topic.data.sources} evidenceIds={topic.data.evidence} fundIds={topic.data.fundSources} />
  <Related topicIds={[topic.id,...topic.data.related]} currentTopic={topic.id}/></article>
 </Base>

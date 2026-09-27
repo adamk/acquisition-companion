@@ -1,15 +1,17 @@
 ---
-import {videoById,evidenceById,videoPath,label} from '../lib/data';
-interface Props {ids:string[];evidenceIds?:string[];open?:boolean;}
-const {ids,evidenceIds=[],open=false}=Astro.props;
+import {videoById,evidenceById,videoPath,label,fundGuideById,fundGuidePath} from '../lib/data';
+interface Props {ids:string[];evidenceIds?:string[];fundIds?:string[];open?:boolean;}
+const {ids,evidenceIds=[],fundIds=[],open=false}=Astro.props;
 const selected=[...new Set(ids)].map(id=>videoById.get(id)).filter(Boolean);
 const records=evidenceIds.map(id=>evidenceById.get(id)).filter(Boolean);
+const guides=[...new Set(fundIds)].map(id=>fundGuideById.get(id)).filter(Boolean);
 ---
 <details class="sources" open={open} data-pagefind-ignore>
- <summary>Sources &amp; further viewing <span>{selected.length} original {selected.length===1?'video':'videos'}</span></summary>
+ <summary>Sources &amp; further viewing <span>{selected.length} {selected.length===1?'video':'videos'}{guides.length>0 && ` · ${guides.length} ${guides.length===1?'guide':'guides'}`}</span></summary>
  <div class="sources-content">
-  <p class="small muted">The explanations on this site are independent synthesis. The original videos provide the primary context. A reported experience is not independent proof of a transaction.</p>
+  <p class="small muted">The explanations on this site are independent synthesis. Follow each original for full context. A reported experience is not independent proof of a transaction.</p>
   {records.length>0 && <ul class="evidence-labels">{records.map(r=>r && <li><span class="badge">{label(r.type)}</span> {r.label}{r.confidence==='low' && <strong class="uncertain"> — uncertain source</strong>}</li>)}</ul>}
   <ol class="source-list">{selected.map(v=>v && <li><a href={v.url} class="source-title">{v.title}</a><div class="source-actions"><a href={v.url}>Watch the original →</a><a href={videoPath(v.id)}>Source notes</a></div></li>)}</ol>
+  {guides.length>0 && <><p class="small muted">Fund Launch’s guides add capital-provider and fund-manager context. Read each original for its full argument and current terms.</p><ol class="source-list">{guides.map(g=>g && <li><a href={g.url} class="source-title">Fund Launch — {g.title}</a><div class="source-actions"><a href={g.url}>Read original →</a><a href={fundGuidePath(g.id)}>Source notes</a></div></li>)}</ol></>}
  </div>
 </details>

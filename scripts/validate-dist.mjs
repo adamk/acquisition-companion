@@ -2,7 +2,7 @@ import fs from 'node:fs';import path from 'node:path';import assert from 'node:a
 import {forbiddenOutputPath} from './output-policy.mjs';
 const root=path.resolve('dist');assert.ok(fs.existsSync(root),'Production output is missing');
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(x=>x.isDirectory()?walk(path.join(dir,x.name)):[path.join(dir,x.name)]);
-const files=walk(root),html=files.filter(f=>f.endsWith('.html'));const videos=JSON.parse(fs.readFileSync('src/data/videos.json','utf8'));const sourceUrls=new Set(videos.map(v=>v.url));
+const files=walk(root),html=files.filter(f=>f.endsWith('.html'));const videos=JSON.parse(fs.readFileSync('src/data/videos.json','utf8'));const fundGuides=JSON.parse(fs.readFileSync('src/data/fund-launch.json','utf8'));const sourceUrls=new Set(videos.map(v=>v.url));
 const errors=[];let checkedLinks=0;const decode=s=>s.replaceAll('&amp;','&').replaceAll('&#39;',"'").replaceAll('&quot;','"').replaceAll('&lt;','<').replaceAll('&gt;','>');
 const texts=new Map(html.map(f=>[f,fs.readFileSync(f,'utf8')]));
 for(const file of files){
@@ -33,9 +33,11 @@ for(const [file,text] of texts){
  }
 }
 for(const v of videos)assert.ok(fs.existsSync(path.join(root,'sources/yusufa-sey',v.id,'index.html')),`Source route missing: ${v.id}`);
+for(const g of fundGuides)assert.ok(fs.existsSync(path.join(root,'sources/fund-launch',g.id,'index.html')),`Fund Launch route missing: ${g.id}`);
+for(const file of files)assert.ok(!/(?:independent-sponsor-fund|private-credit-fund|direct-lending-fund|mezzanine-fund)\.html$/.test(file),'Raw Fund Launch page in output');
 assert.ok(fs.existsSync(path.join(root,'pagefind/pagefind.js')),'Pagefind index missing');
 assert.ok(fs.existsSync(path.join(root,'sitemap.xml')),'Sitemap missing');
 assert.ok(fs.existsSync(path.join(root,'robots.txt')),'Robots missing');
 assert.equal(errors.length,0,errors.slice(0,35).join('\n'));
-const result={pages:html.length,files:files.length,internalLinksChecked:checkedLinks,sourceVideos:videos.length,privacyScan:'passed',linkScan:'passed'};
+const result={pages:html.length,files:files.length,internalLinksChecked:checkedLinks,sourceVideos:videos.length,fundGuides:fundGuides.length,privacyScan:'passed',linkScan:'passed'};
 fs.mkdirSync('artifacts',{recursive:true});fs.writeFileSync('artifacts/dist-validation.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));

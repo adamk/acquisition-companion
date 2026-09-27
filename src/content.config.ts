@@ -1,7 +1,7 @@
 import {defineCollection} from 'astro:content';
 import {z} from 'astro/zod';
 import {glob} from 'astro/loaders';
-const provenance={evidence:z.array(z.string()).min(1),sources:z.array(z.string()).min(1)};
+const provenance={evidence:z.array(z.string()).default([]),sources:z.array(z.string()).default([]),fundSources:z.array(z.string()).default([])};
 const lessons=defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/lessons'}),schema:z.object({
  title:z.string(),description:z.string(),module:z.number().int().min(1).max(14),order:z.number().int().min(1).max(20),minutes:z.number(),topics:z.array(z.string()).min(1),takeaway:z.string(),...provenance,
 })});

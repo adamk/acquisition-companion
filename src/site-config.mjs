@@ -8,6 +8,7 @@ export const siteConfig = {
   analytics: {enabled: false, provider: 'cloudflare', token: ''},
   collections: {
     'yusufa-sey': {name: 'Yusufa Sey', description: 'Practitioner education on business acquisitions and financing.', url: '/sources/yusufa-sey/'},
+    'fund-launch': {name: 'Fund Launch', description: 'Public educational guides on capital providers and private funds.', url: '/sources/fund-launch/'},
   },
 };
 // Fail early rather than emit a malformed canonical or invent a permanent domain.

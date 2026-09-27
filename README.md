@@ -64,13 +64,15 @@ No permanent production domain is hardcoded. Analytics are optional and off. If 
 ## Content and relationships
 
 - `src/content/lessons/`: 20 original lessons in 14 modules.
-- `src/content/topics/`: 44 original topic guides.
+- `src/content/topics/`: 48 original topic guides, including four focused Phase 2 financing and fund-adjacent references.
 - `src/content/examples/`: 12 worked examples with explicit status.
 - `src/data/modules.json`: curriculum order and module descriptions.
-- `src/data/glossary.json`: 44 plain-English glossary entries.
+- `src/data/glossary.json`: plain-English acquisition and relevant capital-provider terms.
 - `src/data/evidence.json`: 243 public-safe evidence references, without research claim text or supporting excerpts.
 - `src/data/videos.json`: 117 exact original video identities, short concept descriptions, and useful-content flags.
 - `src/data/numbers.json`: 313 quantitative records with original editorial context, classification, and caution.
+- `src/data/fund-launch.json`: four public Fund Launch guide identities, original summaries, relationships and classified editorial notes. It is a separate source family, not an extension of Yusufa evidence IDs.
+- `src/data/fund-launch-numbers.json`: separately labeled, dated Fund Launch illustrations and typical ranges with direct source URLs. They are not added to the 313 Yusufa records.
 - `src/data/providers.json`: 28 provider/firm/intermediary records with roles and relationship status.
 - `src/data/number-editorial.json` and `provider-editorial.json`: reviewed editorial overlays used by the importer.
 - `private/provenance.json`: full research traceability, including exact source file, transcript source, confidence, original evidence row and supporting context. Build-time audit material only; **never move it into `public/` or import it into a client script**.
@@ -78,7 +80,7 @@ No permanent production domain is hardcoded. Analytics are optional and off. If 
 
 Astro content collections validate frontmatter. Relationships are IDs and slugs, not duplicated video descriptions in UI components. Topic pages find related lessons, examples, numbers and sources at build time. Search runs over the public HTML. Its generated index contains no private transcript metadata.
 
-Add a future source collection by adding its display configuration, video/evidence data, and routing support. The editorial brand and curriculum do not depend on the first creator's name. See `docs/content-contract.json` for the exact current schemas.
+New source collections need separate identities, provenance and routing. Fund Launch guides are indexed under `/sources/fund-launch/`; original Yusufa video IDs and evidence remain unchanged. See `docs/content-contract.json` for the core content schemas.
 
 ## Regenerating research data
 
@@ -113,13 +115,15 @@ python3 scripts/check-source-preservation.py \
   --corpus-root /path/to/yt-bulk-subtitles-downloader
 ```
 
+For the optional Fund Launch long-text check, fetch the four named guides into a temporary directory as `fund-independent-sponsor.html`, `fund-private-credit.html`, `fund-direct-lending.html`, and `fund-mezzanine.html`, then run `python3 scripts/check-fund-launch-similarity.py --sources /path/to/temporary-directory`. The script compares visible guide text with built pages using a 24-word overlap threshold. Source HTML belongs outside this repository and `dist/`.
+
 This scan ignores required source-title links and checks normalized 50-word passages for direct transcript overlap. It supplements editorial review; it is not a legal test or proof that all paraphrases are ideal.
 
 ## Editorial boundaries
 
 The course is a synthesis across practitioner sources, not a collection of transcript reproductions. Every lesson/topic/example retains evidence and video relationships, and every quantitative/provider entry has original viewing links. Numbers remain illustrations, reports, proposals, targets or rules of thumb as appropriate. Reported completed transactions are not independently verified transactions.
 
-The first collection meaningfully discusses institutional and LP-funded non-bank private credit. It does not establish a named completed private-credit facility. Duke Royalty is a prospective contact. Institutional private-credit teaching is less developed than the acquisition material. Coverage gaps in government-backed lending, mezzanine products and complete IRR/MOIC modeling are explicitly labeled.
+The Yusufa collection meaningfully discusses institutional and LP-funded non-bank private credit. It does not establish a named completed private-credit facility. Duke Royalty is a prospective contact. Fund Launch adds industry education on private-credit funds, direct lending and mezzanine structures; it does not prove any prospective transaction in the first collection. Government-backed lending and complete IRR/MOIC modeling remain limited.
 
 There are four unusable substantive recoveries and two other incomplete recoveries in the source inventory. Low-confidence numbers remain qualified in the reference library and are excluded from topic teaching previews. This site has no current lender-price feed, formal accreditation or audited investment track record.
 

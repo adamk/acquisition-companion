@@ -1,0 +1,14 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Crumbs from '../../../components/Crumbs.astro';
+import Filters from '../../../components/Filters.astro';
+import {fundGuides,fundGuidePath,label} from '../../../lib/data';
+---
+<Base title="Fund Launch: source collection" description="Four public Fund Launch guides on independent sponsors, private credit, direct lending and mezzanine funds, linked to acquisition concepts." type="Source index">
+ <Crumbs items={[{title:'Sources',url:'/sources/'},{title:'Fund Launch'}]}/>
+ <header class="page-header"><p class="eyebrow">Source collection 02 · Public educational guides</p><h1>Fund Launch</h1><p>Four guides add the view from lenders, fund managers and their limited partners. Our explanations connect that view to acquisition decisions; the original guides remain the source for their full detail and stated fund terms.</p></header>
+ <Filters categories={[...new Set(fundGuides.flatMap(g=>g.topics))].sort()} placeholder="Search guides or concepts" label="Find a Fund Launch guide"/>
+ <p hidden data-empty-state class="empty-state">No matching guides. Clear a filter or try a broader concept.</p>
+ <ul class="content-list">{fundGuides.map(g=><li data-filter-item data-search={`${g.title} ${g.summary} ${g.topics.join(' ')}`} data-category={g.topics.join(' ')}><span class="badge">Public educational guide</span><h2 class="spaced"><a href={fundGuidePath(g.id)}>{g.title}</a></h2><p>{g.summary}</p><div class="source-actions"><a href={g.url}>Read original →</a><a href={fundGuidePath(g.id)}>Concepts &amp; source notes</a></div><ul class="chips spaced">{g.topics.map(t=><li><a href={`/topics/${t}/`}>{label(t)}</a></li>)}</ul></li>)}</ul>
+ <p class="notice">These guides describe Fund Launch's educational framework and selected examples. Their market ranges and fund terms can change and are not underwriting, legal or investment advice.</p>
+</Base>

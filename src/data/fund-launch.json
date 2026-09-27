@@ -1,0 +1,69 @@
+[
+  {
+    "id": "independent-sponsor-fund",
+    "title": "From Independent Sponsor to Committed Fund",
+    "organization": "Fund Launch",
+    "url": "https://www.fundlaunch.com/launch/independent-sponsor-fund",
+    "sourceType": "public educational guide",
+    "summary": "Explains the trade between raising equity for each acquisition and accepting pooled LP commitments, including a pledge-fund bridge and the operating duties of a fund manager.",
+    "topics": ["independent-sponsor", "committed-fund", "investor-equity", "roll-ups"],
+    "lessons": ["investor-fundraising", "building-a-group"],
+    "confidence": "high for the guide's stated framework; market terms are source estimates",
+    "notes": [
+      {"statement": "Deal-by-deal sponsors assemble equity for each transaction and may receive transaction, company-management and profit-participation economics.", "kind": "source-derived", "confidence": "high"},
+      {"statement": "A pledge arrangement can speed repeat investor decisions while leaving each investment elective, so closing capital remains uncertain.", "kind": "source-derived", "confidence": "high"},
+      {"statement": "A committed fund exchanges per-deal investor choice for a defined strategy, portfolio-wide economics and ongoing manager obligations.", "kind": "synthesis", "confidence": "high"},
+      {"statement": "Sey's investor-fit and platform discussions describe buyer fundraising; this guide adds the LP's blind-pool and manager-capacity questions.", "kind": "comparison", "confidence": "high"}
+    ]
+  },
+  {
+    "id": "private-credit-fund",
+    "title": "How to Start a Private Credit Fund",
+    "organization": "Fund Launch",
+    "url": "https://www.fundlaunch.com/launch/private-credit-fund",
+    "sourceType": "public educational guide",
+    "summary": "Introduces the LP-funded lender's portfolio, income, fee, underwriting, loss, valuation and liquidity obligations.",
+    "topics": ["private-credit", "committed-fund", "institutional-debt"],
+    "lessons": ["understanding-private-credit"],
+    "confidence": "high for conceptual descriptions; stated terms are time-sensitive source ranges",
+    "notes": [
+      {"statement": "LP capital funds a portfolio of loans; the manager must originate, service, value and, when needed, work out those loans.", "kind": "source-derived", "confidence": "high"},
+      {"statement": "Interest distributions and losses make fee basis, concentration, leverage and recovery history material to LP outcomes.", "kind": "synthesis", "confidence": "high"},
+      {"statement": "The fund guide explains an industry model; it supplies no evidence that a prospective lender in Sey's collection completed a facility.", "kind": "comparison", "confidence": "high"}
+    ]
+  },
+  {
+    "id": "direct-lending-fund",
+    "title": "How to Start a Direct Lending Fund",
+    "organization": "Fund Launch",
+    "url": "https://www.fundlaunch.com/launch/direct-lending-fund",
+    "sourceType": "public educational guide",
+    "summary": "Examines loans to operating companies from the lender's side: origination, cash-flow underwriting, senior security, covenants, unitranche and workouts.",
+    "topics": ["direct-lending", "private-credit", "bank-debt", "capital-stack"],
+    "lessons": ["understanding-private-credit", "debt-terms-and-covenants"],
+    "confidence": "high for conceptual descriptions; terms and target markets vary",
+    "notes": [
+      {"statement": "Direct lenders in the guide lend to operating businesses and emphasize sustainable cash generation, coverage, leverage and enterprise value in underwriting.", "kind": "source-derived", "confidence": "high"},
+      {"statement": "Sponsor-backed and founder-owned borrowers create different sourcing, diligence and workout responsibilities for the lender.", "kind": "source-derived", "confidence": "high"},
+      {"statement": "Unitranche can present one borrower facility while allocating different risk internally; it is not automatically senior to a separate mezzanine tranche in every deal.", "kind": "synthesis", "confidence": "high"},
+      {"statement": "Sey's bank process centers borrower approval and cash needs; the guide adds the lender's credit box, monitoring and restructuring capability.", "kind": "comparison", "confidence": "high"}
+    ]
+  },
+  {
+    "id": "mezzanine-fund",
+    "title": "How to Start a Mezzanine Fund",
+    "organization": "Fund Launch",
+    "url": "https://www.fundlaunch.com/launch/mezzanine-fund",
+    "sourceType": "public educational guide",
+    "summary": "Explains subordinated acquisition debt, the mix of cash and accrued interest, possible equity upside, intercreditor rights and reliance on exits or refinancing.",
+    "topics": ["mezzanine-debt", "subordination", "capital-stack", "direct-lending"],
+    "lessons": ["building-the-capital-stack", "debt-terms-and-covenants"],
+    "confidence": "high for conceptual descriptions; stated terms are contextual, not universal",
+    "notes": [
+      {"statement": "Mezzanine debt ranks behind senior debt and ahead of common equity in the described buyout structures.", "kind": "source-derived", "confidence": "high"},
+      {"statement": "Cash interest, capitalized interest and possible warrants create different cash and realization profiles.", "kind": "source-derived", "confidence": "high"},
+      {"statement": "Intercreditor payment blocks, standstills and cure rights can determine what the junior lender can do in distress.", "kind": "source-derived", "confidence": "high"},
+      {"statement": "Sey's documented bank-senior seller-debt example establishes ranking, while this guide explains a distinct institutional mezzanine product; the two should not be equated.", "kind": "comparison", "confidence": "high"}
+    ]
+  }
+]

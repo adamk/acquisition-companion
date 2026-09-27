@@ -262,5 +262,95 @@
     "term": "Working capital",
     "definition": "Money tied up in the everyday cycle of customers, stock, suppliers and other operating balances.",
     "topic": "working-capital"
+  },
+  {
+    "id": "independent-sponsor",
+    "term": "Independent sponsor",
+    "definition": "A deal leader who assembles acquisition equity for each transaction rather than drawing from a committed fund.",
+    "topic": "independent-sponsor"
+  },
+  {
+    "id": "pledge-fund",
+    "term": "Pledge arrangement",
+    "definition": "An advance agreement for investors to review qualifying deals while retaining a choice on each investment.",
+    "topic": "independent-sponsor"
+  },
+  {
+    "id": "committed-capital",
+    "term": "Committed capital",
+    "definition": "Capital LPs promise to a fund under its terms before the manager selects every investment.",
+    "topic": "committed-fund"
+  },
+  {
+    "id": "capital-call",
+    "term": "Capital call",
+    "definition": "A request under fund documents for LPs to supply part of their committed capital.",
+    "topic": "committed-fund"
+  },
+  {
+    "id": "gp",
+    "term": "General partner (GP)",
+    "definition": "The fund entity or manager role responsible for investment decisions and fund obligations under its documents.",
+    "topic": "committed-fund"
+  },
+  {
+    "id": "lp",
+    "term": "Limited partner (LP)",
+    "definition": "An investor who commits capital to a fund and holds rights defined by its governing documents.",
+    "topic": "committed-fund"
+  },
+  {
+    "id": "management-fee",
+    "term": "Management fee",
+    "definition": "A fund charge supporting the manager's work, calculated on a stated base such as commitments or invested capital.",
+    "topic": "committed-fund"
+  },
+  {
+    "id": "carried-interest",
+    "term": "Carried interest",
+    "definition": "A manager's contractual share of fund gains after the applicable distribution conditions are met.",
+    "topic": "committed-fund"
+  },
+  {
+    "id": "hurdle",
+    "term": "Hurdle or preferred return",
+    "definition": "A threshold in a fund's distribution rules that affects when incentive economics become payable; it is not a guaranteed return.",
+    "topic": "committed-fund"
+  },
+  {
+    "id": "investment-period",
+    "term": "Investment period",
+    "definition": "The part of a fund's life when its manager may make new investments under the agreed mandate.",
+    "topic": "committed-fund"
+  },
+  {
+    "id": "fund-term",
+    "term": "Fund term",
+    "definition": "The planned life of a fund, including time after new investments end for repayments or exits.",
+    "topic": "committed-fund"
+  },
+  {
+    "id": "direct-lender",
+    "term": "Direct lender",
+    "definition": "A private lender that originates a loan directly to an operating business under its credit mandate.",
+    "topic": "direct-lending"
+  },
+  {
+    "id": "unitranche",
+    "term": "Unitranche",
+    "definition": "A single borrower-facing loan that blends risk which could otherwise be split across separate debt tranches.",
+    "topic": "direct-lending"
+  },
+  {
+    "id": "mezzanine",
+    "term": "Mezzanine debt",
+    "definition": "Junior acquisition debt ranking behind senior borrowing, sometimes combining cash interest, accrued interest and equity-linked rights.",
+    "topic": "mezzanine-debt"
+  },
+  {
+    "id": "pik",
+    "term": "Paid-in-kind (PIK) interest",
+    "definition": "Interest added to a debt claim instead of paid in cash when due, increasing the amount eventually owed.",
+    "topic": "mezzanine-debt"
   }
 ]

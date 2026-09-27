@@ -29,3 +29,11 @@ Production build: 20 tests passed; zero Astro/TypeScript errors, warnings or hin
 All 73 protected research/corpus hashes remain unchanged. The output audit found no private-path/transcript leakage and no normalized 50-word transcript matches. Re-import reproduced generated files exactly. Automated checks are not a substitute for a complete assistive-technology audit or independent verification of the speakers’ transaction claims.
 
 Nothing was deployed. Domain and analytics configuration remain unchanged.
+
+## Phase 2 Fund Launch enrichment
+
+Four public Fund Launch guides were read as a separate source family. The first collection remains the buyer/operator evidence base; Fund Launch supplies fund-manager and lender explanations. No original Yusufa source, evidence, number, provider or private provenance record was rewritten. The site retains the central conclusion that the first collection establishes no named completed private-credit facility.
+
+The 20-lesson beginner course remains in its original order. Three existing lessons gain short connections where the new material clarifies funding or investor choice. Four durable topic guides address direct lending, mezzanine, independent sponsorship and committed funds; the private-credit, bank-debt, capital-stack and subordination topics were revised in place. An optional advanced path appears after the course and an optional credit sequence appears on the financing page. The source index links all four originals, and the numbers table labels four Fund Launch records separately from the 313 Yusufa-derived records.
+
+Editorial checks: borrower and lender questions are distinguished; cash-flow underwriting is not equated with an unsecured loan; unitranche is shown as an alternative facility design rather than a required stack rung; seller subordination is not relabeled as institutional mezzanine; PIK is illustrated as future balance growth rather than free cash; and fund formation remains an advanced topic. Legal rules, exemptions, launch costs and current pricing were omitted from teaching copy. Fund terms retained in the numbers reference carry a source, audience and date caution. No guide table or long passage is reproduced.

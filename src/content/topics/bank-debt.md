@@ -7,6 +7,7 @@ coverage: "substantive"
 related: ["debt-service", "covenants", "collateral"]
 evidence: ["E018", "E019", "E133"]
 sources: ["cvauHwc3guQ", "3U3uEsou3SM", "b_Emk0J2yfw", "wd4Y23wruXU", "Kisa0C-YiY4"]
+fundSources: ["direct-lending-fund"]
 ---
 
 Bank debt can fund part of an acquisition in return for contractual repayment and the protections negotiated by the lender. The lender evaluates the company, transaction and people responsible for execution. A profitable target can support the conversation, but does not remove questions about management, customer durability, capital structure or the reliability of financial information.
@@ -18,5 +19,7 @@ Compare facilities on their full obligations. Rate, fees, maturity, amortization
 ## Follow the connections
 
 [Debt service](/topics/debt-service/) · [Covenants](/topics/covenants/) · [Collateral](/topics/collateral/).
+
+For a comparison with an investor-funded operating-company lender, see [direct lending](/topics/direct-lending/). Both a bank and a direct lender can assess cash flow and seek security; the provider's funding model and mandate differ. Fund Launch describes lender underwriting, while this collection documents the buyer's bank approval process. [Read the Fund Launch guide](https://www.fundlaunch.com/launch/direct-lending-fund)
 
 Continue in the course: [Building the capital stack](/course/building-the-capital-stack/).
