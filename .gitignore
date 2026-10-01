@@ -4,6 +4,8 @@ dist/
 .env
 .env.*
 !.env.example
+.dev.vars*
+!.dev.vars.example
 private/
 whisper_corpus/
 missing_whisper*/
@@ -25,5 +27,6 @@ source-html/
 *.swo
 .DS_Store
 artifacts/
+.wrangler/
 __pycache__/
 *.py[cod]

@@ -2,7 +2,7 @@
 
 The free, source-linked guide to buying, financing, and building businesses.
 
-Acquisition Companion is a free, independent Astro guide to buying, financing, and building businesses. It connects original teaching across public sources and links readers to the creators' full material. It is not affiliated with or endorsed by Yusufa Sey, Fund Launch, or other referenced creators. The site has no accounts, payments, advertising, affiliate links, trackers, server runtime, or public transcript corpus.
+Acquisition Companion is a free, independent Astro guide to buying, financing, and building businesses. It connects original teaching across public sources and links readers to the creators' full material. It is not affiliated with or endorsed by Yusufa Sey, Fund Launch, or other referenced creators. The site has no accounts, payments, advertising, affiliate links, or public transcript corpus. Optional AI Deal Lab requests use a small server-side Cloudflare Worker endpoint; the rest of the educational site remains statically generated.
 
 ## Local development
 
@@ -23,7 +23,15 @@ npm run build
 npm run preview
 ```
 
+For the browser suites, build with the public production origin and measurement ID so canonical citations and the consent banner are present. These values are public build-time settings; leave all `OPENAI_*` values unset for the normal disabled-state checks:
+
+```sh
+SITE_URL=https://acquisitioncompanion.com PUBLIC_GA_MEASUREMENT_ID=G-L37H8G797Y npm run build
+```
+
 Astro 7 runs preview as a background local server. Use `npx astro preview status`, `npx astro preview logs`, and `npx astro preview stop` to inspect or stop it. This preview is not a public deployment.
+
+Astro’s ordinary dev server and preview serve the static page but do not emulate the Worker API. To run the Cloudflare Worker with its local static asset binding, build first, copy `.dev.vars.example` to the ignored `.dev.vars`, keep `AI_ENABLED=false` unless you are intentionally making a live OpenAI request, then run `npm run dev:worker`. See [AI Deal Lab operations](docs/ai-deal-lab.md) before using local OpenAI credentials.
 
 ## Production build
 
@@ -37,19 +45,15 @@ npm run build
 
 The command runs unit/content checks, Astro/TypeScript checks, the static build, sitemap generation, Pagefind indexing, and a built-output privacy/link audit. All required site content and sanitized structured data are committed. A normal build does **not** need the research corpus, Python, downloaded audio, or external content fetching.
 
-## Cloudflare Pages
+## Cloudflare Workers Builds
 
-1. Review the local production preview and the editorial limitations below.
-2. In Cloudflare, choose **Workers & Pages → Create → Pages**, then connect `adamk/acquisition-companion` through GitHub. Choose the **Astro** framework preset and production branch `main`.
-4. Set **Build command** to `npm run build` and **Build output directory** to `dist`. Root directory is the repository root. No Cloudflare adapter or SSR functions are required.
-5. Set `NODE_VERSION=22.23.0`, `SITE_URL=https://acquisitioncompanion.com`, and `PUBLIC_GA_MEASUREMENT_ID=G-L37H8G797Y` in the Pages production build environment. The GA Measurement ID is public. Omit it to disable analytics and the consent banner.
-6. After domain ownership is confirmed, add `acquisitioncompanion.com` as a Pages custom domain. The apex domain requires a Cloudflare DNS zone and Cloudflare authoritative nameservers. Configure `www.acquisitioncompanion.com` to redirect permanently to the apex. Verify HTTPS, redirects, source links, search, headers, canonical tags, sitemap, robots file, and mobile layout on the live deployment.
+The existing production integration is **Workers Builds: `acquisition-companion`**. Keep its repository root, production branch, build command `npm run build`, and deploy command `npx wrangler deploy`. The checked-in [`wrangler.jsonc`](wrangler.jsonc) adds a Worker only for `/api/*`; its Static Assets binding serves the existing `dist/` output for every other route. Astro stays static and Pagefind remains build-generated.
 
-With `SITE_URL` unset, the site omits canonical URLs, emits an empty sitemap, and marks preview pages `noindex`; robots disallows crawling. Public source links remain the creators' original URLs regardless of the site domain. Domain and DNS account changes should be made only after ownership and current records are verified.
+Keep `NODE_VERSION=22.23.0` and `SITE_URL=https://acquisitioncompanion.com` as Workers Builds build variables. `PUBLIC_GA_MEASUREMENT_ID` is also a **public build-time** value under **Workers & Pages → `acquisition-companion` → Settings → Build → Build Variables and Secrets** because Astro renders the consent banner during the build. Omit it to disable analytics. AI credentials and runtime switches are configured separately in the Worker’s **Settings → Variables and Secrets**; do not add them as Astro `PUBLIC_*` values or Workers Builds build variables. See [AI Deal Lab operations](docs/ai-deal-lab.md) for exact steps. The Wrangler config uses `keep_vars: true` so dashboard-managed Worker variables survive deploys.
 
-The current GitHub check reports **Workers Builds: acquisition-companion**. For that integration, add `PUBLIC_GA_MEASUREMENT_ID` under **Workers & Pages → acquisition-companion → Settings → Build → Build Variables and Secrets**, then retry a production build. This is a build variable because Astro generates static HTML; adding a runtime Worker variable alone will not enable the banner. The value is public and should be stored as text, not a secret.
+With `SITE_URL` unset, the site omits canonical URLs, emits an empty sitemap, marks preview pages `noindex`, and disallows crawling in robots. Public source links remain the creators' original URLs regardless of the site domain. Domain and DNS account changes should be made only after ownership and current records are verified.
 
-Official references: [Astro content collections](https://docs.astro.build/en/guides/content-collections/), [Cloudflare Pages build settings](https://developers.cloudflare.com/pages/configuration/build-configuration/), [Pagefind indexing](https://pagefind.app/docs/running-pagefind/).
+Official references: [Astro content collections](https://docs.astro.build/en/guides/content-collections/), [Cloudflare Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/), [Static Assets configuration](https://developers.cloudflare.com/workers/static-assets/binding/), [Pagefind indexing](https://pagefind.app/docs/running-pagefind/).
 
 ## Configuration
 
@@ -61,7 +65,7 @@ Edit **`src/site-config.mjs`**. It is the central configuration for:
 - Optional consent-gated Google Analytics (`PUBLIC_GA_MEASUREMENT_ID`).
 - Source-collection display names and descriptions.
 
-No permanent production domain is hardcoded. Analytics stay off when the public Measurement ID is absent or a visitor declines. The site loads direct `gtag.js` only after consent, disables Google advertising signals, and links to a short privacy explanation and a footer preference control. It loads no third-party fonts, ads, or embedded videos. The favicon is an original placeholder mark, replaceable in `public/favicon.svg`.
+No permanent production domain is hardcoded. Analytics stay off when the public Measurement ID is absent or a visitor declines. The site loads direct `gtag.js` only after consent, disables Google advertising signals, and links to a short privacy explanation and a footer preference control. AI Deal Lab event parameters pass through an additional allowlist so question and response content cannot be sent to Google Analytics. It loads no third-party fonts, ads, or embedded videos. The favicon is an original placeholder mark, replaceable in `public/favicon.svg`.
 
 ## Content and relationships
 
@@ -104,9 +108,12 @@ npm test
 npm run check
 npm run build
 npm run test:browser
+npm run test:analytics-browser
+npm run test:ai-browser
+npm run deploy:worker:dry-run
 ```
 
-Browser QA uses the locally installed Google Chrome through Playwright and requires a running preview. On another machine, install Chrome or change the browser channel in `scripts/browser-check.mjs`. Set `PREVIEW_URL` if using a different port. Browser QA checks representative routes with axe, desktop/tablet/mobile overflow, search results, filters, keyboard access, local progress, blocked storage and no-JavaScript access.
+Browser QA uses the locally installed Google Chrome through Playwright and requires a running preview. On another machine, install Chrome or change the browser channel in the browser-check scripts. Set `PREVIEW_URL` if using a different port. General QA checks representative routes with axe, desktop/tablet/mobile overflow, search results, filters, keyboard access, local progress, blocked storage and no-JavaScript access. AI browser QA mocks the Worker responses and does not call OpenAI.
 
 `artifacts/` contains local screenshots and machine-readable validation results and is Git-ignored. `docs/validation.md` records the reviewed result. The optional local source audit compares output against the read-only corpus and an initial hash manifest:
 

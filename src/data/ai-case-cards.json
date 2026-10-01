@@ -1,0 +1,26 @@
+[
+  {
+    "id": "bluejay-field-services",
+    "title": "Bluejay Field Services",
+    "difficulty": "beginner",
+    "industry": "Commercial grounds maintenance",
+    "description": "A fictional two-crew regional operator is seeking a buyer. Start by separating reported earnings from a price that depends on adjustments.",
+    "label": "Synthetic practice case"
+  },
+  {
+    "id": "aster-forge-components",
+    "title": "Aster Forge Components",
+    "difficulty": "intermediate",
+    "industry": "Precision industrial components",
+    "description": "A fictional manufacturer has several proposed EBITDA adjustments, a large customer, and seller rollover alongside debt.",
+    "label": "Synthetic practice case"
+  },
+  {
+    "id": "ternbridge-route-logistics",
+    "title": "Ternbridge Route Logistics",
+    "difficulty": "advanced",
+    "industry": "Contract route logistics",
+    "description": "A fictional multi-site operator is considering senior debt, cash-pay and PIK mezzanine, a seller note, and rolled equity.",
+    "label": "Synthetic practice case"
+  }
+]

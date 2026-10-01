@@ -1,0 +1,6276 @@
+{
+  "ac-example--earnings-after-debt-service.md": {
+    "title": "£1m earnings, £150k left before other cash needs",
+    "slug": "earnings-after-debt-service",
+    "contentType": "example",
+    "topics": [
+      "debt-service",
+      "cash-flow",
+      "amortization"
+    ],
+    "status": "hypothetical",
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "VmRqlJuqCs8"
+      ],
+      "evidenceIds": [
+        "E216"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3",
+        "url": "https://www.youtube.com/watch?v=VmRqlJuqCs8"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/examples/earnings-after-debt-service/"
+  },
+  "ac-example--exceptional-deferred-purchase.md": {
+    "title": "The reported £1.8m acquisition",
+    "slug": "exceptional-deferred-purchase",
+    "contentType": "example",
+    "topics": [
+      "valuation-multiples",
+      "deferred-consideration",
+      "adjusted-ebitda"
+    ],
+    "status": "reported-completed",
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "EL60pBzPd_k"
+      ],
+      "evidenceIds": [
+        "E084"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside my 7-figure acquisitions (FULL breakdown)",
+        "url": "https://www.youtube.com/watch?v=EL60pBzPd_k"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/examples/exceptional-deferred-purchase/"
+  },
+  "ac-example--funding-the-search.md": {
+    "title": "£5k a month funds a search, not the acquisition",
+    "slug": "funding-the-search",
+    "contentType": "example",
+    "topics": [
+      "buyer-equity",
+      "investor-equity",
+      "sourcing"
+    ],
+    "status": "hypothetical",
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "_CJLfixvoN4",
+        "tZBRCa9EW3A"
+      ],
+      "evidenceIds": [
+        "E209"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in 2026 (If I Had to Start Over)",
+        "url": "https://www.youtube.com/watch?v=_CJLfixvoN4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You Can Raise Money Before You Even Start Your Business (Here’s How)",
+        "url": "https://www.youtube.com/watch?v=tZBRCa9EW3A"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/examples/funding-the-search/"
+  },
+  "ac-example--institutional-debt-proposal.md": {
+    "title": "£33m debt conditional on £25m equity",
+    "slug": "institutional-debt-proposal",
+    "contentType": "example",
+    "topics": [
+      "institutional-debt",
+      "investor-equity",
+      "capital-stack"
+    ],
+    "status": "proposed",
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "j4orWHw8kdA",
+        "iuC8eRD77I8"
+      ],
+      "evidenceIds": [
+        "E141"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur reveals how to buy a 8-figure business in UK",
+        "url": "https://www.youtube.com/watch?v=j4orWHw8kdA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur buying 8-figure businesses (easy mode)",
+        "url": "https://www.youtube.com/watch?v=iuC8eRD77I8"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/examples/institutional-debt-proposal/"
+  },
+  "ac-example--machinery-borrowing-base.md": {
+    "title": "Why £1m of machinery supports £640k in the illustration",
+    "slug": "machinery-borrowing-base",
+    "contentType": "example",
+    "topics": [
+      "collateral",
+      "asset-based-lending"
+    ],
+    "status": "hypothetical",
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "Hvw5FAbRAZY"
+      ],
+      "evidenceIds": [
+        "E241"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "How To Raise Money To Buy A Business In 2025 | vlog 13",
+        "url": "https://www.youtube.com/watch?v=Hvw5FAbRAZY"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/examples/machinery-borrowing-base/"
+  },
+  "ac-example--marketing-addback.md": {
+    "title": "When an addback doubles claimed earnings",
+    "slug": "marketing-addback",
+    "contentType": "example",
+    "topics": [
+      "adjusted-ebitda",
+      "due-diligence",
+      "valuation-multiples"
+    ],
+    "status": "hypothetical",
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "vkKw1MeUors"
+      ],
+      "evidenceIds": [
+        "E035"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/examples/marketing-addback/"
+  },
+  "ac-example--preference-before-common.md": {
+    "title": "A $1.5bn exit that leaves common shareholders nothing",
+    "slug": "preference-before-common",
+    "contentType": "example",
+    "topics": [
+      "preferred-equity",
+      "equity-value",
+      "returns-and-exits"
+    ],
+    "status": "hypothetical",
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "fOjSk3VYZdc"
+      ],
+      "evidenceIds": [
+        "E187"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of making deals in private equity",
+        "url": "https://www.youtube.com/watch?v=fOjSk3VYZdc"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/examples/preference-before-common/"
+  },
+  "ac-example--revenue-covenant-floor.md": {
+    "title": "The £800k monthly revenue covenant illustration",
+    "slug": "revenue-covenant-floor",
+    "contentType": "example",
+    "topics": [
+      "covenants",
+      "cash-flow",
+      "debt-service"
+    ],
+    "status": "hypothetical",
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "rE2R3B0kiBc",
+        "v3SrYOEUs7Q",
+        "je7CsLaUm8w"
+      ],
+      "evidenceIds": [
+        "E159",
+        "E231"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The #1 Reason The Wealthy Are Getting Wealthier",
+        "url": "https://www.youtube.com/watch?v=rE2R3B0kiBc"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | gambian entrepreneur broadcasting first youtube episode on national tv | vlog 2",
+        "url": "https://www.youtube.com/watch?v=v3SrYOEUs7Q"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "This is how you borrow millions from the bank.",
+        "url": "https://www.youtube.com/watch?v=je7CsLaUm8w"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/examples/revenue-covenant-floor/"
+  },
+  "ac-example--seller-rollover-price-bridge.md": {
+    "title": "Bridging a four-times price with a 75% purchase",
+    "slug": "seller-rollover-price-bridge",
+    "contentType": "example",
+    "topics": [
+      "rollover-equity",
+      "seller-financing",
+      "equity-value"
+    ],
+    "status": "hypothetical",
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "_CJLfixvoN4"
+      ],
+      "evidenceIds": [
+        "E208"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in 2026 (If I Had to Start Over)",
+        "url": "https://www.youtube.com/watch?v=_CJLfixvoN4"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/examples/seller-rollover-price-bridge/"
+  },
+  "ac-example--three-and-a-half-million-stack.md": {
+    "title": "Funding a £3.5m purchase",
+    "slug": "three-and-a-half-million-stack",
+    "contentType": "example",
+    "topics": [
+      "capital-stack",
+      "seller-financing",
+      "investor-equity"
+    ],
+    "status": "hypothetical",
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "Sj_SpzSpxw0",
+        "mh1tKwDlnaE",
+        "eN6nVKlUu3c"
+      ],
+      "evidenceIds": [
+        "E009"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur reveals BTS pitching an investor for capital (LIVE) | vlog 24",
+        "url": "https://www.youtube.com/watch?v=Sj_SpzSpxw0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Dubai Desert | vlog 5",
+        "url": "https://www.youtube.com/watch?v=mh1tKwDlnaE"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You Don’t Need to Be Rich: How to Buy A Business in 13 Minutes",
+        "url": "https://www.youtube.com/watch?v=eN6nVKlUu3c"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/examples/three-and-a-half-million-stack/"
+  },
+  "ac-example--trade-debtors-not-total-debtors.md": {
+    "title": "A €952k debtor balance is not a €952k lending base",
+    "slug": "trade-debtors-not-total-debtors",
+    "contentType": "example",
+    "topics": [
+      "working-capital",
+      "receivables-finance",
+      "asset-based-lending"
+    ],
+    "status": "proposed",
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "18cB9LOaucs",
+        "MwejQUah14Y",
+        "akgHprIWcZU"
+      ],
+      "evidenceIds": [
+        "E172",
+        "E175"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of finding deals in private equity",
+        "url": "https://www.youtube.com/watch?v=18cB9LOaucs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Watch me try to buy a business (LIVE deal breakdown)",
+        "url": "https://www.youtube.com/watch?v=MwejQUah14Y"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside 7-figure negotiations (LIVE buyout breakdown)",
+        "url": "https://www.youtube.com/watch?v=akgHprIWcZU"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/examples/trade-debtors-not-total-debtors/"
+  },
+  "ac-example--two-year-earnings-valuation.md": {
+    "title": "A £3.5m valuation from two years of earnings",
+    "slug": "two-year-earnings-valuation",
+    "contentType": "example",
+    "topics": [
+      "valuation-multiples",
+      "adjusted-ebitda",
+      "enterprise-value"
+    ],
+    "status": "hypothetical",
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "UAtbZfPN2zA",
+        "T3zG2Iaxy-k"
+      ],
+      "evidenceIds": [
+        "E121"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "How to buy a profitable business (step-by-step)",
+        "url": "https://www.youtube.com/watch?v=UAtbZfPN2zA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna know what a business is worth... please watch this",
+        "url": "https://www.youtube.com/watch?v=T3zG2Iaxy-k"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/examples/two-year-earnings-valuation/"
+  },
+  "ac-glossary--acquisition-entrepreneurship.md": {
+    "title": "Acquisition entrepreneurship",
+    "slug": "acquisition-entrepreneurship",
+    "contentType": "glossary",
+    "topics": [
+      "acquisition-entrepreneurship"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#acquisition-entrepreneurship"
+  },
+  "ac-glossary--acquisition-process.md": {
+    "title": "Acquisition process",
+    "slug": "acquisition-process",
+    "contentType": "glossary",
+    "topics": [
+      "acquisition-process"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#acquisition-process"
+  },
+  "ac-glossary--adjusted-ebitda.md": {
+    "title": "Adjusted EBITDA",
+    "slug": "adjusted-ebitda",
+    "contentType": "glossary",
+    "topics": [
+      "adjusted-ebitda"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#adjusted-ebitda"
+  },
+  "ac-glossary--amortization.md": {
+    "title": "Amortization",
+    "slug": "amortization",
+    "contentType": "glossary",
+    "topics": [
+      "amortization"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#amortization"
+  },
+  "ac-glossary--asset-based-lending.md": {
+    "title": "Asset-based lending",
+    "slug": "asset-based-lending",
+    "contentType": "glossary",
+    "topics": [
+      "asset-based-lending"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#asset-based-lending"
+  },
+  "ac-glossary--bank-debt.md": {
+    "title": "Bank debt",
+    "slug": "bank-debt",
+    "contentType": "glossary",
+    "topics": [
+      "bank-debt"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#bank-debt"
+  },
+  "ac-glossary--bolt-ons.md": {
+    "title": "Bolt-on acquisitions",
+    "slug": "bolt-ons",
+    "contentType": "glossary",
+    "topics": [
+      "bolt-ons"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#bolt-ons"
+  },
+  "ac-glossary--brokers.md": {
+    "title": "Brokers",
+    "slug": "brokers",
+    "contentType": "glossary",
+    "topics": [
+      "brokers"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#brokers"
+  },
+  "ac-glossary--buyer-equity.md": {
+    "title": "Buyer equity",
+    "slug": "buyer-equity",
+    "contentType": "glossary",
+    "topics": [
+      "buyer-equity"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#buyer-equity"
+  },
+  "ac-glossary--capital-call.md": {
+    "title": "Capital call",
+    "slug": "capital-call",
+    "contentType": "glossary",
+    "topics": [
+      "committed-fund"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#capital-call"
+  },
+  "ac-glossary--capital-stack.md": {
+    "title": "Capital stack",
+    "slug": "capital-stack",
+    "contentType": "glossary",
+    "topics": [
+      "capital-stack"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#capital-stack"
+  },
+  "ac-glossary--carried-interest.md": {
+    "title": "Carried interest",
+    "slug": "carried-interest",
+    "contentType": "glossary",
+    "topics": [
+      "committed-fund"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#carried-interest"
+  },
+  "ac-glossary--cash-flow.md": {
+    "title": "Cash flow",
+    "slug": "cash-flow",
+    "contentType": "glossary",
+    "topics": [
+      "cash-flow"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#cash-flow"
+  },
+  "ac-glossary--collateral.md": {
+    "title": "Collateral",
+    "slug": "collateral",
+    "contentType": "glossary",
+    "topics": [
+      "collateral"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#collateral"
+  },
+  "ac-glossary--committed-capital.md": {
+    "title": "Committed capital",
+    "slug": "committed-capital",
+    "contentType": "glossary",
+    "topics": [
+      "committed-fund"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#committed-capital"
+  },
+  "ac-glossary--covenants.md": {
+    "title": "Covenants",
+    "slug": "covenants",
+    "contentType": "glossary",
+    "topics": [
+      "covenants"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#covenants"
+  },
+  "ac-glossary--customer-concentration.md": {
+    "title": "Customer concentration",
+    "slug": "customer-concentration",
+    "contentType": "glossary",
+    "topics": [
+      "customer-concentration"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#customer-concentration"
+  },
+  "ac-glossary--debt-pricing.md": {
+    "title": "Debt pricing",
+    "slug": "debt-pricing",
+    "contentType": "glossary",
+    "topics": [
+      "debt-pricing"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#debt-pricing"
+  },
+  "ac-glossary--debt-service.md": {
+    "title": "Debt service",
+    "slug": "debt-service",
+    "contentType": "glossary",
+    "topics": [
+      "debt-service"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#debt-service"
+  },
+  "ac-glossary--deferred-consideration.md": {
+    "title": "Deferred consideration",
+    "slug": "deferred-consideration",
+    "contentType": "glossary",
+    "topics": [
+      "deferred-consideration"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#deferred-consideration"
+  },
+  "ac-glossary--direct-lender.md": {
+    "title": "Direct lender",
+    "slug": "direct-lender",
+    "contentType": "glossary",
+    "topics": [
+      "direct-lending"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#direct-lender"
+  },
+  "ac-glossary--due-diligence.md": {
+    "title": "Due diligence",
+    "slug": "due-diligence",
+    "contentType": "glossary",
+    "topics": [
+      "due-diligence"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#due-diligence"
+  },
+  "ac-glossary--earn-outs.md": {
+    "title": "Earn-outs",
+    "slug": "earn-outs",
+    "contentType": "glossary",
+    "topics": [
+      "earn-outs"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#earn-outs"
+  },
+  "ac-glossary--ebitda.md": {
+    "title": "EBITDA",
+    "slug": "ebitda",
+    "contentType": "glossary",
+    "topics": [
+      "ebitda"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#ebitda"
+  },
+  "ac-glossary--enterprise-value.md": {
+    "title": "Enterprise value",
+    "slug": "enterprise-value",
+    "contentType": "glossary",
+    "topics": [
+      "enterprise-value"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#enterprise-value"
+  },
+  "ac-glossary--equity-value.md": {
+    "title": "Equity value",
+    "slug": "equity-value",
+    "contentType": "glossary",
+    "topics": [
+      "equity-value"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#equity-value"
+  },
+  "ac-glossary--fund-term.md": {
+    "title": "Fund term",
+    "slug": "fund-term",
+    "contentType": "glossary",
+    "topics": [
+      "committed-fund"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#fund-term"
+  },
+  "ac-glossary--government-backed-lending.md": {
+    "title": "Government-backed lending",
+    "slug": "government-backed-lending",
+    "contentType": "glossary",
+    "topics": [
+      "government-backed-lending"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#government-backed-lending"
+  },
+  "ac-glossary--gp.md": {
+    "title": "General partner (GP)",
+    "slug": "gp",
+    "contentType": "glossary",
+    "topics": [
+      "committed-fund"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#gp"
+  },
+  "ac-glossary--hurdle.md": {
+    "title": "Hurdle or preferred return",
+    "slug": "hurdle",
+    "contentType": "glossary",
+    "topics": [
+      "committed-fund"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#hurdle"
+  },
+  "ac-glossary--independent-sponsor.md": {
+    "title": "Independent sponsor",
+    "slug": "independent-sponsor",
+    "contentType": "glossary",
+    "topics": [
+      "independent-sponsor"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#independent-sponsor"
+  },
+  "ac-glossary--institutional-debt.md": {
+    "title": "Institutional debt",
+    "slug": "institutional-debt",
+    "contentType": "glossary",
+    "topics": [
+      "institutional-debt"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#institutional-debt"
+  },
+  "ac-glossary--investment-period.md": {
+    "title": "Investment period",
+    "slug": "investment-period",
+    "contentType": "glossary",
+    "topics": [
+      "committed-fund"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#investment-period"
+  },
+  "ac-glossary--investor-equity.md": {
+    "title": "Investor equity",
+    "slug": "investor-equity",
+    "contentType": "glossary",
+    "topics": [
+      "investor-equity"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#investor-equity"
+  },
+  "ac-glossary--irr-and-moic.md": {
+    "title": "IRR and MOIC",
+    "slug": "irr-and-moic",
+    "contentType": "glossary",
+    "topics": [
+      "irr-and-moic"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#irr-and-moic"
+  },
+  "ac-glossary--leverage.md": {
+    "title": "Leverage",
+    "slug": "leverage",
+    "contentType": "glossary",
+    "topics": [
+      "leverage"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#leverage"
+  },
+  "ac-glossary--loi.md": {
+    "title": "Letter of intent",
+    "slug": "loi",
+    "contentType": "glossary",
+    "topics": [
+      "loi"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#loi"
+  },
+  "ac-glossary--lp.md": {
+    "title": "Limited partner (LP)",
+    "slug": "lp",
+    "contentType": "glossary",
+    "topics": [
+      "committed-fund"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#lp"
+  },
+  "ac-glossary--management-fee.md": {
+    "title": "Management fee",
+    "slug": "management-fee",
+    "contentType": "glossary",
+    "topics": [
+      "committed-fund"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#management-fee"
+  },
+  "ac-glossary--management.md": {
+    "title": "Management",
+    "slug": "management",
+    "contentType": "glossary",
+    "topics": [
+      "management"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#management"
+  },
+  "ac-glossary--mezzanine.md": {
+    "title": "Mezzanine debt",
+    "slug": "mezzanine",
+    "contentType": "glossary",
+    "topics": [
+      "mezzanine-debt"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#mezzanine"
+  },
+  "ac-glossary--personal-guarantees.md": {
+    "title": "Personal guarantees",
+    "slug": "personal-guarantees",
+    "contentType": "glossary",
+    "topics": [
+      "personal-guarantees"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#personal-guarantees"
+  },
+  "ac-glossary--pik.md": {
+    "title": "Paid-in-kind (PIK) interest",
+    "slug": "pik",
+    "contentType": "glossary",
+    "topics": [
+      "mezzanine-debt"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#pik"
+  },
+  "ac-glossary--pledge-fund.md": {
+    "title": "Pledge arrangement",
+    "slug": "pledge-fund",
+    "contentType": "glossary",
+    "topics": [
+      "independent-sponsor"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#pledge-fund"
+  },
+  "ac-glossary--preferred-equity.md": {
+    "title": "Preferred equity",
+    "slug": "preferred-equity",
+    "contentType": "glossary",
+    "topics": [
+      "preferred-equity"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#preferred-equity"
+  },
+  "ac-glossary--private-credit.md": {
+    "title": "Private credit",
+    "slug": "private-credit",
+    "contentType": "glossary",
+    "topics": [
+      "private-credit"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#private-credit"
+  },
+  "ac-glossary--receivables-finance.md": {
+    "title": "Receivables finance",
+    "slug": "receivables-finance",
+    "contentType": "glossary",
+    "topics": [
+      "receivables-finance"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#receivables-finance"
+  },
+  "ac-glossary--refinancing.md": {
+    "title": "Refinancing",
+    "slug": "refinancing",
+    "contentType": "glossary",
+    "topics": [
+      "refinancing"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#refinancing"
+  },
+  "ac-glossary--returns-and-exits.md": {
+    "title": "Returns and exits",
+    "slug": "returns-and-exits",
+    "contentType": "glossary",
+    "topics": [
+      "returns-and-exits"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#returns-and-exits"
+  },
+  "ac-glossary--roll-ups.md": {
+    "title": "Roll-ups",
+    "slug": "roll-ups",
+    "contentType": "glossary",
+    "topics": [
+      "roll-ups"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#roll-ups"
+  },
+  "ac-glossary--rollover-equity.md": {
+    "title": "Rollover equity",
+    "slug": "rollover-equity",
+    "contentType": "glossary",
+    "topics": [
+      "rollover-equity"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#rollover-equity"
+  },
+  "ac-glossary--seller-financing.md": {
+    "title": "Seller financing",
+    "slug": "seller-financing",
+    "contentType": "glossary",
+    "topics": [
+      "seller-financing"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#seller-financing"
+  },
+  "ac-glossary--senior-debt.md": {
+    "title": "Senior debt",
+    "slug": "senior-debt",
+    "contentType": "glossary",
+    "topics": [
+      "senior-debt"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#senior-debt"
+  },
+  "ac-glossary--sourcing.md": {
+    "title": "Sourcing",
+    "slug": "sourcing",
+    "contentType": "glossary",
+    "topics": [
+      "sourcing"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#sourcing"
+  },
+  "ac-glossary--subordination.md": {
+    "title": "Subordination",
+    "slug": "subordination",
+    "contentType": "glossary",
+    "topics": [
+      "subordination"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#subordination"
+  },
+  "ac-glossary--target-selection.md": {
+    "title": "Target selection",
+    "slug": "target-selection",
+    "contentType": "glossary",
+    "topics": [
+      "target-selection"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#target-selection"
+  },
+  "ac-glossary--unitranche.md": {
+    "title": "Unitranche",
+    "slug": "unitranche",
+    "contentType": "glossary",
+    "topics": [
+      "direct-lending"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#unitranche"
+  },
+  "ac-glossary--valuation-multiples.md": {
+    "title": "Valuation multiples",
+    "slug": "valuation-multiples",
+    "contentType": "glossary",
+    "topics": [
+      "valuation-multiples"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#valuation-multiples"
+  },
+  "ac-glossary--working-capital.md": {
+    "title": "Working capital",
+    "slug": "working-capital",
+    "contentType": "glossary",
+    "topics": [
+      "working-capital"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/glossary/#working-capital"
+  },
+  "ac-lesson--acquisition-entrepreneurship.md": {
+    "title": "Buying a business is a form of entrepreneurship",
+    "slug": "acquisition-entrepreneurship",
+    "contentType": "lesson",
+    "module": 1,
+    "topics": [
+      "acquisition-entrepreneurship",
+      "management",
+      "buyer-equity"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "--DvlTBzkW4",
+        "dUL-YXeWDQY",
+        "IJIazMAuvmI",
+        "p3EX7IpcYd0",
+        "vmAmd5vmK8o",
+        "zAlT_NNOb6U",
+        "zRh8i5uPjA0",
+        "TGMdeD8EnD4",
+        "4DhN50eAkcA",
+        "eN6nVKlUu3c",
+        "_CJLfixvoN4",
+        "tZBRCa9EW3A",
+        "9OBSog0S5XU",
+        "v41qQ3KC2b4",
+        "T3zG2Iaxy-k"
+      ],
+      "evidenceIds": [
+        "E001",
+        "E022",
+        "E046",
+        "E002",
+        "E209",
+        "E004",
+        "E003"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "PE entrepreneur: You can LITERALLY buy businesses that generates $10B/yr",
+        "url": "https://www.youtube.com/watch?v=--DvlTBzkW4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Reality of Buying a $10M Business in London.",
+        "url": "https://www.youtube.com/watch?v=dUL-YXeWDQY"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna break into Private Equity, please watch this",
+        "url": "https://www.youtube.com/watch?v=IJIazMAuvmI"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna do Private Equity in UK, please watch this",
+        "url": "https://www.youtube.com/watch?v=p3EX7IpcYd0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Do NOT Start A Business From Scratch in 2026 (And What to Do Instead)",
+        "url": "https://www.youtube.com/watch?v=vmAmd5vmK8o"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on what to avoid when buying businesses",
+        "url": "https://www.youtube.com/watch?v=zAlT_NNOb6U"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on buying businesses in UK",
+        "url": "https://www.youtube.com/watch?v=zRh8i5uPjA0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you feel stuck in life… here’s how you become UNRECOGNIZABLE",
+        "url": "https://www.youtube.com/watch?v=TGMdeD8EnD4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You bought a £10M business in London, now what?",
+        "url": "https://www.youtube.com/watch?v=4DhN50eAkcA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You Don’t Need to Be Rich: How to Buy A Business in 13 Minutes",
+        "url": "https://www.youtube.com/watch?v=eN6nVKlUu3c"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in 2026 (If I Had to Start Over)",
+        "url": "https://www.youtube.com/watch?v=_CJLfixvoN4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You Can Raise Money Before You Even Start Your Business (Here’s How)",
+        "url": "https://www.youtube.com/watch?v=tZBRCa9EW3A"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The BRUTAL Reality of Owning £60M Businesses",
+        "url": "https://www.youtube.com/watch?v=9OBSog0S5XU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "$50M entrepreneur celebrating in Mykonos | vlog",
+        "url": "https://www.youtube.com/watch?v=v41qQ3KC2b4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna know what a business is worth... please watch this",
+        "url": "https://www.youtube.com/watch?v=T3zG2Iaxy-k"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/acquisition-entrepreneurship/"
+  },
+  "ac-lesson--anatomy-of-an-acquisition.md": {
+    "title": "The anatomy of an acquisition",
+    "slug": "anatomy-of-an-acquisition",
+    "contentType": "lesson",
+    "module": 1,
+    "topics": [
+      "acquisition-process",
+      "loi",
+      "capital-stack",
+      "due-diligence"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "WcYMjlTsUwA",
+        "iuC8eRD77I8",
+        "lGkWzEfsu_c",
+        "cvauHwc3guQ",
+        "3U3uEsou3SM",
+        "vkKw1MeUors",
+        "PqGjF6z1ZaM",
+        "2maCpFUx4ks",
+        "4DhN50eAkcA",
+        "NTa6kB7cGg0",
+        "942nFYmky6Q",
+        "Sj_SpzSpxw0",
+        "mh1tKwDlnaE",
+        "eN6nVKlUu3c"
+      ],
+      "evidenceIds": [
+        "E059",
+        "E019",
+        "E032",
+        "E056",
+        "E036",
+        "E125",
+        "E075",
+        "E074",
+        "E009"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Why You Are Closer to Buying a Business Than You Think",
+        "url": "https://www.youtube.com/watch?v=WcYMjlTsUwA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur buying 8-figure businesses (easy mode)",
+        "url": "https://www.youtube.com/watch?v=iuC8eRD77I8"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on getting money from UK banks",
+        "url": "https://www.youtube.com/watch?v=lGkWzEfsu_c"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in Current Markets (2026)",
+        "url": "https://www.youtube.com/watch?v=cvauHwc3guQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur in dubai building a 9-figure business | vlog 4",
+        "url": "https://www.youtube.com/watch?v=3U3uEsou3SM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Most Important Financial Document You’ll Ever Make",
+        "url": "https://www.youtube.com/watch?v=PqGjF6z1ZaM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Emotional Reality of Buying a Business (Private Equity / Bankruptcy / AI)",
+        "url": "https://www.youtube.com/watch?v=2maCpFUx4ks"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You bought a £10M business in London, now what?",
+        "url": "https://www.youtube.com/watch?v=4DhN50eAkcA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna raise money from investors… Watch this",
+        "url": "https://www.youtube.com/watch?v=NTa6kB7cGg0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M: 23 y/o Buying His First Business",
+        "url": "https://www.youtube.com/watch?v=942nFYmky6Q"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur reveals BTS pitching an investor for capital (LIVE) | vlog 24",
+        "url": "https://www.youtube.com/watch?v=Sj_SpzSpxw0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Dubai Desert | vlog 5",
+        "url": "https://www.youtube.com/watch?v=mh1tKwDlnaE"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You Don’t Need to Be Rich: How to Buy A Business in 13 Minutes",
+        "url": "https://www.youtube.com/watch?v=eN6nVKlUu3c"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/anatomy-of-an-acquisition/"
+  },
+  "ac-lesson--asset-based-finance.md": {
+    "title": "Finance assets on a lender’s terms",
+    "slug": "asset-based-finance",
+    "contentType": "lesson",
+    "module": 7,
+    "topics": [
+      "asset-based-lending",
+      "receivables-finance",
+      "collateral",
+      "working-capital"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "1C5gI6LlWhA",
+        "Hvw5FAbRAZY",
+        "WcYMjlTsUwA",
+        "b_Emk0J2yfw",
+        "18cB9LOaucs",
+        "wd4Y23wruXU",
+        "eKGCCawHqjk",
+        "NnWl4wMoQhM",
+        "je7CsLaUm8w"
+      ],
+      "evidenceIds": [
+        "E065",
+        "E241",
+        "E062",
+        "E134",
+        "E172",
+        "E179",
+        "E205"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The Art of Buying the Right Business in Private Equity",
+        "url": "https://www.youtube.com/watch?v=1C5gI6LlWhA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How To Raise Money To Buy A Business In 2025 | vlog 13",
+        "url": "https://www.youtube.com/watch?v=Hvw5FAbRAZY"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Why You Are Closer to Buying a Business Than You Think",
+        "url": "https://www.youtube.com/watch?v=WcYMjlTsUwA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur buying UK businesses remotely",
+        "url": "https://www.youtube.com/watch?v=b_Emk0J2yfw"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of finding deals in private equity",
+        "url": "https://www.youtube.com/watch?v=18cB9LOaucs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How you get money from the bank (private equity)",
+        "url": "https://www.youtube.com/watch?v=wd4Y23wruXU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on getting to £44M with finance",
+        "url": "https://www.youtube.com/watch?v=eKGCCawHqjk"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Just when you think the deal is closed… it usually isn’t",
+        "url": "https://www.youtube.com/watch?v=NnWl4wMoQhM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "This is how you borrow millions from the bank.",
+        "url": "https://www.youtube.com/watch?v=je7CsLaUm8w"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/asset-based-finance/"
+  },
+  "ac-lesson--building-a-deal-pipeline.md": {
+    "title": "Build a deal pipeline that produces decisions",
+    "slug": "building-a-deal-pipeline",
+    "contentType": "lesson",
+    "module": 3,
+    "topics": [
+      "sourcing",
+      "brokers",
+      "target-selection",
+      "loi"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "vvw6brqjl2I",
+        "H7R3OanjTfo",
+        "18cB9LOaucs",
+        "j4orWHw8kdA",
+        "kNoY1Wkr07E",
+        "PqGjF6z1ZaM",
+        "p3EX7IpcYd0",
+        "Sj_SpzSpxw0"
+      ],
+      "evidenceIds": [
+        "E102",
+        "E174",
+        "E138",
+        "E139",
+        "E117",
+        "E232",
+        "E104",
+        "E011"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "If you want 2026 to be the best dealmaking year of your life, please watch this…",
+        "url": "https://www.youtube.com/watch?v=vvw6brqjl2I"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur negotiating £60M investment in London",
+        "url": "https://www.youtube.com/watch?v=H7R3OanjTfo"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of finding deals in private equity",
+        "url": "https://www.youtube.com/watch?v=18cB9LOaucs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur reveals how to buy a 8-figure business in UK",
+        "url": "https://www.youtube.com/watch?v=j4orWHw8kdA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The RAW reality of buying a business in 2026",
+        "url": "https://www.youtube.com/watch?v=kNoY1Wkr07E"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Most Important Financial Document You’ll Ever Make",
+        "url": "https://www.youtube.com/watch?v=PqGjF6z1ZaM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna do Private Equity in UK, please watch this",
+        "url": "https://www.youtube.com/watch?v=p3EX7IpcYd0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur reveals BTS pitching an investor for capital (LIVE) | vlog 24",
+        "url": "https://www.youtube.com/watch?v=Sj_SpzSpxw0"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/building-a-deal-pipeline/"
+  },
+  "ac-lesson--building-a-group.md": {
+    "title": "Build a group with a reason to belong together",
+    "slug": "building-a-group",
+    "contentType": "lesson",
+    "module": 13,
+    "topics": [
+      "roll-ups",
+      "bolt-ons",
+      "management",
+      "leverage",
+      "covenants"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "np9jH5OyQnE",
+        "rVW6fyafA0s",
+        "8LNGpCPhTzU",
+        "NnWl4wMoQhM",
+        "SPMaYlRzACI",
+        "WBPmqD8jIKA",
+        "3z3NDUcOaNg"
+      ],
+      "evidenceIds": [
+        "E090",
+        "E111",
+        "E051",
+        "E091",
+        "E112",
+        "E113",
+        "E093",
+        "E092",
+        "E146",
+        "E043"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "PE entrepreneur on BEST strategy for building WEALTH (...in 2026)",
+        "url": "https://www.youtube.com/watch?v=np9jH5OyQnE"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "watch this before buying your first business",
+        "url": "https://www.youtube.com/watch?v=rVW6fyafA0s"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity: The Mental Burden of Making 7-figure Promises",
+        "url": "https://www.youtube.com/watch?v=8LNGpCPhTzU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Just when you think the deal is closed… it usually isn’t",
+        "url": "https://www.youtube.com/watch?v=NnWl4wMoQhM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur scaling to £100 million in 2,5 years",
+        "url": "https://www.youtube.com/watch?v=SPMaYlRzACI"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur building £100M empire in UK",
+        "url": "https://www.youtube.com/watch?v=WBPmqD8jIKA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "I failed… to generate £81M in revenue",
+        "url": "https://www.youtube.com/watch?v=3z3NDUcOaNg"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/building-a-group/"
+  },
+  "ac-lesson--building-the-capital-stack.md": {
+    "title": "Build a capital stack the business can carry",
+    "slug": "building-the-capital-stack",
+    "contentType": "lesson",
+    "module": 7,
+    "topics": [
+      "capital-stack",
+      "leverage",
+      "bank-debt",
+      "investor-equity",
+      "seller-financing"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education",
+      "Fund Launch enrichment"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "Sj_SpzSpxw0",
+        "mh1tKwDlnaE",
+        "eN6nVKlUu3c",
+        "YI3Shq4iXao",
+        "VmRqlJuqCs8",
+        "cvauHwc3guQ",
+        "byJSV1CEYBk",
+        "3U3uEsou3SM",
+        "942nFYmky6Q",
+        "Vy-GvO4SGvI",
+        "zAlT_NNOb6U"
+      ],
+      "evidenceIds": [
+        "E009",
+        "E079",
+        "E216",
+        "E017",
+        "E222",
+        "E019",
+        "E075",
+        "E235",
+        "E194"
+      ],
+      "fundLaunchGuideIds": [
+        "direct-lending-fund",
+        "mezzanine-fund"
+      ]
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur reveals BTS pitching an investor for capital (LIVE) | vlog 24",
+        "url": "https://www.youtube.com/watch?v=Sj_SpzSpxw0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Dubai Desert | vlog 5",
+        "url": "https://www.youtube.com/watch?v=mh1tKwDlnaE"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You Don’t Need to Be Rich: How to Buy A Business in 13 Minutes",
+        "url": "https://www.youtube.com/watch?v=eN6nVKlUu3c"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Investor’s BRUTAL honest opinion on Private Equity",
+        "url": "https://www.youtube.com/watch?v=YI3Shq4iXao"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3",
+        "url": "https://www.youtube.com/watch?v=VmRqlJuqCs8"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in Current Markets (2026)",
+        "url": "https://www.youtube.com/watch?v=cvauHwc3guQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Failure is inevitable in private equity (here’s how to fix it)",
+        "url": "https://www.youtube.com/watch?v=byJSV1CEYBk"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur in dubai building a 9-figure business | vlog 4",
+        "url": "https://www.youtube.com/watch?v=3U3uEsou3SM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M: 23 y/o Buying His First Business",
+        "url": "https://www.youtube.com/watch?v=942nFYmky6Q"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | online entrepreneur buying profitable businesses | vlog 7",
+        "url": "https://www.youtube.com/watch?v=Vy-GvO4SGvI"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on what to avoid when buying businesses",
+        "url": "https://www.youtube.com/watch?v=zAlT_NNOb6U"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Direct Lending Fund",
+        "url": "https://www.fundlaunch.com/launch/direct-lending-fund"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Mezzanine Fund",
+        "url": "https://www.fundlaunch.com/launch/mezzanine-fund"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/building-the-capital-stack/"
+  },
+  "ac-lesson--choosing-a-target.md": {
+    "title": "Choose a target you can understand and own",
+    "slug": "choosing-a-target",
+    "contentType": "lesson",
+    "module": 2,
+    "topics": [
+      "target-selection",
+      "customer-concentration",
+      "management",
+      "collateral"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "WcYMjlTsUwA",
+        "yqSF-IoKfEQ",
+        "zRh8i5uPjA0",
+        "NnWl4wMoQhM",
+        "1C5gI6LlWhA",
+        "JtJlEfANJsA",
+        "YI3Shq4iXao",
+        "18cB9LOaucs",
+        "MwejQUah14Y",
+        "akgHprIWcZU"
+      ],
+      "evidenceIds": [
+        "E061",
+        "E129",
+        "E204",
+        "E066",
+        "E063",
+        "E013",
+        "E078",
+        "E175"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Why You Are Closer to Buying a Business Than You Think",
+        "url": "https://www.youtube.com/watch?v=WcYMjlTsUwA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "UK investor prefers making money in London to America",
+        "url": "https://www.youtube.com/watch?v=yqSF-IoKfEQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on buying businesses in UK",
+        "url": "https://www.youtube.com/watch?v=zRh8i5uPjA0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Just when you think the deal is closed… it usually isn’t",
+        "url": "https://www.youtube.com/watch?v=NnWl4wMoQhM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Art of Buying the Right Business in Private Equity",
+        "url": "https://www.youtube.com/watch?v=1C5gI6LlWhA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "how you can find the perfect business to buy | vlog 12",
+        "url": "https://www.youtube.com/watch?v=JtJlEfANJsA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Investor’s BRUTAL honest opinion on Private Equity",
+        "url": "https://www.youtube.com/watch?v=YI3Shq4iXao"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of finding deals in private equity",
+        "url": "https://www.youtube.com/watch?v=18cB9LOaucs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Watch me try to buy a business (LIVE deal breakdown)",
+        "url": "https://www.youtube.com/watch?v=MwejQUah14Y"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside 7-figure negotiations (LIVE buyout breakdown)",
+        "url": "https://www.youtube.com/watch?v=akgHprIWcZU"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/choosing-a-target/"
+  },
+  "ac-lesson--debt-terms-and-covenants.md": {
+    "title": "Read debt as a set of operating constraints",
+    "slug": "debt-terms-and-covenants",
+    "contentType": "lesson",
+    "module": 8,
+    "topics": [
+      "debt-pricing",
+      "amortization",
+      "debt-service",
+      "covenants",
+      "personal-guarantees",
+      "subordination"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "rE2R3B0kiBc",
+        "v3SrYOEUs7Q",
+        "je7CsLaUm8w",
+        "9OBSog0S5XU",
+        "np9jH5OyQnE",
+        "8LNGpCPhTzU",
+        "byJSV1CEYBk",
+        "KsnY8Gpnkl4",
+        "EL60pBzPd_k",
+        "wd4Y23wruXU"
+      ],
+      "evidenceIds": [
+        "E159",
+        "E007",
+        "E006",
+        "E091",
+        "E231",
+        "E221",
+        "E213",
+        "E087"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The #1 Reason The Wealthy Are Getting Wealthier",
+        "url": "https://www.youtube.com/watch?v=rE2R3B0kiBc"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | gambian entrepreneur broadcasting first youtube episode on national tv | vlog 2",
+        "url": "https://www.youtube.com/watch?v=v3SrYOEUs7Q"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "This is how you borrow millions from the bank.",
+        "url": "https://www.youtube.com/watch?v=je7CsLaUm8w"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The BRUTAL Reality of Owning £60M Businesses",
+        "url": "https://www.youtube.com/watch?v=9OBSog0S5XU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "PE entrepreneur on BEST strategy for building WEALTH (...in 2026)",
+        "url": "https://www.youtube.com/watch?v=np9jH5OyQnE"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity: The Mental Burden of Making 7-figure Promises",
+        "url": "https://www.youtube.com/watch?v=8LNGpCPhTzU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Failure is inevitable in private equity (here’s how to fix it)",
+        "url": "https://www.youtube.com/watch?v=byJSV1CEYBk"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on getting investors to back £10M deals in UK",
+        "url": "https://www.youtube.com/watch?v=KsnY8Gpnkl4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside my 7-figure acquisitions (FULL breakdown)",
+        "url": "https://www.youtube.com/watch?v=EL60pBzPd_k"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How you get money from the bank (private equity)",
+        "url": "https://www.youtube.com/watch?v=wd4Y23wruXU"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/debt-terms-and-covenants/"
+  },
+  "ac-lesson--diligencing-the-business.md": {
+    "title": "Diligence the business you will actually own",
+    "slug": "diligencing-the-business",
+    "contentType": "lesson",
+    "module": 10,
+    "topics": [
+      "due-diligence",
+      "customer-concentration",
+      "adjusted-ebitda",
+      "management"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "q5acehTXYXs",
+        "vkKw1MeUors",
+        "byJSV1CEYBk",
+        "NnWl4wMoQhM",
+        "ekJRHTStpbk",
+        "r1hHXDVg4cQ",
+        "wd4Y23wruXU"
+      ],
+      "evidenceIds": [
+        "E024",
+        "E036",
+        "E224",
+        "E026",
+        "E053",
+        "E193",
+        "E025"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity Investor: \"We Dodged A Bullet\"",
+        "url": "https://www.youtube.com/watch?v=q5acehTXYXs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Failure is inevitable in private equity (here’s how to fix it)",
+        "url": "https://www.youtube.com/watch?v=byJSV1CEYBk"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Just when you think the deal is closed… it usually isn’t",
+        "url": "https://www.youtube.com/watch?v=NnWl4wMoQhM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside Private Equity: From Finding the Business to Closing",
+        "url": "https://www.youtube.com/watch?v=ekJRHTStpbk"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur visiting £28M investment in the UK",
+        "url": "https://www.youtube.com/watch?v=r1hHXDVg4cQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How you get money from the bank (private equity)",
+        "url": "https://www.youtube.com/watch?v=wd4Y23wruXU"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/diligencing-the-business/"
+  },
+  "ac-lesson--earnings-versus-cash.md": {
+    "title": "Earnings are the starting point; cash pays the bills",
+    "slug": "earnings-versus-cash",
+    "contentType": "lesson",
+    "module": 4,
+    "topics": [
+      "ebitda",
+      "adjusted-ebitda",
+      "cash-flow",
+      "debt-service"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "1C5gI6LlWhA",
+        "vkKw1MeUors",
+        "VmRqlJuqCs8",
+        "SPMaYlRzACI",
+        "18cB9LOaucs",
+        "MwejQUah14Y",
+        "akgHprIWcZU"
+      ],
+      "evidenceIds": [
+        "E064",
+        "E035",
+        "E216",
+        "E147",
+        "E175"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The Art of Buying the Right Business in Private Equity",
+        "url": "https://www.youtube.com/watch?v=1C5gI6LlWhA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3",
+        "url": "https://www.youtube.com/watch?v=VmRqlJuqCs8"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur scaling to £100 million in 2,5 years",
+        "url": "https://www.youtube.com/watch?v=SPMaYlRzACI"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of finding deals in private equity",
+        "url": "https://www.youtube.com/watch?v=18cB9LOaucs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Watch me try to buy a business (LIVE deal breakdown)",
+        "url": "https://www.youtube.com/watch?v=MwejQUah14Y"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside 7-figure negotiations (LIVE buyout breakdown)",
+        "url": "https://www.youtube.com/watch?v=akgHprIWcZU"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/earnings-versus-cash/"
+  },
+  "ac-lesson--getting-to-completion.md": {
+    "title": "Close the funding gap before completion day",
+    "slug": "getting-to-completion",
+    "contentType": "lesson",
+    "module": 11,
+    "topics": [
+      "acquisition-process",
+      "senior-debt",
+      "subordination",
+      "capital-stack",
+      "management"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "4DhN50eAkcA",
+        "lGkWzEfsu_c",
+        "NTa6kB7cGg0",
+        "byJSV1CEYBk",
+        "cvauHwc3guQ",
+        "3U3uEsou3SM",
+        "NnWl4wMoQhM",
+        "dUL-YXeWDQY"
+      ],
+      "evidenceIds": [
+        "E125",
+        "E221",
+        "E222",
+        "E223",
+        "E224",
+        "E124",
+        "E019",
+        "E206",
+        "E115"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "You bought a £10M business in London, now what?",
+        "url": "https://www.youtube.com/watch?v=4DhN50eAkcA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on getting money from UK banks",
+        "url": "https://www.youtube.com/watch?v=lGkWzEfsu_c"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna raise money from investors… Watch this",
+        "url": "https://www.youtube.com/watch?v=NTa6kB7cGg0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Failure is inevitable in private equity (here’s how to fix it)",
+        "url": "https://www.youtube.com/watch?v=byJSV1CEYBk"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in Current Markets (2026)",
+        "url": "https://www.youtube.com/watch?v=cvauHwc3guQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur in dubai building a 9-figure business | vlog 4",
+        "url": "https://www.youtube.com/watch?v=3U3uEsou3SM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Just when you think the deal is closed… it usually isn’t",
+        "url": "https://www.youtube.com/watch?v=NnWl4wMoQhM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Reality of Buying a $10M Business in London.",
+        "url": "https://www.youtube.com/watch?v=dUL-YXeWDQY"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/getting-to-completion/"
+  },
+  "ac-lesson--investor-fundraising.md": {
+    "title": "Raise capital for a specific, credible proposition",
+    "slug": "investor-fundraising",
+    "contentType": "lesson",
+    "module": 7,
+    "topics": [
+      "investor-equity",
+      "buyer-equity",
+      "capital-stack",
+      "management"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education",
+      "Fund Launch enrichment"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "UAtbZfPN2zA",
+        "LgKz1bxdCMM",
+        "s8Hkxnq3-Bo",
+        "zRh8i5uPjA0",
+        "_CJLfixvoN4",
+        "tZBRCa9EW3A",
+        "Io8ctiLGjbs",
+        "rE2R3B0kiBc",
+        "vvw6brqjl2I",
+        "NTa6kB7cGg0",
+        "7Zg5hGZLrDM",
+        "KsnY8Gpnkl4",
+        "KEg9PMGnDxQ",
+        "mh1tKwDlnaE",
+        "cvauHwc3guQ"
+      ],
+      "evidenceIds": [
+        "E123",
+        "E209",
+        "E029",
+        "E105",
+        "E229",
+        "E100",
+        "E030",
+        "E162",
+        "E219",
+        "E020",
+        "E227"
+      ],
+      "fundLaunchGuideIds": [
+        "independent-sponsor-fund"
+      ]
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "How to buy a profitable business (step-by-step)",
+        "url": "https://www.youtube.com/watch?v=UAtbZfPN2zA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Watch this before you speak with investors (preparation changes everything)",
+        "url": "https://www.youtube.com/watch?v=LgKz1bxdCMM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 6",
+        "url": "https://www.youtube.com/watch?v=s8Hkxnq3-Bo"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on buying businesses in UK",
+        "url": "https://www.youtube.com/watch?v=zRh8i5uPjA0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in 2026 (If I Had to Start Over)",
+        "url": "https://www.youtube.com/watch?v=_CJLfixvoN4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You Can Raise Money Before You Even Start Your Business (Here’s How)",
+        "url": "https://www.youtube.com/watch?v=tZBRCa9EW3A"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If I Wanted to Pitch INVESTORS, I'd Do This",
+        "url": "https://www.youtube.com/watch?v=Io8ctiLGjbs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The #1 Reason The Wealthy Are Getting Wealthier",
+        "url": "https://www.youtube.com/watch?v=rE2R3B0kiBc"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you want 2026 to be the best dealmaking year of your life, please watch this…",
+        "url": "https://www.youtube.com/watch?v=vvw6brqjl2I"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna raise money from investors… Watch this",
+        "url": "https://www.youtube.com/watch?v=NTa6kB7cGg0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity Entrepreneur Shares How PE Money Is Made",
+        "url": "https://www.youtube.com/watch?v=7Zg5hGZLrDM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on getting investors to back £10M deals in UK",
+        "url": "https://www.youtube.com/watch?v=KsnY8Gpnkl4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | become an optimist",
+        "url": "https://www.youtube.com/watch?v=KEg9PMGnDxQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Dubai Desert | vlog 5",
+        "url": "https://www.youtube.com/watch?v=mh1tKwDlnaE"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in Current Markets (2026)",
+        "url": "https://www.youtube.com/watch?v=cvauHwc3guQ"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "From Independent Sponsor to Committed Fund",
+        "url": "https://www.fundlaunch.com/launch/independent-sponsor-fund"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/investor-fundraising/"
+  },
+  "ac-lesson--management-after-acquisition.md": {
+    "title": "Make ownership accountable after the deal",
+    "slug": "management-after-acquisition",
+    "contentType": "lesson",
+    "module": 12,
+    "topics": [
+      "management",
+      "cash-flow",
+      "covenants",
+      "customer-concentration"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "xq5pwowli-0",
+        "NWQKr-gqNhc",
+        "8LNGpCPhTzU",
+        "VNXXyH4dr-I",
+        "ykuS4w_Ocws",
+        "4DhN50eAkcA",
+        "2maCpFUx4ks",
+        "4KGWEet-vwE",
+        "9-mOvWiyYZw",
+        "b_Emk0J2yfw",
+        "--DvlTBzkW4",
+        "TGMdeD8EnD4",
+        "eN6nVKlUu3c"
+      ],
+      "evidenceIds": [
+        "E069",
+        "E048",
+        "E124",
+        "E057",
+        "E040",
+        "E236",
+        "E038",
+        "E042",
+        "E002"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of running a 300 person business",
+        "url": "https://www.youtube.com/watch?v=xq5pwowli-0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Ever wondered how CEOs get the top job? watch this",
+        "url": "https://www.youtube.com/watch?v=NWQKr-gqNhc"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity: The Mental Burden of Making 7-figure Promises",
+        "url": "https://www.youtube.com/watch?v=8LNGpCPhTzU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | how to own your time (working remotely) | vlog 15",
+        "url": "https://www.youtube.com/watch?v=VNXXyH4dr-I"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you don’t have clarity on your life, please watch this",
+        "url": "https://www.youtube.com/watch?v=ykuS4w_Ocws"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You bought a £10M business in London, now what?",
+        "url": "https://www.youtube.com/watch?v=4DhN50eAkcA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Emotional Reality of Buying a Business (Private Equity / Bankruptcy / AI)",
+        "url": "https://www.youtube.com/watch?v=2maCpFUx4ks"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside Private Equity: How to hire a CEO",
+        "url": "https://www.youtube.com/watch?v=4KGWEet-vwE"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "UK investor: all you need to know about investor relations",
+        "url": "https://www.youtube.com/watch?v=9-mOvWiyYZw"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur buying UK businesses remotely",
+        "url": "https://www.youtube.com/watch?v=b_Emk0J2yfw"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "PE entrepreneur: You can LITERALLY buy businesses that generates $10B/yr",
+        "url": "https://www.youtube.com/watch?v=--DvlTBzkW4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you feel stuck in life… here’s how you become UNRECOGNIZABLE",
+        "url": "https://www.youtube.com/watch?v=TGMdeD8EnD4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You Don’t Need to Be Rich: How to Buy A Business in 13 Minutes",
+        "url": "https://www.youtube.com/watch?v=eN6nVKlUu3c"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/management-after-acquisition/"
+  },
+  "ac-lesson--negotiating-an-loi.md": {
+    "title": "Use the LOI to expose assumptions early",
+    "slug": "negotiating-an-loi",
+    "contentType": "lesson",
+    "module": 9,
+    "topics": [
+      "loi",
+      "acquisition-process",
+      "working-capital",
+      "deferred-consideration"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "vkKw1MeUors",
+        "PqGjF6z1ZaM",
+        "JhqVeCE6yYk",
+        "q5acehTXYXs",
+        "T3zG2Iaxy-k",
+        "-hqVGkoT0dQ",
+        "cvauHwc3guQ",
+        "3U3uEsou3SM"
+      ],
+      "evidenceIds": [
+        "E032",
+        "E153",
+        "E027",
+        "E117",
+        "E118",
+        "E034",
+        "E033",
+        "E019",
+        "E116"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Most Important Financial Document You’ll Ever Make",
+        "url": "https://www.youtube.com/watch?v=PqGjF6z1ZaM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Stop Building Businesses (Do This Instead)",
+        "url": "https://www.youtube.com/watch?v=JhqVeCE6yYk"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity Investor: \"We Dodged A Bullet\"",
+        "url": "https://www.youtube.com/watch?v=q5acehTXYXs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna know what a business is worth... please watch this",
+        "url": "https://www.youtube.com/watch?v=T3zG2Iaxy-k"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | gambian entrepreneur building a 9-figure business in the UK | vlog 1",
+        "url": "https://www.youtube.com/watch?v=-hqVGkoT0dQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in Current Markets (2026)",
+        "url": "https://www.youtube.com/watch?v=cvauHwc3guQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur in dubai building a 9-figure business | vlog 4",
+        "url": "https://www.youtube.com/watch?v=3U3uEsou3SM"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/negotiating-an-loi/"
+  },
+  "ac-lesson--returns-and-exits.md": {
+    "title": "Measure what owners receive, and when",
+    "slug": "returns-and-exits",
+    "contentType": "lesson",
+    "module": 14,
+    "topics": [
+      "returns-and-exits",
+      "irr-and-moic",
+      "equity-value",
+      "preferred-equity",
+      "refinancing"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "VmRqlJuqCs8",
+        "9OBSog0S5XU",
+        "TGMdeD8EnD4",
+        "v41qQ3KC2b4",
+        "T3zG2Iaxy-k",
+        "Sj_SpzSpxw0",
+        "7Zg5hGZLrDM",
+        "IJIazMAuvmI",
+        "SPMaYlRzACI",
+        "WBPmqD8jIKA",
+        "fOjSk3VYZdc",
+        "8LNGpCPhTzU",
+        "eKGCCawHqjk",
+        "KsnY8Gpnkl4"
+      ],
+      "evidenceIds": [
+        "E215",
+        "E004",
+        "E010",
+        "E099",
+        "E146",
+        "E098",
+        "E187",
+        "E049",
+        "E096",
+        "E100"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3",
+        "url": "https://www.youtube.com/watch?v=VmRqlJuqCs8"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The BRUTAL Reality of Owning £60M Businesses",
+        "url": "https://www.youtube.com/watch?v=9OBSog0S5XU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you feel stuck in life… here’s how you become UNRECOGNIZABLE",
+        "url": "https://www.youtube.com/watch?v=TGMdeD8EnD4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "$50M entrepreneur celebrating in Mykonos | vlog",
+        "url": "https://www.youtube.com/watch?v=v41qQ3KC2b4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna know what a business is worth... please watch this",
+        "url": "https://www.youtube.com/watch?v=T3zG2Iaxy-k"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur reveals BTS pitching an investor for capital (LIVE) | vlog 24",
+        "url": "https://www.youtube.com/watch?v=Sj_SpzSpxw0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity Entrepreneur Shares How PE Money Is Made",
+        "url": "https://www.youtube.com/watch?v=7Zg5hGZLrDM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna break into Private Equity, please watch this",
+        "url": "https://www.youtube.com/watch?v=IJIazMAuvmI"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur scaling to £100 million in 2,5 years",
+        "url": "https://www.youtube.com/watch?v=SPMaYlRzACI"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur building £100M empire in UK",
+        "url": "https://www.youtube.com/watch?v=WBPmqD8jIKA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of making deals in private equity",
+        "url": "https://www.youtube.com/watch?v=fOjSk3VYZdc"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity: The Mental Burden of Making 7-figure Promises",
+        "url": "https://www.youtube.com/watch?v=8LNGpCPhTzU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on getting to £44M with finance",
+        "url": "https://www.youtube.com/watch?v=eKGCCawHqjk"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on getting investors to back £10M deals in UK",
+        "url": "https://www.youtube.com/watch?v=KsnY8Gpnkl4"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/returns-and-exits/"
+  },
+  "ac-lesson--rollover-and-preferred-equity.md": {
+    "title": "Ownership percentages do not tell the whole story",
+    "slug": "rollover-and-preferred-equity",
+    "contentType": "lesson",
+    "module": 6,
+    "topics": [
+      "rollover-equity",
+      "preferred-equity",
+      "equity-value",
+      "returns-and-exits"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "_CJLfixvoN4",
+        "fOjSk3VYZdc"
+      ],
+      "evidenceIds": [
+        "E208",
+        "E187",
+        "E185",
+        "E186"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in 2026 (If I Had to Start Over)",
+        "url": "https://www.youtube.com/watch?v=_CJLfixvoN4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of making deals in private equity",
+        "url": "https://www.youtube.com/watch?v=fOjSk3VYZdc"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/rollover-and-preferred-equity/"
+  },
+  "ac-lesson--structuring-the-price.md": {
+    "title": "The payment schedule is part of the price",
+    "slug": "structuring-the-price",
+    "contentType": "lesson",
+    "module": 6,
+    "topics": [
+      "seller-financing",
+      "deferred-consideration",
+      "earn-outs",
+      "refinancing"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "vkKw1MeUors",
+        "-hqVGkoT0dQ",
+        "EL60pBzPd_k",
+        "ekJRHTStpbk",
+        "vvw6brqjl2I",
+        "NnWl4wMoQhM",
+        "T3zG2Iaxy-k"
+      ],
+      "evidenceIds": [
+        "E033",
+        "E085",
+        "E054",
+        "E034",
+        "E052",
+        "E084"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | gambian entrepreneur building a 9-figure business in the UK | vlog 1",
+        "url": "https://www.youtube.com/watch?v=-hqVGkoT0dQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside my 7-figure acquisitions (FULL breakdown)",
+        "url": "https://www.youtube.com/watch?v=EL60pBzPd_k"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside Private Equity: From Finding the Business to Closing",
+        "url": "https://www.youtube.com/watch?v=ekJRHTStpbk"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you want 2026 to be the best dealmaking year of your life, please watch this…",
+        "url": "https://www.youtube.com/watch?v=vvw6brqjl2I"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Just when you think the deal is closed… it usually isn’t",
+        "url": "https://www.youtube.com/watch?v=NnWl4wMoQhM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna know what a business is worth... please watch this",
+        "url": "https://www.youtube.com/watch?v=T3zG2Iaxy-k"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/structuring-the-price/"
+  },
+  "ac-lesson--understanding-private-credit.md": {
+    "title": "Understand what private credit does—and what the evidence shows",
+    "slug": "understanding-private-credit",
+    "contentType": "lesson",
+    "module": 8,
+    "topics": [
+      "private-credit",
+      "institutional-debt",
+      "bank-debt",
+      "government-backed-lending"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education",
+      "Fund Launch enrichment"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "NnWl4wMoQhM",
+        "je7CsLaUm8w",
+        "Hvw5FAbRAZY",
+        "cBBwXTMtho4",
+        "cvauHwc3guQ",
+        "j4orWHw8kdA",
+        "iuC8eRD77I8",
+        "MwejQUah14Y",
+        "SPMaYlRzACI",
+        "wd4Y23wruXU",
+        "XC-Nls8KhCI"
+      ],
+      "evidenceIds": [
+        "E205",
+        "E201",
+        "E020",
+        "E141",
+        "E203",
+        "E181",
+        "E143",
+        "E184"
+      ],
+      "fundLaunchGuideIds": [
+        "private-credit-fund",
+        "direct-lending-fund",
+        "mezzanine-fund"
+      ]
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Just when you think the deal is closed… it usually isn’t",
+        "url": "https://www.youtube.com/watch?v=NnWl4wMoQhM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "This is how you borrow millions from the bank.",
+        "url": "https://www.youtube.com/watch?v=je7CsLaUm8w"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How To Raise Money To Buy A Business In 2025 | vlog 13",
+        "url": "https://www.youtube.com/watch?v=Hvw5FAbRAZY"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur helping young entrepreneur buy a business in UK",
+        "url": "https://www.youtube.com/watch?v=cBBwXTMtho4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in Current Markets (2026)",
+        "url": "https://www.youtube.com/watch?v=cvauHwc3guQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur reveals how to buy a 8-figure business in UK",
+        "url": "https://www.youtube.com/watch?v=j4orWHw8kdA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur buying 8-figure businesses (easy mode)",
+        "url": "https://www.youtube.com/watch?v=iuC8eRD77I8"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Watch me try to buy a business (LIVE deal breakdown)",
+        "url": "https://www.youtube.com/watch?v=MwejQUah14Y"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur scaling to £100 million in 2,5 years",
+        "url": "https://www.youtube.com/watch?v=SPMaYlRzACI"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How you get money from the bank (private equity)",
+        "url": "https://www.youtube.com/watch?v=wd4Y23wruXU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | buying businesses in the UK | vlog 11",
+        "url": "https://www.youtube.com/watch?v=XC-Nls8KhCI"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Private Credit Fund",
+        "url": "https://www.fundlaunch.com/launch/private-credit-fund"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Direct Lending Fund",
+        "url": "https://www.fundlaunch.com/launch/direct-lending-fund"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Mezzanine Fund",
+        "url": "https://www.fundlaunch.com/launch/mezzanine-fund"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/understanding-private-credit/"
+  },
+  "ac-lesson--valuing-a-small-business.md": {
+    "title": "Value the earnings you expect to own",
+    "slug": "valuing-a-small-business",
+    "contentType": "lesson",
+    "module": 5,
+    "topics": [
+      "valuation-multiples",
+      "enterprise-value",
+      "equity-value",
+      "adjusted-ebitda"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "JhqVeCE6yYk",
+        "UAtbZfPN2zA",
+        "T3zG2Iaxy-k",
+        "3z3NDUcOaNg",
+        "YI3Shq4iXao",
+        "1C5gI6LlWhA",
+        "yqSF-IoKfEQ",
+        "WBPmqD8jIKA",
+        "EL60pBzPd_k"
+      ],
+      "evidenceIds": [
+        "E153",
+        "E121",
+        "E044",
+        "E079",
+        "E064",
+        "E199",
+        "E130",
+        "E190",
+        "E089"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Stop Building Businesses (Do This Instead)",
+        "url": "https://www.youtube.com/watch?v=JhqVeCE6yYk"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How to buy a profitable business (step-by-step)",
+        "url": "https://www.youtube.com/watch?v=UAtbZfPN2zA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna know what a business is worth... please watch this",
+        "url": "https://www.youtube.com/watch?v=T3zG2Iaxy-k"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "I failed… to generate £81M in revenue",
+        "url": "https://www.youtube.com/watch?v=3z3NDUcOaNg"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Investor’s BRUTAL honest opinion on Private Equity",
+        "url": "https://www.youtube.com/watch?v=YI3Shq4iXao"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Art of Buying the Right Business in Private Equity",
+        "url": "https://www.youtube.com/watch?v=1C5gI6LlWhA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "UK investor prefers making money in London to America",
+        "url": "https://www.youtube.com/watch?v=yqSF-IoKfEQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur building £100M empire in UK",
+        "url": "https://www.youtube.com/watch?v=WBPmqD8jIKA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside my 7-figure acquisitions (FULL breakdown)",
+        "url": "https://www.youtube.com/watch?v=EL60pBzPd_k"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/valuing-a-small-business/"
+  },
+  "ac-lesson--working-capital-and-collateral.md": {
+    "title": "Working capital must survive the acquisition",
+    "slug": "working-capital-and-collateral",
+    "contentType": "lesson",
+    "module": 4,
+    "topics": [
+      "working-capital",
+      "collateral",
+      "receivables-finance",
+      "cash-flow"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "b_Emk0J2yfw",
+        "vkKw1MeUors",
+        "18cB9LOaucs",
+        "MwejQUah14Y",
+        "akgHprIWcZU",
+        "WcYMjlTsUwA",
+        "Hvw5FAbRAZY"
+      ],
+      "evidenceIds": [
+        "E135",
+        "E134",
+        "E172",
+        "E175",
+        "E062",
+        "E173"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur buying UK businesses remotely",
+        "url": "https://www.youtube.com/watch?v=b_Emk0J2yfw"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of finding deals in private equity",
+        "url": "https://www.youtube.com/watch?v=18cB9LOaucs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Watch me try to buy a business (LIVE deal breakdown)",
+        "url": "https://www.youtube.com/watch?v=MwejQUah14Y"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside 7-figure negotiations (LIVE buyout breakdown)",
+        "url": "https://www.youtube.com/watch?v=akgHprIWcZU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Why You Are Closer to Buying a Business Than You Think",
+        "url": "https://www.youtube.com/watch?v=WcYMjlTsUwA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How To Raise Money To Buy A Business In 2025 | vlog 13",
+        "url": "https://www.youtube.com/watch?v=Hvw5FAbRAZY"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/course/working-capital-and-collateral/"
+  },
+  "ac-module--01.md": {
+    "title": "Module 1: Start with ownership",
+    "slug": "module-1",
+    "contentType": "module",
+    "module": 1,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-1"
+  },
+  "ac-module--02.md": {
+    "title": "Module 2: Choose the right target",
+    "slug": "module-2",
+    "contentType": "module",
+    "module": 2,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-2"
+  },
+  "ac-module--03.md": {
+    "title": "Module 3: Find and qualify opportunities",
+    "slug": "module-3",
+    "contentType": "module",
+    "module": 3,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-3"
+  },
+  "ac-module--04.md": {
+    "title": "Module 4: Understand earnings and cash",
+    "slug": "module-4",
+    "contentType": "module",
+    "module": 4,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-4"
+  },
+  "ac-module--05.md": {
+    "title": "Module 5: Make sense of valuation",
+    "slug": "module-5",
+    "contentType": "module",
+    "module": 5,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-5"
+  },
+  "ac-module--06.md": {
+    "title": "Module 6: Structure the transaction",
+    "slug": "module-6",
+    "contentType": "module",
+    "module": 6,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-6"
+  },
+  "ac-module--07.md": {
+    "title": "Module 7: Assemble the funding",
+    "slug": "module-7",
+    "contentType": "module",
+    "module": 7,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-7"
+  },
+  "ac-module--08.md": {
+    "title": "Module 8: Understand lenders and debt terms",
+    "slug": "module-8",
+    "contentType": "module",
+    "module": 8,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-8"
+  },
+  "ac-module--09.md": {
+    "title": "Module 9: Agree the initial terms",
+    "slug": "module-9",
+    "contentType": "module",
+    "module": 9,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-9"
+  },
+  "ac-module--10.md": {
+    "title": "Module 10: Test the acquisition case",
+    "slug": "module-10",
+    "contentType": "module",
+    "module": 10,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-10"
+  },
+  "ac-module--11.md": {
+    "title": "Module 11: Get to completion",
+    "slug": "module-11",
+    "contentType": "module",
+    "module": 11,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-11"
+  },
+  "ac-module--12.md": {
+    "title": "Module 12: Own and manage responsibly",
+    "slug": "module-12",
+    "contentType": "module",
+    "module": 12,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-12"
+  },
+  "ac-module--13.md": {
+    "title": "Module 13: Build a coherent group",
+    "slug": "module-13",
+    "contentType": "module",
+    "module": 13,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-13"
+  },
+  "ac-module--14.md": {
+    "title": "Module 14: Understand returns and exits",
+    "slug": "module-14",
+    "contentType": "module",
+    "module": 14,
+    "topics": [],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Acquisition Companion original synthesis"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [],
+    "url": "https://acquisitioncompanion.com/course/#module-14"
+  },
+  "ac-topic--acquisition-entrepreneurship.md": {
+    "title": "Acquisition entrepreneurship",
+    "slug": "acquisition-entrepreneurship",
+    "contentType": "topic",
+    "topics": [
+      "acquisition-entrepreneurship",
+      "acquisition-process",
+      "buyer-equity",
+      "management"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "--DvlTBzkW4",
+        "dUL-YXeWDQY",
+        "IJIazMAuvmI",
+        "p3EX7IpcYd0",
+        "vmAmd5vmK8o",
+        "zAlT_NNOb6U",
+        "zRh8i5uPjA0"
+      ],
+      "evidenceIds": [
+        "E001",
+        "E022",
+        "E046"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "PE entrepreneur: You can LITERALLY buy businesses that generates $10B/yr",
+        "url": "https://www.youtube.com/watch?v=--DvlTBzkW4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Reality of Buying a $10M Business in London.",
+        "url": "https://www.youtube.com/watch?v=dUL-YXeWDQY"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna break into Private Equity, please watch this",
+        "url": "https://www.youtube.com/watch?v=IJIazMAuvmI"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna do Private Equity in UK, please watch this",
+        "url": "https://www.youtube.com/watch?v=p3EX7IpcYd0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Do NOT Start A Business From Scratch in 2026 (And What to Do Instead)",
+        "url": "https://www.youtube.com/watch?v=vmAmd5vmK8o"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on what to avoid when buying businesses",
+        "url": "https://www.youtube.com/watch?v=zAlT_NNOb6U"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on buying businesses in UK",
+        "url": "https://www.youtube.com/watch?v=zRh8i5uPjA0"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/acquisition-entrepreneurship/"
+  },
+  "ac-topic--acquisition-process.md": {
+    "title": "The acquisition process",
+    "slug": "acquisition-process",
+    "contentType": "topic",
+    "topics": [
+      "acquisition-process",
+      "sourcing",
+      "loi",
+      "due-diligence"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "WcYMjlTsUwA",
+        "iuC8eRD77I8",
+        "lGkWzEfsu_c",
+        "942nFYmky6Q",
+        "4DhN50eAkcA",
+        "NTa6kB7cGg0"
+      ],
+      "evidenceIds": [
+        "E059",
+        "E075",
+        "E125"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Why You Are Closer to Buying a Business Than You Think",
+        "url": "https://www.youtube.com/watch?v=WcYMjlTsUwA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur buying 8-figure businesses (easy mode)",
+        "url": "https://www.youtube.com/watch?v=iuC8eRD77I8"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on getting money from UK banks",
+        "url": "https://www.youtube.com/watch?v=lGkWzEfsu_c"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M: 23 y/o Buying His First Business",
+        "url": "https://www.youtube.com/watch?v=942nFYmky6Q"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You bought a £10M business in London, now what?",
+        "url": "https://www.youtube.com/watch?v=4DhN50eAkcA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna raise money from investors… Watch this",
+        "url": "https://www.youtube.com/watch?v=NTa6kB7cGg0"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/acquisition-process/"
+  },
+  "ac-topic--adjusted-ebitda.md": {
+    "title": "Adjusted EBITDA",
+    "slug": "adjusted-ebitda",
+    "contentType": "topic",
+    "topics": [
+      "adjusted-ebitda",
+      "ebitda",
+      "due-diligence",
+      "valuation-multiples"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "Sj_SpzSpxw0",
+        "vkKw1MeUors",
+        "18cB9LOaucs",
+        "MwejQUah14Y",
+        "akgHprIWcZU"
+      ],
+      "evidenceIds": [
+        "E012",
+        "E035",
+        "E175"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur reveals BTS pitching an investor for capital (LIVE) | vlog 24",
+        "url": "https://www.youtube.com/watch?v=Sj_SpzSpxw0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of finding deals in private equity",
+        "url": "https://www.youtube.com/watch?v=18cB9LOaucs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Watch me try to buy a business (LIVE deal breakdown)",
+        "url": "https://www.youtube.com/watch?v=MwejQUah14Y"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside 7-figure negotiations (LIVE buyout breakdown)",
+        "url": "https://www.youtube.com/watch?v=akgHprIWcZU"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/adjusted-ebitda/"
+  },
+  "ac-topic--amortization.md": {
+    "title": "Amortization",
+    "slug": "amortization",
+    "contentType": "topic",
+    "topics": [
+      "amortization",
+      "debt-service",
+      "refinancing",
+      "cash-flow"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "9OBSog0S5XU",
+        "YI3Shq4iXao",
+        "VmRqlJuqCs8"
+      ],
+      "evidenceIds": [
+        "E007",
+        "E079",
+        "E216"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The BRUTAL Reality of Owning £60M Businesses",
+        "url": "https://www.youtube.com/watch?v=9OBSog0S5XU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Investor’s BRUTAL honest opinion on Private Equity",
+        "url": "https://www.youtube.com/watch?v=YI3Shq4iXao"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3",
+        "url": "https://www.youtube.com/watch?v=VmRqlJuqCs8"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/amortization/"
+  },
+  "ac-topic--asset-based-lending.md": {
+    "title": "Asset-based lending",
+    "slug": "asset-based-lending",
+    "contentType": "topic",
+    "topics": [
+      "asset-based-lending",
+      "collateral",
+      "receivables-finance",
+      "capital-stack"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "1C5gI6LlWhA",
+        "18cB9LOaucs",
+        "MwejQUah14Y",
+        "akgHprIWcZU",
+        "Hvw5FAbRAZY"
+      ],
+      "evidenceIds": [
+        "E065",
+        "E175",
+        "E241"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The Art of Buying the Right Business in Private Equity",
+        "url": "https://www.youtube.com/watch?v=1C5gI6LlWhA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of finding deals in private equity",
+        "url": "https://www.youtube.com/watch?v=18cB9LOaucs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Watch me try to buy a business (LIVE deal breakdown)",
+        "url": "https://www.youtube.com/watch?v=MwejQUah14Y"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside 7-figure negotiations (LIVE buyout breakdown)",
+        "url": "https://www.youtube.com/watch?v=akgHprIWcZU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How To Raise Money To Buy A Business In 2025 | vlog 13",
+        "url": "https://www.youtube.com/watch?v=Hvw5FAbRAZY"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/asset-based-lending/"
+  },
+  "ac-topic--bank-debt.md": {
+    "title": "Bank debt",
+    "slug": "bank-debt",
+    "contentType": "topic",
+    "topics": [
+      "bank-debt",
+      "debt-service",
+      "covenants",
+      "collateral"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education",
+      "Fund Launch enrichment"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "cvauHwc3guQ",
+        "3U3uEsou3SM",
+        "b_Emk0J2yfw",
+        "wd4Y23wruXU",
+        "Kisa0C-YiY4"
+      ],
+      "evidenceIds": [
+        "E018",
+        "E019",
+        "E133"
+      ],
+      "fundLaunchGuideIds": [
+        "direct-lending-fund"
+      ]
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in Current Markets (2026)",
+        "url": "https://www.youtube.com/watch?v=cvauHwc3guQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur in dubai building a 9-figure business | vlog 4",
+        "url": "https://www.youtube.com/watch?v=3U3uEsou3SM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur buying UK businesses remotely",
+        "url": "https://www.youtube.com/watch?v=b_Emk0J2yfw"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How you get money from the bank (private equity)",
+        "url": "https://www.youtube.com/watch?v=wd4Y23wruXU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Stop Building A Business, Buy One Instead (M&A Strategy)",
+        "url": "https://www.youtube.com/watch?v=Kisa0C-YiY4"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Direct Lending Fund",
+        "url": "https://www.fundlaunch.com/launch/direct-lending-fund"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/bank-debt/"
+  },
+  "ac-topic--bolt-ons.md": {
+    "title": "Bolt-on acquisitions",
+    "slug": "bolt-ons",
+    "contentType": "topic",
+    "topics": [
+      "bolt-ons",
+      "roll-ups",
+      "leverage",
+      "management"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "8LNGpCPhTzU",
+        "r1hHXDVg4cQ",
+        "B0s_vWFC60U"
+      ],
+      "evidenceIds": [
+        "E050",
+        "E051",
+        "E200"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity: The Mental Burden of Making 7-figure Promises",
+        "url": "https://www.youtube.com/watch?v=8LNGpCPhTzU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur visiting £28M investment in the UK",
+        "url": "https://www.youtube.com/watch?v=r1hHXDVg4cQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | the blueprint to go from $0 to $5.000.000 within a year | vlog 19",
+        "url": "https://www.youtube.com/watch?v=B0s_vWFC60U"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/bolt-ons/"
+  },
+  "ac-topic--brokers.md": {
+    "title": "Brokers",
+    "slug": "brokers",
+    "contentType": "topic",
+    "topics": [
+      "brokers",
+      "sourcing",
+      "bank-debt",
+      "debt-pricing"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "cvauHwc3guQ",
+        "vvw6brqjl2I",
+        "j4orWHw8kdA",
+        "kNoY1Wkr07E",
+        "OtjUJIlY_6Q"
+      ],
+      "evidenceIds": [
+        "E018",
+        "E104",
+        "E138",
+        "E110"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in Current Markets (2026)",
+        "url": "https://www.youtube.com/watch?v=cvauHwc3guQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you want 2026 to be the best dealmaking year of your life, please watch this…",
+        "url": "https://www.youtube.com/watch?v=vvw6brqjl2I"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur reveals how to buy a 8-figure business in UK",
+        "url": "https://www.youtube.com/watch?v=j4orWHw8kdA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The RAW reality of buying a business in 2026",
+        "url": "https://www.youtube.com/watch?v=kNoY1Wkr07E"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The ONLY 5 people you need to build a $50M group",
+        "url": "https://www.youtube.com/watch?v=OtjUJIlY_6Q"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/brokers/"
+  },
+  "ac-topic--buyer-equity.md": {
+    "title": "Buyer equity",
+    "slug": "buyer-equity",
+    "contentType": "topic",
+    "topics": [
+      "buyer-equity",
+      "investor-equity",
+      "capital-stack",
+      "personal-guarantees"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "7Zg5hGZLrDM",
+        "KsnY8Gpnkl4",
+        "_CJLfixvoN4",
+        "tZBRCa9EW3A"
+      ],
+      "evidenceIds": [
+        "E100",
+        "E209",
+        "E211"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity Entrepreneur Shares How PE Money Is Made",
+        "url": "https://www.youtube.com/watch?v=7Zg5hGZLrDM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on getting investors to back £10M deals in UK",
+        "url": "https://www.youtube.com/watch?v=KsnY8Gpnkl4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in 2026 (If I Had to Start Over)",
+        "url": "https://www.youtube.com/watch?v=_CJLfixvoN4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You Can Raise Money Before You Even Start Your Business (Here’s How)",
+        "url": "https://www.youtube.com/watch?v=tZBRCa9EW3A"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/buyer-equity/"
+  },
+  "ac-topic--capital-stack.md": {
+    "title": "Capital stack",
+    "slug": "capital-stack",
+    "contentType": "topic",
+    "topics": [
+      "capital-stack",
+      "bank-debt",
+      "seller-financing",
+      "investor-equity"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education",
+      "Fund Launch enrichment"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "Sj_SpzSpxw0",
+        "mh1tKwDlnaE",
+        "eN6nVKlUu3c",
+        "VmRqlJuqCs8",
+        "byJSV1CEYBk"
+      ],
+      "evidenceIds": [
+        "E009",
+        "E216",
+        "E222"
+      ],
+      "fundLaunchGuideIds": [
+        "direct-lending-fund",
+        "mezzanine-fund"
+      ]
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur reveals BTS pitching an investor for capital (LIVE) | vlog 24",
+        "url": "https://www.youtube.com/watch?v=Sj_SpzSpxw0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Dubai Desert | vlog 5",
+        "url": "https://www.youtube.com/watch?v=mh1tKwDlnaE"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You Don’t Need to Be Rich: How to Buy A Business in 13 Minutes",
+        "url": "https://www.youtube.com/watch?v=eN6nVKlUu3c"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3",
+        "url": "https://www.youtube.com/watch?v=VmRqlJuqCs8"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Failure is inevitable in private equity (here’s how to fix it)",
+        "url": "https://www.youtube.com/watch?v=byJSV1CEYBk"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Direct Lending Fund",
+        "url": "https://www.fundlaunch.com/launch/direct-lending-fund"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Mezzanine Fund",
+        "url": "https://www.fundlaunch.com/launch/mezzanine-fund"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/capital-stack/"
+  },
+  "ac-topic--cash-flow.md": {
+    "title": "Cash flow",
+    "slug": "cash-flow",
+    "contentType": "topic",
+    "topics": [
+      "cash-flow",
+      "ebitda",
+      "working-capital",
+      "debt-service"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "xq5pwowli-0",
+        "VmRqlJuqCs8",
+        "je7CsLaUm8w"
+      ],
+      "evidenceIds": [
+        "E072",
+        "E216",
+        "E231"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of running a 300 person business",
+        "url": "https://www.youtube.com/watch?v=xq5pwowli-0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3",
+        "url": "https://www.youtube.com/watch?v=VmRqlJuqCs8"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "This is how you borrow millions from the bank.",
+        "url": "https://www.youtube.com/watch?v=je7CsLaUm8w"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/cash-flow/"
+  },
+  "ac-topic--collateral.md": {
+    "title": "Collateral",
+    "slug": "collateral",
+    "contentType": "topic",
+    "topics": [
+      "collateral",
+      "asset-based-lending",
+      "senior-debt",
+      "personal-guarantees"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "Hvw5FAbRAZY",
+        "b_Emk0J2yfw",
+        "18cB9LOaucs",
+        "np9jH5OyQnE",
+        "8LNGpCPhTzU"
+      ],
+      "evidenceIds": [
+        "E241",
+        "E134",
+        "E091"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "How To Raise Money To Buy A Business In 2025 | vlog 13",
+        "url": "https://www.youtube.com/watch?v=Hvw5FAbRAZY"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur buying UK businesses remotely",
+        "url": "https://www.youtube.com/watch?v=b_Emk0J2yfw"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of finding deals in private equity",
+        "url": "https://www.youtube.com/watch?v=18cB9LOaucs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "PE entrepreneur on BEST strategy for building WEALTH (...in 2026)",
+        "url": "https://www.youtube.com/watch?v=np9jH5OyQnE"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity: The Mental Burden of Making 7-figure Promises",
+        "url": "https://www.youtube.com/watch?v=8LNGpCPhTzU"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/collateral/"
+  },
+  "ac-topic--committed-fund.md": {
+    "title": "Committed fund and LP capital",
+    "slug": "committed-fund",
+    "contentType": "topic",
+    "topics": [
+      "committed-fund",
+      "independent-sponsor",
+      "private-credit",
+      "investor-equity",
+      "roll-ups"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Fund Launch enrichment"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
+      "fundLaunchGuideIds": [
+        "independent-sponsor-fund",
+        "private-credit-fund",
+        "direct-lending-fund",
+        "mezzanine-fund"
+      ]
+    },
+    "originalSources": [
+      {
+        "family": "Fund Launch",
+        "title": "From Independent Sponsor to Committed Fund",
+        "url": "https://www.fundlaunch.com/launch/independent-sponsor-fund"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Private Credit Fund",
+        "url": "https://www.fundlaunch.com/launch/private-credit-fund"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Direct Lending Fund",
+        "url": "https://www.fundlaunch.com/launch/direct-lending-fund"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Mezzanine Fund",
+        "url": "https://www.fundlaunch.com/launch/mezzanine-fund"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/committed-fund/"
+  },
+  "ac-topic--covenants.md": {
+    "title": "Covenants",
+    "slug": "covenants",
+    "contentType": "topic",
+    "topics": [
+      "covenants",
+      "senior-debt",
+      "debt-service",
+      "roll-ups"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "9OBSog0S5XU",
+        "rE2R3B0kiBc",
+        "v3SrYOEUs7Q",
+        "je7CsLaUm8w"
+      ],
+      "evidenceIds": [
+        "E006",
+        "E159",
+        "E231"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The BRUTAL Reality of Owning £60M Businesses",
+        "url": "https://www.youtube.com/watch?v=9OBSog0S5XU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The #1 Reason The Wealthy Are Getting Wealthier",
+        "url": "https://www.youtube.com/watch?v=rE2R3B0kiBc"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | gambian entrepreneur broadcasting first youtube episode on national tv | vlog 2",
+        "url": "https://www.youtube.com/watch?v=v3SrYOEUs7Q"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "This is how you borrow millions from the bank.",
+        "url": "https://www.youtube.com/watch?v=je7CsLaUm8w"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/covenants/"
+  },
+  "ac-topic--customer-concentration.md": {
+    "title": "Customer concentration",
+    "slug": "customer-concentration",
+    "contentType": "topic",
+    "topics": [
+      "customer-concentration",
+      "due-diligence",
+      "cash-flow",
+      "target-selection"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "q5acehTXYXs",
+        "NnWl4wMoQhM",
+        "1C5gI6LlWhA",
+        "fOjSk3VYZdc",
+        "oU1cEFem6j0"
+      ],
+      "evidenceIds": [
+        "E026",
+        "E066",
+        "E189"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity Investor: \"We Dodged A Bullet\"",
+        "url": "https://www.youtube.com/watch?v=q5acehTXYXs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Just when you think the deal is closed… it usually isn’t",
+        "url": "https://www.youtube.com/watch?v=NnWl4wMoQhM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Art of Buying the Right Business in Private Equity",
+        "url": "https://www.youtube.com/watch?v=1C5gI6LlWhA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of making deals in private equity",
+        "url": "https://www.youtube.com/watch?v=fOjSk3VYZdc"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Don't buy a business without watching this first",
+        "url": "https://www.youtube.com/watch?v=oU1cEFem6j0"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/customer-concentration/"
+  },
+  "ac-topic--debt-pricing.md": {
+    "title": "Debt pricing",
+    "slug": "debt-pricing",
+    "contentType": "topic",
+    "topics": [
+      "debt-pricing",
+      "amortization",
+      "debt-service",
+      "bank-debt"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "IfAA5Hy-8Zw",
+        "VmRqlJuqCs8",
+        "byJSV1CEYBk"
+      ],
+      "evidenceIds": [
+        "E165",
+        "E216",
+        "E222"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | life as an entrepreneur doing business in Dubai | vlog 22",
+        "url": "https://www.youtube.com/watch?v=IfAA5Hy-8Zw"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3",
+        "url": "https://www.youtube.com/watch?v=VmRqlJuqCs8"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Failure is inevitable in private equity (here’s how to fix it)",
+        "url": "https://www.youtube.com/watch?v=byJSV1CEYBk"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/debt-pricing/"
+  },
+  "ac-topic--debt-service.md": {
+    "title": "Debt service",
+    "slug": "debt-service",
+    "contentType": "topic",
+    "topics": [
+      "debt-service",
+      "cash-flow",
+      "amortization",
+      "leverage"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "EL60pBzPd_k",
+        "wd4Y23wruXU",
+        "VmRqlJuqCs8",
+        "cvauHwc3guQ",
+        "FluB82yq9Lo"
+      ],
+      "evidenceIds": [
+        "E087",
+        "E216",
+        "E021"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside my 7-figure acquisitions (FULL breakdown)",
+        "url": "https://www.youtube.com/watch?v=EL60pBzPd_k"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How you get money from the bank (private equity)",
+        "url": "https://www.youtube.com/watch?v=wd4Y23wruXU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3",
+        "url": "https://www.youtube.com/watch?v=VmRqlJuqCs8"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in Current Markets (2026)",
+        "url": "https://www.youtube.com/watch?v=cvauHwc3guQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Moments Before Private Equity Deals Close (AI Adoption | Ambitions | Laziness)",
+        "url": "https://www.youtube.com/watch?v=FluB82yq9Lo"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/debt-service/"
+  },
+  "ac-topic--deferred-consideration.md": {
+    "title": "Deferred consideration",
+    "slug": "deferred-consideration",
+    "contentType": "topic",
+    "topics": [
+      "deferred-consideration",
+      "seller-financing",
+      "earn-outs",
+      "refinancing"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "vkKw1MeUors",
+        "-hqVGkoT0dQ",
+        "EL60pBzPd_k"
+      ],
+      "evidenceIds": [
+        "E033",
+        "E084",
+        "E085"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | gambian entrepreneur building a 9-figure business in the UK | vlog 1",
+        "url": "https://www.youtube.com/watch?v=-hqVGkoT0dQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside my 7-figure acquisitions (FULL breakdown)",
+        "url": "https://www.youtube.com/watch?v=EL60pBzPd_k"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/deferred-consideration/"
+  },
+  "ac-topic--direct-lending.md": {
+    "title": "Direct lending",
+    "slug": "direct-lending",
+    "contentType": "topic",
+    "topics": [
+      "direct-lending",
+      "private-credit",
+      "bank-debt",
+      "capital-stack",
+      "mezzanine-debt"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education",
+      "Fund Launch enrichment"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "NnWl4wMoQhM",
+        "Hvw5FAbRAZY"
+      ],
+      "evidenceIds": [
+        "E205",
+        "E176"
+      ],
+      "fundLaunchGuideIds": [
+        "direct-lending-fund",
+        "private-credit-fund"
+      ]
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Just when you think the deal is closed… it usually isn’t",
+        "url": "https://www.youtube.com/watch?v=NnWl4wMoQhM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How To Raise Money To Buy A Business In 2025 | vlog 13",
+        "url": "https://www.youtube.com/watch?v=Hvw5FAbRAZY"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Direct Lending Fund",
+        "url": "https://www.fundlaunch.com/launch/direct-lending-fund"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Private Credit Fund",
+        "url": "https://www.fundlaunch.com/launch/private-credit-fund"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/direct-lending/"
+  },
+  "ac-topic--due-diligence.md": {
+    "title": "Due diligence",
+    "slug": "due-diligence",
+    "contentType": "topic",
+    "topics": [
+      "due-diligence",
+      "adjusted-ebitda",
+      "customer-concentration",
+      "loi"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "q5acehTXYXs",
+        "NnWl4wMoQhM"
+      ],
+      "evidenceIds": [
+        "E024",
+        "E026",
+        "E027"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity Investor: \"We Dodged A Bullet\"",
+        "url": "https://www.youtube.com/watch?v=q5acehTXYXs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Just when you think the deal is closed… it usually isn’t",
+        "url": "https://www.youtube.com/watch?v=NnWl4wMoQhM"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/due-diligence/"
+  },
+  "ac-topic--earn-outs.md": {
+    "title": "Earn-outs",
+    "slug": "earn-outs",
+    "contentType": "topic",
+    "topics": [
+      "earn-outs",
+      "deferred-consideration",
+      "adjusted-ebitda",
+      "management"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "vkKw1MeUors",
+        "-hqVGkoT0dQ",
+        "PqGjF6z1ZaM",
+        "q5acehTXYXs"
+      ],
+      "evidenceIds": [
+        "E033",
+        "E032",
+        "E027"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | gambian entrepreneur building a 9-figure business in the UK | vlog 1",
+        "url": "https://www.youtube.com/watch?v=-hqVGkoT0dQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Most Important Financial Document You’ll Ever Make",
+        "url": "https://www.youtube.com/watch?v=PqGjF6z1ZaM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity Investor: \"We Dodged A Bullet\"",
+        "url": "https://www.youtube.com/watch?v=q5acehTXYXs"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/earn-outs/"
+  },
+  "ac-topic--ebitda.md": {
+    "title": "EBITDA",
+    "slug": "ebitda",
+    "contentType": "topic",
+    "topics": [
+      "ebitda",
+      "adjusted-ebitda",
+      "cash-flow",
+      "valuation-multiples"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "1C5gI6LlWhA",
+        "EL60pBzPd_k",
+        "wd4Y23wruXU",
+        "WBPmqD8jIKA"
+      ],
+      "evidenceIds": [
+        "E064",
+        "E087",
+        "E190"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The Art of Buying the Right Business in Private Equity",
+        "url": "https://www.youtube.com/watch?v=1C5gI6LlWhA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside my 7-figure acquisitions (FULL breakdown)",
+        "url": "https://www.youtube.com/watch?v=EL60pBzPd_k"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How you get money from the bank (private equity)",
+        "url": "https://www.youtube.com/watch?v=wd4Y23wruXU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur building £100M empire in UK",
+        "url": "https://www.youtube.com/watch?v=WBPmqD8jIKA"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/ebitda/"
+  },
+  "ac-topic--enterprise-value.md": {
+    "title": "Enterprise value",
+    "slug": "enterprise-value",
+    "contentType": "topic",
+    "topics": [
+      "enterprise-value",
+      "equity-value",
+      "valuation-multiples",
+      "working-capital"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "vkKw1MeUors",
+        "PqGjF6z1ZaM",
+        "UAtbZfPN2zA",
+        "T3zG2Iaxy-k"
+      ],
+      "evidenceIds": [
+        "E032",
+        "E121",
+        "E199"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Most Important Financial Document You’ll Ever Make",
+        "url": "https://www.youtube.com/watch?v=PqGjF6z1ZaM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How to buy a profitable business (step-by-step)",
+        "url": "https://www.youtube.com/watch?v=UAtbZfPN2zA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna know what a business is worth... please watch this",
+        "url": "https://www.youtube.com/watch?v=T3zG2Iaxy-k"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/enterprise-value/"
+  },
+  "ac-topic--equity-value.md": {
+    "title": "Equity value",
+    "slug": "equity-value",
+    "contentType": "topic",
+    "topics": [
+      "equity-value",
+      "enterprise-value",
+      "rollover-equity",
+      "preferred-equity"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "b_Emk0J2yfw",
+        "vkKw1MeUors",
+        "T3zG2Iaxy-k",
+        "fOjSk3VYZdc"
+      ],
+      "evidenceIds": [
+        "E135",
+        "E199",
+        "E187"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur buying UK businesses remotely",
+        "url": "https://www.youtube.com/watch?v=b_Emk0J2yfw"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna know what a business is worth... please watch this",
+        "url": "https://www.youtube.com/watch?v=T3zG2Iaxy-k"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of making deals in private equity",
+        "url": "https://www.youtube.com/watch?v=fOjSk3VYZdc"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/equity-value/"
+  },
+  "ac-topic--government-backed-lending.md": {
+    "title": "Government-backed lending",
+    "slug": "government-backed-lending",
+    "contentType": "topic",
+    "topics": [
+      "government-backed-lending",
+      "bank-debt",
+      "personal-guarantees",
+      "acquisition-process"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "2maCpFUx4ks",
+        "4KGWEet-vwE",
+        "zRh8i5uPjA0",
+        "cvauHwc3guQ",
+        "NTa6kB7cGg0",
+        "cBBwXTMtho4"
+      ],
+      "evidenceIds": [
+        "E055"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The Emotional Reality of Buying a Business (Private Equity / Bankruptcy / AI)",
+        "url": "https://www.youtube.com/watch?v=2maCpFUx4ks"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside Private Equity: How to hire a CEO",
+        "url": "https://www.youtube.com/watch?v=4KGWEet-vwE"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on buying businesses in UK",
+        "url": "https://www.youtube.com/watch?v=zRh8i5uPjA0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in Current Markets (2026)",
+        "url": "https://www.youtube.com/watch?v=cvauHwc3guQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna raise money from investors… Watch this",
+        "url": "https://www.youtube.com/watch?v=NTa6kB7cGg0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur helping young entrepreneur buy a business in UK",
+        "url": "https://www.youtube.com/watch?v=cBBwXTMtho4"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/government-backed-lending/"
+  },
+  "ac-topic--independent-sponsor.md": {
+    "title": "Independent sponsor",
+    "slug": "independent-sponsor",
+    "contentType": "topic",
+    "topics": [
+      "independent-sponsor",
+      "investor-equity",
+      "buyer-equity",
+      "committed-fund",
+      "roll-ups"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education",
+      "Fund Launch enrichment"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "Io8ctiLGjbs",
+        "vvw6brqjl2I"
+      ],
+      "evidenceIds": [
+        "E123",
+        "E209"
+      ],
+      "fundLaunchGuideIds": [
+        "independent-sponsor-fund"
+      ]
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "If I Wanted to Pitch INVESTORS, I'd Do This",
+        "url": "https://www.youtube.com/watch?v=Io8ctiLGjbs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you want 2026 to be the best dealmaking year of your life, please watch this…",
+        "url": "https://www.youtube.com/watch?v=vvw6brqjl2I"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "From Independent Sponsor to Committed Fund",
+        "url": "https://www.fundlaunch.com/launch/independent-sponsor-fund"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/independent-sponsor/"
+  },
+  "ac-topic--institutional-debt.md": {
+    "title": "Institutional debt",
+    "slug": "institutional-debt",
+    "contentType": "topic",
+    "topics": [
+      "institutional-debt",
+      "private-credit",
+      "capital-stack",
+      "investor-equity"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "cBBwXTMtho4",
+        "18cB9LOaucs"
+      ],
+      "evidenceIds": [
+        "E201",
+        "E203",
+        "E176"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur helping young entrepreneur buy a business in UK",
+        "url": "https://www.youtube.com/watch?v=cBBwXTMtho4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of finding deals in private equity",
+        "url": "https://www.youtube.com/watch?v=18cB9LOaucs"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/institutional-debt/"
+  },
+  "ac-topic--investor-equity.md": {
+    "title": "Investor equity",
+    "slug": "investor-equity",
+    "contentType": "topic",
+    "topics": [
+      "investor-equity",
+      "buyer-equity",
+      "preferred-equity",
+      "returns-and-exits"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "Io8ctiLGjbs",
+        "rE2R3B0kiBc",
+        "vvw6brqjl2I",
+        "NTa6kB7cGg0"
+      ],
+      "evidenceIds": [
+        "E029",
+        "E105",
+        "E229"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "If I Wanted to Pitch INVESTORS, I'd Do This",
+        "url": "https://www.youtube.com/watch?v=Io8ctiLGjbs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The #1 Reason The Wealthy Are Getting Wealthier",
+        "url": "https://www.youtube.com/watch?v=rE2R3B0kiBc"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you want 2026 to be the best dealmaking year of your life, please watch this…",
+        "url": "https://www.youtube.com/watch?v=vvw6brqjl2I"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna raise money from investors… Watch this",
+        "url": "https://www.youtube.com/watch?v=NTa6kB7cGg0"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/investor-equity/"
+  },
+  "ac-topic--irr-and-moic.md": {
+    "title": "IRR and MOIC",
+    "slug": "irr-and-moic",
+    "contentType": "topic",
+    "topics": [
+      "irr-and-moic",
+      "returns-and-exits",
+      "equity-value",
+      "investor-equity"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "Sj_SpzSpxw0",
+        "7Zg5hGZLrDM",
+        "VmRqlJuqCs8"
+      ],
+      "evidenceIds": [
+        "E010",
+        "E097",
+        "E215"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | entrepreneur reveals BTS pitching an investor for capital (LIVE) | vlog 24",
+        "url": "https://www.youtube.com/watch?v=Sj_SpzSpxw0"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity Entrepreneur Shares How PE Money Is Made",
+        "url": "https://www.youtube.com/watch?v=7Zg5hGZLrDM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3",
+        "url": "https://www.youtube.com/watch?v=VmRqlJuqCs8"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/irr-and-moic/"
+  },
+  "ac-topic--leverage.md": {
+    "title": "Leverage",
+    "slug": "leverage",
+    "contentType": "topic",
+    "topics": [
+      "leverage",
+      "debt-service",
+      "capital-stack",
+      "valuation-multiples"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "8LNGpCPhTzU",
+        "EL60pBzPd_k",
+        "wd4Y23wruXU"
+      ],
+      "evidenceIds": [
+        "E051",
+        "E086",
+        "E087"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity: The Mental Burden of Making 7-figure Promises",
+        "url": "https://www.youtube.com/watch?v=8LNGpCPhTzU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside my 7-figure acquisitions (FULL breakdown)",
+        "url": "https://www.youtube.com/watch?v=EL60pBzPd_k"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How you get money from the bank (private equity)",
+        "url": "https://www.youtube.com/watch?v=wd4Y23wruXU"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/leverage/"
+  },
+  "ac-topic--loi.md": {
+    "title": "Letter of intent",
+    "slug": "loi",
+    "contentType": "topic",
+    "topics": [
+      "loi",
+      "enterprise-value",
+      "working-capital",
+      "due-diligence"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "vkKw1MeUors",
+        "PqGjF6z1ZaM",
+        "UAtbZfPN2zA",
+        "lGkWzEfsu_c"
+      ],
+      "evidenceIds": [
+        "E032",
+        "E118",
+        "E122"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Most Important Financial Document You’ll Ever Make",
+        "url": "https://www.youtube.com/watch?v=PqGjF6z1ZaM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How to buy a profitable business (step-by-step)",
+        "url": "https://www.youtube.com/watch?v=UAtbZfPN2zA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on getting money from UK banks",
+        "url": "https://www.youtube.com/watch?v=lGkWzEfsu_c"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/loi/"
+  },
+  "ac-topic--management.md": {
+    "title": "Management after acquisition",
+    "slug": "management",
+    "contentType": "topic",
+    "topics": [
+      "management",
+      "buyer-equity",
+      "rollover-equity",
+      "roll-ups"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "4KGWEet-vwE",
+        "NWQKr-gqNhc",
+        "8LNGpCPhTzU",
+        "VNXXyH4dr-I",
+        "ykuS4w_Ocws",
+        "4DhN50eAkcA"
+      ],
+      "evidenceIds": [
+        "E038",
+        "E048",
+        "E124"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside Private Equity: How to hire a CEO",
+        "url": "https://www.youtube.com/watch?v=4KGWEet-vwE"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Ever wondered how CEOs get the top job? watch this",
+        "url": "https://www.youtube.com/watch?v=NWQKr-gqNhc"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity: The Mental Burden of Making 7-figure Promises",
+        "url": "https://www.youtube.com/watch?v=8LNGpCPhTzU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | how to own your time (working remotely) | vlog 15",
+        "url": "https://www.youtube.com/watch?v=VNXXyH4dr-I"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you don’t have clarity on your life, please watch this",
+        "url": "https://www.youtube.com/watch?v=ykuS4w_Ocws"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "You bought a £10M business in London, now what?",
+        "url": "https://www.youtube.com/watch?v=4DhN50eAkcA"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/management/"
+  },
+  "ac-topic--mezzanine-debt.md": {
+    "title": "Mezzanine and subordinated debt",
+    "slug": "mezzanine-debt",
+    "contentType": "topic",
+    "topics": [
+      "mezzanine-debt",
+      "subordination",
+      "senior-debt",
+      "direct-lending",
+      "capital-stack"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education",
+      "Fund Launch enrichment"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "byJSV1CEYBk",
+        "cBBwXTMtho4"
+      ],
+      "evidenceIds": [
+        "E221",
+        "E202"
+      ],
+      "fundLaunchGuideIds": [
+        "mezzanine-fund",
+        "direct-lending-fund"
+      ]
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Failure is inevitable in private equity (here’s how to fix it)",
+        "url": "https://www.youtube.com/watch?v=byJSV1CEYBk"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur helping young entrepreneur buy a business in UK",
+        "url": "https://www.youtube.com/watch?v=cBBwXTMtho4"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Mezzanine Fund",
+        "url": "https://www.fundlaunch.com/launch/mezzanine-fund"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Direct Lending Fund",
+        "url": "https://www.fundlaunch.com/launch/direct-lending-fund"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/mezzanine-debt/"
+  },
+  "ac-topic--personal-guarantees.md": {
+    "title": "Personal guarantees",
+    "slug": "personal-guarantees",
+    "contentType": "topic",
+    "topics": [
+      "personal-guarantees",
+      "collateral",
+      "buyer-equity",
+      "refinancing"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "zAlT_NNOb6U",
+        "cBBwXTMtho4",
+        "KsnY8Gpnkl4"
+      ],
+      "evidenceIds": [
+        "E194",
+        "E202",
+        "E213"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on what to avoid when buying businesses",
+        "url": "https://www.youtube.com/watch?v=zAlT_NNOb6U"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur helping young entrepreneur buy a business in UK",
+        "url": "https://www.youtube.com/watch?v=cBBwXTMtho4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on getting investors to back £10M deals in UK",
+        "url": "https://www.youtube.com/watch?v=KsnY8Gpnkl4"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/personal-guarantees/"
+  },
+  "ac-topic--preferred-equity.md": {
+    "title": "Preferred equity",
+    "slug": "preferred-equity",
+    "contentType": "topic",
+    "topics": [
+      "preferred-equity",
+      "equity-value",
+      "investor-equity",
+      "returns-and-exits"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "fOjSk3VYZdc",
+        "7Zg5hGZLrDM",
+        "KsnY8Gpnkl4",
+        "VmRqlJuqCs8"
+      ],
+      "evidenceIds": [
+        "E187",
+        "E100",
+        "E215"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of making deals in private equity",
+        "url": "https://www.youtube.com/watch?v=fOjSk3VYZdc"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity Entrepreneur Shares How PE Money Is Made",
+        "url": "https://www.youtube.com/watch?v=7Zg5hGZLrDM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on getting investors to back £10M deals in UK",
+        "url": "https://www.youtube.com/watch?v=KsnY8Gpnkl4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3",
+        "url": "https://www.youtube.com/watch?v=VmRqlJuqCs8"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/preferred-equity/"
+  },
+  "ac-topic--private-credit.md": {
+    "title": "Private credit",
+    "slug": "private-credit",
+    "contentType": "topic",
+    "topics": [
+      "private-credit",
+      "institutional-debt",
+      "bank-debt",
+      "debt-pricing"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education",
+      "Fund Launch enrichment"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "NnWl4wMoQhM",
+        "je7CsLaUm8w",
+        "Hvw5FAbRAZY",
+        "18cB9LOaucs",
+        "MwejQUah14Y"
+      ],
+      "evidenceIds": [
+        "E205",
+        "E176",
+        "E181"
+      ],
+      "fundLaunchGuideIds": [
+        "private-credit-fund",
+        "direct-lending-fund",
+        "mezzanine-fund"
+      ]
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Just when you think the deal is closed… it usually isn’t",
+        "url": "https://www.youtube.com/watch?v=NnWl4wMoQhM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "This is how you borrow millions from the bank.",
+        "url": "https://www.youtube.com/watch?v=je7CsLaUm8w"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How To Raise Money To Buy A Business In 2025 | vlog 13",
+        "url": "https://www.youtube.com/watch?v=Hvw5FAbRAZY"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of finding deals in private equity",
+        "url": "https://www.youtube.com/watch?v=18cB9LOaucs"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Watch me try to buy a business (LIVE deal breakdown)",
+        "url": "https://www.youtube.com/watch?v=MwejQUah14Y"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Private Credit Fund",
+        "url": "https://www.fundlaunch.com/launch/private-credit-fund"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Direct Lending Fund",
+        "url": "https://www.fundlaunch.com/launch/direct-lending-fund"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Mezzanine Fund",
+        "url": "https://www.fundlaunch.com/launch/mezzanine-fund"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/private-credit/"
+  },
+  "ac-topic--receivables-finance.md": {
+    "title": "Receivables finance",
+    "slug": "receivables-finance",
+    "contentType": "topic",
+    "topics": [
+      "receivables-finance",
+      "working-capital",
+      "asset-based-lending",
+      "collateral"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "WcYMjlTsUwA",
+        "Hvw5FAbRAZY",
+        "b_Emk0J2yfw",
+        "18cB9LOaucs"
+      ],
+      "evidenceIds": [
+        "E062",
+        "E134",
+        "E172"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Why You Are Closer to Buying a Business Than You Think",
+        "url": "https://www.youtube.com/watch?v=WcYMjlTsUwA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "How To Raise Money To Buy A Business In 2025 | vlog 13",
+        "url": "https://www.youtube.com/watch?v=Hvw5FAbRAZY"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur buying UK businesses remotely",
+        "url": "https://www.youtube.com/watch?v=b_Emk0J2yfw"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of finding deals in private equity",
+        "url": "https://www.youtube.com/watch?v=18cB9LOaucs"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/receivables-finance/"
+  },
+  "ac-topic--refinancing.md": {
+    "title": "Refinancing",
+    "slug": "refinancing",
+    "contentType": "topic",
+    "topics": [
+      "refinancing",
+      "deferred-consideration",
+      "amortization",
+      "covenants"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "cvauHwc3guQ",
+        "EL60pBzPd_k",
+        "p3EX7IpcYd0"
+      ],
+      "evidenceIds": [
+        "E017",
+        "E085",
+        "E233"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in Current Markets (2026)",
+        "url": "https://www.youtube.com/watch?v=cvauHwc3guQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside my 7-figure acquisitions (FULL breakdown)",
+        "url": "https://www.youtube.com/watch?v=EL60pBzPd_k"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna do Private Equity in UK, please watch this",
+        "url": "https://www.youtube.com/watch?v=p3EX7IpcYd0"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/refinancing/"
+  },
+  "ac-topic--returns-and-exits.md": {
+    "title": "Returns and exits",
+    "slug": "returns-and-exits",
+    "contentType": "topic",
+    "topics": [
+      "returns-and-exits",
+      "equity-value",
+      "preferred-equity",
+      "irr-and-moic"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "9OBSog0S5XU",
+        "TGMdeD8EnD4",
+        "v41qQ3KC2b4",
+        "T3zG2Iaxy-k",
+        "7Zg5hGZLrDM",
+        "IJIazMAuvmI",
+        "VmRqlJuqCs8"
+      ],
+      "evidenceIds": [
+        "E004",
+        "E099",
+        "E215"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "The BRUTAL Reality of Owning £60M Businesses",
+        "url": "https://www.youtube.com/watch?v=9OBSog0S5XU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you feel stuck in life… here’s how you become UNRECOGNIZABLE",
+        "url": "https://www.youtube.com/watch?v=TGMdeD8EnD4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "$50M entrepreneur celebrating in Mykonos | vlog",
+        "url": "https://www.youtube.com/watch?v=v41qQ3KC2b4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna know what a business is worth... please watch this",
+        "url": "https://www.youtube.com/watch?v=T3zG2Iaxy-k"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity Entrepreneur Shares How PE Money Is Made",
+        "url": "https://www.youtube.com/watch?v=7Zg5hGZLrDM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna break into Private Equity, please watch this",
+        "url": "https://www.youtube.com/watch?v=IJIazMAuvmI"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3",
+        "url": "https://www.youtube.com/watch?v=VmRqlJuqCs8"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/returns-and-exits/"
+  },
+  "ac-topic--roll-ups.md": {
+    "title": "Roll-ups",
+    "slug": "roll-ups",
+    "contentType": "topic",
+    "topics": [
+      "roll-ups",
+      "bolt-ons",
+      "management",
+      "returns-and-exits"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "rVW6fyafA0s",
+        "np9jH5OyQnE",
+        "8LNGpCPhTzU"
+      ],
+      "evidenceIds": [
+        "E111",
+        "E113",
+        "E091"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "watch this before buying your first business",
+        "url": "https://www.youtube.com/watch?v=rVW6fyafA0s"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "PE entrepreneur on BEST strategy for building WEALTH (...in 2026)",
+        "url": "https://www.youtube.com/watch?v=np9jH5OyQnE"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity: The Mental Burden of Making 7-figure Promises",
+        "url": "https://www.youtube.com/watch?v=8LNGpCPhTzU"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/roll-ups/"
+  },
+  "ac-topic--rollover-equity.md": {
+    "title": "Rollover equity",
+    "slug": "rollover-equity",
+    "contentType": "topic",
+    "topics": [
+      "rollover-equity",
+      "equity-value",
+      "management",
+      "preferred-equity"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "_CJLfixvoN4",
+        "fOjSk3VYZdc",
+        "v3SrYOEUs7Q",
+        "yB-Z25dC_OU"
+      ],
+      "evidenceIds": [
+        "E208",
+        "E185",
+        "E197"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "How I Would Buy a Business in 2026 (If I Had to Start Over)",
+        "url": "https://www.youtube.com/watch?v=_CJLfixvoN4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of making deals in private equity",
+        "url": "https://www.youtube.com/watch?v=fOjSk3VYZdc"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | gambian entrepreneur broadcasting first youtube episode on national tv | vlog 2",
+        "url": "https://www.youtube.com/watch?v=v3SrYOEUs7Q"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | how this man is building gambia from scratch | vlog 14",
+        "url": "https://www.youtube.com/watch?v=yB-Z25dC_OU"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/rollover-equity/"
+  },
+  "ac-topic--seller-financing.md": {
+    "title": "Seller financing",
+    "slug": "seller-financing",
+    "contentType": "topic",
+    "topics": [
+      "seller-financing",
+      "deferred-consideration",
+      "earn-outs",
+      "subordination"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "vkKw1MeUors",
+        "-hqVGkoT0dQ",
+        "EL60pBzPd_k",
+        "byJSV1CEYBk"
+      ],
+      "evidenceIds": [
+        "E033",
+        "E084",
+        "E221"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | gambian entrepreneur building a 9-figure business in the UK | vlog 1",
+        "url": "https://www.youtube.com/watch?v=-hqVGkoT0dQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside my 7-figure acquisitions (FULL breakdown)",
+        "url": "https://www.youtube.com/watch?v=EL60pBzPd_k"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Failure is inevitable in private equity (here’s how to fix it)",
+        "url": "https://www.youtube.com/watch?v=byJSV1CEYBk"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/seller-financing/"
+  },
+  "ac-topic--senior-debt.md": {
+    "title": "Senior debt",
+    "slug": "senior-debt",
+    "contentType": "topic",
+    "topics": [
+      "senior-debt",
+      "subordination",
+      "collateral",
+      "covenants"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "byJSV1CEYBk",
+        "np9jH5OyQnE",
+        "8LNGpCPhTzU",
+        "rE2R3B0kiBc",
+        "v3SrYOEUs7Q",
+        "je7CsLaUm8w"
+      ],
+      "evidenceIds": [
+        "E221",
+        "E091",
+        "E159"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Failure is inevitable in private equity (here’s how to fix it)",
+        "url": "https://www.youtube.com/watch?v=byJSV1CEYBk"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "PE entrepreneur on BEST strategy for building WEALTH (...in 2026)",
+        "url": "https://www.youtube.com/watch?v=np9jH5OyQnE"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Private Equity: The Mental Burden of Making 7-figure Promises",
+        "url": "https://www.youtube.com/watch?v=8LNGpCPhTzU"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The #1 Reason The Wealthy Are Getting Wealthier",
+        "url": "https://www.youtube.com/watch?v=rE2R3B0kiBc"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Zero to £100M | gambian entrepreneur broadcasting first youtube episode on national tv | vlog 2",
+        "url": "https://www.youtube.com/watch?v=v3SrYOEUs7Q"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "This is how you borrow millions from the bank.",
+        "url": "https://www.youtube.com/watch?v=je7CsLaUm8w"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/senior-debt/"
+  },
+  "ac-topic--sourcing.md": {
+    "title": "Sourcing",
+    "slug": "sourcing",
+    "contentType": "topic",
+    "topics": [
+      "sourcing",
+      "target-selection",
+      "brokers",
+      "loi"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "vvw6brqjl2I",
+        "H7R3OanjTfo",
+        "PqGjF6z1ZaM",
+        "p3EX7IpcYd0"
+      ],
+      "evidenceIds": [
+        "E102",
+        "E117",
+        "E232"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "If you want 2026 to be the best dealmaking year of your life, please watch this…",
+        "url": "https://www.youtube.com/watch?v=vvw6brqjl2I"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur negotiating £60M investment in London",
+        "url": "https://www.youtube.com/watch?v=H7R3OanjTfo"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Most Important Financial Document You’ll Ever Make",
+        "url": "https://www.youtube.com/watch?v=PqGjF6z1ZaM"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna do Private Equity in UK, please watch this",
+        "url": "https://www.youtube.com/watch?v=p3EX7IpcYd0"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/sourcing/"
+  },
+  "ac-topic--subordination.md": {
+    "title": "Subordination and creditor rights",
+    "slug": "subordination",
+    "contentType": "topic",
+    "topics": [
+      "subordination",
+      "senior-debt",
+      "seller-financing",
+      "preferred-equity"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education",
+      "Fund Launch enrichment"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "byJSV1CEYBk",
+        "cBBwXTMtho4",
+        "fOjSk3VYZdc"
+      ],
+      "evidenceIds": [
+        "E221",
+        "E202",
+        "E187"
+      ],
+      "fundLaunchGuideIds": [
+        "mezzanine-fund"
+      ]
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Failure is inevitable in private equity (here’s how to fix it)",
+        "url": "https://www.youtube.com/watch?v=byJSV1CEYBk"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur helping young entrepreneur buy a business in UK",
+        "url": "https://www.youtube.com/watch?v=cBBwXTMtho4"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of making deals in private equity",
+        "url": "https://www.youtube.com/watch?v=fOjSk3VYZdc"
+      },
+      {
+        "family": "Fund Launch",
+        "title": "How to Start a Mezzanine Fund",
+        "url": "https://www.fundlaunch.com/launch/mezzanine-fund"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/subordination/"
+  },
+  "ac-topic--target-selection.md": {
+    "title": "Target selection",
+    "slug": "target-selection",
+    "contentType": "topic",
+    "topics": [
+      "target-selection",
+      "customer-concentration",
+      "adjusted-ebitda",
+      "management"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "WcYMjlTsUwA",
+        "1C5gI6LlWhA",
+        "yqSF-IoKfEQ",
+        "zRh8i5uPjA0"
+      ],
+      "evidenceIds": [
+        "E061",
+        "E063",
+        "E129"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "Why You Are Closer to Buying a Business Than You Think",
+        "url": "https://www.youtube.com/watch?v=WcYMjlTsUwA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The Art of Buying the Right Business in Private Equity",
+        "url": "https://www.youtube.com/watch?v=1C5gI6LlWhA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "UK investor prefers making money in London to America",
+        "url": "https://www.youtube.com/watch?v=yqSF-IoKfEQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur on buying businesses in UK",
+        "url": "https://www.youtube.com/watch?v=zRh8i5uPjA0"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/target-selection/"
+  },
+  "ac-topic--valuation-multiples.md": {
+    "title": "Valuation multiples",
+    "slug": "valuation-multiples",
+    "contentType": "topic",
+    "topics": [
+      "valuation-multiples",
+      "adjusted-ebitda",
+      "enterprise-value",
+      "leverage"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "UAtbZfPN2zA",
+        "T3zG2Iaxy-k",
+        "yqSF-IoKfEQ",
+        "EL60pBzPd_k"
+      ],
+      "evidenceIds": [
+        "E121",
+        "E130",
+        "E084"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "How to buy a profitable business (step-by-step)",
+        "url": "https://www.youtube.com/watch?v=UAtbZfPN2zA"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you wanna know what a business is worth... please watch this",
+        "url": "https://www.youtube.com/watch?v=T3zG2Iaxy-k"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "UK investor prefers making money in London to America",
+        "url": "https://www.youtube.com/watch?v=yqSF-IoKfEQ"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "Inside my 7-figure acquisitions (FULL breakdown)",
+        "url": "https://www.youtube.com/watch?v=EL60pBzPd_k"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/valuation-multiples/"
+  },
+  "ac-topic--working-capital.md": {
+    "title": "Working capital",
+    "slug": "working-capital",
+    "contentType": "topic",
+    "topics": [
+      "working-capital",
+      "cash-flow",
+      "receivables-finance",
+      "equity-value"
+    ],
+    "authorship": "Acquisition Companion",
+    "sourceFamilies": [
+      "Yusufa Sey-derived education"
+    ],
+    "publicSourceReferences": {
+      "yusufaVideoIds": [
+        "b_Emk0J2yfw",
+        "vkKw1MeUors",
+        "18cB9LOaucs"
+      ],
+      "evidenceIds": [
+        "E135",
+        "E172",
+        "E173"
+      ],
+      "fundLaunchGuideIds": []
+    },
+    "originalSources": [
+      {
+        "family": "Yusufa Sey",
+        "title": "M&A entrepreneur buying UK businesses remotely",
+        "url": "https://www.youtube.com/watch?v=b_Emk0J2yfw"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
+        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
+      },
+      {
+        "family": "Yusufa Sey",
+        "title": "The art of finding deals in private equity",
+        "url": "https://www.youtube.com/watch?v=18cB9LOaucs"
+      }
+    ],
+    "url": "https://acquisitioncompanion.com/topics/working-capital/"
+  }
+}

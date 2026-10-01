@@ -1,0 +1,102 @@
+import {chromium} from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+
+const base=process.env.PREVIEW_URL||'http://127.0.0.1:4321';
+const browser=await chromium.launch({channel:'chrome',headless:true});
+const errors=[];const external=[];
+const unavailable=await browser.newContext({viewport:{width:1440,height:1000}});
+await unavailable.route('**/api/ai/status',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({status:'unavailable',available:false})}));
+const unavailablePage=await unavailable.newPage();unavailablePage.on('pageerror',error=>errors.push(error.message));
+const pageResponse=await unavailablePage.goto(`${base}/ai/`);assert.equal(pageResponse.status(),200);
+await unavailablePage.getByText('AI Deal Lab is being configured.',{exact:false}).waitFor();
+for(const label of ['Ask the Course','Deal Lab','IC Challenge'])assert.ok(await unavailablePage.getByRole('button',{name:new RegExp(label)}).isVisible());
+assert.equal(await unavailablePage.locator('#ai-message').isDisabled(),true);
+const unavailableAxe=await new AxeBuilder({page:unavailablePage}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
+assert.deepEqual(unavailableAxe.violations.map(item=>item.id),[]);
+
+const context=await browser.newContext({viewport:{width:1440,height:1000}});
+await context.addInitScript(()=>{window.__aiInjected=false;window.__aiEvents=[];});
+await context.route('**/api/ai/status',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({status:'ready',available:true})}));
+const calls=[];const failures=new Map();
+await context.route('**/api/ai',async route=>{
+ const payload=route.request().postDataJSON();calls.push(payload);
+ if(payload.message==='trigger 429')return route.fulfill({status:429,contentType:'application/json',body:JSON.stringify({error:{code:'rate_limited',message:'Too many requests.'}})});
+ if(payload.message==='service down'){
+  const attempt=(failures.get(payload.message)||0)+1;failures.set(payload.message,attempt);
+  if(attempt===1)return route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:{code:'unavailable',message:'Unavailable.'}})});
+ }
+ const result={responseText:payload.message==='Start the case.'||payload.message==='Start the IC Challenge.'?'Before accepting the price, what would you verify?':payload.action==='complete'?'Here is your qualitative committee debrief.':payload.action==='show_answer'?'Here are the deterministic case figures.':'<img src=x onerror=window.__aiInjected=true> The curriculum frames this as a question of evidence.',citations:[{title:'Valuing a small business',url:'https://acquisitioncompanion.com/course/valuing-a-small-business/',contentType:'lesson',sourceFamilies:['Acquisition Companion original synthesis'],originalSources:[{family:'Yusufa Sey',title:'Original public lesson source',url:'https://www.youtube.com/watch?v=example123'}]}],suggestedActions:['explain'],case:null,calculations:null,feedback:null};
+ if(payload.mode!=='ask_course'){
+  const stage=payload.action==='show_answer'?3:1;
+  result.case={id:payload.caseId,title:payload.caseId==='aster-forge-components'?'Aster Forge Components':'Bluejay Field Services',difficulty:payload.caseId==='aster-forge-components'?'intermediate':'beginner',industry:'Synthetic practice industry',description:'An original fictional practice case.',stage,stageCount:3,stageLabel:stage===1?'First look':'Downside and diligence',facts:[{id:'financial-snapshot',label:'Revenue and reported EBITDA',value:'Revenue $2,400,000; reported EBITDA $420,000.',stageLabel:'First look'},...(stage===3?[{id:'downside-inputs',label:'Downside',value:'A fictional downside case.',stageLabel:'Downside and diligence'}]:[])],lessonRefs:[{title:'Customer concentration',url:'/topics/customer-concentration/'},{title:'Valuing a small business',url:'/course/valuing-a-small-business/'}]};
+ }
+ if(payload.action==='show_answer')result.calculations={reportedEbitda:420000,normalizedEbitda:440000,normalizedMultiple:5,workingCapitalShortfall:35000,totalLeverage:3.52,annualDebtService:{total:280757},baseCashFlow:{coverage:1.12},downsideCashFlow:{coverage:0.75},sourcesAndUses:{imbalance:0}};
+ if(payload.action==='complete')result.feedback={strengths:['Separated price from financing.'],risksIdentified:['Customer consent is outstanding.'],risksMissed:['Downside coverage needs more evidence.'],assumptionsNeedingEvidence:['Customer renewal.'],lessonsToReview:[{title:'Customer concentration',url:'/topics/customer-concentration/'}]};
+ await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(result)});
+});
+const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));page.on('request',request=>{if(new URL(request.url()).hostname==='api.openai.com')external.push(request.url());});
+await page.goto(`${base}/ai/`);await page.locator('[data-ai-status][data-state=ready]').waitFor();
+await page.evaluate(()=>{window.__aiEvents=[];window.acquisitionAnalytics={track:(name,params={})=>{window.__aiEvents.push({name,params});return true;}};});
+await page.getByRole('button',{name:/Ask the Course/}).focus();await page.keyboard.press('Enter');
+await page.locator('#ai-message').fill('What does the course teach? <img src=x onerror=window.__aiInjected=true>');
+await page.getByRole('button',{name:'Send question'}).click();
+await page.getByText(/The curriculum frames this as a question of evidence/).waitFor();
+assert.equal(await page.locator('.ai-message img').count(),0);
+assert.equal(await page.evaluate(()=>window.__aiInjected),false);
+assert.equal(await page.locator('.ai-message-text').last().textContent(),'<img src=x onerror=window.__aiInjected=true> The curriculum frames this as a question of evidence.');
+assert.ok(await page.getByRole('link',{name:'Valuing a small business'}).isVisible());
+assert.ok(await page.getByRole('link',{name:'Original public lesson source'}).isVisible());
+assert.match(await page.locator('[data-ai-status]').innerText(),/Response ready/);
+
+await page.getByRole('button',{name:/Deal Lab/}).click();
+await page.getByRole('button',{name:'Start this case'}).click();
+await page.locator('[data-context-mode="deal_lab"] [data-case-facts]').getByText('Revenue $2,400,000; reported EBITDA $420,000.').waitFor();
+assert.equal(await page.getByRole('button',{name:'Start this case'}).isVisible(),false);
+await page.getByRole('button',{name:'Show the answer'}).click();
+await page.locator('[data-calculations-content]').getByText('Normalized EBITDA',{exact:true}).waitFor();
+assert.match(await page.locator('[data-calculations-content]').innerText(),/\$440,000/);
+assert.match(await page.locator('[data-calculations-content]').innerText(),/0\.75x/);
+
+await page.getByRole('button',{name:/IC Challenge/}).click();
+await page.locator('[data-context-mode="ic_challenge"] select').selectOption('aster-forge-components');
+await page.getByRole('button',{name:'Start this case'}).click();
+await page.getByRole('button',{name:'Complete the IC Challenge'}).click();
+await page.getByRole('heading',{name:'Committee feedback'}).waitFor();
+assert.match(await page.locator('[data-feedback-content]').innerText(),/Reasoning strengths/);
+assert.match(await page.locator('[data-feedback-content]').innerText(),/Risks identified/);
+assert.match(await page.locator('[data-feedback-content]').innerText(),/Important risks missed/);
+assert.equal(await page.locator('[data-feedback-content]').getByRole('link',{name:'Customer concentration'}).getAttribute('href'),`${base}/topics/customer-concentration/`);
+assert.equal(await page.locator('.deal-score').count(),0);
+
+await page.getByRole('button',{name:/Ask the Course/}).click();
+await page.locator('#ai-message').fill('trigger 429');await page.getByRole('button',{name:'Send question'}).click();
+await page.getByRole('alert').getByText(/Wait about a minute/).waitFor();assert.equal(await page.locator('[data-retry]').isVisible(),false);
+await page.locator('#ai-message').fill('service down');await page.getByRole('button',{name:'Send question'}).click();
+await page.locator('[data-retry]').waitFor({state:'visible'});await page.getByRole('button',{name:'Retry'}).click();
+await page.getByText(/The curriculum frames this as a question of evidence/).last().waitFor();
+assert.ok(calls.length>=7);assert.ok(calls.every(payload=>!JSON.stringify(payload).includes('ac-ai-session-id')));
+assert.deepEqual(external,[]);
+const storage=await page.evaluate(()=>({local:Object.keys(localStorage),session:Object.keys(sessionStorage),sessionValues:Object.values(sessionStorage)}));
+assert.equal(storage.local.some(key=>/chat|conversation|prompt|response/i.test(key)),false);
+assert.deepEqual(storage.session,['ac-ai-session-id']);
+assert.equal(storage.sessionValues.some(value=>value.includes('What does the course teach?')),false);
+const events=await page.evaluate(()=>window.__aiEvents);
+const allowedEventKeys=new Set(['mode','case_id','difficulty','completion_status']);
+assert.ok(events.length>=6);
+assert.ok(events.every(event=>Object.keys(event.params).every(key=>allowedEventKeys.has(key))));
+assert.equal(JSON.stringify(events).includes('What does the course teach?'),false);
+assert.equal(JSON.stringify(events).includes('deterministic case figures'),false);
+
+for(const viewport of [{width:390,height:844},{width:768,height:1024}]){
+ await page.setViewportSize(viewport);await page.goto(`${base}/ai/`);await page.locator('[data-ai-status][data-state=ready]').waitFor();
+ assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),`AI Deal Lab horizontal overflow at ${viewport.width}px`);
+}
+const readyAxe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
+assert.deepEqual(readyAxe.violations.map(item=>item.id),[]);
+assert.deepEqual(errors,[]);
+await fs.promises.mkdir('artifacts',{recursive:true});
+await page.screenshot({path:'artifacts/ai-deal-lab-mobile.png',fullPage:true});
+await browser.close();
+console.log(JSON.stringify({route:'/ai/',unavailable:'passed',modes:['ask_course','deal_lab','ic_challenge'],mockedQuestions:calls.length,citations:'passed',literalHtml:'passed',rateLimit:'passed',retry:'passed',analyticsPayloads:'passed',conversationStorage:'passed',directOpenAIRequests:external.length,accessibilityViolations:readyAxe.violations.length,browserErrors:errors.length,responsiveWidths:[390,768]},null,2));

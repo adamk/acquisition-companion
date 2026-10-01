@@ -1,5 +1,28 @@
 export const CONSENT_KEY='acquisition-companion-analytics-consent';
 const SEARCH_TOPICS=new Set(['acquisition','asset based lending','bank debt','buy and build','capital stack','cash flow','covenants','debt service','direct lending','due diligence','earn out','equity','fund structure','independent sponsor','investors','leverage','mezzanine','private credit','seller financing','valuation','working capital']);
+const AI_EVENT_KEYS={
+ ai_lab_open:[],
+ ai_mode_select:['mode'],
+ ai_question:['mode'],
+ deal_lab_start:['case_id','difficulty'],
+ deal_lab_complete:['case_id','difficulty','completion_status'],
+ ic_challenge_start:['case_id','difficulty'],
+ ic_challenge_complete:['case_id','difficulty','completion_status'],
+};
+const AI_MODES=new Set(['ask_course','deal_lab','ic_challenge']);
+const AI_CASES=new Set(['bluejay-field-services','aster-forge-components','ternbridge-route-logistics']);
+const AI_DIFFICULTIES=new Set(['beginner','intermediate','advanced']);
+
+function safeAiEventParams(name,params){
+ if(!(name in AI_EVENT_KEYS))return null;
+ const safe={};
+ for(const key of AI_EVENT_KEYS[name]){
+  const value=params?.[key];
+  const allowed=key==='mode'?AI_MODES.has(value):key==='case_id'?AI_CASES.has(value):key==='difficulty'?AI_DIFFICULTIES.has(value):key==='completion_status'?value==='complete':false;
+  if(allowed)safe[key]=value;
+ }
+ return safe;
+}
 
 export function safeSearchTerm(value){
  const term=String(value||'').trim().replace(/\s+/g,' ');
@@ -35,6 +58,10 @@ export function createAnalyticsController({window,document,measurementId}){
  }
  function track(name,params={}){
   if(!initialized || choice()!=='granted')return false;
+  if(/^(?:ai_|deal_lab_|ic_challenge_)/.test(name)){
+   params=safeAiEventParams(name,params);
+   if(params===null)return false;
+  }
   if(name==='site_search'){
    const searchTerm=safeSearchTerm(params.search_term);
    params=searchTerm?{search_term:searchTerm}:{};

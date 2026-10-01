@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "acquisition-companion",
+  "main": "src/worker/index.mjs",
+  "compatibility_date": "2026-09-30",
+  "keep_vars": true,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"],
+    "not_found_handling": "404-page"
+  },
+  "ratelimits": [
+    {
+      "name": "AI_SESSION_LIMITER",
+      "namespace_id": "2827600191301",
+      "simple": {"limit": 8, "period": 60}
+    },
+    {
+      "name": "AI_IP_LIMITER",
+      "namespace_id": "2827600191302",
+      "simple": {"limit": 30, "period": 60}
+    },
+    {
+      "name": "AI_EDGE_LIMITER",
+      "namespace_id": "2827600191303",
+      "simple": {"limit": 120, "period": 60}
+    }
+  ]
+}

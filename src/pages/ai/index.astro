@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import Crumbs from '../../components/Crumbs.astro';
+import caseCards from '../../data/ai-case-cards.json';
+import '../../styles/ai-lab.css';
+---
+<Base title="AI Deal Lab" description="Practice acquisition reasoning with a source-grounded course tutor, fictional Deal Lab cases, and a qualitative investment committee simulation." type="AI Deal Lab">
+ <Crumbs items={[{title:'AI Deal Lab'}]} />
+ <header class="page-header ai-page-header">
+  <p class="eyebrow">Educational practice workspace</p>
+  <h1>AI Deal Lab.</h1>
+  <p>Practice acquisition reasoning with the Acquisition Companion curriculum. Ask about a course concept, work through a fictional case, or defend your thinking to a simulated investment committee.</p>
+ </header>
+ <aside class="notice warning ai-privacy-notice" aria-labelledby="ai-privacy-heading">
+  <div><h2 id="ai-privacy-heading">Practice with fictional deals</h2><p>AI Deal Lab is an educational tool. Do not paste confidential, proprietary, personal, or non-public deal information. <a href="/privacy/#ai-deal-lab">Read how AI questions are handled</a>.</p></div>
+  <span class="badge caution">No document uploads</span>
+ </aside>
+ <section class="ai-mode-switch" aria-label="Choose an AI Deal Lab mode">
+  <button type="button" class="ai-mode-card" data-mode="ask_course" aria-pressed="true"><span class="ai-mode-title">Ask the Course</span><span>Get a clear explanation grounded in Acquisition Companion lessons, with page references.</span></button>
+  <button type="button" class="ai-mode-card" data-mode="deal_lab" aria-pressed="false"><span class="ai-mode-title">Deal Lab</span><span>Practice a fictional acquisition case one stage at a time with a Socratic instructor.</span></button>
+  <button type="button" class="ai-mode-card" data-mode="ic_challenge" aria-pressed="false"><span class="ai-mode-title">IC Challenge</span><span>Present a thesis and respond to focused investment committee questions.</span></button>
+ </section>
+ <div class="ai-status" data-ai-status role="status" aria-live="polite">Checking AI Deal Lab availability…</div>
+ <div class="ai-workspace" data-ai-app data-case-cards={JSON.stringify(caseCards)} data-pagefind-ignore>
+  <aside class="ai-context" aria-label="Practice context">
+   <section class="ai-mode-context" data-context-mode="ask_course">
+    <p class="eyebrow">Course tutor</p><h2>Start with a question.</h2>
+    <p>Ask about a concept taught on this site. The tutor uses the public Acquisition Companion curriculum, not general web search.</p>
+    <ul><li>Seller financing</li><li>Working capital at close</li><li>Senior debt and mezzanine</li><li>Customer concentration</li><li>Private credit lessons</li></ul>
+   </section>
+   <section class="ai-mode-context" data-context-mode="deal_lab" hidden>
+    <p class="eyebrow">Synthetic case</p><h2>Choose a practice case.</h2>
+    <label for="ai-case-select">Case and difficulty</label>
+    <select id="ai-case-select" data-case-select>{caseCards.map(item=><option value={item.id}>{item.title} · {item.difficulty}</option>)}</select>
+    <p class="ai-case-description" data-case-description></p>
+    <div class="ai-case-facts" data-case-facts><p class="muted">Start the case to reveal its first set of fictional facts.</p></div>
+   </section>
+   <section class="ai-mode-context" data-context-mode="ic_challenge" hidden>
+    <p class="eyebrow">Committee simulation</p><h2>Defend your thesis.</h2>
+    <label for="ai-ic-case-select">Synthetic case and difficulty</label>
+    <select id="ai-ic-case-select" data-case-select>{caseCards.map(item=><option value={item.id}>{item.title} · {item.difficulty}</option>)}</select>
+    <p class="ai-case-description" data-case-description></p>
+    <div class="ai-case-facts" data-case-facts><p class="muted">Start the challenge to reveal the case facts.</p></div>
+   </section>
+  </aside>
+  <section class="ai-conversation-panel" aria-labelledby="ai-conversation-heading">
+   <div class="ai-conversation-header"><div><p class="eyebrow" data-active-mode-label>Ask the Course</p><h2 id="ai-conversation-heading" data-active-heading>Ask an acquisition question.</h2></div><button type="button" class="button secondary ai-reset" data-reset hidden>New session</button></div>
+   <div class="ai-conversation" data-conversation role="log" aria-label="AI Deal Lab conversation" aria-live="polite" aria-relevant="additions text">
+    <div class="ai-empty-state" data-empty-state><p class="eyebrow">A learning tool</p><h3>Build your acquisition judgment.</h3><p>Use course explanations and fictional cases to test how you think about earnings, price, financing, risk, and diligence.</p></div>
+   </div>
+   <div class="ai-case-actions" data-case-actions hidden>
+    <button type="button" class="button" data-start-case>Start this case</button>
+    <div data-stage-actions hidden>
+     <button type="button" class="button secondary" data-command="hint">Give me a hint</button>
+     <button type="button" class="button secondary" data-command="explain">Explain this</button>
+     <button type="button" class="button secondary" data-command="what_did_i_miss">What did I miss?</button>
+     <button type="button" class="button secondary" data-command="challenge_assumptions">Challenge my assumptions</button>
+     <button type="button" class="button secondary" data-command="reveal_next">Reveal next stage</button>
+     <button type="button" class="button secondary" data-command="show_answer">Show the answer</button>
+     <button type="button" class="button" data-command="complete" data-complete hidden>Complete the IC Challenge</button>
+    </div>
+   </div>
+   <form class="ai-compose" data-ai-form>
+    <label for="ai-message">Your question or reasoning</label>
+    <textarea id="ai-message" name="message" rows="3" maxlength="1500" placeholder="What does Acquisition Companion teach about seller financing?" required></textarea>
+    <div class="ai-compose-footer"><p>Up to 1,500 characters. Keep real or confidential deal details out of the chat.</p><button type="submit" class="button" data-submit disabled>Send question</button></div>
+   </form>
+   <div class="ai-error" data-ai-error role="alert" hidden><p data-error-message></p><button type="button" class="button secondary" data-retry hidden>Retry</button></div>
+  </section>
+  <aside class="ai-sources" aria-label="Course references and case calculations">
+   <section class="ai-citations"><p class="eyebrow">Course references</p><h2>Sources for this turn</h2><div data-citations><p class="muted">Relevant course pages will appear here when available.</p></div></section>
+   <section class="ai-feedback" data-feedback hidden><p class="eyebrow">Qualitative debrief</p><h2>Committee feedback</h2><div data-feedback-content></div></section>
+   <section class="ai-calculations" data-calculations hidden><p class="eyebrow">Deterministic case math</p><h2>Canonical figures</h2><div data-calculations-content></div></section>
+   <p class="ai-context-note">Course references explain educational concepts. Case facts are original synthetic examples and are not attributed to the source material.</p>
+  </aside>
+ </div>
+ <noscript><p class="notice">AI Deal Lab needs JavaScript to send a question. You can still study the <a href="/course/">free course</a> and <a href="/topics/">topic library</a>.</p></noscript>
+ <script src="../../scripts/ai-lab.ts"></script>
+</Base>
