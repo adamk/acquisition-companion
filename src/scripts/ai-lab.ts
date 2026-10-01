@@ -109,6 +109,7 @@ if(root){
  }
  function setControls(){
   const disabled=!state.available||state.pending;
+  submitButton.textContent=state.pending?'Working…':state.mode==='ic_challenge'?'Send to committee':'Send question';
   for(const control of [...modeButtons,...caseSelects, ...appRoot.querySelectorAll<HTMLButtonElement>('[data-command]')])control.disabled=state.pending;
   startButton.disabled=disabled;completeButton.disabled=disabled;submitButton.disabled=disabled;
   textarea.disabled=disabled;
@@ -123,7 +124,21 @@ if(root){
   emptyState.hidden=true;
   const article=document.createElement('article');article.className='ai-message';article.dataset.role=role;
   appendTextBlock(article,'span',role==='user'?'You':state.mode==='ic_challenge'?'Investment committee':'Acquisition Companion instructor','ai-message-label');
-  appendTextBlock(article,'p',text,'ai-message-text');conversation.append(article);
+  appendTextBlock(article,'p',text,'ai-message-text');conversation.append(article);return article;
+ }
+ function addLoadingTurn(){
+  emptyState.hidden=true;
+  const article=document.createElement('article');article.className='ai-message';article.dataset.role='assistant';article.dataset.loading='true';article.setAttribute('role','status');article.setAttribute('aria-live','polite');article.setAttribute('aria-atomic','true');
+  appendTextBlock(article,'span',state.mode==='ic_challenge'?'Investment committee':'Acquisition Companion instructor','ai-message-label');
+  const text=document.createElement('p');text.className='ai-message-text';const copy=document.createElement('span');copy.dataset.loadingCopy='';copy.textContent='Thinking…';const indicator=document.createElement('span');indicator.className='ai-loading-indicator';indicator.dataset.loadingIndicator='';indicator.setAttribute('aria-hidden','true');text.append(copy,indicator);article.append(text);conversation.append(article);
+  const timers=[window.setTimeout(()=>{if(article.isConnected)copy.textContent='Still working…';},8_000),window.setTimeout(()=>{if(article.isConnected)copy.textContent='This response is taking a little longer than usual…';},15_000)];
+  return {article,timers};
+ }
+ function finishLoadingTurn(loading:{article:HTMLElement;timers:number[]},responseText?:string){
+  for(const timer of loading.timers)window.clearTimeout(timer);
+  if(typeof responseText!=='string'){loading.article.remove();return;}
+  loading.article.removeAttribute('role');loading.article.removeAttribute('aria-live');loading.article.removeAttribute('aria-atomic');delete loading.article.dataset.loading;
+  const text=loading.article.querySelector<HTMLElement>('.ai-message-text');if(text)text.replaceChildren(document.createTextNode(responseText));
  }
  function safeArray(value:unknown):string[]{return Array.isArray(value)?value.filter((item):item is string=>typeof item==='string').slice(0,4):[];}
  function renderFeedback(value:Record<string,unknown>|null){
@@ -200,7 +215,7 @@ if(root){
   return history;
  }
  function caseMeta():Record<string,string|number>{const card=selectedCard();return card?{case_id:card.id,difficulty:card.difficulty}:{};}
- async function submit(message:string,action?:string,alreadyRendered=false,attempt?:{payload:Record<string,unknown>;message:string;action?:string}){
+ async function submit(message:string,action?:string,alreadyRendered=false,attempt?:{payload:Record<string,unknown>;message:string;action?:string},trigger?:HTMLButtonElement){
   if(!state.available||state.pending)return;
   const payload=attempt?.payload||{
    mode:state.mode,message,history:trimHistory(),
@@ -208,25 +223,25 @@ if(root){
    ...(action?{action}:{}),
   };
   if(!alreadyRendered)addTurn('user',message);
-  state.pending=true;errorBox.hidden=true;announce('Preparing a response…','working');setControls();
+  const triggerLabel=trigger?.textContent||'';state.pending=true;errorBox.hidden=true;const loading=addLoadingTurn();if(trigger)trigger.textContent='Working…';announce('Preparing a response…','working');setControls();
   const requestAttempt={payload,message,action};
-  state.lastAttempt=()=>submit(message,action,true,requestAttempt);
+  state.lastAttempt=()=>submit(message,action,true,requestAttempt,retryButton);
   let response:Response;let body:unknown;
   try{
    const result=await fetchJsonWithTimeout('/api/ai',{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json','X-AI-Session-ID':getSessionId()},body:JSON.stringify(payload)},25_000);
    response=result.response;body=result.body;
   }catch(error){
-   state.pending=false;const timedOut=error instanceof DOMException&&error.name==='AbortError';showError(timedOut?'The response took too long. You can try again.':'AI Deal Lab could not reach its service. Check your connection and try again.',timedOut?'timeout':'network');setControls();return;
+   state.pending=false;finishLoadingTurn(loading);const timedOut=error instanceof DOMException&&error.name==='AbortError';showError(timedOut?'The response took too long. You can try again.':'AI Deal Lab could not reach its service. Check your connection and try again.',timedOut?'timeout':'network');setControls();if(trigger)trigger.textContent=triggerLabel;return;
   }
   const result=body&&typeof body==='object'?body as ApiResult:{};
   state.pending=false;
   if(!response.ok||typeof result.responseText!=='string'){
    const code=result.error?.code||'unavailable';
    const messageText=code==='rate_limited'?'AI Deal Lab is receiving too many requests. Wait about a minute, then try again.':code==='response_too_long'?'The explanation reached its response limit. Please try again.':code==='timeout'?'The response took too long. You can try again.':code==='message_too_large'?'That message is too long. Shorten it and try again.':code==='invalid_history'?'This conversation reached its context limit. Start a new session to continue.':response.status===503?'AI Deal Lab is unavailable right now. It may still be in setup. Please try again shortly.':result.error?.message||'AI Deal Lab could not prepare a response. Please try again.';
-   showError(messageText,code);setControls();return;
+   finishLoadingTurn(loading);showError(messageText,code);setControls();if(trigger)trigger.textContent=triggerLabel;return;
   }
   state.history.push({role:'user',content:message},{role:'assistant',content:result.responseText});state.history=state.history.slice(-8);
-  addTurn('assistant',result.responseText);
+  finishLoadingTurn(loading,result.responseText);
   if(result.case)renderCaseResponse(result.case);
   renderSources(Array.isArray(result.citations)?result.citations:[],result.case&&Array.isArray((result.case as Record<string,unknown>).lessonRefs)?(result.case as Record<string,unknown>).lessonRefs as unknown[]:[]);
   renderFeedback(result.feedback&&typeof result.feedback==='object'?result.feedback:null);
@@ -235,7 +250,7 @@ if(root){
   if(state.mode==='ic_challenge'&&action==='start')analytics('ic_challenge_start',caseMeta());
   if(action==='complete')analytics(state.mode==='deal_lab'?'deal_lab_complete':'ic_challenge_complete',{...caseMeta(),completion_status:'complete'});
   if(state.mode==='ask_course')analytics('ai_question',{mode:'ask_course'});
-  state.lastAttempt=null;textarea.value='';announce('Response ready.');resetButton.hidden=false;setControls();
+  state.lastAttempt=null;textarea.value='';announce('Response ready.');resetButton.hidden=false;setControls();if(trigger)trigger.textContent=triggerLabel;
  }
  function showError(message:string,code:string){
   errorMessage.textContent=message;errorBox.hidden=false;retryButton.hidden=code==='rate_limited'||code==='response_too_long';announce(code==='rate_limited'?'Rate limit reached. Please wait before continuing.':code==='unavailable'?'AI Deal Lab is currently unavailable.':'There was a problem preparing your response.',code==='rate_limited'?'unavailable':'error');
@@ -263,10 +278,10 @@ if(root){
  }));
  for(const command of root.querySelectorAll<HTMLButtonElement>('[data-command]'))command.addEventListener('click',()=>{
   const action=command.dataset.command||'message';const commands:Record<string,string>={hint:'Give me a hint',explain:'Explain this',what_did_i_miss:'What did I miss?',challenge_assumptions:'Challenge my assumptions',reveal_next:'Reveal the next stage',show_answer:'Show the answer',complete:'Complete the IC Challenge'};
-  void submit(commands[action]||'Continue.',action);
+  void submit(commands[action]||'Continue.',action,false,undefined,command);
  });
- startButton.addEventListener('click',()=>void submit(state.mode==='ic_challenge'?'Start the IC Challenge.':'Start the case.','start'));
- form.addEventListener('submit',event=>{event.preventDefault();const message=textarea.value.trim();if(message)void submit(message);});
+ startButton.addEventListener('click',()=>void submit(state.mode==='ic_challenge'?'Start the IC Challenge.':'Start the case.','start',false,undefined,startButton));
+ form.addEventListener('submit',event=>{event.preventDefault();const message=textarea.value.trim();if(message)void submit(message,undefined,false,undefined,submitButton);});
  retryButton.addEventListener('click',()=>{if(state.lastAttempt)void state.lastAttempt();});
  resetButton.addEventListener('click',newSession);
  renderMode();
