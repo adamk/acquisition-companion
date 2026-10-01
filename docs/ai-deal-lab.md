@@ -36,6 +36,28 @@ npm run test:ai-browser
 
 Browser AI tests mock `/api/ai`; they do not call OpenAI. `artifacts/ai-corpus/` and other build/test artifacts are ignored by Git. `npm run build` includes tests, Astro checks, Pagefind, internal-link validation, and public-output scans.
 
+### Analytical responses and practice inputs
+
+Ask the Course uses an evidence-first analytical policy: useful facts and calculations, their implications, validation needs, then specific next inputs. It does not infer purchasing power from an unrelated course capital stack or assume an offer must be below asking. Course claims still require File Search; user-reported facts, arithmetic and assumptions are labeled separately. There is no web search or universal lender-approval threshold.
+
+The stateless server helper in `src/lib/deal-analysis.mjs` recognizes narrowly labeled practice figures from the current message and bounded **user** history. It never treats assistant examples as inputs or runs in synthetic-case modes. It computes valuation, add-back shares, funding gaps, level-payment debt service, cash bridges, coverage and downside scenarios where enough inputs exist. Liquidity is not deployed equity; absent cash deductions are not zero. Conflicting values need clarification; an explicitly `Corrected`/`Updated`/`Revised` labeled amount replaces the earlier amount. Starting a message with `New deal` clears prior deal context sent to the model. Mode/case changes retain their existing session resets. Facts outside the bounded history are not remembered.
+
+Amounts use an explicit currency symbol with optional `k`, `thousand`, `m` or `million`. Ranges, question-form amounts, negated/quoted/example figures, mixed currency symbols and ambiguous wording are not promoted into deterministic facts. Extraction is a convenience, not a complete natural-language financial parser or verification of user assertions. The instructor can explain explicit arithmetic on other unequivocal supplied facts, or ask for a labeled worksheet. Enterprise value is not automatically treated as equity purchase consideration.
+
+A fictional debt worksheet can use:
+
+```text
+Senior loan: $1m; senior rate: 6%; senior amortization: 10 years;
+senior payments: monthly; seller note: $200k; seller rate: 5%;
+seller payments: interest-only; cash flow before debt service: $200k.
+```
+
+Alternatively provide normalized EBITDA plus explicit maintenance capex, annual working-capital investment, cash taxes, replacement compensation and other recurring obligations, including explicit zero where applicable. Payment frequency is required for amortizing loans. Level-payment math excludes fees and balloons; interest-only math excludes principal repayment at maturity. Coverage is mathematical, not approval for a financing program. Earnings stress holds supplied deductions fixed; directly supplied cash-flow stress reduces that cash-flow amount. Conflicting reported and calculated cash bridges suppress coverage until reconciled. Closing sources-and-uses totals require all component amounts and assume purchase consideration is payable at closing; contingent earnouts are not closing funding.
+
+Private CIMs, financial packages and document uploads remain prohibited. For diligence practice, paste only permitted public, fictional or demo excerpts within the existing 1,500-character limit. Findings distinguish confirmed concerns, diligence questions and missing information, with excerpt/row evidence, implications and seller/broker questions. Nothing is added to the curriculum or vector store from a conversation.
+
+Regression tests cover purchasing power, valuation/add-backs, debt underwriting, a fictional excerpt and offer structure. `tests/deal-analysis.test.mjs` tests numerical results; `tests/ai-api.test.mjs` checks the actual model request policy, context boundaries and unchanged safeguards. Mocked provider fixtures prove wiring, **not** live model compliance. For live review, use authorized ignored local runtime settings, run the Worker locally, and exercise those five workflows in `/ai/`, including a debt worksheet and a new-deal reset. Review the visible answer, citations and distinctions between facts, calculations and uncertainty. Never log prompts/responses or put credentials in terminal arguments, screenshots, tracked files or build variables. Live evaluation is a separate required check before declaring model behavior verified.
+
 ## AI curriculum corpus
 
 The corpus generator reads only:

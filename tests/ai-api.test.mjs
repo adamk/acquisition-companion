@@ -243,6 +243,37 @@ test('multi-part Ask the Course request uses its teaching budget and returns onl
   assert.match(requestBody.instructions,/current lending conditions or universal capital minimums/);
 });
 
+test('analytical policy covers five canonical workflows without changing API, privacy or retrieval controls',async()=>{
+ const handleAiRequest=await loadApi();
+ const context=[{role:'user',content:'Asking price: $2.5m; adjusted EBITDA: $700k; add-backs: $150k; buyer liquidity: $150k.'}];
+ const scenarios=[
+  {message:'I have $150,000 available to invest. What size business could I realistically buy, and how could I finance it?',history:[],check(body){assert.match(body.instructions,/Never scale the user's cash/);assert.match(body.instructions,/retained reserves, fees, working capital/);}},
+  {message:'This business is asking $2.5 million. It has $700,000 of stated adjusted EBITDA, including $150,000 of add-backs. Is the price reasonable?',history:[],check(body){assert.match(body.instructions,/550000/);assert.match(body.instructions,/21\.428571/);assert.match(body.instructions,/Invite a permitted public\/fictional add-back schedule/);}},
+  {message:'Can this business actually support the debt required to buy it?',history:context,check(body){assert.match(body.instructions,/EBITDA is not debt capacity/);assert.match(body.instructions,/payment frequency and maturity\/balloon/);assert.match(body.instructions,/Never invent a universal approval threshold/);assert.equal(body.input[0].content[0].text,context[0].content);}},
+  {message:'Fictional demo excerpt, row A: revenue fell from $1m to $800k. Row B: one customer supplies 45% of sales. Broker narrative: no concentration risk. What are the biggest red flags and questions before an offer?',history:[],check(body){for(const value of ['Confirmed concern','Requires diligence','Missing information','exact excerpt/row evidence','prohibits confidential','no uploads'])assert.ok(body.instructions.includes(value));assert.ok(body.input.at(-1).content[0].text.includes('Fictional demo excerpt'));}},
+  {message:'I like this business. What should I offer, and how should I structure the deal?',history:context,check(body){assert.match(body.instructions,/no default discount to asking/);assert.match(body.instructions,/below, at or above asking/);assert.match(body.instructions,/Reconcile sources and uses/);assert.match(body.instructions,/Fixed deferred consideration/);}},
+ ];
+ for(const scenario of scenarios){
+  let calls=0;
+  const response=await handleAiRequest(request(askPayload(scenario)),readyEnv(),{fetcher:async(_url,init)=>{
+   calls++;const body=JSON.parse(init.body);scenario.check(body);
+   assert.equal(body.store,false);assert.equal(body.tool_choice,'required');assert.equal(body.tools.length,1);assert.equal(body.tools[0].max_num_results,4);assert.equal(body.reasoning.effort,'low');assert.equal(body.max_output_tokens,1152);
+   return modelOutput({responseText:'Permitted fixture response; this test checks request policy, not model reasoning.'});
+  }});
+  assert.equal(response.status,200);assert.equal(calls,1);
+ }
+});
+
+test('new-deal boundaries remove old model context, and synthetic modes never receive the user-analysis policy',async()=>{
+ const handleAiRequest=await loadApi();
+ let body;
+ const fetcher=async(_url,init)=>{body=JSON.parse(init.body);return modelOutput();};
+ await handleAiRequest(request(askPayload({message:'New deal. Asking price: $800k.',history:[{role:'user',content:'Asking price: $2m; adjusted EBITDA: $500k.'},{role:'assistant',content:'Earlier deal analysis.'}]})),readyEnv(),{fetcher});
+ assert.equal(body.input.length,1);assert.equal(body.instructions.includes('500000'),false);
+ await handleAiRequest(request({mode:'deal_lab',message:'Start case',history:[],caseId:'bluejay-field-services',caseStage:0,action:'start'}),readyEnv(),{fetcher});
+ assert.equal(body.instructions.includes('Server analysis'),false);assert.match(body.instructions,/Never invent or recompute canonical case numbers/);
+});
+
 test('Bluejay start and show answer use distinct budgets without unused feedback fields', async () => {
   const handleAiRequest=await loadApi();
   const requestBodies=[];
