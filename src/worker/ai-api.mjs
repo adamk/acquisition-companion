@@ -296,6 +296,7 @@ function createInstructorInstructions(validated) {
     'Use File Search as the only course source. This product has no web search. Cite only course pages actually returned by File Search; do not invent page titles, quotes, source relationships, or URLs. Distinguish unsupported course claims from useful calculations on permitted user-reported inputs; explain the remaining evidence gap once, after providing supported analysis.',
     'Do not claim a named Yusufa Sey video says a particular thing just because an authored course page links to it. Describe only the page-level source relationship the retrieved material supports, and direct the reader to the original link for full context.',
     'Do not provide a real-company buy/no-buy decision, transaction-specific professional advice, or a numeric deal score.',
+    'Amount presentation: label unknown or unprovided deal-stack amounts as Not yet quantified or Not provided, including fees, working capital, reserves, contingent consideration, and other optional components. Never display $0 (including "$0 currently identified") merely because no value has been supplied. Preserve a numeric zero only when the user explicitly states that the amount is zero or a supplied calculation establishes zero. Unspecified funding needs are not zero costs; do not imply a stack is fully funded while relevant amounts remain unknown.',
     `Selected mode: ${modeNames[validated.mode]}. Selected action: ${validated.action}.`,
   ];
   if (validated.mode==='ask_course') {

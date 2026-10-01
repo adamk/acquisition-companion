@@ -275,6 +275,38 @@ test('new-deal boundaries remove old model context, and synthetic modes never re
  assert.equal(body.instructions.includes('Server analysis'),false);assert.match(body.instructions,/Never invent or recompute canonical case numbers/);
 });
 
+test('deal-stack presentation distinguishes missing amounts, explicit zeroes and calculated zeroes',async()=>{
+ const handleAiRequest=await loadApi();
+ const components={fees:'Fees',closingWorkingCapital:'Working capital',postCloseReserve:'Reserve',otherFinancing:'Other financing'};
+ const scenarios=[
+  {facts:'Purchase price: $1m; buyer equity: $200k.',zeroFields:[],reply:'Fees: Not yet quantified\nWorking capital: Not provided\nReserve: Not yet quantified\nContingent consideration: Not provided\nOther financing: Not provided'},
+  {facts:'Purchase price: $1m; buyer equity: $200k; fees: $0; closing working-capital funding: $0; post-close reserve: $0; other financing: $0; contingent consideration: $0.',zeroFields:Object.keys(components),reply:'Fees: $0\nWorking capital: $0\nReserve: $0\nContingent consideration: $0\nOther financing: $0'},
+  {facts:'Purchase price: $1m; buyer equity: $200k; senior loan: $800k; seller note: $100k; fees: $20k; closing working-capital funding: $30k; post-close reserve: $50k; other financing: $0.',zeroFields:['otherFinancing'],calculatedZero:true,reply:'Fees: $20,000\nWorking capital: $30,000\nReserve: $50,000\nContingent consideration: Not provided\nOther financing: $0\nCalculated closing funding gap: $0'},
+ ];
+ for(const scenario of scenarios){
+  let calls=0;
+  const response=await handleAiRequest(request(askPayload({message:'How should I structure the deal?',history:[{role:'user',content:scenario.facts}]})),readyEnv(),{fetcher:async(_url,init)=>{
+   calls++;const body=JSON.parse(init.body);
+   assert.match(body.instructions,/unknown or unprovided deal-stack amounts.*Not yet quantified.*Not provided/);
+   assert.match(body.instructions,/Never display \$0.*no value has been supplied/);
+   assert.match(body.instructions,/Preserve a numeric zero only when.*explicitly states.*calculation establishes zero/);
+   for(const label of ['fees','working capital','reserves','contingent consideration','other optional components'])assert.ok(body.instructions.includes(label));
+   const data=JSON.parse(body.instructions.split('Server analysis (')[1].split('): ')[1]);
+   for(const field of scenario.zeroFields)assert.equal(data.userReported[field],0);
+   if(!scenario.zeroFields.length){
+    for(const field of Object.keys(components))assert.equal(Object.hasOwn(data.userReported,field),false,field);
+    assert.equal(data.calculated.totalClosingUses,undefined,'missing uses are not summed as zero');
+   }
+   if(scenario.calculatedZero)assert.equal(data.calculated.closingFundingGap.value,0);
+   assert.equal(body.max_output_tokens,1400,'presentation correction leaves the offer budget unchanged');
+   return modelOutput({responseText:scenario.reply});
+  }});
+  assert.equal(response.status,200);assert.equal(calls,1);
+  const result=await readJson(response);assert.equal(result.responseText,scenario.reply);
+  if(!scenario.zeroFields.length)assert.equal(result.responseText.includes('$0'),false);
+ }
+});
+
 test('complex production scenarios receive compact profiles and complete with grounded mocked answers',async()=>{
  const handleAiRequest=await loadApi();
  const history=[{role:'user',content:valuation}];
