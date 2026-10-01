@@ -222,7 +222,7 @@ if(root){
   state.pending=false;
   if(!response.ok||typeof result.responseText!=='string'){
    const code=result.error?.code||'unavailable';
-   const messageText=code==='rate_limited'?'AI Deal Lab is receiving too many requests. Wait about a minute, then try again.':code==='timeout'?'The response took too long. You can try again.':code==='message_too_large'?'That message is too long. Shorten it and try again.':code==='invalid_history'?'This conversation reached its context limit. Start a new session to continue.':response.status===503?'AI Deal Lab is unavailable right now. It may still be in setup. Please try again shortly.':result.error?.message||'AI Deal Lab could not prepare a response. Please try again.';
+   const messageText=code==='rate_limited'?'AI Deal Lab is receiving too many requests. Wait about a minute, then try again.':code==='response_too_long'?'The explanation reached its response limit. Please try again.':code==='timeout'?'The response took too long. You can try again.':code==='message_too_large'?'That message is too long. Shorten it and try again.':code==='invalid_history'?'This conversation reached its context limit. Start a new session to continue.':response.status===503?'AI Deal Lab is unavailable right now. It may still be in setup. Please try again shortly.':result.error?.message||'AI Deal Lab could not prepare a response. Please try again.';
    showError(messageText,code);setControls();return;
   }
   state.history.push({role:'user',content:message},{role:'assistant',content:result.responseText});state.history=state.history.slice(-8);
@@ -238,7 +238,7 @@ if(root){
   state.lastAttempt=null;textarea.value='';announce('Response ready.');resetButton.hidden=false;setControls();
  }
  function showError(message:string,code:string){
-  errorMessage.textContent=message;errorBox.hidden=false;retryButton.hidden=code==='rate_limited';announce(code==='rate_limited'?'Rate limit reached. Please wait before continuing.':code==='unavailable'?'AI Deal Lab is currently unavailable.':'There was a problem preparing your response.',code==='rate_limited'?'unavailable':'error');
+  errorMessage.textContent=message;errorBox.hidden=false;retryButton.hidden=code==='rate_limited'||code==='response_too_long';announce(code==='rate_limited'?'Rate limit reached. Please wait before continuing.':code==='unavailable'?'AI Deal Lab is currently unavailable.':'There was a problem preparing your response.',code==='rate_limited'?'unavailable':'error');
  }
  function newSession(){
   state.history=[];state.caseStage=0;state.caseData=null;state.lastAttempt=null;conversation.replaceChildren();emptyState.hidden=false;conversation.append(emptyState);clearSources();clearFeedback();errorBox.hidden=true;resetButton.hidden=true;renderMode();announce(state.available?'AI Deal Lab is ready.':'AI Deal Lab is being configured.',state.available?'ready':'unavailable');

@@ -23,11 +23,12 @@ const calls=[];const failures=new Map();
 await context.route('**/api/ai',async route=>{
  const payload=route.request().postDataJSON();calls.push(payload);
  if(payload.message==='trigger 429')return route.fulfill({status:429,contentType:'application/json',body:JSON.stringify({error:{code:'rate_limited',message:'Too many requests.'}})});
+ if(payload.message==='response too long')return route.fulfill({status:502,contentType:'application/json',body:JSON.stringify({error:{code:'response_too_long',message:'Provider incomplete_details: max_output_tokens'}})});
  if(payload.message==='service down'){
   const attempt=(failures.get(payload.message)||0)+1;failures.set(payload.message,attempt);
   if(attempt===1)return route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:{code:'unavailable',message:'Unavailable.'}})});
  }
- const result={responseText:payload.message==='Start the case.'||payload.message==='Start the IC Challenge.'?'Before accepting the price, what would you verify?':payload.action==='complete'?'Here is your qualitative committee debrief.':payload.action==='show_answer'?'Here are the deterministic case figures.':'<img src=x onerror=window.__aiInjected=true> The curriculum frames this as a question of evidence.',citations:[{title:'Valuing a small business',url:'https://acquisitioncompanion.com/course/valuing-a-small-business/',contentType:'lesson',sourceFamilies:['Acquisition Companion original synthesis'],originalSources:[{family:'Yusufa Sey',title:'Original public lesson source',url:'https://www.youtube.com/watch?v=example123'}]}],suggestedActions:['explain'],case:null,calculations:null,feedback:null};
+ const result={responseText:payload.message==='Start the case.'||payload.message==='Start the IC Challenge.'?'Before accepting the price, what would you verify?':payload.action==='complete'?'Here is your qualitative committee debrief.':payload.action==='show_answer'?'Here are the deterministic case figures.':'<img src=x onerror=window.__aiInjected=true> The curriculum frames this as a question of evidence.',citations:[{title:'Valuing a small business',url:`${base}/course/valuing-a-small-business/`,contentType:'lesson',sourceFamilies:['Acquisition Companion original synthesis'],originalSources:[{family:'Yusufa Sey',title:'Original public lesson source',url:'https://www.youtube.com/watch?v=example123'}]}],suggestedActions:['explain'],case:null,calculations:null,feedback:null};
  if(payload.mode!=='ask_course'){
   const stage=payload.action==='show_answer'?3:1;
   result.case={id:payload.caseId,title:payload.caseId==='aster-forge-components'?'Aster Forge Components':'Bluejay Field Services',difficulty:payload.caseId==='aster-forge-components'?'intermediate':'beginner',industry:'Synthetic practice industry',description:'An original fictional practice case.',stage,stageCount:3,stageLabel:stage===1?'First look':'Downside and diligence',facts:[{id:'financial-snapshot',label:'Revenue and reported EBITDA',value:'Revenue $2,400,000; reported EBITDA $420,000.',stageLabel:'First look'},...(stage===3?[{id:'downside-inputs',label:'Downside',value:'A fictional downside case.',stageLabel:'Downside and diligence'}]:[])],lessonRefs:[{title:'Customer concentration',url:'/topics/customer-concentration/'},{title:'Valuing a small business',url:'/course/valuing-a-small-business/'}]};
@@ -76,6 +77,10 @@ await page.getByRole('alert').getByText(/Wait about a minute/).waitFor();assert.
 await page.locator('#ai-message').fill('service down');await page.getByRole('button',{name:'Send question'}).click();
 await page.locator('[data-retry]').waitFor({state:'visible'});await page.getByRole('button',{name:'Retry'}).click();
 await page.getByText(/The curriculum frames this as a question of evidence/).last().waitFor();
+await page.locator('#ai-message').fill('response too long');await page.getByRole('button',{name:'Send question'}).click();
+await page.getByRole('alert').getByText('The explanation reached its response limit. Please try again.',{exact:true}).waitFor();
+assert.equal(await page.locator('[data-retry]').isVisible(),false,'do not offer a paid retry of the unchanged overlong request');
+assert.equal(await page.getByRole('alert').getByText(/max_output_tokens/).count(),0);
 assert.ok(calls.length>=7);assert.ok(calls.every(payload=>!JSON.stringify(payload).includes('ac-ai-session-id')));
 assert.deepEqual(external,[]);
 const storage=await page.evaluate(()=>({local:Object.keys(localStorage),session:Object.keys(sessionStorage),sessionValues:Object.values(sessionStorage)}));
