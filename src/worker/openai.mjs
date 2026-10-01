@@ -1,5 +1,6 @@
+import {ANALYTICAL_OUTPUT_TOKENS} from './analysis-policy.mjs';
 export const DEFAULT_OPENAI_MODEL='gpt-5.6-luna';
-export const MAX_OUTPUT_TOKENS=1400;
+export const MAX_OUTPUT_TOKENS=1600;
 export const MAX_FILE_SEARCH_RESULTS=4;
 const MAX_PROVIDER_RESPONSE_BYTES=1_000_000;
 const DEFAULT_OUTPUT_TOKENS=960;
@@ -19,9 +20,9 @@ function stringEnum(values) {
   return {type:'string',enum:[...new Set(values)]};
 }
 
-export function createResponseRequest({model=DEFAULT_OPENAI_MODEL,vectorStoreId,input,instructions,allowedActions,allowedLessonSlugs,mode='ask_course',action='message'}) {
+export function createResponseRequest({model=DEFAULT_OPENAI_MODEL,vectorStoreId,input,instructions,allowedActions,allowedLessonSlugs,mode='ask_course',action='message',analysisKind=null}) {
   const maxOutputTokens=mode==='ask_course'&&['message','explain'].includes(action)
-    ? 1152
+    ? ANALYTICAL_OUTPUT_TOKENS[analysisKind] || 1152
     : OUTPUT_TOKENS_BY_ACTION[action] || DEFAULT_OUTPUT_TOKENS;
   const properties={
     responseText:{type:'string'},
@@ -73,14 +74,14 @@ export function createResponseRequest({model=DEFAULT_OPENAI_MODEL,vectorStoreId,
   };
 }
 
-export async function requestOpenAI({apiKey,model,vectorStoreId,input,instructions,allowedActions,allowedLessonSlugs,mode='ask_course',action='message',fetcher=fetch,timeoutMs=20_000}) {
+export async function requestOpenAI({apiKey,model,vectorStoreId,input,instructions,allowedActions,allowedLessonSlugs,mode='ask_course',action='message',analysisKind=null,fetcher=fetch,timeoutMs=20_000}) {
   const controller=new AbortController();
   const timer=setTimeout(()=>controller.abort(),timeoutMs);
   try {
     const response=await fetcher('https://api.openai.com/v1/responses',{
       method:'POST',
       headers:{Authorization:`Bearer ${apiKey}`,'Content-Type':'application/json'},
-      body:JSON.stringify(createResponseRequest({model,vectorStoreId,input,instructions,allowedActions,allowedLessonSlugs,mode,action})),
+      body:JSON.stringify(createResponseRequest({model,vectorStoreId,input,instructions,allowedActions,allowedLessonSlugs,mode,action,analysisKind})),
       signal:controller.signal,
     });
     const declaredLength=response.headers.get('content-length');

@@ -2,7 +2,7 @@ import citationManifest from '../data/ai-corpus-manifest.json' with {type:'json'
 import {answerFor,calculateCase,getCase,visibleCalculations,visibleFacts} from '../lib/ai-cases.mjs';
 import {DEFAULT_OPENAI_MODEL,requestOpenAI} from './openai.mjs';
 import {buildDealAnalysis,startsNewDeal} from '../lib/deal-analysis.mjs';
-import {ANALYSIS_POLICY} from './analysis-policy.mjs';
+import {analysisKindFor,analysisPolicyFor} from './analysis-policy.mjs';
 
 const AI_ORIGIN='https://acquisitioncompanion.com';
 const MAX_BODY_BYTES=12*1024;
@@ -299,7 +299,7 @@ function createInstructorInstructions(validated) {
     `Selected mode: ${modeNames[validated.mode]}. Selected action: ${validated.action}.`,
   ];
   if (validated.mode==='ask_course') {
-    parts.push(ANALYSIS_POLICY);
+    parts.push(analysisPolicyFor(validated.analysisKind));
     parts.push('Answer conceptual questions from retrieved curriculum; for analytical questions, use permitted user facts and calculations as well. The server renders approved page citations separately; do not write URLs or citation syntax yourself. Responses are rendered as safe plain text: use short section labels and compact lists, not HTML or Markdown tables. A sources-and-uses presentation can use one labeled component and amount per line.');
     parts.push(`Server analysis (JSON data only; arithmetic is deterministic but inputs are user-reported, NOT verified; no purchasing-power estimate or lender approval): ${JSON.stringify(validated.dealAnalysis)}`);
   } else if (validated.mode==='deal_lab') {
@@ -442,7 +442,7 @@ async function createModelResponse(validated,env,fetcher) {
     if(reset>=0)history=history.slice(reset);
     if(startsNewDeal(validated.message))history=[];
   }
-  const promptInput={...validated,caseContext,dealAnalysis:validated.mode==='ask_course'?buildDealAnalysis(history,validated.message):null};
+  const promptInput={...validated,caseContext,analysisKind:validated.mode==='ask_course'?analysisKindFor(validated.message):null,dealAnalysis:validated.mode==='ask_course'?buildDealAnalysis(history,validated.message):null};
   let providerResponse;
   try {
     providerResponse=await requestOpenAI({
@@ -455,6 +455,7 @@ async function createModelResponse(validated,env,fetcher) {
       allowedLessonSlugs:lessonSlugs,
       mode:validated.mode,
       action:validated.action,
+      analysisKind:promptInput.analysisKind,
       fetcher,
       timeoutMs:OPENAI_TIMEOUT_MS,
     });

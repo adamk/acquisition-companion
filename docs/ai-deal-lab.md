@@ -58,6 +58,23 @@ Private CIMs, financial packages and document uploads remain prohibited. For dil
 
 Regression tests cover purchasing power, valuation/add-backs, debt underwriting, a fictional excerpt and offer structure. `tests/deal-analysis.test.mjs` tests numerical results; `tests/ai-api.test.mjs` checks the actual model request policy, context boundaries and unchanged safeguards. Mocked provider fixtures prove wiring, **not** live model compliance. For live review, use authorized ignored local runtime settings, run the Worker locally, and exercise those five workflows in `/ai/`, including a debt worksheet and a new-deal reset. Review the visible answer, citations and distinctions between facts, calculations and uncertainty. Never log prompts/responses or put credentials in terminal arguments, screenshots, tracked files or build variables. Live evaluation is a separate required check before declaring model behavior verified.
 
+### Compact analytical answers and continuity
+
+The server derives an internal response profile from the current question; the public mode/action contract is unchanged. Only the selected workflow guidance is added, with a compact answer shape and minimum useful sources. Retrieved course examples need not be repeated. File Search remains mandatory with four results, strict output and local citation allowlisting.
+
+| Ask-the-Course message/explain profile | Output-token ceiling | Visible answer target |
+| --- | ---: | --- |
+| Debt capacity | 1,600 | 300 words; debt service and two earnings sensitivities, interpretation and exclusions |
+| Diligence | 1,600 | 350 words; up to five material concerns and five unresolved items, tied questions |
+| Offer/structure | 1,400 | 250 words; valuation basis, justified stack and 2–4 remaining decisions |
+| Ordinary, purchasing power, valuation | 1,152 | 250 words; relevant analysis and next inputs |
+
+These are conservative initial ceilings, not proof of live-model completion or hard word limits. All other action budgets are unchanged (hint 576, start 768, ordinary synthetic message 960, explain 1,152, review/challenge/reveal 896, show answer/complete 1,400). Output budgets include reasoning and visible output. There is one paid provider call per request: an incomplete `max_output_tokens` response is never presented as a completed answer and still produces the safe `response_too_long` error. No automatic recovery call is made because it could double cost and exceed the existing timeout.
+
+Explicit `Assume…` financing scenarios and named loan terms can supply deterministic conditional debt sensitivities. Monthly senior payments, when unspecified, are an explicitly labeled illustration rather than a user fact. Coverage on stated/pre-add-back earnings is kept separate from validated normalized cash flow; unspecified taxes, working-capital changes and recurring obligations are visibly excluded. Confirm compensation is not already deducted and seller principal/later payment terms separately. Conflicting terms suppress these scenarios. The ordinary calculator still requires supplied deductions and payment frequency for validated cash bridges.
+
+The browser retains each submitted user turn once, including failed or timed-out requests, without fabricating an assistant response. Retries reuse the captured request and do not append another user turn. History stays in memory and within the existing caps; older assistant explanations are trimmed before user facts when the payload exceeds its size cap. New session/mode/case boundaries still reset history, and `New deal` resets server context.
+
 ## AI curriculum corpus
 
 The corpus generator reads only:
@@ -108,8 +125,8 @@ Workers Builds build-time values remain distinct: `SITE_URL` and optional public
 - `AI_ENABLED` must equal `true`; absent or different values disable model calls.
 - `POST /api/ai` accepts only `ask_course`, `deal_lab`, or `ic_challenge`, JSON, same-origin browser requests, and known fields.
 - Body maximum is 12 KiB; the current message is at most 1,500 Unicode characters.
-- The browser keeps text in memory for the active page only. It sends no more than eight history messages, four preceding turn pairs, 4,500 history characters total, and 1,200 characters per entry. Its random rate-limit token is kept in `sessionStorage`; prompts and responses are not persisted by this site.
-- The Worker adds a 20-second OpenAI timeout, a 1 MB provider-response body limit, a 6,000-character response-text limit, at most four File Search results, and at most 640 output tokens.
+- The browser keeps text in memory for the active page only. It sends no more than eight history messages (failed user turns may have no assistant pair), 4,500 history characters total, and 1,200 characters per entry, with its existing 3,000-byte serialized-history cap. Its random rate-limit token is kept in `sessionStorage`; prompts and responses are not persisted by this site.
+- The Worker adds a 20-second OpenAI timeout, a 1 MB provider-response body limit, a 6,000-character response-text limit, at most four File Search results, and bounded action/profile output ceilings shown above (maximum 1,600).
 - OpenAI receives `store: false` and only the required File Search tool pointed at the approved course vector store. The Worker rejects responses without a completed File Search call. No web-search tool, arbitrary file inputs, document uploads, or data-room retrieval are enabled.
 - The Worker does not log prompts, responses, session IDs, API keys, or Turnstile secrets. Unknown returned filenames are omitted; course and original-source links are built from the local metadata allowlist.
 - Responses can still contain inaccurate explanation. Citations identify public retrieved pages, not independent validation of a transaction claim. Synthetic case arithmetic is calculated in code and returned as case truth only from that code.

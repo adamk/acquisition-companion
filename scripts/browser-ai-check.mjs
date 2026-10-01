@@ -2,6 +2,7 @@ import {chromium} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {valuation,debt,offer} from '../tests/fixtures/analysis-scenarios.mjs';
 
 const base=process.env.PREVIEW_URL||'http://127.0.0.1:4321';
 await fs.promises.mkdir('artifacts',{recursive:true});
@@ -31,6 +32,7 @@ await context.route('**/api/ai',async route=>{
  if(nextGate){const gate=nextGate;nextGate=null;gate.markStarted();await gate.waiting;if(gate.abandon){try{await route.abort()}catch{/* The browser may already have canceled the timed-out request. */}return;}}
  if(payload.message==='trigger 429')return route.fulfill({status:429,contentType:'application/json',body:JSON.stringify({error:{code:'rate_limited',message:'Too many requests.'}})});
  if(payload.message==='response too long')return route.fulfill({status:502,contentType:'application/json',body:JSON.stringify({error:{code:'response_too_long',message:'Provider incomplete_details: max_output_tokens'}})});
+ if(payload.message===debt)return route.fulfill({status:502,contentType:'application/json',body:JSON.stringify({error:{code:'response_too_long',message:'Response limit reached.'}})});
  if(payload.message==='service down'){
   const attempt=(failures.get(payload.message)||0)+1;failures.set(payload.message,attempt);
   if(attempt===1)return route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:{code:'unavailable',message:'Unavailable.'}})});
@@ -142,7 +144,27 @@ assert.equal(await page.locator('[data-feedback-content]').getByRole('link',{nam
 assert.equal(await page.locator('.deal-score').count(),0);
 
 await page.getByRole('button',{name:/Ask the Course/}).click();
+await page.locator('#ai-message').fill(valuation);await page.locator('[data-submit]').click();
+await page.locator('[data-submit]').waitFor({state:'visible'});await page.waitForFunction(()=>!document.querySelector('[data-submit]').disabled);
+assert.deepEqual(calls.at(-1).history,[],'switching modes isolates the deal from the previous IC session');
+const assistantsBeforeFailure=await page.locator('.ai-message[data-role="assistant"]').count();
+await page.locator('#ai-message').fill(debt);await page.locator('[data-submit]').click();
+await page.getByRole('alert').getByText('The explanation reached its response limit. Please try again.',{exact:true}).waitFor();
+assert.equal(await page.locator('.ai-message[data-role="assistant"]').count(),assistantsBeforeFailure,'failed generation adds no fake assistant turn');
+await page.locator('[data-submit]').click();await page.waitForFunction(()=>!document.querySelector('[data-submit]').disabled);
+assert.equal(await page.locator('.ai-message[data-role="user"]').filter({hasText:debt}).count(),1,'manual resubmission of the same failed input does not duplicate the user turn');
+assert.equal(calls.at(-1).history.some(item=>item.content===debt),false,'manual retry also uses the captured request without duplicated financing facts');
+await page.locator('#ai-message').fill(offer);await page.locator('[data-submit]').click();
+await page.waitForFunction(()=>!document.querySelector('[data-submit]').disabled);
+const offerRequest=calls.at(-1);
+assert.equal(offerRequest.message,offer);
+assert.equal(offerRequest.history.filter(item=>item.role==='user'&&item.content===debt).length,1,'failed debt facts reach the subsequent offer exactly once');
+assert.equal(offerRequest.history.filter(item=>item.role==='user'&&item.content===valuation).length,1,'successful valuation facts remain available');
+assert.equal(offerRequest.history.some(item=>item.role==='assistant'&&item.content.includes('Response limit')),false);
+assert.equal(offerRequest.history.some(item=>item.content===offer),false,'current request is not duplicated in history');
+await page.locator('[data-reset]').click();
 await page.locator('#ai-message').fill('trigger 429');await page.getByRole('button',{name:'Send question'}).click();
+await page.getByRole('alert').waitFor();assert.deepEqual(calls.at(-1).history,[],'new session clears all prior deal facts');
 await page.getByRole('alert').getByText(/Wait about a minute/).waitFor();assert.equal(await page.locator('[data-retry]').isVisible(),false);assert.equal(await page.locator('.ai-message[data-loading="true"]').count(),0,'the loading turn is removed on an API error');
 await page.locator('#ai-message').fill('service down');await page.getByRole('button',{name:'Send question'}).click();
 await page.locator('[data-retry]').waitFor({state:'visible'});const retryGate=gateNextResponse();await page.getByRole('button',{name:'Retry'}).click();await retryGate.started;
@@ -151,8 +173,10 @@ assert.equal(await page.locator('.ai-message[data-loading="true"] .ai-message-la
 assert.equal(await page.locator('.ai-message[data-role="user"]').filter({hasText:'service down'}).count(),1,'retry does not duplicate the previous user turn');
 assert.equal(await page.locator('[data-submit]').textContent(),'Working…');assert.equal(await page.locator('[data-submit]').isDisabled(),true);
 retryGate.release();await page.getByText('Recovered after retry.',{exact:true}).waitFor();assert.equal(await page.locator('.ai-message[data-loading="true"]').count(),0);
+assert.equal(calls.at(-1).history.some(item=>item.content==='service down'),false,'retry payload contains the current user request only once');
 assert.equal(await page.locator('.ai-message[data-role="assistant"]').filter({hasText:'Recovered after retry.'}).count(),1,'retry creates only one assistant response');
 await page.locator('#ai-message').fill('response too long');await page.getByRole('button',{name:'Send question'}).click();
+assert.equal(calls.at(-1).history.filter(item=>item.role==='user'&&item.content==='service down').length,1,'retry retains one user fact turn for subsequent requests');
 await page.getByRole('alert').getByText('The explanation reached its response limit. Please try again.',{exact:true}).waitFor();
 assert.equal(await page.locator('[data-retry]').isVisible(),false,'do not offer a paid retry of the unchanged overlong request');
 assert.equal(await page.locator('.ai-message[data-loading="true"]').count(),0,'the loading turn is removed when the API returns an error');
@@ -163,6 +187,9 @@ await page.clock.fastForward(25_000);await page.getByRole('alert').getByText(/re
 assert.equal(await page.locator('.ai-message[data-loading="true"]').count(),0,'the loading turn is removed on timeout');
 assert.equal(await page.locator('[data-submit]').isDisabled(),false);assert.equal(await page.locator('[data-submit]').textContent(),'Send question');
 timeoutGate.abandon=true;timeoutGate.release();
+await page.locator('#ai-message').fill('Continue after the timeout.');await page.locator('[data-submit]').click();
+await page.waitForFunction(()=>!document.querySelector('[data-submit]').disabled);
+assert.equal(calls.at(-1).history.filter(item=>item.role==='user'&&item.content==='timeout this request').length,1,'timed-out user facts also remain available');
 assert.ok(calls.length>=7);assert.ok(calls.every(payload=>!JSON.stringify(payload).includes('ac-ai-session-id')));
 assert.deepEqual(external,[]);
 const storage=await page.evaluate(()=>({local:Object.keys(localStorage),session:Object.keys(sessionStorage),sessionValues:Object.values(sessionStorage)}));

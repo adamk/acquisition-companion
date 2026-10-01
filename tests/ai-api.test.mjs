@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {valuation,debt,diligence,offer} from './fixtures/analysis-scenarios.mjs';
 
 async function loadApi() {
   const imported = await import('../src/worker/ai-api.mjs').catch(() => null);
@@ -253,11 +254,11 @@ test('analytical policy covers five canonical workflows without changing API, pr
   {message:'Fictional demo excerpt, row A: revenue fell from $1m to $800k. Row B: one customer supplies 45% of sales. Broker narrative: no concentration risk. What are the biggest red flags and questions before an offer?',history:[],check(body){for(const value of ['Confirmed concern','Requires diligence','Missing information','exact excerpt/row evidence','prohibits confidential','no uploads'])assert.ok(body.instructions.includes(value));assert.ok(body.input.at(-1).content[0].text.includes('Fictional demo excerpt'));}},
   {message:'I like this business. What should I offer, and how should I structure the deal?',history:context,check(body){assert.match(body.instructions,/no default discount to asking/);assert.match(body.instructions,/below, at or above asking/);assert.match(body.instructions,/Reconcile sources and uses/);assert.match(body.instructions,/Fixed deferred consideration/);}},
  ];
- for(const scenario of scenarios){
+ for(const [index,scenario] of scenarios.entries()){
   let calls=0;
   const response=await handleAiRequest(request(askPayload(scenario)),readyEnv(),{fetcher:async(_url,init)=>{
    calls++;const body=JSON.parse(init.body);scenario.check(body);
-   assert.equal(body.store,false);assert.equal(body.tool_choice,'required');assert.equal(body.tools.length,1);assert.equal(body.tools[0].max_num_results,4);assert.equal(body.reasoning.effort,'low');assert.equal(body.max_output_tokens,1152);
+   assert.equal(body.store,false);assert.equal(body.tool_choice,'required');assert.equal(body.tools.length,1);assert.equal(body.tools[0].max_num_results,4);assert.equal(body.reasoning.effort,'low');assert.equal(body.max_output_tokens,[1152,1152,1600,1600,1400][index]);
    return modelOutput({responseText:'Permitted fixture response; this test checks request policy, not model reasoning.'});
   }});
   assert.equal(response.status,200);assert.equal(calls,1);
@@ -272,6 +273,69 @@ test('new-deal boundaries remove old model context, and synthetic modes never re
  assert.equal(body.input.length,1);assert.equal(body.instructions.includes('500000'),false);
  await handleAiRequest(request({mode:'deal_lab',message:'Start case',history:[],caseId:'bluejay-field-services',caseStage:0,action:'start'}),readyEnv(),{fetcher});
  assert.equal(body.instructions.includes('Server analysis'),false);assert.match(body.instructions,/Never invent or recompute canonical case numbers/);
+});
+
+test('complex production scenarios receive compact profiles and complete with grounded mocked answers',async()=>{
+ const handleAiRequest=await loadApi();
+ const history=[{role:'user',content:valuation}];
+ const scenarios=[
+  {message:debt,history,budget:1600,words:300,check(body,data){
+   assert.match(body.instructions,/Debt service/);assert.match(body.instructions,/both stated adjusted and pre-add-back/);
+   assert.equal(data.userReported.buyerEquity,150000);
+   assert.ok(Math.abs(data.debtScenario.debtService.senior-287262.57778492506)<1e-6);
+   assert.equal(data.debtScenario.debtService.seller,30000);
+   const money=value=>Math.round(value).toLocaleString('en-US');
+   return ['Debt service (illustrative monthly senior payments)',`Senior: $${money(data.debtScenario.debtService.senior)}; seller interest: $30,000; total: $${money(data.debtScenario.debtService.total)} annually.`,
+    'Coverage = earnings less $40,000 capex and $150,000 compensation, divided by annual debt service.',
+    ...data.debtScenario.earningsCases.flatMap(item=>[item.label,...item.coverage.map(row=>`${row.declinePercent}% decline: cash available $${money(row.cashAvailable)}; DSCR ${row.coverage.toFixed(2)}x; remaining $${money(row.cashAfterDebt)}.`)]),
+    'The pre-add-back case cannot cover this modeled debt in the downside cases. Validate add-backs. Mathematical coverage is not lender approval; no universal threshold is assumed.',
+    'Excludes unspecified taxes, working-capital changes and other obligations; confirm compensation treatment and later seller principal repayment.'].join('\n');
+  }},
+  {message:diligence,history:[],budget:1600,words:350,check(body,data){
+   assert.match(body.instructions,/at most 5/);assert.match(body.instructions,/do not append a generic checklist/);
+   assert.equal(data.userReported.purchasePrice,undefined);
+   return `Confirmed concerns
+Concentration/dependence: largest customer 31%, top five 58%; owner manages the top three. Loss or handover could reduce earnings. Ask for contracts, account-level margins and a transition plan.
+Adjustment recurrence: $75K consulting appears in both years despite "one-time" labeling. Earnings may be overstated. Ask for invoices, purpose and ongoing need.
+Collections: AR days rose from 42 to 67; cash is tied up longer. Ask for aging, disputes and subsequent collections.
+Requires diligence
+$90K average capex versus "low capex" needs a maintenance/growth split; obtain asset and replacement schedules to quantify cash needs.
+The $180K owner salary add-back needs replacement duties and compensation evidence; do not assume all salary disappears.
+Missing information
+Request customer contracts, add-back schedules, capex detail and AR aging before underwriting an offer. Unknowns alone are not confirmed red flags.`;
+  }},
+  {message:offer,history:[...history,{role:'user',content:debt}],budget:1400,words:250,check(body,data){
+   assert.match(body.instructions,/Valuation basis/);assert.match(body.instructions,/no default discount to asking/);
+   assert.equal(data.userReported.purchasePrice,2500000);assert.equal(data.userReported.seniorLoan,1850000);
+   assert.equal(data.calculated.preAddbackEBITDA.value,550000);
+   return `Valuation basis
+$2.5M asks 3.57x stated $700K earnings or 4.55x $550K pre-add-back earnings. Validate $150K adjustments and cash conversion before choosing an offer, which may be below, at or above asking.
+Illustrative structure (your proposed financing, not approved)
+Purchase value: $2.5M asking, not a recommended offer.
+Buyer equity: $150K proposed.
+Senior debt: $1.85M proposed, subject to underwriting.
+Seller note: $500K proposed, 6% interest-only initially; later principal terms unresolved.
+Contingent consideration: not specified, not closing funding.
+Fees / working capital / reserve: not supplied. The proposed sources cover asking consideration only.
+Remaining decisions
+Validate adjustments and replacement compensation.
+Quantify fees, working-capital needs and retained reserves.
+Confirm lending, collateral and seller repayment terms; downside pre-add-back coverage is weak.`;
+  }},
+ ];
+ for(const scenario of scenarios){
+  let calls=0,text;
+  const response=await handleAiRequest(request(askPayload({message:scenario.message,history:scenario.history})),readyEnv(),{fetcher:async(_url,init)=>{
+   calls++;const body=JSON.parse(init.body);
+   assert.equal(body.max_output_tokens,scenario.budget);assert.equal(body.reasoning.effort,'low');assert.equal(body.store,false);
+   assert.equal(body.tool_choice,'required');assert.equal(body.tools[0].max_num_results,4);
+   const data=JSON.parse(body.instructions.split('Server analysis (')[1].split('): ')[1]);
+   text=scenario.check(body,data);assert.ok(text.split(/\s+/).length<=scenario.words);
+   return modelOutput({responseText:text,searchResults:[{filename:'ac-topic--customer-concentration.md'}],annotations:[{type:'file_citation',filename:'ac-topic--customer-concentration.md'}]});
+  }});
+  assert.equal(response.status,200);assert.equal(calls,1);
+  const result=await readJson(response);assert.equal(result.responseText,text);assert.ok(result.citations.length>0);
+ }
 });
 
 test('Bluejay start and show answer use distinct budgets without unused feedback fields', async () => {
@@ -414,6 +478,9 @@ test('max-output incomplete responses have a safe specific error and never trigg
   const payloads=[
     {mode:'ask_course',message:'What does Acquisition Companion teach about private credit? Is it easier than bank lending these days? How much money do I need if any?',history:[]},
     {mode:'deal_lab',message:'Show the answer',history:[],caseId:'bluejay-field-services',caseStage:1,action:'show_answer'},
+    askPayload({message:debt,history:[{role:'user',content:valuation}]}),
+    askPayload({message:diligence}),
+    askPayload({message:offer,history:[{role:'user',content:valuation},{role:'user',content:debt}]}),
   ];
   let calls=0;
   for(const payload of payloads){
@@ -425,7 +492,7 @@ test('max-output incomplete responses have a safe specific error and never trigg
     assert.equal(JSON.stringify(result).includes('max_output_tokens'),false);
     assert.equal(JSON.stringify(result).includes('resp_test_incomplete'),false);
   }
-  assert.equal(calls,2,'each user action makes one provider call, without paid automatic retries');
+  assert.equal(calls,payloads.length,'each user action makes one provider call, without paid automatic retries');
 });
 
 test('other incomplete responses use a distinct safe code; missing File Search and malformed responses stay unavailable', async () => {

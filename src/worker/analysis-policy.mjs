@@ -17,3 +17,34 @@ Pasted-data diligence: this v1 has no uploads and prohibits confidential, person
 
 Offer structure: no default discount to asking. Support price with validated earnings, cash flow, risks and transaction economics; a justified price may be below, at or above asking. When numbers support it, present compact labeled sources and uses: purchase value, buyer equity, senior debt, seller note, other financing, fees, working-capital funding, reserve, and any separate contingent consideration. Populate only justified amounts; mark unknowns as needed. Reconcile sources and uses and explain each component. Fixed deferred consideration is an unconditional later price payment; a seller note is financing with explicit terms; an earnout is contingent consideration. Do not count an earnout as closing funding or double-count notes/deferred price. Use earnouts only for a specific measurable uncertainty and explain measurement, control and dispute risks. Distinguish rollover equity and holdback/escrow from cash funding. Do not prescribe a real-company buy/no-buy decision.
 `;
+
+// Internal intent profiles, never additional public API actions or user-selected budgets.
+export const ANALYTICAL_OUTPUT_TOKENS=Object.freeze({debt:1600,diligence:1600,offer:1400});
+export function analysisKindFor(message) {
+ if(/\b(?:red flags?|diligence|biggest concerns|seller or broker|seller\/broker)\b/i.test(message))return 'diligence';
+ if(/\b(?:what (?:should|could|would) (?:I|we) offer|structur\w* (?:the |this |a |an )?(?:deal|acquisition)|deal stack|sources and uses)\b/i.test(message))return 'offer';
+ if(/\b(?:support|service|capacity|calculate|show|stress|afford|coverage)\b/i.test(message)&&/\b(?:debt|loan|DSCR)\b/i.test(message))return 'debt';
+ if(/\b(?:buying power|purchasing power|size business|available to invest)\b/i.test(message))return 'buyer';
+ if(/\b(?:add[- ]?backs|price reasonable|valuation|valuing|multiple)\b/i.test(message))return 'valuation';
+ return null;
+}
+const PROFILES={
+ buyer:{section:'Buyer purchasing power',shape:'At most 250 words: explain deployable equity, liquidity and cash-flow constraints, then only the minimum useful next inputs.'},
+ valuation:{section:'Valuation',shape:'At most 250 words: stated/pre-add-back multiples and adjustment share, implications, then the evidence needed to validate earnings.'},
+ debt:{section:'Debt underwriting',shape:'Keep the whole answer within 300 words. Debt service: small labeled rows for senior, seller and total annual service, noting payment assumptions. Coverage: base, -10% and -20% rows with cash available, DSCR and cash remaining for both stated adjusted and pre-add-back earnings when available. Use server scenario results exactly. Interpretation: 2–4 concise bullets, distinguishing mathematical coverage from lender approval. Important exclusions: one sentence about unspecified taxes, working capital, other costs and compensation treatment. If inputs are missing, request only those needed next. Do not append a full underwriting checklist or repeat formulas for each row.'},
+ diligence:{section:'Pasted-data diligence',shape:'Keep the whole answer within 350 words. Confirmed concerns: at most 5 material evidence-backed findings; combine related evidence. Requires diligence: at most 5 important unresolved items, separate from Missing information. Each compact finding row should include evidence, why it matters/deal impact and one concrete seller/broker question. Prioritize the supplied evidence; do not append a generic checklist covering other possible M&A issues.'},
+ offer:{section:'Offer structure',shape:'Keep the whole answer within 250 words. Valuation basis: one short paragraph. Illustrative structure: compact labeled amount/status rows for purchase value, buyer equity, senior debt, seller note, contingent consideration, and fees/working capital/reserve. Populate only supported amounts; label proposed assumptions and unknowns. Remaining decisions: 2–4 specific bullets. Do not explain every financing instrument or invent a defensible dollar offer.'},
+};
+const paragraphs=ANALYSIS_POLICY.trim().split(/\n\s*\n/);
+const common=paragraphs.filter(paragraph=>!Object.values(PROFILES).some(profile=>paragraph.startsWith(profile.section+':'))).join('\n\n');
+export function analysisPolicyFor(kind) {
+ const profile=PROFILES[kind];
+ return [common,
+  'This v1 has no uploads and prohibits confidential, proprietary, personal or non-public deal information. Invite only public/fictional/demo pasted excerpts. Missing information is not itself a red flag. Never invent a universal approval threshold. Conditional debt scenarios are sensitivities on unverified earnings, not validated cash flow: label all assumed payment terms and unspecified excluded costs.',
+  'Use the minimum high-value sources needed for course claims, usually 1–2 directly relevant pages, not every retrieved result. Omit tangential course examples, borrowing-base stories and capital-stack examples unless necessary or explicitly requested. Never scale the user\'s cash by an unrelated hypothetical equity percentage/capital stack.',
+  'A multiple alone cannot establish whether a price is reasonable. Neither stated adjusted nor pre-add-back earnings are validated normalized EBITDA. Never default to an offer below asking or invent financing amounts; price and structure must be supported by validated economics.',
+  profile?paragraphs.find(paragraph=>paragraph.startsWith(profile.section+':')):'',
+  profile?.shape||'For ordinary questions, aim for at most 250 words. Answer first, then only the next necessary inputs; do not append generic checklists.',
+  'The compact shape takes priority over exhaustively listing workflow considerations. For mixed requests, prioritize the requested calculations and most material conclusion, fitting other points into this shape.',
+ ].filter(Boolean).join('\n\n');
+}

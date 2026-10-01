@@ -237,18 +237,27 @@ if(root){
   const history=state.history.slice(-8).map(item=>({role:item.role,content:Array.from(item.content).slice(0,1200).join('')}));
   let length=history.reduce((sum,item)=>sum+Array.from(item.content).length,0);
   const historyBytes=()=>new TextEncoder().encode(JSON.stringify(history)).byteLength;
-  while(history.length&&(length>4500||historyBytes()>3000)){length-=Array.from(history[0].content).length;history.shift();}
+  while(history.length&&(length>4500||historyBytes()>3000)){
+   // Retain supplied facts ahead of older explanations, within the same caps.
+   const assistant=history.findIndex(item=>item.role==='assistant');const index=assistant>=0?assistant:0;
+   length-=Array.from(history[index].content).length;history.splice(index,1);
+  }
   return history;
  }
  function caseMeta():Record<string,string|number>{const card=selectedCard();return card?{case_id:card.id,difficulty:card.difficulty}:{};}
  async function submit(message:string,action?:string,alreadyRendered=false,attempt?:{payload:Record<string,unknown>;message:string;action?:string},trigger?:HTMLButtonElement){
   if(!state.available||state.pending)return;
+  // Resubmitting the unchanged failed input is also a user-initiated retry.
+  const lastTurn=state.history.at(-1);
+  if(!attempt&&state.lastAttempt&&lastTurn?.role==='user'&&lastTurn.content===message){await state.lastAttempt();return;}
   const payload=attempt?.payload||{
    mode:state.mode,message,history:trimHistory(),
    ...(state.mode!=='ask_course'?{caseId:state.caseId,caseStage:state.caseStage}:{}),
    ...(action?{action}:{}),
   };
   if(!alreadyRendered)addTurn('user',message);
+  // Retain facts on failure. A retry uses the captured payload and does not add this turn again.
+  if(!attempt){state.history.push({role:'user',content:message});state.history=state.history.slice(-8);}
   const triggerLabel=trigger?.textContent||'';state.pending=true;errorBox.hidden=true;const loading=addLoadingTurn();if(trigger)trigger.textContent='Working…';announce('Preparing a response…','working');setControls();
   const requestAttempt={payload,message,action};
   state.lastAttempt=()=>submit(message,action,true,requestAttempt,retryButton);
@@ -266,7 +275,7 @@ if(root){
    const messageText=code==='rate_limited'?'AI Deal Lab is receiving too many requests. Wait about a minute, then try again.':code==='response_too_long'?'The explanation reached its response limit. Please try again.':code==='timeout'?'The response took too long. You can try again.':code==='message_too_large'?'That message is too long. Shorten it and try again.':code==='invalid_history'?'This conversation reached its context limit. Start a new session to continue.':response.status===503?'AI Deal Lab is unavailable right now. It may still be in setup. Please try again shortly.':result.error?.message||'AI Deal Lab could not prepare a response. Please try again.';
    finishLoadingTurn(loading);showError(messageText,code);setControls();if(trigger)trigger.textContent=triggerLabel;return;
   }
-  state.history.push({role:'user',content:message},{role:'assistant',content:result.responseText});state.history=state.history.slice(-8);
+  state.history.push({role:'assistant',content:result.responseText});state.history=state.history.slice(-8);
   const nearLatest=isNearLatest();finishLoadingTurn(loading,result.responseText);
   if(result.case)renderCaseResponse(result.case);
   renderSources(Array.isArray(result.citations)?result.citations:[],result.case&&Array.isArray((result.case as Record<string,unknown>).lessonRefs)?(result.case as Record<string,unknown>).lessonRefs as unknown[]:[]);

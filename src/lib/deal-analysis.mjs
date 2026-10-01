@@ -14,7 +14,7 @@ const FIELDS={
  maintenanceCapex:'(?:annual maintenance capex|maintenance capex)',
  workingCapitalInvestment:'(?:annual working[- ]capital investment)',
  cashTaxes:'(?:annual cash taxes|cash taxes)',
- replacementCompensation:'(?:annual replacement compensation|replacement compensation)',
+ replacementCompensation:'(?:annual (?:replacement|owner) compensation|replacement compensation|owner compensation)',
  otherRecurringObligations:'(?:annual other recurring obligations|other recurring obligations)',
  fees:'(?:transaction fees|fees)',
  closingWorkingCapital:'(?:closing working[- ]capital funding)',
@@ -93,22 +93,51 @@ export function startsNewDeal(message) {
  return /(?:^|[.!?\n])\s*(?:(?:let's|let us|now|switch to|consider|analyze)\s+)?(?:a )?(?:new|different|another) (?:deal|business|company|scenario)\b|^(?:reset|forget|discard) (?:the |all )?(?:previous|prior) (?:deal|facts|numbers)\b/i.test(text);
 }
 
+// Conditional earnings sensitivities are separate from validated cash-flow calculations.
+// Unknown deductions stay excluded/visible; they are never silently entered as zero facts.
+function conditionalDebtScenario(facts,calculated) {
+ if(!has(facts,'seniorLoan','sellerNote','maintenanceCapex','replacementCompensation'))return null;
+ const assumptions=[];
+ const terms={...facts};
+ if(terms.seniorLoan>0 && !terms.seniorPaymentFrequency && terms.seniorPaymentType!=='interest_only'){
+  terms.seniorPaymentFrequency='monthly';assumptions.push('Illustrative monthly senior payments; confirm frequency with lender.');
+ }
+ const debt=calculateDeal(terms);
+ if(!debt.totalAnnualDebtService || debt.totalAnnualDebtService.value<=0)return null;
+ const excludedInputs=['workingCapitalInvestment','cashTaxes','otherRecurringObligations'].filter(key=>!has(facts,key));
+ const deductions=['maintenanceCapex','replacementCompensation','workingCapitalInvestment','cashTaxes','otherRecurringObligations'].filter(key=>has(facts,key)).reduce((sum,key)=>sum+facts[key],0);
+ const total=debt.totalAnnualDebtService.value;
+ const earningsCases=[];
+ for(const [label,earnings] of [['stated adjusted EBITDA (unverified)',facts.adjustedEBITDA],['pre-add-back EBITDA (not validated normalized EBITDA)',calculated.preAddbackEBITDA?.value]]){
+  if(!Number.isFinite(earnings)||earnings<=0)continue;
+  earningsCases.push({label,earnings,coverage:[0,10,20].map(declinePercent=>{
+   const cashAvailable=earnings*(1-declinePercent/100)-deductions;
+   return {declinePercent,cashAvailable,coverage:cashAvailable/total,cashAfterDebt:cashAvailable-total};
+  })});
+ }
+ if(!earningsCases.length)return null;
+ assumptions.push('Supplied deductions and debt terms held fixed; confirm compensation is not already deducted from EBITDA.');
+ if(terms.sellerPaymentType==='interest_only')assumptions.push('Seller interest-only service excludes principal repayment or later amortization.');
+ return {assumptions,excludedInputs,debtService:{senior:debt.annualSeniorDebtService.value,seller:debt.annualSellerDebtService.value,total},formula:'(earnings × (1 − decline) − supplied cash deductions) / annual debt service; cash remaining = numerator − debt service; excludes listed unspecified inputs',earningsCases};
+}
+
 export function buildDealAnalysis(history,message) {
  const turns=[...history.filter(item=>item.role==='user').map(item=>item.content),message];
  let start=0;
  turns.forEach((text,index)=>{if(startsNewDeal(text))start=index;});
  const candidates=new Map(),currencies=new Set();
- const record=(key,value,turn,corrected=false)=>{
+ const record=(key,value,turn,corrected=false,assumed=false)=>{
   if(!Number.isFinite(value)||value<0||value>1e12)return;
   const entries=corrected?[]:candidates.get(key)||[];
-  entries.push({value,turn});candidates.set(key,entries);
+  entries.push({value,turn,assumed});candidates.set(key,entries);
  };
  for(let turn=start;turn<turns.length;turn++){
   // Quoted examples and uncertain ranges must not silently become deal facts.
   const text=turns[turn].replace(/"[^"\n]*"|“[^”\n]*”/g,'');
   const clauses=text.split(/[;\n]|(?<=[.!?])\s+(?!\d)/);
   for(const clause of clauses){
-   if(/\?|\b(?:not|no|example|suppose|assuming|assume|if|course says|might|could be|between|approximately|about)\b/i.test(clause)||/\d\s*(?:[mk]|million|thousand)?\s*(?:[-–—]|to|or)\s*[$€£]?\s*\d/i.test(clause))continue;
+   const assumed=/^\s*(?:assume|assuming)\b/i.test(clause);
+   if(/\?|\b(?:not|no|example|suppose|if|course says|might|could be|between|approximately|about)\b/i.test(clause)||(!assumed && /\b(?:assume|assuming)\b/i.test(clause))||/\d\s*(?:[mk]|million|thousand)?\s*(?:[-–—]|to|or)\s*[$€£]?\s*\d/i.test(clause))continue;
    for(const [key,label] of Object.entries(FIELDS)){
     const forward=new RegExp(`\\b${label}\\s*(?:(?:is|of|at)\\s*|[:=]\\s*)?${MONEY}`,'ig');
     const reverse=new RegExp(`${MONEY}\\s*(?:of\\s+)?${label}\\b`,'ig');
@@ -116,17 +145,32 @@ export function buildDealAnalysis(history,message) {
     for(const match of matches){
      const symbol=match[1],value=Number(match[2].replaceAll(',',''))*({m:1e6,million:1e6,k:1e3,thousand:1e3}[match[3]?.toLowerCase()]||1);
      if(!/^\d+(?:\.\d+)?$|^\d{1,3}(?:,\d{3})+(?:\.\d+)?$/.test(match[2]))continue;
-     currencies.add(symbol);record(key,value,turn,/\b(?:corrected|updated|revised)\b/i.test(clause));
+     currencies.add(symbol);record(key,value,turn,/\b(?:corrected|updated|revised)\b/i.test(clause),assumed);
     }
    }
+   const deployed=clause.match(new RegExp(`\\b(?:I|we) (?:use|deploy|invest) ${MONEY}\\s+of (?:my|our) cash\\b`,'i'));
+   if(deployed && /^\d+(?:\.\d+)?$|^\d{1,3}(?:,\d{3})+(?:\.\d+)?$/.test(deployed[2])){currencies.add(deployed[1]);record('buyerEquity',Number(deployed[2].replaceAll(',',''))*({m:1e6,million:1e6,k:1e3,thousand:1e3}[deployed[3]?.toLowerCase()]||1),turn,false,assumed);}
    for(const prefix of ['senior','seller']){
     const rate=clause.match(new RegExp(`\\b${prefix} (?:loan |note )?(?:annual )?(?:interest )?rate\\s*[:=]?\\s*(\\d+(?:\\.\\d+)?)\\s*%`,'i'));
-    if(rate)record(`${prefix}Rate`,Number(rate[1]),turn);
+    if(rate)record(`${prefix}Rate`,Number(rate[1]),turn,false,assumed);
     const amort=clause.match(new RegExp(`\\b${prefix} (?:loan |note )?amortization\\s*[:=]?\\s*(\\d+(?:\\.\\d+)?)\\s*years?`,'i'));
-    if(amort)record(`${prefix}AmortizationYears`,Number(amort[1]),turn);
+    if(amort)record(`${prefix}AmortizationYears`,Number(amort[1]),turn,false,assumed);
     const frequency=clause.match(new RegExp(`\\b${prefix} (?:loan |note )?payments?\\s*[:=]?\\s*(monthly|quarterly|annual)\\b`,'i'));
     if(frequency){const key=`${prefix}PaymentFrequency`;const entries=candidates.get(key)||[];entries.push({value:frequency[1].toLowerCase(),turn});candidates.set(key,entries);}
     if(new RegExp(`\\b${prefix} (?:loan |note )?payments?\\s*[:=]?\\s*interest[- ]only\\b`,'i').test(clause)){const key=`${prefix}PaymentType`;const entries=candidates.get(key)||[];entries.push({value:'interest_only',turn});candidates.set(key,entries);}
+    // Local named-loan terms: do not attach a neighboring loan's rate or amortization.
+    const named=clause.match(new RegExp(`\\b${prefix} (?:loan|debt|note) at (\\d+(?:\\.\\d+)?)\\s*%([^,;]*)`,'i'));
+    if(named){
+     record(`${prefix}Rate`,Number(named[1]),turn,false,assumed);
+     const localTerms=named[2].split(/\b(?:senior|seller) (?:loan|debt|note)\b/i)[0];
+     const years=localTerms.match(/amortized over (\d+(?:\.\d+)?) years?/i);
+     if(years)record(`${prefix}AmortizationYears`,Number(years[1]),turn,false,assumed);
+     const localFrequency=localTerms.match(/\b(monthly|quarterly|annual) payments?\b/i);
+     if(localFrequency){const key=`${prefix}PaymentFrequency`;const entries=candidates.get(key)||[];entries.push({value:localFrequency[1].toLowerCase(),turn,assumed});candidates.set(key,entries);}
+     if(/\binterest[- ]only\b/i.test(localTerms)){
+      const key=`${prefix}PaymentType`;const entries=candidates.get(key)||[];entries.push({value:'interest_only',turn,assumed});candidates.set(key,entries);
+     }
+    }
    }
   }
  }
@@ -134,8 +178,9 @@ export function buildDealAnalysis(history,message) {
  for(const [key,entries] of candidates){
   const values=[...new Set(entries.map(item=>item.value))];
   if(values.length!==1){needsClarification.push(key);continue;}
-  userReported[key]=values[0];provenance[key]={source:'user-reported, unverified',userTurn:entries.at(-1).turn};
+  userReported[key]=values[0];provenance[key]={source:entries.at(-1).assumed?'user-supplied scenario assumption, unverified':'user-reported, unverified',userTurn:entries.at(-1).turn};
  }
  if(currencies.size>1)needsClarification.push('currency');
- return {userReported,provenance,needsClarification,currency:currencies.size===1?[...currencies][0]:null,calculated:currencies.size>1?{}:calculateDeal(userReported)};
+ const calculated=currencies.size>1?{}:calculateDeal(userReported);
+ return {userReported,provenance,needsClarification,currency:currencies.size===1?[...currencies][0]:null,calculated,debtScenario:currencies.size>1||needsClarification.length?null:conditionalDebtScenario(userReported,calculated)};
 }
