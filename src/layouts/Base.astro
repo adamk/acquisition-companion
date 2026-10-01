@@ -3,8 +3,8 @@ import {siteConfig} from '../site-config.mjs';
 import {canonicalUrl} from '../lib/behavior.mjs';
 import AnalyticsConsent from '../components/AnalyticsConsent.astro';
 import '../styles/global.css';
-interface Props {title:string;description?:string;type?:string;wide?:boolean;noindex?:boolean;}
-const {title,description=siteConfig.subtitle,type='Guide',wide=false,noindex=false}=Astro.props;
+interface Props {title:string;description?:string;type?:string;wide?:boolean;noindex?:boolean;workspace?:boolean;}
+const {title,description=siteConfig.subtitle,type='Guide',wide=false,noindex=false,workspace=false}=Astro.props;
 const canonical=canonicalUrl(siteConfig.canonicalDomain,Astro.url.pathname);
 const nav=[['Start here','/start-here/'],['Course','/course/'],['AI Deal Lab','/ai/'],['Topics','/topics/'],['Financing','/financing/'],['Examples','/examples/'],['Numbers','/numbers/'],['Glossary','/glossary/'],['Sources','/sources/'],['About','/about/']];
 const path=Astro.url.pathname;
@@ -19,13 +19,13 @@ const path=Astro.url.pathname;
  {(!canonical || noindex) && <meta name="robots" content="noindex,follow" />}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
  <meta name="generator" content={Astro.generator} />
-</head><body>
+</head><body class:list={[workspace&&'workspace-shell']}>
  <a class="skip-link" href="#main">Skip to content</a>
  <header class="site-header" data-pagefind-ignore>
   <div class="masthead wrap"><a class="brand" href="/" aria-label={`${siteConfig.name} home`}><span class="brand-mark" aria-hidden="true">AC</span><span>{siteConfig.name}</span></a><div class="header-actions"><span class="site-promise">Free. Independent. Source-linked.</span><a class="search-link" href="/search/"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg><span>Search</span><kbd>/</kbd></a></div></div>
   <nav class="primary-nav wrap" aria-label="Main navigation"><ul>{nav.map(([name,url])=><li><a href={url} aria-current={path.startsWith(url)?'page':undefined}>{name}</a></li>)}</ul></nav>
  </header>
- <main id="main" class:list={['wrap','main',wide&&'wide']} data-pagefind-body data-pagefind-filter={`Type:${type}`}><slot /></main>
+ <main id="main" class:list={['wrap','main',wide&&'wide',workspace&&'workspace-main']} data-pagefind-body data-pagefind-filter={`Type:${type}`}><slot /></main>
  <footer class="site-footer" data-pagefind-ignore><div class="wrap footer-grid"><div><a class="brand footer-brand" href="/">{siteConfig.name}</a><p>{siteConfig.subtitle}</p><p class="small">Free access. No ads, affiliates, paid memberships, or accounts.</p></div><div><h2>Read with context</h2><p class="small">Independent educational resource. Not affiliated with, endorsed by, or sponsored by {Object.values(siteConfig.collections).map(x=>x.name).join(', ')} or any referenced creator. Original videos and guides remain with their creators.</p><nav aria-label="Footer"><a href="/methodology/">Methodology</a><a href="/about/#disclaimer">Disclosure</a><a href="/privacy/">Privacy</a><a href="/providers/">Firms &amp; intermediaries</a>{siteConfig.analytics.measurementId && <button class="footer-link" data-analytics-preferences>Analytics preferences</button>}{siteConfig.contactEmail && <a href={`mailto:${siteConfig.contactEmail}`}>Contact</a>}</nav></div></div></footer>
  {siteConfig.analytics.measurementId && <AnalyticsConsent />}
  <script>document.addEventListener('keydown',event=>{const el=event.target as HTMLElement;if(event.key==='/' && !['INPUT','TEXTAREA','SELECT'].includes(el.tagName) && !el.isContentEditable){event.preventDefault();window.location.href='/search/';}});</script>

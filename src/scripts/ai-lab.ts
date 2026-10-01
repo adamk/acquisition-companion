@@ -26,10 +26,11 @@ if(root){
  const modeButtons=[...document.querySelectorAll<HTMLButtonElement>('[data-mode]')];
  const contextSections=[...document.querySelectorAll<HTMLElement>('[data-context-mode]')];
  const caseSelects=[...document.querySelectorAll<HTMLSelectElement>('[data-case-select]')];
+ const caseChoices=[...document.querySelectorAll<HTMLButtonElement>('[data-case-choice]')];
  const caseDescriptions=[...document.querySelectorAll<HTMLElement>('[data-case-description]')];
  const caseFacts=[...document.querySelectorAll<HTMLElement>('[data-case-facts]')];
  const caseActions=document.querySelector<HTMLElement>('[data-case-actions]')!;
- const stageActions=document.querySelector<HTMLElement>('[data-stage-actions]')!;
+ const stageActions=document.querySelector<HTMLDetailsElement>('[data-stage-actions]')!;
  const startButton=document.querySelector<HTMLButtonElement>('[data-start-case]')!;
  const completeButton=document.querySelector<HTMLButtonElement>('[data-complete]')!;
  const form=document.querySelector<HTMLFormElement>('[data-ai-form]')!;
@@ -49,6 +50,16 @@ if(root){
  const calculationsContent=document.querySelector<HTMLElement>('[data-calculations-content]')!;
  const activeLabel=document.querySelector<HTMLElement>('[data-active-mode-label]')!;
  const activeHeading=document.querySelector<HTMLElement>('[data-active-heading]')!;
+ const modeSelect=document.querySelector<HTMLSelectElement>('[data-mode-select]')!;
+ const mobileCases=document.querySelector<HTMLElement>('[data-mobile-cases]')!;
+ const contextPanel=document.querySelector<HTMLDetailsElement>('[data-context-panel]')!;
+ const contextSummary=document.querySelector<HTMLElement>('[data-context-summary]')!;
+ const starterPrompts=document.querySelector<HTMLElement>('[data-starter-prompts]')!;
+ const threadViewport=document.querySelector<HTMLElement>('[data-thread-viewport]')!;
+ const mobileLayout=window.matchMedia('(max-width:960px)');
+ contextPanel.open=!mobileLayout.matches;
+ stageActions.open=!mobileLayout.matches;
+ mobileLayout.addEventListener('change',()=>{contextPanel.open=!mobileLayout.matches;stageActions.open=!mobileLayout.matches;});
  const analytics=(name:string,params:Record<string,string|number>={})=>window.acquisitionAnalytics?.track(name,params);
  const state:{mode:Mode;caseId:string;caseStage:number;available:boolean;pending:boolean;history:HistoryItem[];caseData:Record<string,unknown>|null;lastAttempt:(()=>Promise<void>)|null}={
   mode:'ask_course',caseId:cards[0]?.id||'',caseStage:0,available:false,pending:false,history:[],caseData:null,lastAttempt:null,
@@ -74,7 +85,10 @@ if(root){
  }
  function renderCaseCard(){
   const card=selectedCard();
-  for(const description of caseDescriptions)description.textContent=card?`${card.label||'Synthetic practice case'} · ${card.industry}. ${card.description}`:'';
+  for(const choice of caseChoices)choice.setAttribute('aria-pressed',String(choice.dataset.caseChoice===state.caseId));
+  for(const title of appRoot.querySelectorAll<HTMLElement>('[data-case-title]'))title.textContent=card?.title||'';
+  for(const meta of appRoot.querySelectorAll<HTMLElement>('[data-case-meta]'))meta.textContent=card?`${card.difficulty} · ${card.industry}`:'';
+  for(const description of caseDescriptions)description.textContent=card?.description||'';
   for(const factsNode of caseFacts){
    factsNode.replaceChildren();
    if(state.caseData&&state.caseId===state.caseData.id){
@@ -92,10 +106,16 @@ if(root){
   }
  }
  function renderMode(){
+  modeSelect.value=state.mode;mobileCases.hidden=state.mode==='ask_course';
+  contextSummary.textContent=state.mode==='ask_course'?'Sources':state.mode==='deal_lab'?'Case file':'Committee brief';
+  for(const section of appRoot.querySelectorAll<HTMLElement>('[data-empty-mode]'))section.hidden=section.dataset.emptyMode!==state.mode;
+  starterPrompts.hidden=state.mode!=='ask_course'||conversation.querySelector('.ai-message')!==null;
+  document.querySelector<HTMLElement>('[data-case-source-label]')!.hidden=state.mode==='ask_course';
+  document.querySelector<HTMLElement>('[data-context-note]')!.hidden=state.mode==='ask_course';
   for(const button of modeButtons)button.setAttribute('aria-pressed',String(button.dataset.mode===state.mode));
   for(const section of contextSections)section.hidden=section.dataset.contextMode!==state.mode;
   activeLabel.textContent=state.mode==='ask_course'?'Ask the Course':state.mode==='deal_lab'?'Deal Lab':'IC Challenge';
-  activeHeading.textContent=state.mode==='ask_course'?'Ask an acquisition question.':state.mode==='deal_lab'?'Work through the case.':'Make your investment thesis.';
+  activeHeading.textContent=state.mode==='ask_course'?'Source-grounded course tutor':state.mode==='deal_lab'?'Work through the case.':'Make your investment thesis.';
   caseActions.hidden=state.mode==='ask_course';
   const hasStarted=state.mode!=='ask_course'&&state.caseStage>0;
   startButton.hidden=state.mode==='ask_course'||hasStarted;
@@ -110,35 +130,41 @@ if(root){
  function setControls(){
   const disabled=!state.available||state.pending;
   submitButton.textContent=state.pending?'Working…':state.mode==='ic_challenge'?'Send to committee':'Send question';
-  for(const control of [...modeButtons,...caseSelects, ...appRoot.querySelectorAll<HTMLButtonElement>('[data-command]')])control.disabled=state.pending;
+  for(const control of [...modeButtons,modeSelect,...caseSelects,...caseChoices, ...appRoot.querySelectorAll<HTMLButtonElement>('[data-command]')])control.disabled=state.pending;
   startButton.disabled=disabled;completeButton.disabled=disabled;submitButton.disabled=disabled;
   textarea.disabled=disabled;
   retryButton.disabled=state.pending;
+  resetButton.disabled=state.pending;
  }
  function clearFeedback(){feedbackBox.hidden=true;feedbackContent.replaceChildren();calculationsBox.hidden=true;calculationsContent.replaceChildren();}
- function clearSources(){citationsNode.replaceChildren();const empty=document.createElement('p');empty.className='muted';empty.textContent='Relevant course pages will appear here when available.';citationsNode.append(empty);}
+ function clearSources(){citationsNode.replaceChildren();const empty=document.createElement('p');empty.className='muted';empty.textContent='Sources will appear here after an answer.';citationsNode.append(empty);}
+ function isNearLatest(){return threadViewport.scrollHeight-threadViewport.scrollTop-threadViewport.clientHeight<140;}
+ function keepLatestVisible(wasNearLatest:boolean){if(wasNearLatest)threadViewport.scrollTop=threadViewport.scrollHeight;}
  function appendTextBlock(parent:HTMLElement,tag:'p'|'h3'|'span',text:string,className=''){
   const node=document.createElement(tag);node.textContent=text;if(className)node.className=className;parent.append(node);return node;
  }
  function addTurn(role:Role,text:string){
-  emptyState.hidden=true;
+  const nearLatest=isNearLatest();emptyState.hidden=true;starterPrompts.hidden=true;
   const article=document.createElement('article');article.className='ai-message';article.dataset.role=role;
   appendTextBlock(article,'span',role==='user'?'You':state.mode==='ic_challenge'?'Investment committee':'Acquisition Companion instructor','ai-message-label');
-  appendTextBlock(article,'p',text,'ai-message-text');conversation.append(article);return article;
+  appendTextBlock(article,'p',text,'ai-message-text');conversation.append(article);keepLatestVisible(nearLatest);return article;
  }
  function addLoadingTurn(){
-  emptyState.hidden=true;
+  const nearLatest=isNearLatest();emptyState.hidden=true;starterPrompts.hidden=true;
   const article=document.createElement('article');article.className='ai-message';article.dataset.role='assistant';article.dataset.loading='true';article.setAttribute('role','status');article.setAttribute('aria-live','polite');article.setAttribute('aria-atomic','true');
   appendTextBlock(article,'span',state.mode==='ic_challenge'?'Investment committee':'Acquisition Companion instructor','ai-message-label');
   const text=document.createElement('p');text.className='ai-message-text';const copy=document.createElement('span');copy.dataset.loadingCopy='';copy.textContent='Thinking…';const indicator=document.createElement('span');indicator.className='ai-loading-indicator';indicator.dataset.loadingIndicator='';indicator.setAttribute('aria-hidden','true');text.append(copy,indicator);article.append(text);conversation.append(article);
+  keepLatestVisible(nearLatest);
   const timers=[window.setTimeout(()=>{if(article.isConnected)copy.textContent='Still working…';},8_000),window.setTimeout(()=>{if(article.isConnected)copy.textContent='This response is taking a little longer than usual…';},15_000)];
   return {article,timers};
  }
  function finishLoadingTurn(loading:{article:HTMLElement;timers:number[]},responseText?:string){
+  const nearLatest=isNearLatest();
   for(const timer of loading.timers)window.clearTimeout(timer);
   if(typeof responseText!=='string'){loading.article.remove();return;}
   loading.article.removeAttribute('role');loading.article.removeAttribute('aria-live');loading.article.removeAttribute('aria-atomic');delete loading.article.dataset.loading;
   const text=loading.article.querySelector<HTMLElement>('.ai-message-text');if(text)text.replaceChildren(document.createTextNode(responseText));
+  keepLatestVisible(nearLatest);
  }
  function safeArray(value:unknown):string[]{return Array.isArray(value)?value.filter((item):item is string=>typeof item==='string').slice(0,4):[];}
  function renderFeedback(value:Record<string,unknown>|null){
@@ -241,7 +267,7 @@ if(root){
    finishLoadingTurn(loading);showError(messageText,code);setControls();if(trigger)trigger.textContent=triggerLabel;return;
   }
   state.history.push({role:'user',content:message},{role:'assistant',content:result.responseText});state.history=state.history.slice(-8);
-  finishLoadingTurn(loading,result.responseText);
+  const nearLatest=isNearLatest();finishLoadingTurn(loading,result.responseText);
   if(result.case)renderCaseResponse(result.case);
   renderSources(Array.isArray(result.citations)?result.citations:[],result.case&&Array.isArray((result.case as Record<string,unknown>).lessonRefs)?(result.case as Record<string,unknown>).lessonRefs as unknown[]:[]);
   renderFeedback(result.feedback&&typeof result.feedback==='object'?result.feedback:null);
@@ -250,13 +276,13 @@ if(root){
   if(state.mode==='ic_challenge'&&action==='start')analytics('ic_challenge_start',caseMeta());
   if(action==='complete')analytics(state.mode==='deal_lab'?'deal_lab_complete':'ic_challenge_complete',{...caseMeta(),completion_status:'complete'});
   if(state.mode==='ask_course')analytics('ai_question',{mode:'ask_course'});
-  state.lastAttempt=null;textarea.value='';announce('Response ready.');resetButton.hidden=false;setControls();if(trigger)trigger.textContent=triggerLabel;
+  state.lastAttempt=null;textarea.value='';announce('Response ready.');resetButton.hidden=false;setControls();if(trigger)trigger.textContent=triggerLabel;keepLatestVisible(nearLatest);
  }
  function showError(message:string,code:string){
   errorMessage.textContent=message;errorBox.hidden=false;retryButton.hidden=code==='rate_limited'||code==='response_too_long';announce(code==='rate_limited'?'Rate limit reached. Please wait before continuing.':code==='unavailable'?'AI Deal Lab is currently unavailable.':'There was a problem preparing your response.',code==='rate_limited'?'unavailable':'error');
  }
  function newSession(){
-  state.history=[];state.caseStage=0;state.caseData=null;state.lastAttempt=null;conversation.replaceChildren();emptyState.hidden=false;conversation.append(emptyState);clearSources();clearFeedback();errorBox.hidden=true;resetButton.hidden=true;renderMode();announce(state.available?'AI Deal Lab is ready.':'AI Deal Lab is being configured.',state.available?'ready':'unavailable');
+  state.history=[];state.caseStage=0;state.caseData=null;state.lastAttempt=null;conversation.replaceChildren();emptyState.hidden=false;conversation.append(emptyState);clearSources();clearFeedback();errorBox.hidden=true;renderMode();threadViewport.scrollTop=0;announce(state.available?'AI Deal Lab is ready.':'AI Deal Lab is being configured.',state.available?'ready':'unavailable');
  }
  function getSessionId(){
   const key='ac-ai-session-id';let value:string|null=null;
@@ -267,15 +293,18 @@ if(root){
  function chooseMode(value:string){
   if(!['ask_course','deal_lab','ic_challenge'].includes(value))return;
   const mode=value as Mode;if(mode===state.mode)return;
-  state.mode=mode;state.history=[];state.caseStage=0;state.caseData=null;state.lastAttempt=null;conversation.replaceChildren();emptyState.hidden=false;conversation.append(emptyState);clearSources();clearFeedback();errorBox.hidden=true;resetButton.hidden=true;renderMode();analytics('ai_mode_select',{mode});
+  state.mode=mode;state.history=[];state.caseStage=0;state.caseData=null;state.lastAttempt=null;conversation.replaceChildren();emptyState.hidden=false;conversation.append(emptyState);clearSources();clearFeedback();errorBox.hidden=true;renderMode();threadViewport.scrollTop=0;analytics('ai_mode_select',{mode});
  }
  modeButtons.forEach(button=>button.addEventListener('click',()=>chooseMode(button.dataset.mode||'')));
- caseSelects.forEach(select=>select.addEventListener('change',()=>{
-  const value=select.value;
+ modeSelect.addEventListener('change',()=>chooseMode(modeSelect.value));
+ for(const starter of appRoot.querySelectorAll<HTMLButtonElement>('[data-starter-prompt]'))starter.addEventListener('click',()=>{if(state.pending)return;textarea.value=starter.dataset.starterPrompt||'';textarea.focus();});
+ function chooseCase(value:string){
   for(const other of caseSelects)other.value=value;
   if(value===state.caseId)return;
   state.caseId=value;newSession();
- }));
+ }
+ caseSelects.forEach(select=>select.addEventListener('change',()=>chooseCase(select.value)));
+ caseChoices.forEach(choice=>choice.addEventListener('click',()=>chooseCase(choice.dataset.caseChoice||'')));
  for(const command of root.querySelectorAll<HTMLButtonElement>('[data-command]'))command.addEventListener('click',()=>{
   const action=command.dataset.command||'message';const commands:Record<string,string>={hint:'Give me a hint',explain:'Explain this',what_did_i_miss:'What did I miss?',challenge_assumptions:'Challenge my assumptions',reveal_next:'Reveal the next stage',show_answer:'Show the answer',complete:'Complete the IC Challenge'};
   void submit(commands[action]||'Continue.',action,false,undefined,command);

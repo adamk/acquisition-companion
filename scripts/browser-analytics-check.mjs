@@ -33,6 +33,12 @@ await page.reload();assert.equal(await page.locator('[data-analytics-consent]').
 await page.getByRole('button',{name:'Analytics preferences'}).click();await page.getByRole('button',{name:'No thanks'}).click();
 assert.equal(await page.evaluate(()=>localStorage.getItem('acquisition-companion-analytics-consent')),'denied');
 assert.equal(await page.locator('script[src*="googletagmanager.com"]').count(),0);assert.equal(await page.locator('h1').count(),1);
+await page.goto(base+'/ai/');
+await page.getByRole('button',{name:'Analytics preferences',exact:true}).click();
+assert.equal(await page.locator('[data-analytics-consent]').isVisible(),true);
+await page.getByRole('button',{name:'No thanks'}).click();
+assert.equal(await page.locator('[data-analytics-consent]').isVisible(),false);
+assert.equal(await page.locator('script[src*="googletagmanager.com"]').count(),0);
 const blocked=await browser.newContext();await blocked.addInitScript(()=>{Object.defineProperty(window,'localStorage',{get(){throw new DOMException('Storage blocked','SecurityError');}});});const blockedPage=await blocked.newPage();await blockedPage.goto(base+'/');await blockedPage.getByRole('button',{name:'No thanks'}).click();assert.equal(await blockedPage.locator('[data-analytics-consent]').isVisible(),false);await blocked.close();
 assert.deepEqual(errors,[]);
 console.log(JSON.stringify({freshBanner:'passed',denialNoGoogle:'passed',acceptLoadsGtag:'passed',persistence:'passed',preferences:'passed',events:['course_start','lesson_complete','source_video_click','site_search'],errors},null,2));

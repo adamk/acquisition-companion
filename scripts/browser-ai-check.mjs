@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 const base=process.env.PREVIEW_URL||'http://127.0.0.1:4321';
+await fs.promises.mkdir('artifacts',{recursive:true});
 const browser=await chromium.launch({channel:'chrome',headless:true});
 const errors=[];const external=[];
 const unavailable=await browser.newContext({viewport:{width:1440,height:1000}});
@@ -36,7 +37,7 @@ await context.route('**/api/ai',async route=>{
  }
  const result={responseText:payload.message==='service down'?'Recovered after retry.':payload.message==='Start the case.'||payload.message==='Start the IC Challenge.'?'Before accepting the price, what would you verify?':payload.action==='complete'?'Here is your qualitative committee debrief.':payload.action==='show_answer'?'Here are the deterministic case figures.':'<img src=x onerror=window.__aiInjected=true> The curriculum frames this as a question of evidence.',citations:[{title:'Valuing a small business',url:`${base}/course/valuing-a-small-business/`,contentType:'lesson',sourceFamilies:['Acquisition Companion original synthesis'],originalSources:[{family:'Yusufa Sey',title:'Original public lesson source',url:'https://www.youtube.com/watch?v=example123'}]}],suggestedActions:['explain'],case:null,calculations:null,feedback:null};
  if(payload.mode!=='ask_course'){
-  const stage=payload.action==='show_answer'?3:1;
+  const stage=payload.action==='show_answer'?3:payload.action==='reveal_next'?Math.min((payload.caseStage||1)+1,3):Math.max(payload.caseStage||1,1);
   result.case={id:payload.caseId,title:payload.caseId==='aster-forge-components'?'Aster Forge Components':'Bluejay Field Services',difficulty:payload.caseId==='aster-forge-components'?'intermediate':'beginner',industry:'Synthetic practice industry',description:'An original fictional practice case.',stage,stageCount:3,stageLabel:stage===1?'First look':'Downside and diligence',facts:[{id:'financial-snapshot',label:'Revenue and reported EBITDA',value:'Revenue $2,400,000; reported EBITDA $420,000.',stageLabel:'First look'},...(stage===3?[{id:'downside-inputs',label:'Downside',value:'A fictional downside case.',stageLabel:'Downside and diligence'}]:[])],lessonRefs:[{title:'Customer concentration',url:'/topics/customer-concentration/'},{title:'Valuing a small business',url:'/course/valuing-a-small-business/'}]};
  }
  if(payload.action==='show_answer')result.calculations={reportedEbitda:420000,normalizedEbitda:440000,normalizedMultiple:5,workingCapitalShortfall:35000,totalLeverage:3.52,annualDebtService:{total:280757},baseCashFlow:{coverage:1.12},downsideCashFlow:{coverage:0.75},sourcesAndUses:{imbalance:0}};
@@ -45,9 +46,25 @@ await context.route('**/api/ai',async route=>{
 });
 const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));page.on('request',request=>{if(new URL(request.url()).hostname==='api.openai.com')external.push(request.url());});
 await page.goto(`${base}/ai/`);await page.locator('[data-ai-status][data-state=ready]').waitFor();
+if(await page.locator('[data-analytics-consent]').isVisible())await page.getByRole('button',{name:'No thanks',exact:true}).click();
+assert.equal(await page.locator('[data-ai-workspace]').count(),1,'the AI page has a dedicated workspace');
+assert.equal(await page.locator('[data-mode-rail]').isVisible(),true);
+assert.equal(await page.locator('[data-context-panel]').evaluate(panel=>panel.open),true);
+const panels=await Promise.all(['[data-mode-rail]','.ai-conversation-panel','[data-context-panel]'].map(selector=>page.locator(selector).boundingBox()));
+assert.ok(panels[0].x+panels[0].width<=panels[1].x+1&&panels[1].x+panels[1].width<=panels[2].x+1,'desktop uses rail, conversation, context columns');
+assert.ok(panels[1].width>panels[0].width+panels[2].width,'conversation has the most visual space');
+await page.getByRole('heading',{name:'Ask Acquisition Companion',exact:true}).waitFor();
+const emptyHeadingBox=await page.getByRole('heading',{name:'Ask Acquisition Companion',exact:true}).boundingBox();
+const emptyThreadBox=await page.locator('[data-thread-viewport]').boundingBox();
+assert.ok(emptyHeadingBox.y>=emptyThreadBox.y&&emptyHeadingBox.y+emptyHeadingBox.height<=emptyThreadBox.y+emptyThreadBox.height,'empty-state heading is not clipped');
+await page.getByRole('button',{name:'Seller financing',exact:true}).click();
+assert.match(await page.locator('#ai-message').inputValue(),/seller financing/);
+assert.equal(await page.locator('#ai-message').evaluate(element=>element===document.activeElement),true);
+assert.equal(await page.locator('#ai-message').getAttribute('maxlength'),'1500');
+await page.screenshot({path:'artifacts/ai-workspace-desktop-empty.png'});
 await page.evaluate(()=>{window.__aiEvents=[];window.acquisitionAnalytics={track:(name,params={})=>{window.__aiEvents.push({name,params});return true;}};});
 await page.clock.install({time:new Date('2026-10-01T12:00:00Z')});await page.emulateMedia({reducedMotion:'reduce'});
-async function assertLoadingRequest(trigger,label,idleTriggerLabel,expectedReply,{progressive=false,idleSubmitLabel='Send question'}={}){
+async function assertLoadingRequest(trigger,label,idleTriggerLabel,expectedReply,{progressive=false,idleSubmitLabel='Send question',expectLatest=true}={}){
  const assistantTurns=page.locator('.ai-message[data-role="assistant"]');const before=await assistantTurns.count();const gate=gateNextResponse();
  await trigger.click();
  const loading=page.locator('.ai-message[data-loading="true"]');await loading.waitFor({state:'visible'});await gate.started;
@@ -67,6 +84,8 @@ async function assertLoadingRequest(trigger,label,idleTriggerLabel,expectedReply
  gate.release();await page.waitForFunction(()=>document.querySelectorAll('.ai-message[data-loading="true"]').length===0);
  assert.equal(await assistantTurns.count(),before+1,'the temporary turn is replaced in place without a duplicate');
  assert.ok((await assistantTurns.last().locator('.ai-message-text').textContent()).includes(expectedReply));
+ const latestBox=await assistantTurns.last().boundingBox();const viewportBox=await page.locator('[data-thread-viewport]').boundingBox();
+ if(expectLatest)assert.ok(latestBox.y+latestBox.height<=viewportBox.y+viewportBox.height+2,'the latest reply stays visible after the composer changes');
  assert.equal(await assistantTurns.last().getAttribute('role'),null);
  assert.equal(await page.locator('[data-submit]').isDisabled(),false);assert.equal(await page.locator('[data-submit]').textContent(),idleSubmitLabel);
  assert.equal(await trigger.textContent(),idleTriggerLabel);assert.equal(await trigger.isDisabled(),false);assert.equal(await page.locator('#ai-message').isDisabled(),false);
@@ -75,6 +94,8 @@ await page.getByRole('button',{name:/Ask the Course/}).focus();await page.keyboa
 await page.locator('#ai-message').fill('What does the course teach? <img src=x onerror=window.__aiInjected=true>');
 await assertLoadingRequest(page.locator('[data-submit]'),'Acquisition Companion instructor','Send question','The curriculum frames this as a question of evidence',{progressive:true});
 await page.getByText(/The curriculum frames this as a question of evidence/).waitFor();
+assert.equal(await page.locator('[data-starter-prompts]').isVisible(),false,'starters disappear once conversation starts');
+assert.ok((await page.locator('[data-ai-form]').boundingBox()).y<1000,'composer stays within the desktop viewport');
 assert.equal(await page.locator('.ai-message img').count(),0);
 assert.equal(await page.evaluate(()=>window.__aiInjected),false);
 assert.equal(await page.locator('.ai-message-text').last().textContent(),'<img src=x onerror=window.__aiInjected=true> The curriculum frames this as a question of evidence.');
@@ -83,19 +104,32 @@ assert.ok(await page.getByRole('link',{name:'Original public lesson source'}).is
 assert.match(await page.locator('[data-ai-status]').innerText(),/Response ready/);
 
 await page.getByRole('button',{name:/Deal Lab/}).click();
+assert.equal(await page.locator('.ai-rail [data-case-choice]:visible').count(),3);
+await page.locator('.ai-context-panel [data-context-mode="deal_lab"]').getByRole('heading',{name:'Case file',exact:true}).waitFor();
 await assertLoadingRequest(page.locator('[data-start-case]'),'Acquisition Companion instructor','Start this case','Before accepting the price');
 await page.locator('[data-context-mode="deal_lab"] [data-case-facts]').getByText('Revenue $2,400,000; reported EBITDA $420,000.').waitFor();
+assert.equal(await page.locator('[data-case-facts]:visible').getByText('A fictional downside case.').count(),0,'future-stage facts are not shown');
+await assertLoadingRequest(page.locator('[data-command="reveal_next"]'),'Acquisition Companion instructor','Reveal next stage','The curriculum frames this as a question of evidence');
+assert.match(await page.locator('[data-case-facts]:visible').innerText(),/Stage 2 of 3/);
 assert.equal(await page.getByRole('button',{name:'Start this case'}).isVisible(),false);
 await assertLoadingRequest(page.locator('[data-command="show_answer"]'),'Acquisition Companion instructor','Show the answer','Here are the deterministic case figures');
 await page.locator('[data-calculations-content]').getByText('Normalized EBITDA',{exact:true}).waitFor();
 assert.match(await page.locator('[data-calculations-content]').innerText(),/\$440,000/);
 assert.match(await page.locator('[data-calculations-content]').innerText(),/0\.75x/);
-for(const [action,label] of [['hint','Give me a hint'],['explain','Explain this'],['what_did_i_miss','What did I miss?'],['challenge_assumptions','Challenge my assumptions'],['reveal_next','Reveal next stage']]){
+assert.equal(await page.locator('[data-context-panel] [data-calculations]').isVisible(),true);
+await page.screenshot({path:'artifacts/ai-workspace-desktop-case.png'});
+const desktopAxe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(desktopAxe.violations.map(item=>item.id),[]);
+for(const [action,label] of [['hint','Give me a hint'],['explain','Explain this'],['what_did_i_miss','What did I miss?'],['challenge_assumptions','Challenge my assumptions']]){
  await assertLoadingRequest(page.locator(`[data-command="${action}"]`), 'Acquisition Companion instructor',label,'The curriculum frames this as a question of evidence');
 }
+await page.locator('[data-thread-viewport]').evaluate(element=>{element.scrollTop=0;});
+await assertLoadingRequest(page.locator('[data-command="hint"]'),'Acquisition Companion instructor','Give me a hint','The curriculum frames this as a question of evidence',{expectLatest:false});
+assert.equal(await page.locator('[data-thread-viewport]').evaluate(element=>element.scrollTop),0,'new responses respect someone reading earlier messages');
 
 await page.getByRole('button',{name:/IC Challenge/}).click();
-await page.locator('[data-context-mode="ic_challenge"] select').selectOption('aster-forge-components');
+await page.locator('.ai-rail [data-context-mode="ic_challenge"] [data-case-choice="aster-forge-components"]').click();
+assert.equal(await page.locator('[data-case-title]:visible').textContent(),'Aster Forge Components');
+await page.getByRole('heading',{name:'Committee brief',exact:true}).waitFor();
 await assertLoadingRequest(page.locator('[data-start-case]'),'Investment committee','Start this case','Before accepting the price',{idleSubmitLabel:'Send to committee'});
 await page.locator('#ai-message').fill('I would validate customer retention and downside cash flow.');
 await assertLoadingRequest(page.locator('[data-submit]'),'Investment committee','Send to committee','The curriculum frames this as a question of evidence',{idleSubmitLabel:'Send to committee'});
@@ -144,6 +178,31 @@ assert.equal(JSON.stringify(events).includes('deterministic case figures'),false
 
 for(const viewport of [{width:390,height:844},{width:768,height:1024}]){
  await page.setViewportSize(viewport);await page.goto(`${base}/ai/`);await page.locator('[data-ai-status][data-state=ready]').waitFor();
+ assert.equal(Math.round((await page.locator('[data-ai-app]').boundingBox()).width),viewport.width,'mobile workspace uses the viewport width');
+ assert.equal(await page.locator('[data-mode-select]').isVisible(),true);
+ assert.equal(await page.locator('[data-context-panel]').evaluate(panel=>panel.open),false);
+ await page.locator('[data-context-panel] > summary').focus();await page.keyboard.press('Enter');
+ assert.equal(await page.locator('[data-context-panel]').evaluate(panel=>panel.open),true);
+ await page.keyboard.press('Enter');
+ assert.equal(await page.locator('[data-context-panel]').evaluate(panel=>panel.open),false);
+ await page.locator('[data-mode-select]').selectOption('deal_lab');
+ await page.locator('[data-start-case]').waitFor({state:'visible'});
+ assert.equal(await page.locator('[data-context-summary]').textContent(),'Case file');
+ await page.locator('#ai-mobile-case-select').selectOption('bluejay-field-services');
+ await assertLoadingRequest(page.locator('[data-start-case]'),'Acquisition Companion instructor','Start this case','Before accepting the price');
+ assert.equal(await page.locator('[data-stage-actions]').evaluate(panel=>panel.open),false,'mobile learning actions stay compact');
+ await page.locator('[data-stage-actions] > summary').click();
+ await assertLoadingRequest(page.locator('[data-command="hint"]'),'Acquisition Companion instructor','Give me a hint','The curriculum frames this as a question of evidence');
+ await page.locator('[data-stage-actions] > summary').click();
+ await page.locator('[data-context-panel] > summary').click();
+ assert.equal(await page.locator('[data-case-title]:visible').textContent(),'Bluejay Field Services');
+ await page.locator('[data-case-facts]:visible').getByText('Revenue $2,400,000; reported EBITDA $420,000.').waitFor();
+ const mobileAxe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(mobileAxe.violations.map(item=>item.id),[]);
+ await page.locator('[data-context-panel] > summary').click();
+ await page.screenshot({path:`artifacts/ai-workspace-${viewport.width}.png`});
+ await page.locator('[data-mode-select]').selectOption('ic_challenge');
+ assert.equal(await page.locator('[data-context-summary]').textContent(),'Committee brief');
+ await page.locator('[data-mode-select]').selectOption('ask_course');
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),`AI Deal Lab horizontal overflow at ${viewport.width}px`);
 }
 const readyAxe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
