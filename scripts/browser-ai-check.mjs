@@ -55,6 +55,12 @@ assert.equal(await page.locator('[data-context-panel]').evaluate(panel=>panel.op
 const panels=await Promise.all(['[data-mode-rail]','.ai-conversation-panel','[data-context-panel]'].map(selector=>page.locator(selector).boundingBox()));
 assert.ok(panels[0].x+panels[0].width<=panels[1].x+1&&panels[1].x+panels[1].width<=panels[2].x+1,'desktop uses rail, conversation, context columns');
 assert.ok(panels[1].width>panels[0].width+panels[2].width,'conversation has the most visual space');
+const purpose=page.locator('.ai-purpose'),purposeSummary=purpose.locator('summary');
+assert.equal(await purpose.evaluate(panel=>panel.open),false,'comparison is secondary and closed by default');assert.equal(await purposeSummary.isVisible(),true);
+await purposeSummary.focus();await page.keyboard.press('Enter');assert.equal(await purpose.evaluate(panel=>panel.open),true);assert.match(await purpose.innerText(),/You absolutely can use a general AI assistant/);assert.match(await purpose.innerText(),/deterministic calculations/);
+assert.deepEqual((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations.map(item=>item.id),[]);
+await page.screenshot({path:'artifacts/ai-purpose-desktop-expanded.png'});
+await page.keyboard.press('Enter');assert.equal(await purpose.evaluate(panel=>panel.open),false);assert.equal(await purposeSummary.evaluate(el=>el===document.activeElement),true,'disclosure keeps keyboard focus');
 await page.getByRole('heading',{name:'Ask Acquisition Companion',exact:true}).waitFor();
 const emptyHeadingBox=await page.getByRole('heading',{name:'Ask Acquisition Companion',exact:true}).boundingBox();
 const emptyThreadBox=await page.locator('[data-thread-viewport]').boundingBox();
@@ -206,6 +212,11 @@ assert.equal(JSON.stringify(events).includes('deterministic case figures'),false
 for(const viewport of [{width:390,height:844},{width:768,height:1024}]){
  await page.setViewportSize(viewport);await page.goto(`${base}/ai/`);await page.locator('[data-ai-status][data-state=ready]').waitFor();
  assert.equal(Math.round((await page.locator('[data-ai-app]').boundingBox()).width),viewport.width,'mobile workspace uses the viewport width');
+ assert.equal(await purposeSummary.isVisible(),true,'comparison is discoverable on mobile');
+ await purposeSummary.focus();await page.keyboard.press('Enter');assert.equal(await purpose.evaluate(panel=>panel.open),true);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+ assert.deepEqual((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations.map(item=>item.id),[]);
+ await page.screenshot({path:`artifacts/ai-purpose-${viewport.width}-expanded.png`,fullPage:true});
+ await page.keyboard.press('Enter');assert.equal(await purpose.evaluate(panel=>panel.open),false);
  assert.equal(await page.locator('[data-mode-select]').isVisible(),true);
  assert.equal(await page.locator('[data-context-panel]').evaluate(panel=>panel.open),false);
  await page.locator('[data-context-panel] > summary').focus();await page.keyboard.press('Enter');
