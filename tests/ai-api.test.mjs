@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {valuation,debt,diligence,offer} from './fixtures/analysis-scenarios.mjs';
+import {integrationQuestion} from './fixtures/integration-scenario.mjs';
 
 async function loadApi() {
   const imported = await import('../src/worker/ai-api.mjs').catch(() => null);
@@ -249,7 +250,7 @@ test('analytical policy covers five canonical workflows without changing API, pr
  const context=[{role:'user',content:'Asking price: $2.5m; adjusted EBITDA: $700k; add-backs: $150k; buyer liquidity: $150k.'}];
  const scenarios=[
   {message:'I have $150,000 available to invest. What size business could I realistically buy, and how could I finance it?',history:[],check(body){assert.match(body.instructions,/Never scale the user's cash/);assert.match(body.instructions,/retained reserves, fees, working capital/);}},
-  {message:'This business is asking $2.5 million. It has $700,000 of stated adjusted EBITDA, including $150,000 of add-backs. Is the price reasonable?',history:[],check(body){assert.match(body.instructions,/550000/);assert.match(body.instructions,/21\.428571/);assert.match(body.instructions,/Invite a permitted public\/fictional add-back schedule/);}},
+  {message:'This business is asking $2.5 million. It has $700,000 of stated adjusted EBITDA, including $150,000 of add-backs. Is the price reasonable?',history:[],check(body){assert.match(body.instructions,/550000/);assert.match(body.instructions,/21\.428571/);assert.match(body.instructions,/Invite a permitted public\/fictional add-back schedule/);assert.equal(body.instructions.includes('Operational realism'),false);assert.equal(body.instructions.includes('employee uncertainty/fear'),false);}},
   {message:'Can this business actually support the debt required to buy it?',history:context,check(body){assert.match(body.instructions,/EBITDA is not debt capacity/);assert.match(body.instructions,/payment frequency and maturity\/balloon/);assert.match(body.instructions,/Never invent a universal approval threshold/);assert.equal(body.input[0].content[0].text,context[0].content);}},
   {message:'Fictional demo excerpt, row A: revenue fell from $1m to $800k. Row B: one customer supplies 45% of sales. Broker narrative: no concentration risk. What are the biggest red flags and questions before an offer?',history:[],check(body){for(const value of ['Confirmed concern','Requires diligence','Missing information','exact excerpt/row evidence','prohibits confidential','no uploads'])assert.ok(body.instructions.includes(value));assert.ok(body.input.at(-1).content[0].text.includes('Fictional demo excerpt'));}},
   {message:'I like this business. What should I offer, and how should I structure the deal?',history:context,check(body){assert.match(body.instructions,/no default discount to asking/);assert.match(body.instructions,/below, at or above asking/);assert.match(body.instructions,/Reconcile sources and uses/);assert.match(body.instructions,/Fixed deferred consideration/);}},
@@ -263,6 +264,50 @@ test('analytical policy covers five canonical workflows without changing API, pr
   }});
   assert.equal(response.status,200);assert.equal(calls,1);
  }
+});
+
+test('operational lens reaches every mode while preserving budgets, retrieval and one-question simulation rules',async()=>{
+ const handle=await loadApi();
+ for(const mode of ['ask_course','deal_lab','ic_challenge']){
+  let body;
+  const payload={mode,message:integrationQuestion,history:[],...(mode==='ask_course'?{}:{caseId:'two-companies-one-team',caseStage:1})};
+  const response=await handle(request(payload),readyEnv(),{fetcher:async(_url,init)=>{body=JSON.parse(init.body);return modelOutput();}});
+  assert.equal(response.status,200);
+  for(const term of ['self-preservation','Stabilize first','talent flight','temporarily necessary','20%','mediocre execution','not empirical claims'])assert.ok(body.instructions.includes(term),`${mode}: ${term}`);
+  for(const requirement of [/explicitly contrast.*on paper.*in practice/i,/explicitly mention.*employee uncertainty\/fear.*rumor/i,/high performers.*may leave before.*decisions/i,/customer disruption.*account-owner turnover.*billing errors/i,/at most four.*principles/i,/200–275 words/])assert.match(body.instructions,requirement);
+  assert.equal(body.max_output_tokens,mode==='ask_course'?1152:960);
+  assert.equal(body.store,false);assert.equal(body.tool_choice,'required');assert.equal(body.tools[0].max_num_results,4);
+  if(mode==='ask_course')assert.ok(body.instructions.indexOf('Operational realism')>body.instructions.indexOf('Server analysis'),'selected operational shape follows generic finance guidance');
+  else assert.ok(body.instructions.indexOf('Operational realism')<body.instructions.indexOf('Use only the current stage facts'),'simulation rules retain their existing priority');
+  if(mode!=='ask_course')assert.match(body.instructions,/one focused/);
+ }
+});
+
+test('operational context follows permitted user turns but clears at a new deal boundary',async()=>{
+ const handle=await loadApi();let body;
+ const fetcher=async(_url,init)=>{body=JSON.parse(init.body);return modelOutput();};
+ const history=[{role:'user',content:'We are merging two management teams.'}];
+ await handle(request(askPayload({message:'What should we defer?',history})),readyEnv(),{fetcher});
+ assert.match(body.instructions,/Operational realism/);
+ await handle(request(askPayload({message:'New deal. What is a seller note?',history})),readyEnv(),{fetcher});
+ assert.equal(body.instructions.includes('Operational realism'),false);
+});
+
+test('integration exercise hides later facts and returns canonical project math on Show Answer',async()=>{
+ const handle=await loadApi();let body;
+ const fetcher=async(_url,init)=>{body=JSON.parse(init.body);return modelOutput();};
+ const payload={mode:'deal_lab',message:'Start case',action:'start',history:[],caseId:'two-companies-one-team',caseStage:0};
+ let response=await handle(request(payload),readyEnv(),{fetcher});assert.equal(response.status,200);
+ assert.match(body.instructions,/Operational realism/);assert.equal(body.instructions.includes('costs double'),false);assert.equal(body.instructions.includes('Outside offers'),false);
+ assert.equal((await readJson(response)).case.stage,1);
+ response=await handle(request({...payload,caseStage:1,action:'show_answer',message:'Show the answer'}),readyEnv(),{fetcher});
+ const result=await readJson(response);assert.equal(response.status,200);assert.equal(result.case.stage,4);
+ assert.deepEqual(result.calculations.integration.scenarios[1].annualCashFlows,[-60000,-210000,-50000,-50000,-50000]);
+ assert.equal(body.max_output_tokens,1400);assert.match(body.instructions,/Never invent or recompute canonical case numbers/);
+ response=await handle(request({...payload,mode:'ic_challenge',caseStage:4,action:'complete',message:'Complete the IC Challenge'}),readyEnv(),{fetcher:async(_url,init)=>{
+  body=JSON.parse(init.body);return modelOutput({responseText:'Retaining transition coverage is distinct from appointing a long-term leader.',feedback:{strengths:['Separated stabilization from optimization.'],risksIdentified:['Customer handover dependence.'],risksMissed:['Temporary duplicate-running capacity.'],assumptionsNeedingEvidence:['Savings realization and employee willingness to stay.'],lessonsToReview:['management-after-acquisition']}});
+ }});
+ const complete=await readJson(response);assert.equal(response.status,200);assert.ok(complete.feedback.strengths.length>0);assert.equal(complete.feedback.lessonsToReview[0].url,'/course/management-after-acquisition/');assert.equal(body.max_output_tokens,1400);
 });
 
 test('new-deal boundaries remove old model context, and synthetic modes never receive the user-analysis policy',async()=>{

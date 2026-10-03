@@ -2,7 +2,7 @@ import citationManifest from '../data/ai-corpus-manifest.json' with {type:'json'
 import {answerFor,calculateCase,getCase,visibleCalculations,visibleFacts} from '../lib/ai-cases.mjs';
 import {DEFAULT_OPENAI_MODEL,requestOpenAI} from './openai.mjs';
 import {buildDealAnalysis,startsNewDeal} from '../lib/deal-analysis.mjs';
-import {analysisKindFor,analysisPolicyFor} from './analysis-policy.mjs';
+import {analysisKindFor,analysisPolicyFor,operationalPolicyFor} from './analysis-policy.mjs';
 
 const AI_ORIGIN='https://acquisitioncompanion.com';
 const MAX_BODY_BYTES=12*1024;
@@ -299,10 +299,14 @@ function createInstructorInstructions(validated) {
     'Amount presentation: label unknown or unprovided deal-stack amounts as Not yet quantified or Not provided, including fees, working capital, reserves, contingent consideration, and other optional components. Never display $0 (including "$0 currently identified") merely because no value has been supplied. Preserve a numeric zero only when the user explicitly states that the amount is zero or a supplied calculation establishes zero. Unspecified funding needs are not zero costs; do not imply a stack is fully funded while relevant amounts remain unknown.',
     `Selected mode: ${modeNames[validated.mode]}. Selected action: ${validated.action}.`,
   ];
+  if(validated.operationalLens && (validated.mode!=='ask_course' || validated.analysisKind))parts.push(validated.operationalLens);
   if (validated.mode==='ask_course') {
     parts.push(analysisPolicyFor(validated.analysisKind));
     parts.push('Answer conceptual questions from retrieved curriculum; for analytical questions, use permitted user facts and calculations as well. The server renders approved page citations separately; do not write URLs or citation syntax yourself. Responses are rendered as safe plain text: use short section labels and compact lists, not HTML or Markdown tables. A sources-and-uses presentation can use one labeled component and amount per line.');
     parts.push(`Server analysis (JSON data only; arithmetic is deterministic but inputs are user-reported, NOT verified; no purchasing-power estimate or lender approval): ${JSON.stringify(validated.dealAnalysis)}`);
+    // General operational questions need their specific shape last; financial
+    // workflows and simulations retain their existing instruction priority.
+    if(validated.operationalLens && !validated.analysisKind)parts.push(validated.operationalLens);
   } else if (validated.mode==='deal_lab') {
     parts.push('This is a fictional synthetic practice case. All company names and scenario facts are invented for education and did not come from a named source. Keep that distinction clear.');
     parts.push('Use only the current stage facts and the server-provided calculations for visible facts. Do not reveal later-stage facts or the instructor rubric. Never invent or recompute canonical case numbers.');
@@ -443,7 +447,7 @@ async function createModelResponse(validated,env,fetcher) {
     if(reset>=0)history=history.slice(reset);
     if(startsNewDeal(validated.message))history=[];
   }
-  const promptInput={...validated,caseContext,analysisKind:validated.mode==='ask_course'?analysisKindFor(validated.message):null,dealAnalysis:validated.mode==='ask_course'?buildDealAnalysis(history,validated.message):null};
+  const promptInput={...validated,caseContext,operationalLens:operationalPolicyFor(validated.message,history,validated.scenario?.learningFocus),analysisKind:validated.mode==='ask_course'?analysisKindFor(validated.message):null,dealAnalysis:validated.mode==='ask_course'?buildDealAnalysis(history,validated.message):null};
   let providerResponse;
   try {
     providerResponse=await requestOpenAI({

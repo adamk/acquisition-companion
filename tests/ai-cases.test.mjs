@@ -9,10 +9,10 @@ async function loadCases() {
   return imported;
 }
 
-test('case cards expose three original practice levels without exposing rubrics', async () => {
+test('case cards retain three practice levels plus a fictional integration exercise without exposing rubrics', async () => {
   const {listCaseCards} = await loadCases();
   const cards = listCaseCards();
-  assert.deepEqual(cards.map(card=>card.difficulty).sort(), ['advanced','beginner','intermediate']);
+  assert.deepEqual(cards.map(card=>card.difficulty).sort(), ['advanced','advanced','beginner','intermediate']);
   assert.equal(new Set(cards.map(card=>card.id)).size, cards.length);
   for (const card of cards) {
     assert.equal(Object.hasOwn(card,'rubric'),false);
@@ -42,6 +42,7 @@ test('each case has balanced sources and uses and deterministic hand-checked ari
   };
   for (const card of listCaseCards()) {
     const result = calculateCase(card.id);
+    if(card.id==='two-companies-one-team'){assert.ok(result.integration);continue;}
     const want = expected[card.id];
     assert.ok(want, `expected arithmetic fixture exists for ${card.id}`);
     assert.equal(result.normalizedEbitda,want.normalizedEbitda,card.id);
@@ -76,7 +77,9 @@ test('case stages reveal facts monotonically and hidden rubric references real p
       const facts = visibleFacts(card.id,stage);
       assert.deepEqual(facts.map(fact=>fact.id),scenario.stages.slice(0,stage).flatMap(item=>item.facts.map(fact=>fact.id)));
     }
-    assert.ok(answerFor(card.id).calculations.sourcesAndUses.imbalance === 0);
+    const calculations=answerFor(card.id).calculations;
+    if(scenario.integration)assert.equal(calculations.integration.oneTimeCost,250000);
+    else assert.ok(calculations.sourcesAndUses.imbalance === 0);
   }
 });
 

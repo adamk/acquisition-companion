@@ -183,6 +183,16 @@ if(root){
   const money=(amount:unknown)=>typeof amount==='number'?new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(amount):'';
   const ratio=(amount:unknown)=>typeof amount==='number'?`${amount.toFixed(2)}x`:'';
   const normalization=value.normalization as Record<string,unknown>|undefined;
+  const integration=value.integration as Record<string,unknown>|undefined;
+  if(integration){
+   rows.push(['Combined baseline EBITDA',money(integration.baselineEbitda)],['Planned annual integration benefit',money(integration.plannedAnnualBenefit)],['Planned one-time integration costs',money(integration.oneTimeCost)]);
+   const scenarios=Array.isArray(integration.scenarios)?integration.scenarios as Array<Record<string,unknown>>:[];
+   for(const scenario of scenarios.slice(0,2)){
+    if(typeof scenario.name!=='string')continue;
+    rows.push([`${scenario.name}: incremental project NPV`,money(scenario.incrementalNpv)]);
+    if(Array.isArray(scenario.annualCashFlows))rows.push([`${scenario.name}: annual net project cash flows`,scenario.annualCashFlows.map(money).join(' · ')]);
+   }
+  }
   if(typeof value.normalizedEbitda==='number')rows.push(['Normalized EBITDA',money(value.normalizedEbitda)]);
   if(typeof value.normalizedMultiple==='number')rows.push(['Enterprise value / normalized EBITDA',ratio(value.normalizedMultiple)]);
   if(typeof value.workingCapitalShortfall==='number')rows.push(['Working capital shortfall',money(value.workingCapitalShortfall)]);
@@ -200,7 +210,7 @@ if(root){
   const mezzanine=value.mezzanine as Record<string,unknown>|undefined;
   if(mezzanine&&typeof mezzanine.pikAccrual==='number'&&mezzanine.pikAccrual>0)rows.push(['One-year PIK accrual',money(mezzanine.pikAccrual)]);
   const list=document.createElement('dl');for(const [label,result] of rows){const dt=document.createElement('dt');dt.textContent=label;const dd=document.createElement('dd');dd.textContent=result;list.append(dt,dd);}calculationsContent.append(list);
-  appendTextBlock(calculationsContent,'p','Illustrative annual figures only. Fees, covenants, taxes, lender conditions, and actual payment schedules may change the result.','muted');
+  appendTextBlock(calculationsContent,'p',integration&&typeof integration.assumptions==='string'?integration.assumptions:'Illustrative annual figures only. Fees, covenants, taxes, lender conditions, and actual payment schedules may change the result.','muted');
   if(normalization&&typeof normalization.addbacks==='number'&&typeof normalization.deductions==='number')appendTextBlock(calculationsContent,'p',`Add-backs ${money(normalization.addbacks)} less replacement costs ${money(normalization.deductions)}.`);
  }
  function renderSources(citations:unknown[],caseRefs:unknown[]=[]){

@@ -22,5 +22,13 @@
     "industry": "Contract route logistics",
     "description": "A fictional multi-site operator is considering senior debt, cash-pay and PIK mezzanine, a seller note, and rolled equity.",
     "label": "Synthetic practice case"
+  },
+  {
+    "id": "two-companies-one-team",
+    "title": "Two companies, one management team",
+    "difficulty": "advanced",
+    "industry": "Business services integration",
+    "description": "An original fictional exercise combining two service businesses. Decide what to stabilize, who should lead and whether integration still creates value under imperfect execution.",
+    "label": "Synthetic practice case"
   }
 ]

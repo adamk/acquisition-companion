@@ -10,7 +10,7 @@ const AI_EVENT_KEYS={
  ic_challenge_complete:['case_id','difficulty','completion_status'],
 };
 const AI_MODES=new Set(['ask_course','deal_lab','ic_challenge']);
-const AI_CASES=new Set(['bluejay-field-services','aster-forge-components','ternbridge-route-logistics']);
+const AI_CASES=new Set(['bluejay-field-services','aster-forge-components','ternbridge-route-logistics','two-companies-one-team']);
 const AI_DIFFICULTIES=new Set(['beginner','intermediate','advanced']);
 
 function safeAiEventParams(name,params){

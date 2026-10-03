@@ -1,3 +1,4 @@
+import {calculateIntegration} from './integration-analysis.mjs';
 const CASES = [
   {
     id:'bluejay-field-services',
@@ -179,6 +180,42 @@ const CASES = [
       {id:'downside-protection',focus:'Challenge the base coverage and exit path.',factIds:['cash-conversion','downside-inputs','diligence-gaps'],guidance:'Base coverage has limited cushion and the largest-customer downside is near cash break-even. Test contracted revenue, liquidity, covenants, refinancing assumptions, and walk-away conditions.'},
     ],
   },
+  {
+    id:'two-companies-one-team',title:'Two companies, one management team',difficulty:'advanced',learningFocus:'integration',industry:'Business services integration',
+    description:'An original fictional exercise combining two service businesses. Decide what to stabilize, who should lead and whether integration still creates value under imperfect execution.',
+    teachingObjectives:['Separate stabilization from the long-term organization.','Distinguish retention dependencies from leadership quality and permanent redundancy.','Test benefits, costs, timing and mediocre execution using incremental project cash flows.'],
+    lessonRefs:[{title:'Management after acquisition',url:'/course/management-after-acquisition/'},{title:'Build a group with a reason to belong together',url:'/course/building-a-group/'},{title:'Customer concentration',url:'/topics/customer-concentration/'},{title:'Cash flow',url:'/topics/cash-flow/'}],
+    stages:[
+      {label:'Stabilize the combined business',facts:[
+        {id:'market-scope',label:'Two fictional businesses',value:'Company A: 30 employees, $6m revenue and $600k EBITDA. Company B: 20 employees, $4m revenue and $400k EBITDA. All figures are USD; baseline assumes both continue separately without improvement. Each has its own sales, operations and finance function.'},
+        {id:'culture-and-service',label:'Operating differences',value:'A uses formal dispatch controls; B lets account teams improvise. Both meet current service targets. They use incompatible billing systems. A missed payroll, billing or service handover could harm customers and cash collection.'},
+        {id:'first-decision',label:'Immediate assignment',value:'The buyer has not promised a permanent org chart. Decide what must remain covered during integration before selecting leaders or eliminating roles.'},
+      ]},
+      {label:'People, evidence and transition dependencies',facts:[
+        {id:'management-tradeoff',label:'Competing operations heads',value:'A’s operations head earns $140k; validated scheduling reports show fewer missed visits. B’s head earns $130k and personally owns relationships with three clients representing $2m combined revenue. Each favors retaining their own people; their proposed rankings lack independent evidence. Neither has managed a business of the combined size.'},
+        {id:'key-people',label:'Critical coverage',value:'A’s scheduling analyst ($75k) alone maintains the dispatch rules. B’s billing specialist ($65k) alone reconciles legacy invoices. A sales lead ($100k) and B account lead ($95k) must hand over accounts. Two finance controllers earn $90k each; both systems need closing and payroll coverage until reconciled.'},
+        {id:'retention-and-capacity',label:'Unknowns and project claims',value:'Employees have heard layoffs may be coming, but no departures are confirmed. References on leadership, key-employee willingness to stay and customer handover acceptance are missing. The proposal removes one $90k controller and $110k of duplicated office/process expense; removing either controller before migration is not yet operationally supported. Assess whether temporary retention, either incumbent or an outside leader fits.'},
+      ]},
+      {label:'Planned economics and timing',facts:[
+        {id:'integration-economics',label:'Conditional plan',value:'Combined baseline EBITDA $1m. Planned recurring savings $200k/year: one $90k controller role plus $110k office/process expense. This is a proposed 20% EBITDA uplift, not a quality, productivity or enterprise-value claim. Realization: 50% in year 1; 100% in years 2–5. Duplicate-running expense $60k in year 1, none afterward.'},
+        {id:'integration-costs',label:'Project costs and valuation assumptions',value:'At-close one-time costs: systems $120k, severance $60k, retention bonuses $40k, training $30k. Evaluate the incremental integration project versus remaining separate over five years using an assumed 10% discount rate, year-end net cash flows and no terminal value. For this exercise, savings are pre-tax cash-equivalent; purchase price, financing, taxes, capex and working-capital changes are outside the project model. No scenario probabilities or growth benefit from management attention are assigned.'},
+      ]},
+      {label:'Mediocre execution and committee decision',facts:[
+        {id:'integration-downside',label:'Combined stress, not a forecast',value:'Only 50% of planned savings materialize, beginning in year 3: zero in years 1–2. One-time costs double. Duplicate-running expense is $60k in each of years 1–2. From year 2 onward, lost customers reduce combined revenue 5% at a 30% lost contribution margin. No replacement revenue is assumed. Hold these effects fixed through year 5; do not add salary savings again.'},
+        {id:'execution-pressure',label:'Unquantified disruption',value:'The scheduling analyst and account lead have outside offers, not confirmed departures. The CEO expects to spend 12–18 months on migration rather than growth. Service deteriorates temporarily if knowledge coverage fails. No monetary cost for those risks, taxes or working-capital disruption has been quantified; do not enter zero or double-count customer loss. Would integration still create sufficient value under mediocre execution, and what evidence or sequencing would change your decision?'},
+      ]},
+    ],
+    integration:{baselineEbitda:1_000_000,revenue:10_000_000,plannedAnnualBenefit:200_000,costs:{systems:120_000,severance:60_000,retention:40_000,training:30_000},discountRate:0.10,years:5,scenarios:[
+      {name:'Conditional plan',realization:[0.5,1,1,1,1],duplicateRunningCosts:[60_000,0,0,0,0],revenueLoss:[0,0,0,0,0],lostContributionMargin:0.30,costMultiplier:1},
+      {name:'Mediocre execution',realization:[0,0,0.5,0.5,0.5],duplicateRunningCosts:[60_000,60_000,0,0,0],revenueLoss:[0,0.05,0.05,0.05,0.05],lostContributionMargin:0.30,costMultiplier:2},
+    ]},
+    rubric:[
+      {id:'stabilization',focus:'Protect continuity before redesign.',factIds:['culture-and-service','first-decision'],guidance:'Protect service, billing, payroll and cash collection first. Define critical coverage before removing people; process design alone cannot prove transition capacity.'},
+      {id:'people-and-politics',focus:'Separate retention, leadership and permanent redundancy.',factIds:['management-tradeoff','key-people','retention-and-capacity'],guidance:'Independent evidence must test biased rankings, not assume malicious motives. Temporary knowledge retention is not a permanent leadership appointment. Neither incumbent is proven at combined scale; consider outside leadership and handover risk without a forced winner.'},
+      {id:'benefit-definition',focus:'Define the improvement and execution dependencies.',factIds:['integration-economics','integration-costs'],guidance:'20% refers only to $200k proposed annual savings divided by $1m combined EBITDA. Validate whether the controller role is truly removable after systems reconciliation; do not double-count compensation savings or infer quality/EV improvement.'},
+      {id:'mediocre-value',focus:'Test incomplete, late and disruptive integration.',factIds:['integration-downside','execution-pressure'],guidance:'Use the canonical project cash flows, not a perfect steady-state margin story. Compare the conditional plan with a negative mediocre-execution NPV, explain exclusions, and ask what evidence justifies risk or changes sequencing. No probabilities or full acquisition valuation are established.'},
+    ],
+  },
 ];
 
 const CASE_BY_ID = new Map(CASES.map(item=>[item.id,item]));
@@ -225,6 +262,7 @@ export function visibleFacts(id,stage) {
 
 export function calculateCase(id) {
   const scenario=requiredCase(id);
+  if(scenario.integration)return {integration:calculateIntegration(scenario.integration)};
   const f=scenario.financials;
   const addbacks=money(f.addbacks.reduce((sum,item)=>sum+item.amount,0));
   const deductions=money(f.deductions.reduce((sum,item)=>sum+item.amount,0));
@@ -268,6 +306,10 @@ export function visibleCalculations(id,stage) {
   const scenario=requiredCase(id);
   const knownFactIds=new Set(visibleFacts(id,stage).map(fact=>fact.id));
   const complete=calculateCase(id);
+  if(scenario.integration){
+    if(!knownFactIds.has('integration-economics'))return {};
+    return {integration:{...complete.integration,scenarios:complete.integration.scenarios.slice(0,knownFactIds.has('integration-downside')?2:1)}};
+  }
   const result={
     reportedEbitda:complete.reportedEbitda,
     enterpriseValue:complete.valuation.enterpriseValue,

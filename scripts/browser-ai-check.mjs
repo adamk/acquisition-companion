@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {valuation,debt,offer} from '../tests/fixtures/analysis-scenarios.mjs';
+import {getCase,visibleFacts,calculateCase} from '../src/lib/ai-cases.mjs';
 
 const base=process.env.PREVIEW_URL||'http://127.0.0.1:4321';
 await fs.promises.mkdir('artifacts',{recursive:true});
@@ -44,6 +45,11 @@ await context.route('**/api/ai',async route=>{
  }
  if(payload.action==='show_answer')result.calculations={reportedEbitda:420000,normalizedEbitda:440000,normalizedMultiple:5,workingCapitalShortfall:35000,totalLeverage:3.52,annualDebtService:{total:280757},baseCashFlow:{coverage:1.12},downsideCashFlow:{coverage:0.75},sourcesAndUses:{imbalance:0}};
  if(payload.action==='complete')result.feedback={strengths:['Separated price from financing.'],risksIdentified:['Customer consent is outstanding.'],risksMissed:['Downside coverage needs more evidence.'],assumptionsNeedingEvidence:['Customer renewal.'],lessonsToReview:[{title:'Customer concentration',url:'/topics/customer-concentration/'}]};
+ if(payload.caseId==='two-companies-one-team'){
+  const scenario=getCase(payload.caseId),stage=payload.action==='show_answer'?4:Math.max(1,Math.min(payload.action==='reveal_next'?(payload.caseStage||1)+1:payload.caseStage||1,4));
+  result.case={id:scenario.id,title:scenario.title,difficulty:scenario.difficulty,industry:scenario.industry,description:scenario.description,stage,stageCount:4,stageLabel:scenario.stages[stage-1].label,facts:visibleFacts(scenario.id,stage),lessonRefs:scenario.lessonRefs};
+  if(payload.action==='show_answer')result.calculations=calculateCase(scenario.id);
+ }
  await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(result)});
 });
 const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));page.on('request',request=>{if(new URL(request.url()).hostname==='api.openai.com')external.push(request.url());});
@@ -112,7 +118,7 @@ assert.ok(await page.getByRole('link',{name:'Original public lesson source'}).is
 assert.match(await page.locator('[data-ai-status]').innerText(),/Response ready/);
 
 await page.getByRole('button',{name:/Deal Lab/}).click();
-assert.equal(await page.locator('.ai-rail [data-case-choice]:visible').count(),3);
+assert.equal(await page.locator('.ai-rail [data-case-choice]:visible').count(),4);
 await page.locator('.ai-context-panel [data-context-mode="deal_lab"]').getByRole('heading',{name:'Case file',exact:true}).waitFor();
 await assertLoadingRequest(page.locator('[data-start-case]'),'Acquisition Companion instructor','Start this case','Before accepting the price');
 await page.locator('[data-context-mode="deal_lab"] [data-case-facts]').getByText('Revenue $2,400,000; reported EBITDA $420,000.').waitFor();
@@ -148,6 +154,18 @@ assert.match(await page.locator('[data-feedback-content]').innerText(),/Risks id
 assert.match(await page.locator('[data-feedback-content]').innerText(),/Important risks missed/);
 assert.equal(await page.locator('[data-feedback-content]').getByRole('link',{name:'Customer concentration'}).getAttribute('href'),`${base}/topics/customer-concentration/`);
 assert.equal(await page.locator('.deal-score').count(),0);
+
+// The original fictional integration case works in both teaching modes without revealing future facts.
+for(const mode of ['deal_lab','ic_challenge']){
+ await page.locator(`[data-mode="${mode}"]`).click();
+ await page.locator(`.ai-rail [data-context-mode="${mode}"] [data-case-choice="two-companies-one-team"]`).click();
+ await page.locator('[data-start-case]').click();await page.locator('[data-case-title]:visible').getByText('Two companies, one management team',{exact:true}).waitFor();
+ assert.equal((await page.locator('[data-case-facts]:visible').innerText()).includes('costs double'),false);
+ await page.locator('[data-command="show_answer"]').click();
+ await page.locator('[data-calculations-content]').getByText('Conditional plan: incremental project NPV',{exact:true}).waitFor();
+ const figures=await page.locator('[data-calculations-content]').innerText();assert.match(figures,/\$362,703/);assert.match(figures,/-\$830,862/);assert.match(figures,/pre-tax integration project/);
+ assert.ok((await page.locator('[data-case-facts]:visible').innerText()).includes('Only 50%'));
+}
 
 await page.getByRole('button',{name:/Ask the Course/}).click();
 await page.locator('#ai-message').fill(valuation);await page.locator('[data-submit]').click();
@@ -205,6 +223,7 @@ assert.equal(storage.sessionValues.some(value=>value.includes('What does the cou
 const events=await page.evaluate(()=>window.__aiEvents);
 const allowedEventKeys=new Set(['mode','case_id','difficulty','completion_status']);
 assert.ok(events.length>=6);
+assert.ok(events.some(event=>event.params.case_id==='two-companies-one-team'),'new case retains only allowlisted public synthetic-case metadata');
 assert.ok(events.every(event=>Object.keys(event.params).every(key=>allowedEventKeys.has(key))));
 assert.equal(JSON.stringify(events).includes('What does the course teach?'),false);
 assert.equal(JSON.stringify(events).includes('deterministic case figures'),false);
@@ -240,6 +259,13 @@ for(const viewport of [{width:390,height:844},{width:768,height:1024}]){
  await page.screenshot({path:`artifacts/ai-workspace-${viewport.width}.png`});
  await page.locator('[data-mode-select]').selectOption('ic_challenge');
  assert.equal(await page.locator('[data-context-summary]').textContent(),'Committee brief');
+ await page.locator('#ai-mobile-case-select').selectOption('two-companies-one-team');
+ await page.locator('[data-start-case]').click();
+ await page.locator('[data-context-panel] > summary').click();
+ await page.locator('[data-case-title]:visible').getByText('Two companies, one management team',{exact:true}).waitFor();
+ assert.equal((await page.locator('[data-case-facts]:visible').innerText()).includes('Only 50%'),false);
+ assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+ assert.deepEqual((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations.map(item=>item.id),[]);
  await page.locator('[data-mode-select]').selectOption('ask_course');
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),`AI Deal Lab horizontal overflow at ${viewport.width}px`);
 }

@@ -1,5 +1,7 @@
 # AI Deal Lab operations
 
+Integration/people questions use a targeted operational-realism lens across all three modes. The original fictional “Two companies, one management team” exercise tests stabilization, selection and timed synergy economics without changing model budgets. See [source coverage, gaps and calculation boundaries](operational-source-audit.md); its fictional facts are not source-reported transactions.
+
 AI Deal Lab is an optional educational practice tool, not an autonomous acquisition adviser or general web-search chatbot. The static `/ai/` page has Ask the Course, Deal Lab, and IC Challenge modes. The only model endpoint is `POST /api/ai`; `GET /api/ai/status` returns only whether the runtime is ready.
 
 The initial version stays unavailable unless the Worker has `AI_ENABLED=true`, an OpenAI API key, a vector-store ID, and the three Wrangler rate-limit bindings. Missing configuration fails closed and displays “AI Deal Lab is being configured.” A request also needs the same site origin and valid JSON.
