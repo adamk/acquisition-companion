@@ -58,6 +58,9 @@ if(await page.locator('[data-analytics-consent]').isVisible())await page.getByRo
 assert.equal(await page.locator('[data-ai-workspace]').count(),1,'the AI page has a dedicated workspace');
 assert.equal(await page.locator('[data-mode-rail]').isVisible(),true);
 assert.equal(await page.locator('[data-context-panel]').evaluate(panel=>panel.open),true);
+await page.locator('[data-context-panel]').focus();await page.keyboard.press('Tab');
+assert.equal(await page.getByRole('region',{name:'Sources',exact:true}).evaluate(el=>el===document.activeElement),true,'desktop context remains keyboard accessible');
+await page.keyboard.press('Tab');assert.equal(await page.locator('.ai-context-body').evaluate(el=>el===document.activeElement),false,'desktop context does not trap focus');
 const panels=await Promise.all(['[data-mode-rail]','.ai-conversation-panel','[data-context-panel]'].map(selector=>page.locator(selector).boundingBox()));
 assert.ok(panels[0].x+panels[0].width<=panels[1].x+1&&panels[1].x+panels[1].width<=panels[2].x+1,'desktop uses rail, conversation, context columns');
 assert.ok(panels[1].width>panels[0].width+panels[2].width,'conversation has the most visual space');
@@ -245,6 +248,25 @@ for(const viewport of [{width:390,height:844},{width:768,height:1024}]){
  await page.locator('[data-mode-select]').selectOption('deal_lab');
  await page.locator('[data-start-case]').waitFor({state:'visible'});
  assert.equal(await page.locator('[data-context-summary]').textContent(),'Case file');
+ // Before a case starts, there are no source links inside the scrollable panel.
+ // Its actual scroll region must be reachable without relying on descendants.
+ for(const caseId of ['bluejay-field-services','two-companies-one-team']){
+  await page.locator('#ai-mobile-case-select').selectOption(caseId);
+  const panel=page.locator('[data-context-panel]'),summary=panel.locator('summary'),body=page.locator('.ai-context-body');
+  await summary.focus();await page.keyboard.press('Enter');assert.equal(await panel.evaluate(el=>el.open),true);
+  const panelAxe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
+  assert.deepEqual(panelAxe.violations.map(item=>item.id),[],`empty ${caseId} context panel at ${viewport.width}px`);
+  assert.equal(await body.getAttribute('tabindex'),'0');
+  assert.equal(await body.getAttribute('role'),'region');
+  assert.equal(await body.getAttribute('aria-labelledby'),'ai-context-label');
+  await summary.focus();await page.keyboard.press('Tab');assert.equal(await body.evaluate(el=>el===document.activeElement),true);
+  assert.ok(await body.evaluate(el=>{const style=getComputedStyle(el);return style.outlineStyle!=='none'&&parseFloat(style.outlineWidth)>0;}),'keyboard focus has a visible outline');
+  const overflow=await body.evaluate(el=>el.scrollHeight>el.clientHeight);
+  if(overflow){await body.evaluate(el=>el.scrollTop=0);await page.keyboard.press('ArrowDown');await page.waitForFunction(()=>document.querySelector('.ai-context-body').scrollTop>0);}
+  await page.keyboard.press('Tab');assert.equal(await body.evaluate(el=>el===document.activeElement),false,'context panel does not trap focus');
+  await summary.focus();await page.keyboard.press('Enter');assert.equal(await panel.evaluate(el=>el.open),false);
+  assert.equal(await body.isVisible(),false,'closed disclosure hides the scroll region');
+ }
  await page.locator('#ai-mobile-case-select').selectOption('bluejay-field-services');
  await assertLoadingRequest(page.locator('[data-start-case]'),'Acquisition Companion instructor','Start this case','Before accepting the price');
  assert.equal(await page.locator('[data-stage-actions]').evaluate(panel=>panel.open),false,'mobile learning actions stay compact');
