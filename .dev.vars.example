@@ -2,3 +2,22 @@ AI_ENABLED=false
 OPENAI_API_KEY=replace-with-a-local-test-key
 OPENAI_VECTOR_STORE_ID=vs_replace_with_a_public_course_store
 OPENAI_MODEL=gpt-5.6-luna
+
+# Optional paid-beta preparation: runtime settings, never Astro PUBLIC_* values.
+AI_PAYWALL_ENABLED=false
+AUTH_SIGNIN_ENABLED=false
+AI_ALLOW_TRIALS=false
+# Production candidate: PAID_ENVIRONMENT=production, BILLING_TEST_MODE=false,
+# ACCOUNT_ORIGIN=https://acquisitioncompanion.com, AI_MONTHLY_REQUEST_LIMIT=100.
+# No real credentials here. PAID_DB/AUTH_MAILER are Worker bindings.
+# STRIPE_SECRET_KEY=replace-with-approved-mode-specific-restricted-key
+# STRIPE_WEBHOOK_SECRET=replace-with-destination-signing-secret
+# STRIPE_MONTHLY_PRICE_ID=price_replace_with_monthly
+# STRIPE_ANNUAL_PRICE_ID=price_replace_with_annual
+# STRIPE_PORTAL_CONFIGURATION_ID=bpc_replace_with_portal
+# AI_MODEL_PRICING_JSON=replace-with-reviewed-official-model-rates
+
+# No retention durations are selected until legal/operations review approves them.
+PAID_RETENTION_POLICY_APPROVED=false
+# PAID_USAGE_RETENTION_DAYS=
+# PAID_MONTHLY_USAGE_RETENTION_MONTHS=

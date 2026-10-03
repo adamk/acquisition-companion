@@ -4,6 +4,9 @@ import {DEFAULT_OPENAI_MODEL,requestOpenAI} from './openai.mjs';
 import {buildDealAnalysis,startsNewDeal} from '../lib/deal-analysis.mjs';
 import {analysisKindFor,analysisPolicyFor,operationalPolicyFor} from './analysis-policy.mjs';
 
+import {paywallEnabled,requirePaidAccess,monthlyLimit,providerUsage,estimatedCost} from './paid-access.mjs';
+import {PaidError,paidErrorResponse} from './paid-security.mjs';
+
 const AI_ORIGIN='https://acquisitioncompanion.com';
 const MAX_BODY_BYTES=12*1024;
 const MAX_MESSAGE_CHARS=1500;
@@ -436,7 +439,7 @@ function requireCompletedFileSearch(apiResponse) {
   if (!fileSearchCompleted) throw new ApiError(503,'unavailable','AI Deal Lab could not retrieve course material. Please try again shortly.');
 }
 
-async function createModelResponse(validated,env,fetcher) {
+async function createModelResponse(validated,env,fetcher,onUsage,onProviderFailure) {
   const allAllowedActions=availableActions(validated.mode,validated.caseStage || 0,validated.scenario?.stages.length || 0);
   const lessonSlugs=allowedLessonSlugs(validated);
   const caseContext=buildCaseContext(validated);
@@ -467,6 +470,14 @@ async function createModelResponse(validated,env,fetcher) {
   } catch (error) {
     if (error?.name==='AbortError' || error?.name==='TimeoutError') throw new ApiError(504,'timeout','The response took too long. Please try again.');
     throw new ApiError(503,'unavailable','AI Deal Lab is temporarily unavailable. Please try again shortly.');
+  }
+  // Private accounting callback receives token metadata only, never provider text.
+  if(onUsage){let usage;try{usage=JSON.parse(providerResponse.body)?.usage;}catch{}onUsage(providerUsage(usage));}
+  if(!providerResponse.ok&&onProviderFailure){
+    let error;try{error=JSON.parse(providerResponse.body)?.error;}catch{}
+    const code=typeof error?.code==='string'&&/^[a-z_]{1,80}$/.test(error.code)?error.code:null;
+    const scopes=typeof error?.message==='string'&&/missing scopes:/i.test(error.message)?[...new Set(error.message.match(/\bapi\.[a-z_]+(?:\.[a-z_]+)*\b/g)||[])].slice(0,8):[];
+    onProviderFailure({type:'ai_provider_failure',mode:validated.mode,action:validated.action,providerHttpStatus:providerResponse.status,providerCode:code,missingScopes:scopes});
   }
   if (providerResponse.status===429) throw new ApiError(429,'rate_limited','AI Deal Lab is busy right now. Please wait a minute and try again.',{'Retry-After':'60'});
   if (!providerResponse.ok) throw new ApiError(503,'unavailable','AI Deal Lab is temporarily unavailable. Please try again shortly.');
@@ -503,7 +514,11 @@ export async function handleAiRequest(request,env={},dependencies={}) {
   const path=new URL(request.url).pathname;
   if (path==='/api/ai/status') {
     if (request.method!=='GET') return jsonResponse(405,{error:{code:'method_not_allowed',message:'Use GET for AI service status.'}},{Allow:'GET'});
-    return jsonResponse(200,{status:ready(env)?'ready':'unavailable',available:ready(env)});
+    if(paywallEnabled(env)&&ready(env)){
+      try{await requirePaidAccess(request,env,dependencies);}
+      catch(error){return jsonResponse(200,{status:'access_required',available:false,access:error instanceof PaidError?error.code:'billing_unavailable'});}
+    }
+    return jsonResponse(200,{status:ready(env)?'ready':'unavailable',available:ready(env),...(paywallEnabled(env)&&ready(env)?{paid:true}:{})});
   }
   if (path!=='/api/ai') return null;
   if (request.method!=='POST') return jsonResponse(405,{error:{code:'method_not_allowed',message:'Use POST to submit an AI Deal Lab question.'}},{Allow:'POST'});
@@ -517,9 +532,22 @@ export async function handleAiRequest(request,env={},dependencies={}) {
     validated=validateBody(await readJsonBody(request));
     if (!['ask_course','deal_lab','ic_challenge'].includes(validated.mode)) throw new ApiError(400,'invalid_mode','Choose a supported learning mode.');
     if (validated.action==='start' && validated.mode!=='ask_course' && validated.requestedCaseStage!==0) throw new ApiError(400,'invalid_case_stage','Start the selected synthetic case first.');
+    const access=await requirePaidAccess(request,env,dependencies);
     await applyRateLimits(request,env);
-    return jsonResponse(200,await createModelResponse(validated,env,dependencies.fetcher || fetch));
+    const reportFailure=paywallEnabled(env)&&(env.PAID_ENVIRONMENT==='staging'||env.PAID_DIAGNOSTICS_ENABLED==='true')?(dependencies.reportProviderFailure||(value=>console.warn(JSON.stringify(value)))):null;
+    if(!access)return jsonResponse(200,await createModelResponse(validated,env,dependencies.fetcher || fetch,undefined,reportFailure));
+    const started=Date.now(),id=crypto.randomUUID(),model=env.OPENAI_MODEL||DEFAULT_OPENAI_MODEL;
+    await access.store.reserveUsage({id,userId:access.userId,timestamp:started,month:new Date(started).toISOString().slice(0,7),workflow:`${validated.mode}:${validated.mode==='ask_course'?(analysisKindFor(validated.message)||validated.action):validated.action}`,model},monthlyLimit(env));
+    let usage=providerUsage(null),success=false;
+    try{
+      const result=await createModelResponse(validated,env,dependencies.fetcher||fetch,value=>{usage=value;},reportFailure);
+      success=true;return jsonResponse(200,result);
+    }finally{
+      // Failed paid calls count too. A lost completion leaves an unknown-cost reservation, never free quota.
+      await access.store.finishUsage(id,{...usage,success,latencyMs:Date.now()-started,estimatedCost:estimatedCost(env,model,usage)});
+    }
   } catch (error) {
+    if(error instanceof PaidError)return paidErrorResponse(error);
     return errorResponse(error);
   }
 }

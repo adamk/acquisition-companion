@@ -2,7 +2,7 @@
 
 The free, source-linked guide to buying, financing, and building businesses.
 
-Acquisition Companion is a free, independent Astro guide to buying, financing, and building businesses. It connects original teaching across public sources and links readers to the creators' full material. It is not affiliated with or endorsed by Yusufa Sey, Fund Launch, or other referenced creators. The site has no accounts, payments, advertising, affiliate links, or public transcript corpus. Optional AI Deal Lab requests use a small server-side Cloudflare Worker endpoint; the rest of the educational site remains statically generated.
+Acquisition Companion is a free, independent Astro guide to buying, financing, and building businesses. It connects original teaching across public sources and links readers to the creators' full material. It is not affiliated with or endorsed by Yusufa Sey, Fund Launch, or other referenced creators. The public course requires no account and has no advertising, affiliate links, or public transcript corpus. Optional paid-beta account and billing infrastructure is dormant; the paywall, sign-in and authentication email remain disabled. Optional AI Deal Lab requests use a small server-side Cloudflare Worker endpoint; the rest of the educational site remains statically generated.
 
 ## Local development
 
@@ -144,3 +144,11 @@ There are four unusable substantive recoveries and two other incomplete recoveri
 - `docs/editorial-review.md`
 
 Only `dist/` is the deployable artifact. Keep research inputs, local provenance, scripts and repository metadata out of any manually configured static web root. No license has been selected for the repository's original content or code.
+
+## Disabled production paid-beta preparation
+
+The core curriculum/reference site stays free. A prepared US paid beta for Acquisition Companion Deal Lab uses one product: $19/month or $190/year and 100 requests per UTC month. Nothing enables automatically from credentials: `AI_PAYWALL_ENABLED=false` preserves the existing open AI path; auth and paid routes are dormant. No production launch is authorized by preparation.
+
+See [production migration plan](docs/paid-beta-production-plan.md), [launch operations / exact remaining configuration](docs/paid-beta-launch-operations.md), and [legal/privacy review draft](docs/paid-launch-legal-draft.md). Production/mailer templates are deliberately disabled; root Wrangler prepares dormant production bindings and preserves current production OpenAI settings. Do not deploy example placeholders or reuse staging storage/keys. Support: support@acquisitioncompanion.com.
+
+Validation adds `npm run test:paid-browser` and `npm run test:paid-d1-runtime` (local workerd, mocked providers). `scripts/verify-paid-production-d1.mjs` is an explicit, opt-in remote verifier for the unused dedicated production database only; it refuses other targets and removes its own synthetic records. Runtime secrets/variables and D1/service bindings are distinct from Astro build-time `PUBLIC_GA_MEASUREMENT_ID`, `SITE_URL` and `NODE_VERSION`. No secrets belong in build output.

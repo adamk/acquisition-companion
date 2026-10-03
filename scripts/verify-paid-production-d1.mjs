@@ -1,0 +1,65 @@
+// Explicitly authorized, isolated remote database verification. Never calls email/Stripe/OpenAI.
+import {getPlatformProxy} from 'wrangler';
+import {D1PaidStore} from '../src/worker/paid-store.mjs';
+import {isUserEntitledTo,estimatedCost,hasAccountCapability,requirePaidAccess} from '../src/worker/paid-access.mjs';
+import {handleAiRequest} from '../src/worker/ai-api.mjs';
+import {handlePaidRequest} from '../src/worker/paid-api.mjs';
+import {hash} from '../src/worker/paid-security.mjs';
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const configPath=process.env.PAID_D1_VERIFY_CONFIG;
+assert.ok(configPath?.startsWith('.dev.vars.')&&process.env.PAID_D1_VERIFY_REMOTE==='true','Explicit ignored remote-verification config required');
+const config=JSON.parse(fs.readFileSync(configPath));
+assert.equal(config.d1_databases.length,1);assert.equal(config.d1_databases[0].database_name,'acquisition-companion-paid-production');assert.equal(config.d1_databases[0].remote,true);
+const proxy=await getPlatformProxy({configPath,persist:false,remoteBindings:true});
+const db=proxy.env.PAID_DB,store=new D1PaidStore(db),now=Date.now(),email='paid-production-verification@example.invalid',passed=[];
+const initialUsers=(await db.prepare('SELECT COUNT(*) AS n FROM users').first()).n;
+assert.equal(initialUsers,0,'Verification requires the new, unused production database');
+let user;
+try{
+ const schema=(await db.prepare("SELECT name FROM sqlite_master WHERE type='table'").all()).results.map(r=>r.name);
+ for(const name of ['users','sessions','auth_challenges','auth_attempts','subscriptions','webhook_events','billing_locks','usage_events','monthly_usage','beta_checkout_approvals'])assert.ok(schema.includes(name));
+ const migrations=(await db.prepare('SELECT name FROM d1_migrations').all()).results.map(row=>row.name);assert.ok(migrations.includes('0002_paid_beta_checkout.sql'));passed.push('reviewed migrations 0001 and 0002 present');
+ await Promise.all(Array.from({length:5},(_,i)=>store.createSession(email,`fixture-session-${i}`,'fixture-csrf',now+60000,now)));
+ assert.equal((await db.prepare('SELECT COUNT(*) AS n FROM users').first()).n,1);user=(await store.getSession('fixture-session-0',now)).userId;
+ await store.saveChallenge({tokenHash:'fixture-token',browserHash:'fixture-browser',email,expiresAt:now+10000});
+ assert.equal(await store.consumeChallenge('fixture-token','wrong-browser',now),null);
+ const consumed=await Promise.all(Array.from({length:5},()=>store.consumeChallenge('fixture-token','fixture-browser',now)));assert.equal(consumed.filter(Boolean).length,1);
+ await store.saveChallenge({tokenHash:'fixture-expired',browserHash:'fixture-browser',email,expiresAt:now-1});assert.equal(await store.consumeChallenge('fixture-expired','fixture-browser',now),null);
+ const attempts=await Promise.all(Array.from({length:10},()=>store.allowEmailAttempt('fixture-email-hash',now)));assert.equal(attempts.filter(Boolean).length,3);passed.push('concurrent account uniqueness, browser-bound single-use/expired challenges, resend throttle');
+ await store.setCustomer(user,'cus_fixture');assert.equal((await store.customerUser('cus_fixture')).id,user);
+ const token='e'.repeat(64),csrf='f'.repeat(64),origin='https://acquisitioncompanion.com';
+ await store.createSession(email,await hash(token),await hash(csrf),now+600000,now);
+ const betaEnv={PAID_DB:db,AI_PAYWALL_ENABLED:'true',PAID_ENVIRONMENT:'production',BILLING_TEST_MODE:'false',STRIPE_SECRET_KEY:'rk_live_fixture',STRIPE_WEBHOOK_SECRET:'fixture',STRIPE_MONTHLY_PRICE_ID:'price_month',STRIPE_ANNUAL_PRICE_ID:'price_year'};
+ const checkoutRequest=attested=>new Request(origin+'/api/billing/checkout',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json',Cookie:`__Host-ac-session=${token}`,'X-CSRF-Token':csrf},body:JSON.stringify({plan:'monthly',usCustomerAttested:attested})});
+ let mockedStripeCalls=0;const betaDeps={store,fetcher:async(url,options)=>{mockedStripeCalls++;assert.equal(url,'https://api.stripe.com/v1/checkout/sessions');assert.equal(new URLSearchParams(options.body).get('mode'),'subscription');return Response.json({livemode:true,url:'https://checkout.stripe.com/c/pay/fixture'});}};
+ assert.equal((await handlePaidRequest(checkoutRequest(true),betaEnv,betaDeps)).status,403);assert.equal(mockedStripeCalls,0);
+ await db.prepare('INSERT INTO beta_checkout_approvals(user_id,approved_at,approved_by) VALUES(?,?,?)').bind(user,now,'synthetic-operator').run();
+ const approval=await db.prepare('SELECT approved_at,approved_by,revoked_at,revoked_by FROM beta_checkout_approvals WHERE user_id=?').bind(user).first();assert.equal(approval.approved_at,now);assert.equal(approval.approved_by,'synthetic-operator');assert.equal(approval.revoked_at,null);assert.equal(hasAccountCapability('paid_beta_checkout',await store.getBetaCheckoutApproval(user)),true);
+ await assert.rejects(requirePaidAccess(checkoutRequest(true),betaEnv,{store}),error=>error.code==='subscription_required');
+ assert.equal((await handlePaidRequest(checkoutRequest(false),betaEnv,betaDeps)).status,400);assert.equal(mockedStripeCalls,0);
+ assert.equal((await handlePaidRequest(checkoutRequest(true),betaEnv,betaDeps)).status,200);assert.equal(mockedStripeCalls,1);
+ passed.push('remote beta approval timestamp/operator, unapproved deny before provider, approval plus US attestation permits mocked hosted Checkout, approval alone denies AI');
+ await store.applySubscription('evt_fixture',{id:'sub_fixture',userId:user,status:'active',validUntil:now+60000,cancelAtPeriodEnd:true},now);
+ await db.prepare('UPDATE beta_checkout_approvals SET revoked_at=?,revoked_by=? WHERE user_id=?').bind(now,'synthetic-operator',user).run();
+ const revoked=await db.prepare('SELECT revoked_at,revoked_by FROM beta_checkout_approvals WHERE user_id=?').bind(user).first();assert.equal(revoked.revoked_at,now);assert.equal(revoked.revoked_by,'synthetic-operator');assert.equal(hasAccountCapability('paid_beta_checkout',await store.getBetaCheckoutApproval(user)),false);assert.equal((await requirePaidAccess(checkoutRequest(true),betaEnv,{store})).userId,user);passed.push('remote revocation timestamp/operator and existing synthetic paid entitlement preserved');
+ await assert.rejects(store.applySubscription('evt_fixture',{id:'sub_fixture',userId:user,status:'unpaid',validUntil:now+60000,cancelAtPeriodEnd:false},now));
+ assert.equal((await store.getGrant(user)).status,'active');assert.equal(await store.eventProcessed('evt_fixture'),true);
+ assert.equal(await store.lockCustomer('cus_fixture','fixture-owner',now),true);assert.equal(await store.lockCustomer('cus_fixture','fixture-other',now),false);await store.unlockCustomer('cus_fixture','fixture-owner');passed.push('customer/subscription mapping, entitlement, webhook duplicate transaction rollback, reconciliation lease');
+ const quota=await Promise.allSettled(Array.from({length:110},(_,i)=>store.reserveUsage({id:`fixture-request-${i}`,userId:user,timestamp:now,month:'2026-10',workflow:'ask_course:debt',model:'fixture'},100)));
+ assert.equal(quota.filter(r=>r.status==='fulfilled').length,100);assert.equal((await store.usageSummary(user,'2026-10')).requestCount,100);
+ const usage={success:true,latencyMs:100,inputTokens:1000,cachedInputTokens:100,outputTokens:500,reasoningTokens:200,totalTokens:1500,estimatedCost:0.00291};
+ const id=(await db.prepare('SELECT id FROM usage_events LIMIT 1').first()).id;await store.finishUsage(id,usage);await store.finishUsage(id,usage);assert.equal((await store.usageSummary(user,'2026-10')).knownEstimatedCost,0.00291);
+ const cost=estimatedCost({AI_MODEL_PRICING_JSON:'{"fixture":{"inputPerMillion":1,"cachedInputPerMillion":0.1,"outputPerMillion":4}}'},'fixture',usage);assert.equal(cost,0.00291);passed.push('100-request atomic monthly quota, metadata-only accounting, idempotent usage completion');
+ const columns=(await db.prepare('PRAGMA table_info(usage_events)').all()).results.map(r=>r.name);assert.ok(!columns.some(c=>/prompt|response|conversation|deal_fact|document/.test(c)));
+ await store.reserveUsage({id:'fixture-next-month',userId:user,timestamp:now,month:'2026-11',workflow:'ask_course:message',model:'fixture'},100);await store.finishUsage('fixture-next-month',{...usage,success:false,estimatedCost:null});assert.equal((await store.usageSummary(user,'2026-11')).requestCount,1);passed.push('failure accounting and independent UTC month');
+ await store.createSession(email,'fixture-expired-session','fixture-csrf',now-1,now);assert.equal(await store.getSession('fixture-expired-session',now),null);await store.cleanupExpiredAuth(now);await store.logout('fixture-session-0');assert.equal(await store.getSession('fixture-session-0',now),null);passed.push('session expiration, cleanup and logout');
+ assert.equal(isUserEntitledTo('ai_deal_lab',{status:'active',validUntil:now+10000},now),true);assert.equal(isUserEntitledTo('ai_deal_lab',{status:'unpaid',validUntil:now+10000},now),false);
+ let modelCalls=0;const response=await handleAiRequest(new Request('https://acquisitioncompanion.com/api/ai',{method:'POST',headers:{Origin:'https://acquisitioncompanion.com','Content-Type':'application/json','CF-Connecting-IP':'192.0.2.1','X-AI-Session-ID':crypto.randomUUID()},body:JSON.stringify({mode:'ask_course',message:'Explain EBITDA',history:[]})}),{AI_ENABLED:'true',OPENAI_API_KEY:'fixture',OPENAI_VECTOR_STORE_ID:'vs_fixture',AI_PAYWALL_ENABLED:'true',PAID_ENVIRONMENT:'production',BILLING_TEST_MODE:'false',STRIPE_SECRET_KEY:'rk_live_fixture',STRIPE_WEBHOOK_SECRET:'fixture',STRIPE_MONTHLY_PRICE_ID:'price_month',STRIPE_ANNUAL_PRICE_ID:'price_year'},{fetcher:async()=>{modelCalls++;throw Error('must not call');}});assert.equal(response.status,503);assert.equal(modelCalls,0);passed.push('missing entitlement storage fails closed before provider');
+}finally{
+ // Delete only explicitly owned synthetic records; keep migration history and schema intact.
+ if(user)await db.batch(['usage_events','monthly_usage','subscriptions','sessions','beta_checkout_approvals'].map(table=>db.prepare(`DELETE FROM ${table} WHERE user_id=?`).bind(user)));
+ await db.batch([db.prepare('DELETE FROM users WHERE email=?').bind(email),db.prepare('DELETE FROM auth_challenges WHERE email=?').bind(email),db.prepare("DELETE FROM auth_attempts WHERE email_hash='fixture-email-hash'"),db.prepare("DELETE FROM webhook_events WHERE id='evt_fixture'"),db.prepare("DELETE FROM billing_locks WHERE customer_id='cus_fixture'")]);
+ const remaining=(await db.prepare('SELECT COUNT(*) AS n FROM users').first()).n;assert.equal(remaining,initialUsers);await proxy.dispose();
+}
+const report={remoteCloudflare:true,database:'acquisition-companion-paid-production',allowanceTested:100,providersCalled:0,syntheticRecordsRemoved:true,passed};fs.mkdirSync('artifacts',{recursive:true});fs.writeFileSync('artifacts/paid-production-d1-validation.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));

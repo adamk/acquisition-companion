@@ -1,0 +1,2 @@
+-- Manual paid-beta approval is separate from Stripe subscription entitlement.
+CREATE TABLE beta_checkout_approvals (user_id TEXT PRIMARY KEY REFERENCES users(id), approved_at INTEGER NOT NULL CHECK(approved_at>=0), approved_by TEXT NOT NULL, revoked_at INTEGER CHECK(revoked_at>=approved_at), revoked_by TEXT, CHECK((revoked_at IS NULL AND revoked_by IS NULL) OR (revoked_at IS NOT NULL AND revoked_by IS NOT NULL)));

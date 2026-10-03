@@ -39,6 +39,7 @@ if(root){
  const conversation=document.querySelector<HTMLElement>('[data-conversation]')!;
  const emptyState=document.querySelector<HTMLElement>('[data-empty-state]')!;
  const statusNode=document.querySelector<HTMLElement>('[data-ai-status]')!;
+ const accessNotice=document.querySelector<HTMLElement>('[data-ai-access]')!;
  const errorBox=document.querySelector<HTMLElement>('[data-ai-error]')!;
  const errorMessage=document.querySelector<HTMLElement>('[data-error-message]')!;
  const retryButton=document.querySelector<HTMLButtonElement>('[data-retry]')!;
@@ -61,8 +62,8 @@ if(root){
  stageActions.open=!mobileLayout.matches;
  mobileLayout.addEventListener('change',()=>{contextPanel.open=!mobileLayout.matches;stageActions.open=!mobileLayout.matches;});
  const analytics=(name:string,params:Record<string,string|number>={})=>window.acquisitionAnalytics?.track(name,params);
- const state:{mode:Mode;caseId:string;caseStage:number;available:boolean;pending:boolean;history:HistoryItem[];caseData:Record<string,unknown>|null;lastAttempt:(()=>Promise<void>)|null}={
-  mode:'ask_course',caseId:cards[0]?.id||'',caseStage:0,available:false,pending:false,history:[],caseData:null,lastAttempt:null,
+ const state:{mode:Mode;caseId:string;caseStage:number;available:boolean;paid:boolean;pending:boolean;history:HistoryItem[];caseData:Record<string,unknown>|null;lastAttempt:(()=>Promise<void>)|null}={
+  mode:'ask_course',caseId:cards[0]?.id||'',caseStage:0,available:false,paid:false,pending:false,history:[],caseData:null,lastAttempt:null,
  };
 
  function selectedCard():CaseCard|undefined{return cards.find(item=>item.id===state.caseId);}
@@ -295,10 +296,12 @@ if(root){
   if(state.mode==='ic_challenge'&&action==='start')analytics('ic_challenge_start',caseMeta());
   if(action==='complete')analytics(state.mode==='deal_lab'?'deal_lab_complete':'ic_challenge_complete',{...caseMeta(),completion_status:'complete'});
   if(state.mode==='ask_course')analytics('ai_question',{mode:'ask_course'});
+  if(state.paid)analytics('ai_paid_request',{mode:state.mode});
   state.lastAttempt=null;textarea.value='';announce('Response ready.');resetButton.hidden=false;setControls();if(trigger)trigger.textContent=triggerLabel;keepLatestVisible(nearLatest);
  }
  function showError(message:string,code:string){
-  errorMessage.textContent=message;errorBox.hidden=false;retryButton.hidden=code==='rate_limited'||code==='response_too_long';announce(code==='rate_limited'?'Rate limit reached. Please wait before continuing.':code==='unavailable'?'AI Deal Lab is currently unavailable.':'There was a problem preparing your response.',code==='rate_limited'?'unavailable':'error');
+  if(['login_required','subscription_required','billing_unavailable'].includes(code)){state.available=false;accessNotice.hidden=false;retryButton.hidden=true;}
+  errorMessage.textContent=message;errorBox.hidden=false;retryButton.hidden=['rate_limited','response_too_long','login_required','subscription_required','billing_unavailable'].includes(code);announce(code==='rate_limited'?'Rate limit reached. Please wait before continuing.':code==='unavailable'?'AI Deal Lab is currently unavailable.':'There was a problem preparing your response.',code==='rate_limited'?'unavailable':'error');
  }
  function newSession(){
   state.history=[];state.caseStage=0;state.caseData=null;state.lastAttempt=null;conversation.replaceChildren();emptyState.hidden=false;conversation.append(emptyState);clearSources();clearFeedback();errorBox.hidden=true;renderMode();threadViewport.scrollTop=0;announce(state.available?'AI Deal Lab is ready.':'AI Deal Lab is being configured.',state.available?'ready':'unavailable');
@@ -340,8 +343,9 @@ if(root){
  void (async()=>{
   try{
    const {response,body}=await fetchJsonWithTimeout('/api/ai/status',{method:'GET',credentials:'same-origin',cache:'no-store',headers:{Accept:'application/json'}},8_000);
-   if(!response.ok||!body||typeof body!=='object')throw new Error('status');const data=body as {available?:boolean};
-   state.available=data.available===true;
+   if(!response.ok||!body||typeof body!=='object')throw new Error('status');const data=body as {available?:boolean;access?:string;paid?:boolean};
+   state.available=data.available===true;state.paid=data.paid===true;
+   if(data.access){accessNotice.hidden=false;announce(data.access==='login_required'?'Sign in to use Deal Lab.':data.access==='subscription_required'?'A Deal Lab subscription is required.':'Account access is being configured.','unavailable');setControls();return;}
    announce(state.available?'AI Deal Lab is ready.':'AI Deal Lab is being configured. You can still review the three practice modes and fictional case descriptions. Visit the course while AI is unavailable.',''+(state.available?'ready':'unavailable'));
   }catch{state.available=false;announce('AI Deal Lab service status could not be reached. Try again later or visit the course.','error');}
   setControls();

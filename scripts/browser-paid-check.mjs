@@ -1,0 +1,42 @@
+import {chromium} from '@playwright/test';import AxeBuilder from '@axe-core/playwright';import assert from 'node:assert/strict';import fs from 'node:fs';
+const base=process.env.PREVIEW_URL||'http://127.0.0.1:4321';
+const browser=await chromium.launch({channel:'chrome',headless:true});const context=await browser.newContext({viewport:{width:1440,height:1000}});
+const errors=[],external=[],calls=[];let enabled=false,signedIn=false,subscribed=true,billingState='active',cancelAtPeriodEnd=false,checkoutEligible=false,checkoutCalls=[];
+await context.route('**/api/billing/status',r=>r.fulfill({json:{enabled,product:{monthlyUsd:19,annualUsd:190},signInAvailable:enabled,billingAvailable:enabled}}));
+await context.route('**/api/account',r=>r.fulfill(signedIn?{json:{signedIn:true,csrfToken:'b'.repeat(64),entitled:subscribed&&billingState==='active',checkoutEligible,subscription:subscribed?{status:billingState,accessUntil:Date.now()+100000,cancelAtPeriodEnd}:null,usage:{requestCount:2},monthlyRequestLimit:100}}:{status:401,json:{error:{message:'Sign in to continue.'}}}));
+await context.route('**/api/auth/*',r=>{calls.push(r.request().postDataJSON());signedIn=!r.request().url().endsWith('/logout');return r.fulfill({json:r.request().url().endsWith('/start')?{message:'Check your email.'}:{signedIn}});});
+await context.route('**/api/ai/status',r=>r.fulfill({json:{status:enabled?'access_required':'ready',available:!enabled,...(enabled?{access:'login_required'}:{})}}));
+await context.route('**/api/billing/checkout',r=>{checkoutCalls.push(r.request().postDataJSON());return r.fulfill({json:{url:'https://checkout.stripe.com/c/pay/fixture'}});});
+await context.route('https://checkout.stripe.com/c/pay/fixture',r=>r.fulfill({contentType:'text/html',body:'<!doctype html><title>Hosted Checkout fixture</title><h1>Hosted Checkout fixture</h1>'}));
+const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/api\.openai\.com|api\.stripe\.com|googletagmanager/.test(r.url()))external.push(r.url());});
+for(const width of [390,768,1440]){
+ await page.setViewportSize({width,height:1000});
+ for(const path of ['/pricing/','/account/','/terms/']){
+  await page.goto(base+path);await page.waitForLoadState('networkidle');assert.equal(await page.locator('h1').count(),1);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`${path} ${width}`);
+  assert.deepEqual((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations.map(v=>v.id),[]);
+ }
+}
+await page.goto(base+'/pricing/');assert.equal(await page.locator('[data-checkout]:visible').count(),0);
+await page.goto(base+'/account/');assert.equal(await page.locator('[data-signin-form]').isVisible(),false);assert.equal(calls.length,0);assert.equal(await page.locator('[data-analytics-consent]').count(),0);
+await page.goto(base+'/ai/');await page.locator('[data-ai-status][data-state=ready]').waitFor();assert.equal(await page.locator('[data-ai-access]').isVisible(),false);
+enabled=true;signedIn=false;await page.goto(base+'/ai/');await page.getByText('Sign in to use Deal Lab.',{exact:true}).waitFor();assert.equal(await page.locator('#ai-message').isDisabled(),true);assert.equal(await page.locator('[data-ai-access]').isVisible(),true);
+await page.goto(base+'/account/#token='+'a'.repeat(64));await page.locator('[data-confirm-signin]').waitFor();assert.equal(await page.evaluate(()=>location.hash),'');assert.equal(calls.length,0,'GET does not consume a sign-in link');
+await page.locator('[data-confirm-signin]').focus();await page.keyboard.press('Enter');await page.getByText('Your Deal Lab access is active.',{exact:true}).waitFor();assert.equal(calls.length,1);assert.equal(await page.locator('[data-account-details]').isVisible(),true);
+assert.equal(await page.locator('[data-billing-portal]').isVisible(),true);
+assert.match(await page.locator('[data-usage-summary]').innerText(),/month \(UTC\).*of 100; 98 remaining/);assert.doesNotMatch(await page.locator('[data-usage-summary]').innerText(),/cost|provider|pricing/i);
+subscribed=false;await page.goto(base+'/pricing/');await page.getByText('Signed in. The initial paid beta is invite-only for U.S. customers. Contact support@acquisitioncompanion.com for Checkout approval.',{exact:true}).waitFor();assert.equal(await page.locator('[data-checkout]:visible').count(),0);assert.equal(await page.locator('[data-checkout-attestation]').isVisible(),false);
+checkoutEligible=true;await page.goto(base+'/pricing/');await page.locator('[data-checkout=monthly]').waitFor();
+await page.locator('[data-checkout=monthly]').click();await page.getByText('Confirm that you are a U.S. customer before subscribing to the paid beta.',{exact:true}).waitFor();assert.equal(checkoutCalls.length,0);
+await page.locator('[data-us-attestation]').focus();await page.keyboard.press('Space');assert.equal(await page.locator('[data-us-attestation]').isChecked(),true);
+assert.deepEqual((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations.map(v=>v.id),[]);
+await page.locator('[data-checkout=monthly]').focus();await page.keyboard.press('Enter');await page.waitForURL('https://checkout.stripe.com/c/pay/fixture');assert.deepEqual(checkoutCalls,[{plan:'monthly',usCustomerAttested:true}]);
+for(const width of [390,768,1440]){await page.setViewportSize({width,height:1000});await page.goto(base+'/pricing/');await page.locator('[data-checkout=monthly]').waitFor();assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));assert.deepEqual((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations.map(v=>v.id),[]);}
+checkoutEligible=false;await page.goto(base+'/account/');await page.getByText('No subscription yet.',{exact:true}).waitFor();assert.equal(await page.locator('[data-billing-portal]').isVisible(),false);
+subscribed=true;await page.goto(base+'/account/');await page.getByText('Your Deal Lab access is active.',{exact:true}).waitFor();assert.equal(await page.locator('[data-billing-portal]').isVisible(),true);
+for(const status of ['past_due','unpaid','canceled']){billingState=status;await page.goto(base+'/account/');await page.locator('[data-subscription-summary]').filter({hasText:status}).waitFor();assert.equal(await page.locator('[data-billing-portal]').isVisible(),true);assert.notEqual(await page.locator('[data-paid-status]').innerText(),'Your Deal Lab access is active.');}
+billingState='active';cancelAtPeriodEnd=true;await page.goto(base+'/account/');await page.getByText('Your Deal Lab access is active.',{exact:true}).waitFor();assert.match(await page.locator('[data-subscription-summary]').innerText(),/Cancellation scheduled; access continues/);
+await page.locator('[data-logout]').click();await page.getByText('Signed out.',{exact:true}).waitFor();assert.equal(await page.locator('[data-signin-form]').isVisible(),true);
+await page.locator('#account-email').fill('fictional@example.test');await page.getByRole('button',{name:'Email a sign-in link'}).click();await page.getByText('Check your email.',{exact:true}).waitFor();
+assert.deepEqual((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations.map(v=>v.id),[]);
+await page.screenshot({path:'artifacts/paid-pricing-account-validation.png',fullPage:true});
+assert.deepEqual(errors,[]);assert.deepEqual(external,[]);await browser.close();const result={viewports:[390,768,1440],axeViolations:0,errors,external,disabledBypass:'passed',signInFragmentPrivacy:'passed',keyboardConfirmation:'passed',logout:'passed',emailMock:'passed',betaApprovalVisibility:'passed',usAttestationKeyboard:'passed',hostedCheckoutMock:'passed'};fs.writeFileSync('artifacts/paid-browser-validation.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result));

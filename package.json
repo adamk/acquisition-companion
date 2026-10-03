@@ -22,7 +22,9 @@
     "import:research": "python3 scripts/import-research.py",
     "test:browser": "node scripts/browser-check.mjs",
     "test:analytics-browser": "node scripts/browser-analytics-check.mjs",
-    "test:ai-browser": "node scripts/browser-ai-check.mjs"
+    "test:ai-browser": "node scripts/browser-ai-check.mjs",
+    "test:paid-browser": "node scripts/browser-paid-check.mjs",
+    "test:paid-d1-runtime": "node scripts/paid-d1-runtime-check.mjs"
   },
   "dependencies": {
     "@astrojs/check": "0.9.10",

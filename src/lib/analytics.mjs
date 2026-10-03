@@ -2,6 +2,7 @@ export const CONSENT_KEY='acquisition-companion-analytics-consent';
 const SEARCH_TOPICS=new Set(['acquisition','asset based lending','bank debt','buy and build','capital stack','cash flow','covenants','debt service','direct lending','due diligence','earn out','equity','fund structure','independent sponsor','investors','leverage','mezzanine','private credit','seller financing','valuation','working capital']);
 const AI_EVENT_KEYS={
  ai_lab_open:[],
+ ai_paid_request:['mode'],
  ai_mode_select:['mode'],
  ai_question:['mode'],
  deal_lab_start:['case_id','difficulty'],
@@ -9,6 +10,7 @@ const AI_EVENT_KEYS={
  ic_challenge_start:['case_id','difficulty'],
  ic_challenge_complete:['case_id','difficulty','completion_status'],
 };
+const COMMERCIAL_EVENTS={pricing_page_view:[],checkout_started:['plan'],subscription_started:[],subscription_canceled:[]};
 const AI_MODES=new Set(['ask_course','deal_lab','ic_challenge']);
 const AI_CASES=new Set(['bluejay-field-services','aster-forge-components','ternbridge-route-logistics','two-companies-one-team']);
 const AI_DIFFICULTIES=new Set(['beginner','intermediate','advanced']);
@@ -61,6 +63,10 @@ export function createAnalyticsController({window,document,measurementId}){
   if(/^(?:ai_|deal_lab_|ic_challenge_)/.test(name)){
    params=safeAiEventParams(name,params);
    if(params===null)return false;
+  }
+  if(/^(?:pricing_|checkout_|subscription_)/.test(name)){
+   if(!Object.hasOwn(COMMERCIAL_EVENTS,name))return false;
+   const safe={};if(COMMERCIAL_EVENTS[name].includes('plan')&&['monthly','annual'].includes(params?.plan))safe.plan=params.plan;params=safe;
   }
   if(name==='site_search'){
    const searchTerm=safeSearchTerm(params.search_term);

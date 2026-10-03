@@ -1,0 +1,9 @@
+{
+ "$schema":"./node_modules/wrangler/config-schema.json",
+ "name":"acquisition-companion-mailer-production",
+ "main":"src/worker/auth-mailer-entry.mjs",
+ "compatibility_date":"2026-09-30",
+ "workers_dev":false,
+ "preview_urls":false,
+ "vars":{"AUTH_MAIL_ENABLED":"false","AUTH_MAIL_DIAGNOSTICS_ENABLED":"true","AUTH_MAIL_MODE":"production","AUTH_MAIL_PROVIDER":"ses","SES_REGION":"us-east-1","AUTH_MAIL_ORIGIN":"https://acquisitioncompanion.com","AUTH_MAIL_FROM":"signin@acquisitioncompanion.com"}
+}

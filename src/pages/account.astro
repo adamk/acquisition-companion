@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import {supportEmail} from '../lib/paid-product.mjs';
+---
+<Base title="Deal Lab account" description="Sign-in, subscription management and monthly usage for Acquisition Companion Deal Lab." type="About" noindex analytics={false}>
+ <article class="narrow" data-paid-page><header class="page-header"><p class="eyebrow">Deal Lab</p><h1>Your account</h1></header>
+ <p class="notice" data-paid-status role="status" aria-live="polite">Subscriptions are not open. No account is needed for the current course or AI Deal Lab.</p>
+ <form data-signin-form hidden><label for="account-email">Email address</label><input id="account-email" type="email" autocomplete="email" maxlength="254" required/><p class="small muted spaced">A sign-in link will open in this browser. Your email is used for account access and billing, not AI conversation storage.</p><button class="button spaced" type="submit">Email a sign-in link</button></form>
+ <button class="button" data-confirm-signin hidden>Confirm sign-in</button>
+ <p class="small spaced">The initial paid beta is invite-only for U.S. customers. After signing in, contact <a href={`mailto:${supportEmail}`}>{supportEmail}</a> to request Checkout approval. Approval alone does not grant Deal Lab access.</p>
+ <section data-account-details hidden><h2>Subscription and usage</h2><p data-subscription-summary></p><p data-usage-summary></p><div class="actions spaced"><a href="/pricing/">View subscription options</a><button class="button secondary" data-billing-portal hidden>Manage billing</button><button class="button secondary" data-logout>Sign out</button></div></section>
+ <div class="actions spaced"><a href="/ai/">Back to AI Deal Lab →</a><a href="/course/">Read the free course →</a></div>
+ <p class="small spaced">Need help with account access, billing or cancellation? <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.</p>
+ <noscript><p class="notice spaced">Account actions require JavaScript. The course remains readable without it.</p></noscript>
+ </article><script src="../scripts/paid-account.ts"></script>
+</Base>
+
+<style>form{max-width:28rem}label{display:block;margin-bottom:.5rem}input{width:100%;padding:.75rem;border:1px solid var(--line);border-radius:3px;background:var(--surface);color:var(--ink)}input:focus-visible{outline:2px solid var(--teal);outline-offset:3px}</style>
