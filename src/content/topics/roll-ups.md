@@ -6,7 +6,7 @@ category: "Operating and exits"
 coverage: "substantive"
 related: ["bolt-ons", "management", "returns-and-exits"]
 evidence: ["E111", "E113", "E091"]
-sources: ["rVW6fyafA0s", "np9jH5OyQnE", "8LNGpCPhTzU"]
+sources: ["nYNfdSQqk3o", "rVW6fyafA0s", "np9jH5OyQnE", "8LNGpCPhTzU"]
 ---
 
 A roll-up builds a group through repeated acquisitions. The proposed value may come from shared capabilities, broader customer access, better management or an eventual buyer valuing the coherent group more highly. Adding company revenues together is only the arithmetic starting point. Integration, funding and accountability determine whether scale creates durable value.

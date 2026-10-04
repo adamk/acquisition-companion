@@ -6,7 +6,7 @@ category: "Financing"
 coverage: "substantive"
 related: ["debt-service", "covenants", "collateral"]
 evidence: ["E018", "E019", "E133"]
-sources: ["cvauHwc3guQ", "3U3uEsou3SM", "b_Emk0J2yfw", "wd4Y23wruXU", "Kisa0C-YiY4"]
+sources: ["nYNfdSQqk3o", "cvauHwc3guQ", "3U3uEsou3SM", "b_Emk0J2yfw", "wd4Y23wruXU", "Kisa0C-YiY4"]
 fundSources: ["direct-lending-fund"]
 ---
 

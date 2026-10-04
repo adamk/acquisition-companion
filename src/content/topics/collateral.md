@@ -6,7 +6,7 @@ category: "Financing"
 coverage: "substantive"
 related: ["asset-based-lending", "senior-debt", "personal-guarantees"]
 evidence: ["E241", "E134", "E091"]
-sources: ["Hvw5FAbRAZY", "b_Emk0J2yfw", "18cB9LOaucs", "np9jH5OyQnE", "8LNGpCPhTzU"]
+sources: ["nYNfdSQqk3o", "Hvw5FAbRAZY", "b_Emk0J2yfw", "18cB9LOaucs", "np9jH5OyQnE", "8LNGpCPhTzU"]
 ---
 
 Collateral offers a lender a potential recovery source, but the amount recoverable may differ markedly from recorded asset value. Equipment can be costly to remove or sell, invoices can be disputed, and another creditor may already have priority. A borrowing estimate needs ownership, eligibility, valuation and existing-security information, not just a total from the accounts.

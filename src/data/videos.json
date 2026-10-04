@@ -2389,5 +2389,71 @@
     "usefulPE": false,
     "usefulDebt": false,
     "limited": true
+  },
+  {
+    "id": "nYNfdSQqk3o",
+    "title": "PE entrepreneur on running a €60M group in UK",
+    "url": "https://www.youtube.com/watch?v=nYNfdSQqk3o",
+    "collection": "yusufa-sey",
+    "summary": "Sey contrasts credit and equity cases, discusses the management capacity needed for repeated acquisitions, and describes group oversight with shared finance services. His deal terms and outcomes remain practitioner context, not general benchmarks.",
+    "topics": [
+      "capital-stack",
+      "investor-equity",
+      "management",
+      "roll-ups",
+      "debt-service",
+      "amortization",
+      "seller-financing",
+      "bank-debt",
+      "collateral",
+      "cash-flow"
+    ],
+    "usefulPE": true,
+    "usefulDebt": true,
+    "limited": false,
+    "creator": "Yusufa Sey",
+    "publishedAt": "2026-10-04",
+    "transcript": {
+      "method": "Whisper audio recovery",
+      "caution": "Audio recovered/transcribed with Whisper because usable YouTube captions were unavailable. Wording and numerical claims have not been independently verified. Practitioner statements remain experience or opinion unless separately substantiated. Repayment periods, closing-payment shares, distribution timing, equity returns and lender recoveries describe the speaker’s deal context; they are not benchmarks or default assumptions. Cash-flow lending is not automatically private credit, and lender recovery is not guaranteed.",
+      "sections": [
+        {
+          "id": "credit-equity",
+          "range": "05:57–10:28",
+          "classification": "Useful framing",
+          "note": "Contrasts the equity ownership case with lenders’ repayment, security, historical performance and recovery concerns. The credit-story/equity-story conclusion at 09:57–10:28 explicitly rejects misrepresentation; it is a conceptual distinction, not an exhaustive underwriting checklist."
+        },
+        {
+          "id": "governance",
+          "range": "10:31–13:50",
+          "classification": "Useful refinement",
+          "note": "Describes operating problems consuming sponsor bandwidth and a preferred shift toward financing, executive hiring, governance and capital allocation. This is Sey’s practitioner model, not proof that delegation makes every group scalable."
+        },
+        {
+          "id": "shared-services",
+          "range": "13:50–15:15",
+          "classification": "Supporting example",
+          "note": "Describes group CEO and board oversight, business-unit managers and shared CFO services in his groups. He also cautions that there is no universal structure and similar actions can produce different outcomes."
+        },
+        {
+          "id": "early-cash-flow",
+          "range": "01:18–04:30",
+          "classification": "Source reinforcement only",
+          "note": "Discusses bank repayments and seller installments competing with early owner cash flow. The amortization and distribution timeline is an illustration tied to his described transactions, not a recommended tenor or a promise of personal income."
+        },
+        {
+          "id": "economic-quality",
+          "range": "13:16–13:27",
+          "classification": "Source reinforcement only",
+          "note": "Distinguishes headline revenue from profitability and conversion to free cash flow."
+        },
+        {
+          "id": "recovery-anecdote",
+          "range": "07:39–08:30",
+          "classification": "Practitioner-reported experience",
+          "note": "Reports two steel-group bankruptcies and lenders recovering claims plus fees through administration. The account and recovery economics are not independently verified and establish no general recovery rate."
+        }
+      ]
+    }
   }
 ]

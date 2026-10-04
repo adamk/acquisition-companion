@@ -6,7 +6,7 @@ order: 14
 minutes: 5
 topics: ["debt-pricing", "amortization", "debt-service", "covenants", "personal-guarantees", "subordination"]
 evidence: ["E159", "E007", "E006", "E091", "E231", "E221", "E213", "E087"]
-sources: ["rE2R3B0kiBc", "v3SrYOEUs7Q", "je7CsLaUm8w", "9OBSog0S5XU", "np9jH5OyQnE", "8LNGpCPhTzU", "byJSV1CEYBk", "KsnY8Gpnkl4", "EL60pBzPd_k", "wd4Y23wruXU"]
+sources: ["nYNfdSQqk3o", "rE2R3B0kiBc", "v3SrYOEUs7Q", "je7CsLaUm8w", "9OBSog0S5XU", "np9jH5OyQnE", "8LNGpCPhTzU", "byJSV1CEYBk", "KsnY8Gpnkl4", "EL60pBzPd_k", "wd4Y23wruXU"]
 takeaway: "The borrowing agreement matters through its payments, permissions and downside exposure."
 ---
 

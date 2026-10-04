@@ -6,7 +6,7 @@ category: "Understanding the numbers"
 coverage: "substantive"
 related: ["ebitda", "working-capital", "debt-service"]
 evidence: ["E072", "E216", "E231"]
-sources: ["xq5pwowli-0", "VmRqlJuqCs8", "je7CsLaUm8w"]
+sources: ["nYNfdSQqk3o", "xq5pwowli-0", "VmRqlJuqCs8", "je7CsLaUm8w"]
 ---
 
 Profit records economic performance under accounting rules; cash flow describes money available when bills fall due. A profitable company can struggle if customers pay slowly, projects pause or debt principal is repaid faster than cash accumulates. For an acquisition, the relevant question is not just whether annual earnings exceed annual payments, but whether cash arrives before each obligation must be met.

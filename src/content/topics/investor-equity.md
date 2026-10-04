@@ -6,7 +6,7 @@ category: "Financing"
 coverage: "substantive"
 related: ["buyer-equity", "preferred-equity", "returns-and-exits"]
 evidence: ["E029", "E105", "E229"]
-sources: ["Io8ctiLGjbs", "rE2R3B0kiBc", "vvw6brqjl2I", "NTa6kB7cGg0"]
+sources: ["nYNfdSQqk3o", "Io8ctiLGjbs", "rE2R3B0kiBc", "vvw6brqjl2I", "NTa6kB7cGg0"]
 ---
 
 Investor equity fills part of the financing need in exchange for participation in ownership economics and agreed control rights. Equity does not eliminate the need for discipline simply because it lacks a conventional repayment schedule. Investors need to understand how value might be created, how losses could arise and how money could eventually return to them.

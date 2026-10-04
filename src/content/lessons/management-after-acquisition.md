@@ -6,7 +6,7 @@ order: 18
 minutes: 5
 topics: ["management", "cash-flow", "covenants", "customer-concentration"]
 evidence: ["E069", "E048", "E124", "E057", "E040", "E236", "E038", "E042", "E002"]
-sources: ["xq5pwowli-0", "NWQKr-gqNhc", "8LNGpCPhTzU", "VNXXyH4dr-I", "ykuS4w_Ocws", "4DhN50eAkcA", "2maCpFUx4ks", "4KGWEet-vwE", "9-mOvWiyYZw", "b_Emk0J2yfw", "--DvlTBzkW4", "TGMdeD8EnD4", "eN6nVKlUu3c"]
+sources: ["nYNfdSQqk3o", "xq5pwowli-0", "NWQKr-gqNhc", "8LNGpCPhTzU", "VNXXyH4dr-I", "ykuS4w_Ocws", "4DhN50eAkcA", "2maCpFUx4ks", "4KGWEet-vwE", "9-mOvWiyYZw", "b_Emk0J2yfw", "--DvlTBzkW4", "TGMdeD8EnD4", "eN6nVKlUu3c"]
 takeaway: "Delegating operations requires clear authority, useful reporting and an owner who remains engaged."
 ---
 
@@ -19,6 +19,8 @@ A sponsor hiring an operator is delegating daily work, not eliminating responsib
 A successful acquisition process does not guarantee a successful handover. Employees and customers need to understand what ownership change means. Sey's account of delaying his first visit shows how silence left staff fearing closure or relocation. The practical lesson is to prepare early communication around what people need to know. [Watch source](https://www.youtube.com/watch?v=4DhN50eAkcA)
 
 Reporting can also create false comfort. He describes businesses failing despite management forecasts of recovery and accepts responsibility for questioning the risk and considering intervention. A confident forecast is evidence of a plan; it is not evidence that the plan is working. [Watch source](https://www.youtube.com/watch?v=2maCpFUx4ks)
+
+Repeated acquisition is not automatically organizationally scalable: operating failures, people decisions and executive oversight can consume the sponsor’s bandwidth. Sey’s preferred model shifts his work toward sourcing deals, arranging credit and equity, hiring CEOs, governance and capital allocation, while executives run operations. That is his practitioner preference; the broader principle is that management capacity can constrain expansion. Delegating operating responsibility does not remove owner or board accountability. [Source context: scalability and governance](/sources/yusufa-sey/nYNfdSQqk3o/#governance)
 
 ## How it works
 Define the operating requirements before the executive job description. In the management discussion, Jonas starts with profitability, liquidity and the payment obligations the business must support. That makes the hiring question concrete: which skills are needed to deliver those outcomes under these conditions? [Watch source](https://www.youtube.com/watch?v=4KGWEet-vwE)

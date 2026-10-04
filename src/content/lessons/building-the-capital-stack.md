@@ -6,7 +6,7 @@ order: 10
 minutes: 5
 topics: ["capital-stack", "leverage", "bank-debt", "investor-equity", "seller-financing"]
 evidence: ["E009", "E079", "E216", "E017", "E222", "E019", "E075", "E235", "E194"]
-sources: ["Sj_SpzSpxw0", "mh1tKwDlnaE", "eN6nVKlUu3c", "YI3Shq4iXao", "VmRqlJuqCs8", "cvauHwc3guQ", "byJSV1CEYBk", "3U3uEsou3SM", "942nFYmky6Q", "Vy-GvO4SGvI", "zAlT_NNOb6U"]
+sources: ["nYNfdSQqk3o", "Sj_SpzSpxw0", "mh1tKwDlnaE", "eN6nVKlUu3c", "YI3Shq4iXao", "VmRqlJuqCs8", "cvauHwc3guQ", "byJSV1CEYBk", "3U3uEsou3SM", "942nFYmky6Q", "Vy-GvO4SGvI", "zAlT_NNOb6U"]
 fundSources: ["direct-lending-fund", "mezzanine-fund"]
 takeaway: "Funding the purchase price is only the first test; the stack must also work after completion."
 ---
@@ -25,6 +25,16 @@ Nor does a low leverage multiple guarantee a lender will approve. Sey reports re
 Begin with uses of funds: agreed completion payments and the additional transaction cash requirements you have identified. Then match them to actual funding sources and distinguish confirmed amounts from indications. The source's closing account shows why lender legal fees deducted from proceeds can leave a gap even when the headline facility appears sufficient. [Watch source](https://www.youtube.com/watch?v=byJSV1CEYBk)
 
 Build a second schedule for the period after completion. Include bank interest and principal, seller installments and the operating needs that remain outside a simplified earnings calculation. Then identify who bears losses if the case underperforms. Equity participation may need to change to attract someone willing to supply the missing risk capital. [Watch source](https://www.youtube.com/watch?v=VmRqlJuqCs8) [Watch source](https://www.youtube.com/watch?v=Sj_SpzSpxw0)
+
+### Two underwriting cases, one set of facts
+The same business must support two different underwriting cases. Sey’s discussion offers a useful conceptual distinction, not an exhaustive checklist:
+
+| Capital provider | Central question | Emphasis in this discussion |
+| --- | --- | --- |
+| Lender | How will I be repaid, and what protects me if things go wrong? | Historical performance, repayment capacity, security and recoverability. |
+| Equity investor | Why is this ownership stake worth taking long-term risk for? | Future cash generation and the potential upside of ownership, alongside the risk of loss. |
+
+Understand what each provider is optimizing for without changing or selectively misrepresenting the underlying facts. A different emphasis must remain a truthful account of the same business. [Source context: credit and equity](/sources/yusufa-sey/nYNfdSQqk3o/#credit-equity)
 
 ## Practical interpretation
 Ask three separate questions of every component: how much usable cash does it provide, what does it demand later, and what conditions must be satisfied? This editorial review tool follows the source's distinction between indicative financing and actual completion funds. A friendly lender conversation answers none of those questions conclusively. [Watch source](https://www.youtube.com/watch?v=cvauHwc3guQ) [Watch source](https://www.youtube.com/watch?v=byJSV1CEYBk)

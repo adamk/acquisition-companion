@@ -6,7 +6,7 @@ category: "Financing"
 coverage: "substantive"
 related: ["cash-flow", "amortization", "leverage"]
 evidence: ["E087", "E216", "E021"]
-sources: ["EL60pBzPd_k", "wd4Y23wruXU", "VmRqlJuqCs8", "cvauHwc3guQ", "FluB82yq9Lo"]
+sources: ["nYNfdSQqk3o", "EL60pBzPd_k", "wd4Y23wruXU", "VmRqlJuqCs8", "cvauHwc3guQ", "FluB82yq9Lo"]
 ---
 
 Debt service joins the cost of borrowing with repayment of the borrowed amount. It is a cash obligation, so earnings-based measures are only a first screen. Seller repayments may add further demands even if a bank's chosen ratio excludes them. An acquisition that closes with balanced funding can still fail if the subsequent payment schedule exceeds cash available.

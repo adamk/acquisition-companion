@@ -17,8 +17,8 @@ else: raise AssertionError('misaligned provenance accepted')`],{encoding:'utf8'}
 });
 test('generated public data retains complete stable record identities and valid relationships',()=>{
  const evidence=read('evidence'),videos=read('videos'),numbers=read('numbers'),providers=read('providers');
- assert.equal(evidence.length,243);assert.equal(videos.length,117);assert.equal(numbers.length,313);assert.equal(providers.length,28);
- const videoIds=new Set(videos.map(v=>v.id));assert.equal(videoIds.size,117);
+ assert.equal(evidence.length,243);assert.equal(videos.length,118);assert.equal(numbers.length,313);assert.equal(providers.length,28);
+ const videoIds=new Set(videos.map(v=>v.id));assert.equal(videoIds.size,118);
  const topics=new Set(JSON.parse(readFileSync('docs/content-contract.json')).topics);
  for(const [records,prefix] of [[evidence,'E'],[numbers,'N'],[providers,'P']]) records.forEach((r,i)=>{
    assert.equal(r.id,`${prefix}${String(i+1).padStart(3,'0')}`);
@@ -33,7 +33,8 @@ test('generated public data retains complete stable record identities and valid 
 test('public projection excludes internal fields, paths and research bookkeeping',()=>{
  const allowed={evidence:['id','label','type','confidence','videoIds','topics'],videos:['id','title','url','collection','summary','topics','usefulPE','usefulDebt','limited'],numbers:['id','metric','value','context','kind','confidence','caution','videoIds','topics','category'],providers:['id','name','type','role','context','caution','confidence','videoIds','topics','status']};
  for(const [name,keys]of Object.entries(allowed))for(const row of read(name)){
-  assert.deepEqual(Object.keys(row).sort(),keys.sort());
+  const optional=name==='videos' ? ['creator','publishedAt','transcript'] : [];
+  assert.deepEqual(Object.keys(row).filter(key=>!optional.includes(key)).sort(),keys.sort());
   assert.doesNotMatch(JSON.stringify(row),/\/Users\/|whisper_corpus|native_youtube_caption|mlx_whisper_audio|Phase [12]|supporting_context|source_file/);
  }
 });

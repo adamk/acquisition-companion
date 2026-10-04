@@ -6,7 +6,7 @@ order: 5
 minutes: 5
 topics: ["ebitda", "adjusted-ebitda", "cash-flow", "debt-service"]
 evidence: ["E064", "E035", "E216", "E147", "E175"]
-sources: ["1C5gI6LlWhA", "vkKw1MeUors", "VmRqlJuqCs8", "SPMaYlRzACI", "18cB9LOaucs", "MwejQUah14Y", "akgHprIWcZU"]
+sources: ["nYNfdSQqk3o", "1C5gI6LlWhA", "vkKw1MeUors", "VmRqlJuqCs8", "SPMaYlRzACI", "18cB9LOaucs", "MwejQUah14Y", "akgHprIWcZU"]
 takeaway: "Test the path from reported earnings to available cash before deciding what a business can afford."
 ---
 

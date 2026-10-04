@@ -49,7 +49,7 @@ function publicSources(fields, videosById, fundsById, filename) {
   for (const id of sources) {
     const source = videosById.get(id);
     if (!source || !isPublicHttpsUrl(source.url)) throw new Error(`Unresolved public video source ${id} in ${filename}`);
-    originalSources.push({family:'Yusufa Sey', title:source.title, url:source.url});
+    originalSources.push({family:'Yusufa Sey', title:source.title, url:source.url, ...(source.transcript ? {transcriptProvenance:source.transcript.method, sourceCaution:source.transcript.caution} : {})});
   }
   for (const id of fundSources) {
     const source = fundsById.get(id);
@@ -90,7 +90,10 @@ function contentDocument({filename,title,url,contentType,body,metadata}) {
   if (metadata.publicSourceReferences.fundLaunchGuideIds.length) categories.push(`Public guide references: ${metadata.publicSourceReferences.fundLaunchGuideIds.join(', ')}`);
   if (metadata.originalSources.length) {
     categories.push('Original sources already linked by this page:');
-    for (const source of metadata.originalSources) categories.push(`- ${source.family}: ${source.title} — ${source.url}`);
+    for (const source of metadata.originalSources) {
+      categories.push(`- ${source.family}: ${source.title} — ${source.url}`);
+      if (source.sourceCaution) categories.push(`  Transcript provenance: ${source.transcriptProvenance}. Source limits: ${source.sourceCaution}`);
+    }
   }
   return {filename, content:`# ${title}\n\n${categories.join('\n')}\n\n${body}\n`, metadata};
 }

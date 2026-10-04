@@ -6,7 +6,7 @@ order: 12
 minutes: 5
 topics: ["investor-equity", "buyer-equity", "capital-stack", "management"]
 evidence: ["E123", "E209", "E029", "E105", "E229", "E100", "E030", "E162", "E219", "E020", "E227"]
-sources: ["UAtbZfPN2zA", "LgKz1bxdCMM", "s8Hkxnq3-Bo", "zRh8i5uPjA0", "_CJLfixvoN4", "tZBRCa9EW3A", "Io8ctiLGjbs", "rE2R3B0kiBc", "vvw6brqjl2I", "NTa6kB7cGg0", "7Zg5hGZLrDM", "KsnY8Gpnkl4", "KEg9PMGnDxQ", "mh1tKwDlnaE", "cvauHwc3guQ"]
+sources: ["nYNfdSQqk3o", "UAtbZfPN2zA", "LgKz1bxdCMM", "s8Hkxnq3-Bo", "zRh8i5uPjA0", "_CJLfixvoN4", "tZBRCa9EW3A", "Io8ctiLGjbs", "rE2R3B0kiBc", "vvw6brqjl2I", "NTa6kB7cGg0", "7Zg5hGZLrDM", "KsnY8Gpnkl4", "KEg9PMGnDxQ", "mh1tKwDlnaE", "cvauHwc3guQ"]
 fundSources: ["independent-sponsor-fund"]
 takeaway: "Investor interest becomes useful only when amount, purpose, conditions and fit are clear."
 ---

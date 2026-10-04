@@ -6,7 +6,7 @@ category: "Deal structure"
 coverage: "substantive"
 related: ["deferred-consideration", "earn-outs", "subordination"]
 evidence: ["E033", "E084", "E221"]
-sources: ["vkKw1MeUors", "-hqVGkoT0dQ", "EL60pBzPd_k", "byJSV1CEYBk"]
+sources: ["nYNfdSQqk3o", "vkKw1MeUors", "-hqVGkoT0dQ", "EL60pBzPd_k", "byJSV1CEYBk"]
 ---
 
 Seller financing changes when the buyer pays the price. Instead of receiving everything at completion, the seller accepts some exposure to the acquired business and buyer after ownership changes. That can reduce the immediate external funding requirement, but the remaining obligation still needs a credible repayment source. Paying later is not the same as paying less.

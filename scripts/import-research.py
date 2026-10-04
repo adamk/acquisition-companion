@@ -110,6 +110,16 @@ def write_json(path,obj):
     path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n')
 
+def preserve_video_additions(imported, existing):
+    original_ids = {video['id'] for video in imported}
+    additions = [video for video in existing if video['id'] not in original_ids]
+    if len({video['id'] for video in additions}) != len(additions):
+        raise ValueError('Duplicate supplemental video identity')
+    for video in additions:
+        if not video.get('transcript', {}).get('method') or video.get('url') != 'https://www.youtube.com/watch?v=' + video['id']:
+            raise ValueError('Supplemental video needs reviewed transcript provenance and canonical URL')
+    return imported + additions
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--input',type=Path,required=True,help='Folder containing the nine original research documents (read only)')
@@ -176,6 +186,9 @@ def main():
         if informative:summary+=' Use the linked evidence and contextual notes to distinguish examples, opinions and reported experience.'
         else:summary+=' Retained in the source index for completeness; no claims are inferred from the title.'
         videos.append(dict(id=ident,title=row['title'],url=row['url'],collection='yusufa-sey',summary=summary,topics=source_topics,usefulPE=row['useful_PE_content'].lower()=='true',usefulDebt=row['useful_debt_content'].lower()=='true',limited=not informative or row['useful_PE_content'].lower()!='true'))
+    existing_videos = editorial_root/'videos.json'
+    if existing_videos.exists():
+        videos = preserve_video_additions(videos, json.loads(existing_videos.read_text()))
     # Audit all nine inputs by digest and section inventory without publishing their prose.
     for name,doc in docs.items():
         provenance['researchDocuments'].append(dict(file=name,sha256=hashlib.sha256(blobs[name]).hexdigest(),headings=re.findall(r'^#{1,6} (.+)$',doc,re.M),bytes=len(blobs[name])))

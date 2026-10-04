@@ -6,7 +6,7 @@ category: "Financing"
 coverage: "substantive"
 related: ["bank-debt", "seller-financing", "investor-equity"]
 evidence: ["E009", "E216", "E222"]
-sources: ["Sj_SpzSpxw0", "mh1tKwDlnaE", "eN6nVKlUu3c", "VmRqlJuqCs8", "byJSV1CEYBk"]
+sources: ["nYNfdSQqk3o", "Sj_SpzSpxw0", "mh1tKwDlnaE", "eN6nVKlUu3c", "VmRqlJuqCs8", "byJSV1CEYBk"]
 fundSources: ["direct-lending-fund", "mezzanine-fund"]
 ---
 

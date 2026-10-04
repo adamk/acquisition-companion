@@ -6,7 +6,7 @@ category: "Operating and exits"
 coverage: "substantive"
 related: ["buyer-equity", "rollover-equity", "roll-ups"]
 evidence: ["E038", "E048", "E124"]
-sources: ["4KGWEet-vwE", "NWQKr-gqNhc", "8LNGpCPhTzU", "VNXXyH4dr-I", "ykuS4w_Ocws", "4DhN50eAkcA"]
+sources: ["nYNfdSQqk3o", "4KGWEet-vwE", "NWQKr-gqNhc", "8LNGpCPhTzU", "VNXXyH4dr-I", "ykuS4w_Ocws", "4DhN50eAkcA"]
 ---
 
 An acquisition changes ownership more quickly than it changes how work gets done. Customers still need service, staff need clear leadership and cash obligations continue. The sponsor therefore needs to establish who runs daily operations, who monitors performance and who makes decisions when results diverge from the plan. Ownership, employment and board authority should not be treated as interchangeable roles.

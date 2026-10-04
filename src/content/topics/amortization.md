@@ -6,7 +6,7 @@ category: "Financing"
 coverage: "substantive"
 related: ["debt-service", "refinancing", "cash-flow"]
 evidence: ["E007", "E079", "E216"]
-sources: ["9OBSog0S5XU", "YI3Shq4iXao", "VmRqlJuqCs8"]
+sources: ["nYNfdSQqk3o", "9OBSog0S5XU", "YI3Shq4iXao", "VmRqlJuqCs8"]
 ---
 
 Amortization reduces the amount owed as the borrower makes principal payments. It differs from interest, which is the cost of using the outstanding money. A loan can carry a modest rate and still demand substantial cash if principal must be repaid quickly. Conversely, delaying principal can ease early payments while leaving a larger balance to repay or refinance later.

@@ -6,7 +6,7 @@ order: 19
 minutes: 4
 topics: ["roll-ups", "bolt-ons", "management", "leverage", "covenants"]
 evidence: ["E090", "E111", "E051", "E091", "E112", "E113", "E093", "E092", "E146", "E043"]
-sources: ["np9jH5OyQnE", "rVW6fyafA0s", "8LNGpCPhTzU", "NnWl4wMoQhM", "SPMaYlRzACI", "WBPmqD8jIKA", "3z3NDUcOaNg"]
+sources: ["nYNfdSQqk3o", "np9jH5OyQnE", "rVW6fyafA0s", "8LNGpCPhTzU", "NnWl4wMoQhM", "SPMaYlRzACI", "WBPmqD8jIKA", "3z3NDUcOaNg"]
 takeaway: "Additional companies create value only if the operating and financing relationships make sense."
 ---
 
@@ -22,6 +22,8 @@ Financing links can spread trouble. Sey's steel-group experience describes cross
 
 ## How it works
 Start with the operating reason for combining businesses. Could they share reporting, support functions or customer relationships? What needs to stay local? In the source conversation, centralized support is considered alongside local operating responsibility, and Sey acknowledges relying on others for integration expertise. [Watch source](https://www.youtube.com/watch?v=rVW6fyafA0s)
+
+**Practitioner example.** Sey describes a steel group under one CEO and board, and an HVAC/construction group with a CEO, business-unit managers and shared CFO services. This illustrates how centralized finance support can coexist with operating responsibility in each business. It does not establish automatic synergy or a universally correct structure; he explicitly notes that similar actions can have different outcomes. [Source context: group structure and shared services](/sources/yusufa-sey/nYNfdSQqk3o/#shared-services)
 
 Then test the capital-provider fit. One prospective Texas investor wanted a narrower HVAC focus, recurring maintenance revenue, a shared brand and visible integration. Those requirements made some expected targets ineligible. The proposed funding was not a completed facility; its educational value is to show how a capital mandate can reshape a strategy. [Watch source](https://www.youtube.com/watch?v=rVW6fyafA0s) [Watch source](https://www.youtube.com/watch?v=np9jH5OyQnE)
 
