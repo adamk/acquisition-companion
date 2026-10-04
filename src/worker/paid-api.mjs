@@ -1,13 +1,15 @@
 import {paywallEnabled,billingEnabled,billingConfigured,authenticatedUser,isUserEntitledTo,monthlyLimit,hasAccountCapability} from './paid-access.mjs';
 import {paidStore} from './paid-store.mjs';
-import {beginSignIn,finishSignIn,requireCsrf} from './paid-auth.mjs';
+import {beginSignIn,finishSignIn,requireCsrf,invalidLinkMessage} from './paid-auth.mjs';
 import {createCheckout,createPortal,verifyWebhook,processWebhook} from './stripe-billing.mjs';
 import {reply,paidErrorResponse,PaidError,unavailable,sameOriginPost,jsonBody,readBody,hash,cookieValue,secureCookie,randomToken} from './paid-security.mjs';
 import {paidProduct} from '../lib/paid-product.mjs';
 import {mailerAvailable} from './auth-mailer.mjs';
-const paths=new Set(['/api/billing/status','/api/auth/start','/api/auth/confirm','/api/auth/logout','/api/account','/api/billing/checkout','/api/billing/portal','/api/billing/webhook']);
-const authPaths=new Set(['/api/auth/start','/api/auth/confirm','/api/auth/logout','/api/account']);
+import {authClientDiagnosticReasonAllowed,newAuthDiagnosticId,reportAuthDiagnostic,validAuthDiagnosticId} from './paid-auth-diagnostics.mjs';
+const paths=new Set(['/api/billing/status','/api/auth/start','/api/auth/confirm','/api/auth/diagnostic','/api/auth/logout','/api/account','/api/billing/checkout','/api/billing/portal','/api/billing/webhook']);
+const authPaths=new Set(['/api/auth/start','/api/auth/confirm','/api/auth/diagnostic','/api/auth/logout','/api/account']);
 const billingPaths=new Set(['/api/billing/checkout','/api/billing/portal']);
+const confirmDiagnosticId=request=>{const value=request.headers.get('x-auth-diagnostic-id');return value===null?newAuthDiagnosticId():validAuthDiagnosticId(value)?value:null;};
 export async function handlePaidRequest(request,env={},dependencies={}){
  const path=new URL(request.url).pathname;if(!paths.has(path))return null;
  if(path==='/api/billing/status'){
@@ -31,9 +33,25 @@ export async function handlePaidRequest(request,env={},dependencies={}){
    if(request.method!=='GET')return reply(405,{error:{code:'method_not_allowed',message:'Use GET.'}},{Allow:'GET'});
    // Only same-site JS can rotate CSRF tokens; cross-site requests cannot log users out or invalidate forms.
    if(request.headers.get('sec-fetch-site')!=='same-origin'||request.headers.get('x-account-request')!=='1')throw new PaidError(403,'same_origin_required','Open your account from this site.');
+  }else if(path==='/api/auth/confirm'){
+   try{sameOriginPost(request);}catch(error){
+    if(request.method==='POST'&&request.headers.get('origin')===new URL(request.url).origin){const id=confirmDiagnosticId(request)||newAuthDiagnosticId();reportAuthDiagnostic('auth_confirm_invalid_request',id,dependencies);throw new PaidError(400,'invalid_link',invalidLinkMessage);}
+    throw error;
+   }
   }else sameOriginPost(request);
+  if(path==='/api/auth/diagnostic'){
+   const body=await jsonBody(request,['reason','diagnosticId']);
+   if(!authClientDiagnosticReasonAllowed(body.reason)||!validAuthDiagnosticId(body.diagnosticId))throw new PaidError(400,'invalid_request','Invalid diagnostic request.');
+   const ip=request.headers.get('cf-connecting-ip');if(!ip||!env.AI_IP_LIMITER?.limit)throw unavailable();
+   if((await env.AI_IP_LIMITER.limit({key:`auth-diagnostic:${ip}`}))?.success!==true)throw new PaidError(429,'rate_limited','Please wait before retrying this sign-in.');
+   reportAuthDiagnostic(body.reason,body.diagnosticId,dependencies);return reply(200,{recorded:true});
+  }
   if(path==='/api/auth/start')return await beginSignIn(request,await jsonBody(request,['email']),env,dependencies);
-  if(path==='/api/auth/confirm')return await finishSignIn(request,await jsonBody(request,['token']),env,dependencies);
+  if(path==='/api/auth/confirm'){
+   const diagnosticId=confirmDiagnosticId(request);if(!diagnosticId){reportAuthDiagnostic('auth_confirm_invalid_request',newAuthDiagnosticId(),dependencies);throw new PaidError(400,'invalid_link',invalidLinkMessage);}
+   let body;try{body=await jsonBody(request,['token']);}catch{reportAuthDiagnostic('auth_confirm_invalid_request',diagnosticId,dependencies);throw new PaidError(400,'invalid_link',invalidLinkMessage);}
+   return await finishSignIn(request,{...body,diagnosticId},env,dependencies);
+  }
   const store=paidStore(env,dependencies),session=await authenticatedUser(request,store);
   if(!session)throw new PaidError(401,'login_required','Sign in to continue.');
   const tokenHash=await hash(cookieValue(request,'__Host-ac-session'));

@@ -27,6 +27,7 @@ export class D1PaidStore {
    this.statement('DELETE FROM billing_locks WHERE expires_at<=?',now),
   ]);
  }
+ async inspectChallenge(token,browser,now){const row=await this.statement('SELECT browser_hash AS browserHash,expires_at AS expiresAt FROM auth_challenges WHERE token_hash=?',token).first();if(!row)return 'not_found';if(row.browserHash!==browser)return 'binding_mismatch';if(row.expiresAt<=now)return 'expired';return 'eligible';}
  async consumeChallenge(token,browser,now){return this.statement('DELETE FROM auth_challenges WHERE token_hash=? AND browser_hash=? AND expires_at>? RETURNING email',token,browser,now).first();}
  async createSession(email,tokenHash,csrfHash,expiresAt,now){
   const id=crypto.randomUUID();

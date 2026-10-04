@@ -11,7 +11,7 @@ export async function sendSignInMail(payload,env,dependencies={}){
  if(env.AUTH_MAIL_ENABLED!=='true'||(!staging&&!production)||(env.AUTH_MAIL_PROVIDER==='ses'?false:!env.EMAIL?.send)||!address(env.AUTH_MAIL_FROM)||!address(payload?.email))throw unavailable();
  let recipients,url,origin;
  try{recipients=JSON.parse(env.AUTH_MAIL_RECIPIENTS||'[]');url=new URL(payload.url);origin=new URL(env.AUTH_MAIL_ORIGIN);}catch{throw unavailable();}
- if(origin.protocol!=='https:'||origin.origin!==env.AUTH_MAIL_ORIGIN||origin.username||origin.password||url.origin!==origin.origin||url.pathname!=='/account/'||url.search||!/^#token=[a-f0-9]{64}$/.test(url.hash)||url.username||url.password)throw unavailable();
+ if(origin.protocol!=='https:'||origin.origin!==env.AUTH_MAIL_ORIGIN||origin.username||origin.password||url.origin!==origin.origin||url.pathname!=='/account/'||url.search!=='?signin=1'||url.searchParams.getAll('signin').length!==1||!/^#token=[a-f0-9]{64}$/.test(url.hash)||url.username||url.password)throw unavailable();
  if(staging&&(!Array.isArray(recipients)||!recipients.every(address)||!recipients.includes(payload.email)||['acquisitioncompanion.com','www.acquisitioncompanion.com'].includes(origin.hostname)))throw unavailable();
  if(production&&(origin.origin!=='https://acquisitioncompanion.com'||env.AUTH_MAIL_PROVIDER!=='ses'||env.AUTH_MAIL_FROM!=='signin@acquisitioncompanion.com'))throw unavailable();
  // Fixed plain-text template, no tracking, attachments, HTML, arbitrary sender or support address.

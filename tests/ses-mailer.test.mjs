@@ -25,8 +25,8 @@ test('SES missing config, provider rejection, invalid JSON and network failure s
 test('SES adapter preserves staging origin/recipient guards and does not require a Cloudflare email binding',async()=>{
  const origin='https://paid-staging.example.test',settings={...env,AUTH_MAIL_ENABLED:'true',AUTH_MAIL_MODE:'staging',AUTH_MAIL_ORIGIN:origin,AUTH_MAIL_FROM:mail.from,AUTH_MAIL_RECIPIENTS:'["buyer@example.test"]'};
  let calls=0;const dependencies={fetcher:async()=>{calls++;return Response.json({MessageId:'fixture-message'});}};
- assert.deepEqual(await sendSignInMail({email:mail.to,url:origin+'/account/#token='+'a'.repeat(64)},settings,dependencies),{accepted:true});assert.equal(calls,1);
- await assert.rejects(sendSignInMail({email:'other@example.test',url:origin+'/account/#token='+'a'.repeat(64)},settings,dependencies));assert.equal(calls,1);
+ assert.deepEqual(await sendSignInMail({email:mail.to,url:origin+'/account/?signin=1#token='+'a'.repeat(64)},settings,dependencies),{accepted:true});assert.equal(calls,1);
+ for(const payload of [{email:'other@example.test',url:origin+'/account/?signin=1#token='+'a'.repeat(64)},{email:mail.to,url:origin+'/account/#token='+'a'.repeat(64)},{email:mail.to,url:origin+'/account/?signin=1&token='+('a'.repeat(64))+'#token='+('a'.repeat(64))}])await assert.rejects(sendSignInMail(payload,settings,dependencies));assert.equal(calls,1);
 });
 test('staging SES rejection reports only safe status/code metadata, never mail or credentials',async()=>{
  const reports=[];

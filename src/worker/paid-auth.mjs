@@ -1,6 +1,8 @@
 import {paidStore} from './paid-store.mjs';
 import {PaidError,unavailable,randomToken,hash,secureCookie,cookieValue,validToken,reply} from './paid-security.mjs';
 import {mailerAvailable,deliveryDeadline} from './auth-mailer.mjs';
+import {newAuthDiagnosticId,reportAuthDiagnostic} from './paid-auth-diagnostics.mjs';
+export const invalidLinkMessage='This sign-in link could not be confirmed. Open it in the same browser that requested it, or request a new link.';
 export async function beginSignIn(request,body,env,dependencies={}){
  if(new URL(request.url).origin!==(env.ACCOUNT_ORIGIN||'https://acquisitioncompanion.com'))throw new PaidError(403,'same_origin_required','Use sign-in from the configured site.');
  if(env.AUTH_SIGNIN_ENABLED!=='true'||(!dependencies.sendEmail&&!mailerAvailable(env)))throw unavailable();
@@ -14,7 +16,7 @@ export async function beginSignIn(request,body,env,dependencies={}){
  if(!await store.allowEmailAttempt(await hash(email),now))return generic();
  const tokenHash=await hash(token);
  await store.saveChallenge({tokenHash,browserHash:await hash(browser),email,expiresAt:now+900000});
- const payload={email,url:`${new URL(request.url).origin}/account/#token=${token}`};
+ const payload={email,url:`${new URL(request.url).origin}/account/?signin=1#token=${token}`};
  // Mail delivery is an explicitly configured trusted service, not a browser/external SaaS SDK.
  try{
   await deliveryDeadline(async()=>{
@@ -28,14 +30,24 @@ export async function beginSignIn(request,body,env,dependencies={}){
 }
 export async function finishSignIn(request,body,env,dependencies={}){
  const browser=cookieValue(request,'__Host-ac-login');
- if(env.AUTH_SIGNIN_ENABLED!=='true'||!validToken(browser)||!validToken(body.token))throw new PaidError(400,'invalid_link','This link is invalid or expired. Request a new link in this browser.');
- const store=paidStore(env,dependencies),now=Date.now();
- const challenge=await store.consumeChallenge(await hash(body.token),await hash(browser),now);
- if(!challenge)throw new PaidError(400,'invalid_link','This link is invalid or expired. Request a new link in this browser.');
+ const diagnosticId=body?.diagnosticId||newAuthDiagnosticId();
+ if(env.AUTH_SIGNIN_ENABLED!=='true')throw new PaidError(400,'invalid_link',invalidLinkMessage);
+ if(!validToken(body?.token)){reportAuthDiagnostic('auth_confirm_invalid_request',diagnosticId,dependencies);throw new PaidError(400,'invalid_link',invalidLinkMessage);}
+ if(!validToken(browser)){reportAuthDiagnostic('auth_confirm_missing_binding',diagnosticId,dependencies);throw new PaidError(400,'invalid_link',invalidLinkMessage);}
+ const store=paidStore(env,dependencies),now=Date.now(),tokenHash=await hash(body.token),browserHash=await hash(browser);
+ let before='unknown';
+ try{if(typeof store.inspectChallenge==='function')before=await store.inspectChallenge(tokenHash,browserHash,now);}catch{/* The atomic consume remains authoritative if diagnostic lookup is unavailable. */}
+ let challenge;
+ try{challenge=await store.consumeChallenge(tokenHash,browserHash,now);}catch{reportAuthDiagnostic('auth_confirm_storage_failure',diagnosticId,dependencies);throw new PaidError(400,'invalid_link',invalidLinkMessage);}
+ if(!challenge){
+  let after='unknown';try{if(typeof store.inspectChallenge==='function')after=await store.inspectChallenge(tokenHash,browserHash,now);}catch{reportAuthDiagnostic('auth_confirm_storage_failure',diagnosticId,dependencies);}
+  const reason=before==='eligible'&&after==='not_found'?'auth_confirm_consume_conflict':after==='binding_mismatch'?'auth_confirm_binding_mismatch':after==='expired'?'auth_confirm_expired':'auth_confirm_challenge_not_found';
+  reportAuthDiagnostic(reason,diagnosticId,dependencies);throw new PaidError(400,'invalid_link',invalidLinkMessage);
+ }
  const token=randomToken(),csrf=randomToken();
- await store.createSession(challenge.email,await hash(token),await hash(csrf),now+7*86400000,now);
+ try{await store.createSession(challenge.email,await hash(token),await hash(csrf),now+7*86400000,now);}catch{reportAuthDiagnostic('auth_confirm_session_failure',diagnosticId,dependencies);throw new PaidError(400,'invalid_link',invalidLinkMessage);}
  const response=reply(200,{signedIn:true,csrfToken:csrf},{'Set-Cookie':secureCookie('__Host-ac-session',token,7*86400)});
- response.headers.append('Set-Cookie',secureCookie('__Host-ac-login','',0));return response;
+ response.headers.append('Set-Cookie',secureCookie('__Host-ac-login','',0));reportAuthDiagnostic('auth_confirm_success',diagnosticId,dependencies);return response;
 }
 export async function requireCsrf(request,session){
  const token=request.headers.get('x-csrf-token');

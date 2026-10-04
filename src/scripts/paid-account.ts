@@ -6,15 +6,27 @@ if(root){
  const details=root.querySelector<HTMLElement>('[data-account-details]');
  const track=(name:string,params:Record<string,string>={})=>window.acquisitionAnalytics?.track(name,params);
  if(location.pathname==='/pricing/')track('pricing_page_view');
- let csrf='',pending=false,magicToken='',billingAvailable=false;
- // Remove magic-link fragment before any asynchronous work; it is never sent in a URL request.
- if(location.pathname==='/account/'&&location.hash.startsWith('#token=')){
-  const value=location.hash.slice(7);history.replaceState(null,'',location.pathname+location.search);
-  if(/^[a-f0-9]{64}$/.test(value))magicToken=value;
+ let csrf='',pending=false,magicToken='',billingAvailable=false,authDiagnosticId='',magicLinkState='';
+ const invalidLinkMessage='This sign-in link could not be confirmed. Open it in the same browser that requested it, or request a new link.';
+ // The query marker is non-secret; the token remains in the fragment and is removed before any asynchronous work.
+ if(location.pathname==='/account/'){
+  const marked=new URLSearchParams(location.search).getAll('signin').includes('1'),hasTokenFragment=location.hash.startsWith('#token=');
+  if(marked||hasTokenFragment){
+   const value=hasTokenFragment?location.hash.slice(7):'';
+   history.replaceState(null,'',location.pathname);
+   try{authDiagnosticId=crypto.randomUUID();}catch{/* Confirmation remains available if diagnostic IDs are unavailable. */}
+   if(hasTokenFragment&&/^[a-f0-9]{64}$/.test(value)){magicToken=value;magicLinkState='present';}
+   else magicLinkState=location.hash?'invalid':'missing';
+  }
  }
  const announce=(message:string)=>{status.textContent=message;};
- async function api(path:string,body?:Record<string,string|boolean>){
-  const response=await fetch(path,{method:body?'POST':'GET',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json','X-Account-Request':'1',...(csrf?{'X-CSRF-Token':csrf}:{})},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(12000)});
+ async function recordAuthDiagnostic(reason:'auth_fragment_missing'|'auth_fragment_invalid'|'auth_fragment_present'|'auth_confirm_client_attempt'){
+  if(!authDiagnosticId)return;
+  try{await fetch('/api/auth/diagnostic',{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify({reason,diagnosticId:authDiagnosticId}),signal:AbortSignal.timeout(4000)});}catch{/* Diagnostics cannot block or change sign-in. */}
+ }
+ if(magicLinkState==='present')void recordAuthDiagnostic('auth_fragment_present');
+ async function api(path:string,body?:Record<string,string|boolean>,extraHeaders:Record<string,string>={}){
+  const response=await fetch(path,{method:body?'POST':'GET',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json','X-Account-Request':'1',...(csrf?{'X-CSRF-Token':csrf}:{}),...extraHeaders},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(12000)});
   const data=await response.json();if(!response.ok)throw new Error(data.error?.message||'Account access is unavailable.');return data;
  }
  async function action(work:()=>Promise<void>){
@@ -33,12 +45,15 @@ if(root){
   if(usage)usage.textContent=`${data.usage.requestCount} requests this month (UTC)${data.monthlyRequestLimit===null?'':` of ${data.monthlyRequestLimit}; ${Math.max(0,data.monthlyRequestLimit-data.usage.requestCount)} remaining`}. Resets at 00:00 UTC on ${new Date(Date.UTC(new Date().getUTCFullYear(),new Date().getUTCMonth()+1,1)).toISOString().slice(0,10)}.`;
  }
  signIn?.addEventListener('submit',event=>{event.preventDefault();void action(async()=>{const data=await api('/api/auth/start',{email:root.querySelector<HTMLInputElement>('#account-email')!.value});announce(data.message);});});
- confirm?.addEventListener('click',()=>void action(async()=>{await api('/api/auth/confirm',{token:magicToken});magicToken='';await refresh();}));
+ confirm?.addEventListener('click',()=>void action(async()=>{await recordAuthDiagnostic('auth_confirm_client_attempt');await api('/api/auth/confirm',{token:magicToken},authDiagnosticId?{'X-Auth-Diagnostic-ID':authDiagnosticId}:{});magicToken='';await refresh();}));
  root.querySelector<HTMLButtonElement>('[data-logout]')?.addEventListener('click',()=>void action(async()=>{await api('/api/auth/logout',{});csrf='';if(details)details.hidden=true;if(signIn)signIn.hidden=false;announce('Signed out.');}));
  root.querySelector<HTMLButtonElement>('[data-billing-portal]')?.addEventListener('click',()=>void action(async()=>{const data=await api('/api/billing/portal',{});redirect(data.url,'billing.stripe.com');}));
  function redirect(value:string,host:string){const url=new URL(value);if(url.protocol!=='https:'||url.hostname!==host||url.username||url.password)throw new Error('Billing access is unavailable.');location.assign(url.href);}
  root.querySelectorAll<HTMLButtonElement>('[data-checkout]').forEach(button=>button.addEventListener('click',()=>void action(async()=>{await refresh();const usCustomerAttested=root.querySelector<HTMLInputElement>('[data-us-attestation]')?.checked===true;if(!usCustomerAttested)throw new Error('Confirm that you are a U.S. customer before subscribing to the paid beta.');const data=await api('/api/billing/checkout',{plan:button.dataset.checkout!,usCustomerAttested});track('checkout_started',{plan:button.dataset.checkout!});redirect(data.url,'checkout.stripe.com');})));
  void action(async()=>{
+  if(signIn&&['missing','invalid'].includes(magicLinkState)){
+   announce(invalidLinkMessage);void recordAuthDiagnostic(magicLinkState==='missing'?'auth_fragment_missing':'auth_fragment_invalid');return;
+  }
   const data=await api('/api/billing/status');if(!data.signInAvailable&&!data.billingAvailable)return;
   if(data.signInAvailable)announce('The initial paid beta is invite-only for U.S. customers. Sign in to check your Checkout approval.');
   root.querySelectorAll<HTMLElement>('[data-account-link]').forEach(el=>el.hidden=false);

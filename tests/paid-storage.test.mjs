@@ -46,6 +46,17 @@ test('D1 expiry, browser-bound challenges, logout and webhook ledger are real SQ
  assert.equal((await store.getGrant('u')).status,'active');sql.close();
 });
 
+test('challenge diagnostics classify state without consuming a challenge or returning stored values',async()=>{
+ const {store,sql}=storage();
+ await store.saveChallenge({tokenHash:'token-a',browserHash:'browser-a',email:'sensitive@example.test',expiresAt:10});
+ assert.equal(await store.inspectChallenge('missing','browser-a',1),'not_found');
+ assert.equal(await store.inspectChallenge('token-a','browser-b',1),'binding_mismatch');
+ assert.equal(await store.inspectChallenge('token-a','browser-a',10),'expired');
+ assert.equal(await store.inspectChallenge('token-a','browser-a',9),'eligible');
+ assert.equal(sql.prepare('SELECT count(*) AS n FROM auth_challenges').get().n,1,'classification is read-only and does not consume the challenge');
+ sql.close();
+});
+
 test('real AI seam records token metadata for success and failures without any user/assistant content',async()=>{
  const records=[];let calls=0;
  const store={getSession:async()=>({userId:'u'}),getGrant:async()=>({status:'active',validUntil:Date.now()+100000}),reserveUsage:async r=>records.push(r),finishUsage:async(id,r)=>records.push({id,...r})};

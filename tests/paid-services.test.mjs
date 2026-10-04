@@ -2,22 +2,65 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {beginSignIn,finishSignIn,requireCsrf} from '../src/worker/paid-auth.mjs';
 import {createCheckout,createPortal,verifyWebhook,processWebhook} from '../src/worker/stripe-billing.mjs';
 import {isUserEntitledTo} from '../src/worker/paid-access.mjs';
-import {hash} from '../src/worker/paid-security.mjs';
+import {hash,secureCookie} from '../src/worker/paid-security.mjs';
 const token='a'.repeat(64),browser='b'.repeat(64);
 const req=(cookie='')=>new Request('https://acquisitioncompanion.com/api/auth/start',{method:'POST',headers:{Origin:'https://acquisitioncompanion.com','Content-Type':'application/json',Cookie:cookie,'CF-Connecting-IP':'192.0.2.1'}});
+const confirmReq=(cookie='')=>new Request('https://acquisitioncompanion.com/api/auth/confirm',{method:'POST',headers:{Origin:'https://acquisitioncompanion.com','Content-Type':'application/json',Cookie:cookie}});
 const settings={AI_PAYWALL_ENABLED:'true',AUTH_SIGNIN_ENABLED:'true',STRIPE_SECRET_KEY:'mock-only',STRIPE_WEBHOOK_SECRET:'mock-signing-secret',STRIPE_MONTHLY_PRICE_ID:'price_month',STRIPE_ANNUAL_PRICE_ID:'price_year',AI_IP_LIMITER:{limit:async()=>({success:true})}};
 
 test('passwordless links are single-use, browser-bound and stored as hashes; session cookie is secure',async()=>{
- let challenge,delivery,session;
- const store={allowEmailAttempt:async()=>true,saveChallenge:async c=>{challenge=c;},consumeChallenge:async(t,b)=>{if(challenge&&t===challenge.tokenHash&&b===challenge.browserHash){challenge=null;return {email:'buyer@example.test'};}return null;},createSession:async(...s)=>{session=s;}};
- const response=await beginSignIn(req(),{email:'buyer@example.test'},settings,{store,sendEmail:async d=>{delivery=d;}});
- const cookie=response.headers.get('set-cookie');assert.match(cookie,/HttpOnly; Secure; SameSite=Lax/);assert.ok(!cookie.includes(delivery.url.split('#token=')[1]));
+ let challenge,delivery,session;const diagnostics=[];
+ const store={allowEmailAttempt:async()=>true,saveChallenge:async c=>{challenge=c;},inspectChallenge:async(t,b,now)=>!challenge||t!==challenge.tokenHash?'not_found':challenge.browserHash!==b?'binding_mismatch':challenge.expiresAt<=now?'expired':'eligible',consumeChallenge:async(t,b,now)=>{if(challenge&&t===challenge.tokenHash&&b===challenge.browserHash&&challenge.expiresAt>now){challenge=null;return {email:'buyer@example.test'};}return null;},createSession:async(...s)=>{session=s;}};
+ const response=await beginSignIn(req(),{email:'buyer@example.test'},settings,{store,sendEmail:async d=>{delivery=d;},reportAuthDiagnostic:event=>diagnostics.push(event)});
+ const cookie=response.headers.get('set-cookie');assert.match(cookie,/^__Host-ac-login=[a-f0-9]{64}; Path=\/; HttpOnly; Secure; SameSite=Lax; Max-Age=900$/);assert.doesNotMatch(cookie,/Domain=|Expires=/);assert.ok(!cookie.includes(delivery.url.split('#token=')[1]));
  assert.ok(!JSON.stringify(challenge).includes(delivery.url.split('#token=')[1]));
- const magic=new URL(delivery.url).hash.slice(7);
- await assert.rejects(finishSignIn(req(),{token:magic},settings,{store}),e=>e.code==='invalid_link');
- const result=await finishSignIn(req(cookie.split(';')[0]),{token:magic},settings,{store});
- assert.match(result.headers.get('set-cookie'),/__Host-ac-session=.*HttpOnly; Secure; SameSite=Lax/);assert.ok(!session.includes(magic));
- await assert.rejects(finishSignIn(req(cookie.split(';')[0]),{token:magic},settings,{store}),e=>e.code==='invalid_link');
+ const deliveryUrl=new URL(delivery.url);assert.equal(deliveryUrl.search,'?signin=1');assert.equal(deliveryUrl.hash.slice(7).length,64);const magic=deliveryUrl.hash.slice(7),diagnosticId='672e377b-4a59-4e37-b271-5208686801e0';
+ await assert.rejects(finishSignIn(confirmReq(),{token:magic,diagnosticId},settings,{store,reportAuthDiagnostic:event=>diagnostics.push(event)}),e=>e.code==='invalid_link'&&e.message==='This sign-in link could not be confirmed. Open it in the same browser that requested it, or request a new link.');
+ const result=await finishSignIn(confirmReq(cookie.split(';')[0]),{token:magic,diagnosticId},settings,{store,reportAuthDiagnostic:event=>diagnostics.push(event)});
+ assert.match(result.headers.get('set-cookie'),/^__Host-ac-session=[a-f0-9]{64}; Path=\/; HttpOnly; Secure; SameSite=Lax; Max-Age=604800,/);assert.doesNotMatch(result.headers.get('set-cookie'),/Domain=|Expires=/);assert.match(result.headers.get('set-cookie'),/__Host-ac-login=; Path=\/; HttpOnly; Secure; SameSite=Lax; Max-Age=0/);assert.ok(!session.includes(magic));
+ await assert.rejects(finishSignIn(confirmReq(cookie.split(';')[0]),{token:magic,diagnosticId},settings,{store,reportAuthDiagnostic:event=>diagnostics.push(event)}),e=>e.code==='invalid_link');
+ assert.deepEqual(diagnostics.map(event=>event.reason),['auth_confirm_missing_binding','auth_confirm_success','auth_confirm_challenge_not_found']);assert.ok(diagnostics.every(event=>Object.keys(event).sort().join(',')==='diagnosticId,reason,type'));assert.ok(!JSON.stringify(diagnostics).includes(magic));assert.ok(!JSON.stringify(diagnostics).includes('buyer@example.test'));
+});
+
+test('missing, different-browser and expired browser-bound challenges fail without consuming the challenge',async()=>{
+ let challenge,delivery,consumeCalls=0;
+ const diagnostics=[];const store={allowEmailAttempt:async()=>true,saveChallenge:async c=>{challenge=c;},inspectChallenge:async(t,b,now)=>!challenge||t!==challenge.tokenHash?'not_found':challenge.browserHash!==b?'binding_mismatch':challenge.expiresAt<=now?'expired':'eligible',consumeChallenge:async(t,b,now)=>{consumeCalls++;if(challenge&&t===challenge.tokenHash&&b===challenge.browserHash&&challenge.expiresAt>now){challenge=null;return {email:'buyer@example.test'};}return null;}};
+ const dependencies={store,sendEmail:async value=>{delivery=value;},reportAuthDiagnostic:event=>diagnostics.push(event)};
+ const started=await beginSignIn(req(),{email:'buyer@example.test'},settings,dependencies);
+ const binding=started.headers.get('set-cookie').split(';')[0],magic=new URL(delivery.url).hash.slice(7);
+ const diagnosticId='672e377b-4a59-4e37-b271-5208686801e0';
+ await assert.rejects(finishSignIn(confirmReq(),{token:magic,diagnosticId},settings,dependencies),e=>e.code==='invalid_link');
+ assert.equal(consumeCalls,0,'missing binding cookie is rejected before a consume attempt');assert.ok(challenge,'missing binding cookie leaves the challenge unconsumed');
+ await assert.rejects(finishSignIn(confirmReq(secureCookie('__Host-ac-login','c'.repeat(64),900).split(';')[0]),{token:magic,diagnosticId},settings,dependencies),e=>e.code==='invalid_link');
+ assert.equal(consumeCalls,1,'a different browser reaches the atomic token/browser check');assert.ok(challenge,'a different browser cannot consume the challenge');
+ challenge.expiresAt=Date.now()-1;
+ await assert.rejects(finishSignIn(confirmReq(binding),{token:magic,diagnosticId},settings,dependencies),e=>e.code==='invalid_link');
+ assert.equal(consumeCalls,2);assert.ok(challenge,'an expired challenge is not consumed');
+ assert.deepEqual(diagnostics.map(event=>event.reason),['auth_confirm_missing_binding','auth_confirm_binding_mismatch','auth_confirm_expired']);
+});
+
+test('confirmation diagnostics distinguish consume races and session creation failure without exposing link data',async()=>{
+ const diagnostics=[],diagnosticId='672e377b-4a59-4e37-b271-5208686801e0',reportAuthDiagnostic=event=>diagnostics.push(event);
+ const body={token,diagnosticId};
+ await assert.rejects(finishSignIn(confirmReq(secureCookie('__Host-ac-login',browser,900).split(';')[0]),{token:'malformed',diagnosticId},settings,{store:{},reportAuthDiagnostic}),e=>e.code==='invalid_link');
+ let inspections=0;const raced={inspectChallenge:async()=>inspections++===0?'eligible':'not_found',consumeChallenge:async()=>null};
+ await assert.rejects(finishSignIn(confirmReq(secureCookie('__Host-ac-login',browser,900).split(';')[0]),body,settings,{store:raced,reportAuthDiagnostic}),e=>e.code==='invalid_link');
+ const sessionFailure={inspectChallenge:async()=> 'eligible',consumeChallenge:async()=>({email:'private@example.test'}),createSession:async()=>{throw Error('sensitive failure');}};
+ await assert.rejects(finishSignIn(confirmReq(secureCookie('__Host-ac-login',browser,900).split(';')[0]),body,settings,{store:sessionFailure,reportAuthDiagnostic}),e=>e.code==='invalid_link');
+ const storageFailure={inspectChallenge:async()=>{throw Error('storage detail');},consumeChallenge:async()=>{throw Error('database detail');}};
+ await assert.rejects(finishSignIn(confirmReq(secureCookie('__Host-ac-login',browser,900).split(';')[0]),body,settings,{store:storageFailure,reportAuthDiagnostic}),e=>e.code==='invalid_link');
+ assert.deepEqual(diagnostics.map(event=>event.reason),['auth_confirm_invalid_request','auth_confirm_consume_conflict','auth_confirm_session_failure','auth_confirm_storage_failure']);assert.ok(!JSON.stringify(diagnostics).includes(token));assert.ok(!JSON.stringify(diagnostics).includes(browser));assert.ok(!JSON.stringify(diagnostics).includes('private@example.test'));assert.ok(!JSON.stringify(diagnostics).includes('sensitive failure'));assert.ok(!JSON.stringify(diagnostics).includes('database detail'));
+});
+
+test('sign-in origin is locked to the configured apex so www cannot split the host-only browser cookie',async()=>{
+ let saved=0,delivered=0;
+ const store={allowEmailAttempt:async()=>true,saveChallenge:async()=>{saved++;}};
+ const www=new Request('https://www.acquisitioncompanion.com/api/auth/start',{method:'POST',headers:{Origin:'https://www.acquisitioncompanion.com','Content-Type':'application/json','CF-Connecting-IP':'192.0.2.1'}});
+ await assert.rejects(beginSignIn(www,{email:'buyer@example.test'},settings,{store,sendEmail:async()=>{delivered++;}}),error=>error.code==='same_origin_required');
+ assert.equal(saved,0);assert.equal(delivered,0);
+ let delivery;
+ await beginSignIn(req(),{email:'buyer@example.test'},{...settings,ACCOUNT_ORIGIN:'https://acquisitioncompanion.com'},{store,sendEmail:async payload=>{delivery=payload;}});
+ assert.equal(new URL(delivery.url).origin,'https://acquisitioncompanion.com');assert.equal(new URL(delivery.url).pathname,'/account/');assert.equal(new URL(delivery.url).search,'?signin=1');assert.match(new URL(delivery.url).hash,/^#token=[a-f0-9]{64}$/);
 });
 
 test('CSRF validation requires the session-bound token, missing email integration fails closed',async()=>{

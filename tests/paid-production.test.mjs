@@ -20,9 +20,10 @@ test('production rejects test credentials, unknown mode and test-mode provider o
 });
 test('production auth mail is origin locked, supports Reply-To, and remains disabled by default',async()=>{
  const env={AUTH_MAIL_MODE:'production',AUTH_MAIL_ENABLED:'true',AUTH_MAIL_PROVIDER:'ses',AUTH_MAIL_ORIGIN:'https://acquisitioncompanion.com',AUTH_MAIL_FROM:'signin@acquisitioncompanion.com',SES_REGION:'us-east-1',SES_ACCESS_KEY_ID:'fixture',SES_SECRET_ACCESS_KEY:'fixture'};
- const payload={email:'buyer@example.test',url:env.AUTH_MAIL_ORIGIN+'/account/#token='+'a'.repeat(64)};let calls=0;
+ const payload={email:'buyer@example.test',url:env.AUTH_MAIL_ORIGIN+'/account/?signin=1#token='+'a'.repeat(64)};let calls=0;
  const dependencies={fetcher:async(_url,options)=>{calls++;const mail=JSON.parse(options.body);assert.deepEqual(mail.ReplyToAddresses,[supportEmail]);assert.equal(mail.FromEmailAddress,'signin@acquisitioncompanion.com');assert.match(mail.Content.Simple.Body.Text.Data,/15 minutes[\s\S]*used once[\s\S]*support@acquisitioncompanion.com/);assert.doesNotMatch(mail.Content.Simple.Subject.Data,/staging/);return Response.json({MessageId:'fixture'});}};
  await sendSignInMail(payload,env,dependencies);assert.equal(calls,1);
+ for(const url of [env.AUTH_MAIL_ORIGIN+'/account/#token='+'a'.repeat(64),env.AUTH_MAIL_ORIGIN+'/account/?signin=1&email=private@example.test#token='+'a'.repeat(64),env.AUTH_MAIL_ORIGIN+'/account/?signin=1#token='])await assert.rejects(sendSignInMail({...payload,url},env,dependencies));assert.equal(calls,1);
  for(const patch of [{AUTH_MAIL_ENABLED:'false'},{AUTH_MAIL_MODE:'unknown'},{AUTH_MAIL_ORIGIN:'https://paid-staging.example.test'},{AUTH_MAIL_FROM:'other@example.test'}])await assert.rejects(sendSignInMail(payload,{...env,...patch},dependencies));assert.equal(calls,1);
 });
 test('paid-beta surfaces name support, US-only availability, free course and legal review without guarantees',()=>{
