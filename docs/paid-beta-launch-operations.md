@@ -2,6 +2,26 @@
 
 Prepared 2026-10-03. **Not launched. Dormant production bindings and LIVE billing resources are now authorized; account/billing/paywall activation and real payments remain prohibited. `AI_PAYWALL_ENABLED=false` remains mandatory until the owner's final explicit approval.** Selling entity: The Wired Nomad LLC. Product/trade names: Acquisition Companion / Acquisition Companion Deal Lab. Initial paid customers: United States only. The public educational site remains free internationally; paid expansion is a separate decision.
 
+## Independent runtime gates
+
+`AI_PAYWALL_ENABLED` gates only AI entitlement enforcement. `AUTH_SIGNIN_ENABLED` independently controls `/api/auth/*` and `/api/account`; `BILLING_ENABLED` independently controls hosted Checkout and Portal creation. Both default off and neither grants entitlement. The private mailer independently enforces its own `AUTH_MAIL_ENABLED`; enabling main-worker sign-in cannot bypass that check. `/api/billing/webhook` is independent of these three flags and remains protected by the externally enabled/disabled Stripe destination, configured secret, signature validation and canonical Stripe lookup. Keep that LIVE destination disabled until the controlled-purchase step.
+
+| AI paywall | Sign-in | Billing | Result |
+|---|---|---|---|
+| Off | Off | Off | Current anonymous AI stays open; auth/account and Checkout/Portal fail closed. |
+| Off | On | Off | Anonymous AI stays open; auth/account can operate if D1 and the private mailer are ready; billing is closed. |
+| Off | On | On | Anonymous AI stays open; authenticated, CSRF-protected, approved, U.S.-attested users can reach hosted Checkout/Portal. Subscription state can update without forcing anonymous users to subscribe. |
+| Off | Off | On | Billing routes exist but cannot authorize a user; auth remains closed and anonymous AI stays open. |
+| On | Off | Off | AI requires a valid `ai_deal_lab` entitlement; auth and billing APIs remain unavailable. |
+
+### Future operator SES-only test (not authorized by this document)
+
+For one operator-only, browser-bound production sign-in test, set the main Worker to `AI_PAYWALL_ENABLED=false`, `AUTH_SIGNIN_ENABLED=true`, `BILLING_ENABLED=false`; set only the private mailer to `AUTH_MAIL_ENABLED=true`. Keep the LIVE Stripe destination disabled. Use only the operator's own email, validate the 15-minute single-use flow, then restore both mail/sign-in flags to false. This test creates an account/session but no Checkout or entitlement.
+
+### Future controlled $19 purchase (separate explicit approval required)
+
+To test a real operator purchase while leaving anonymous AI open, set main Worker `AI_PAYWALL_ENABLED=false`, `AUTH_SIGNIN_ENABLED=true`, `BILLING_ENABLED=true`; set private mailer `AUTH_MAIL_ENABLED=true`; keep `BILLING_TEST_MODE=false`; and enable the LIVE webhook destination only for the controlled test. Approve only the authenticated operator account for `paid_beta_checkout`, complete the U.S.-customer attestation and use hosted $19 monthly Checkout. The webhook can grant `ai_deal_lab`; an entitled operator's subsequent AI requests are recorded against that account while anonymous AI remains open. The 100-request blocking quota remains off until `AI_PAYWALL_ENABLED=true`. Turning on the paywall is a later, separately approved step.
+
 ## Confirmed preparation results
 
 - Operator confirms `support@acquisitioncompanion.com` forwards to `adam@thewirednomad.com`. Public MX remains `fwd1.porkbun.com` (10), `fwd2.porkbun.com` (20). No DNS/forwarding records changed by this task. Receipt is operator-confirmed, not independently mailbox-inspected.
@@ -62,11 +82,68 @@ Deletion requests go to support. Verify ownership; cancel recurring billing as r
 
 ## Monitoring and reconciliation
 
-Production candidate enables explicit safe diagnostics without full invocation URLs/bodies. Error metadata contains only internal failure stage, status, workflow/mode, provider code/scope; never Stripe event payloads/signatures, cookies, sign-in fragments, tokens, email, deal data, prompts or answers. Keep account analytics suppressed; do not enable blanket traces/log dumps for auth/billing.
+### What is available now
 
-Before launch: name the support operator, review log retention, configure alerts for repeated webhook 5xx, mail failures, stale pending deliveries, entitlement/storage failures and monthly quota/accounting failures. View delivery attempts in Stripe Workbench; signature verification and event deduplication remain required. Do not manually grant entitlement to hide a failed event. Retry only after diagnosis; canonical-state reconciliation protects out-of-order events.
+- **Cloudflare:** the production Wrangler config in this checkout declares `PAID_DIAGNOSTICS_ENABLED=true`; webhook failures emit only a safe stage and HTTP status, without event payloads or secrets. The AI provider-specific diagnostic branch is conditional on the AI paywall being enabled. The production `wrangler.jsonc` has no explicit `observability` block; the separate example config does, which is not proof of production settings. A read-only deployment listing initially failed because Wrangler selected an environment token; unsetting those token variables let the authenticated OAuth request succeed and confirmed version `d55e2f08-47be-466a-ba38-f932057d0e7e` at 100% traffic. The listing does not report log capture, sampling or retention, so those effective settings remain unverified. Before activation, verify Worker Analytics/Logs access and retention in the dashboard rather than assuming the example config applies.
+- **Stripe:** the LIVE webhook destination was last verified disabled, and there are no live subscriptions to monitor. No delivery failures exist to inspect while it is disabled. Once the owner enables it, Workbench shows delivery attempts, response codes and resend availability. No automated alert was verified.
+- **SES:** the sender identity and DKIM are verified, but auth mail is disabled and no production sign-in email has been sent. The mailer code can emit sanitized `ses_delivery_failure` metadata when `AUTH_MAIL_DIAGNOSTICS_ENABLED=true`; the example config sets this, but effective production log collection was not reverified. The available AWS role previously denied `cloudwatch:ListMetrics`, so SES CloudWatch metrics/alerts were not verified. Do not expand IAM permissions in this run.
+- **OpenAI and quota:** the deployed public AI status endpoint is currently ready. Paid provider diagnostics are emitted only on the paywalled AI path, so they will not show the full paid diagnostic event while the master paywall is off. Quota exhaustion returns HTTP 429 `monthly_limit` before an OpenAI call, but does not create a dedicated alert. The metadata-only monthly account is the usage source of record.
 
-`reconcileCustomer(customer, env)` is an operator-only helper; it fetches current subscriptions under a customer lease and writes application grants atomically. There is no public reconciliation endpoint. Provision and exercise an authorized internal invocation/runbook and an audit record before launch; a scheduled cleanup job is not reconciliation. After a missed event, compare canonical billing state and account mapping, invoke the helper privately, verify one grant, then confirm ordinary API access. Production reconciliation invocation/alerting is **not configured yet**.
+For a 5–10-customer beta, use the existing Cloudflare, Stripe and AWS dashboards plus the private D1 operator procedure below; do not add a new monitoring service. **Before the first real purchase, the operator must verify access to Cloudflare production Worker logs/errors, Stripe webhook delivery history once the destination is enabled, and AWS SES send/bounce status. If any are unavailable, stop before purchase.** Retain only the minimum logs needed to diagnose incidents and never enable body/header dumps for auth or billing.
+
+**After each first-time purchase:** confirm the Stripe object is LIVE and uses the approved monthly/annual price; find the signed webhook delivery and require a successful HTTP response; verify one customer mapping, one subscription row and one derived `ai_deal_lab` entitlement; check the account view and usage policy; confirm hosted Portal access. Do not treat Checkout success-page navigation as proof of payment.
+
+**Daily while beta accounts are active:** review Stripe failed/pending webhook attempts; Cloudflare Worker error rate and safe paid failure-stage logs; SES send/reject/bounce indicators; reported OpenAI failures and `/api/ai/status`; and metadata-only monthly request counts/quota responses. Investigate a 429 only as a quota outcome unless the user reports a mismatch. No prompts, answers, deal facts, tokens, cookies, email-link fragments or payment data belong in telemetry.
+
+**Customer says they paid but cannot access:** verify the account email through the support channel and the LIVE Checkout Session/customer/subscription in Stripe; compare its `client_reference_id` and Customer `ac_user_id` to the existing D1 UUID; inspect mapping, subscription, webhook marker and customer lock using the read-only queries below. If identity and approved price/status match, use the conditional missing-mapping correction only if the field is `NULL`, then resend the legitimate signed event. Confirm a single canonical subscription row and the ordinary account/AI access state. If identity conflicts, the event is no longer resendable, Stripe state cannot be read, or reconciliation still disagrees, keep the paywall off and escalate to the owner; do not manually grant access.
+
+### Production webhook reconciliation (no admin endpoint)
+
+The existing signed webhook is the executable reconciliation path: it validates the Stripe signature, deduplicates event IDs, takes a per-customer lease, retrieves the current subscription directly from Stripe and atomically upserts the subscription row plus processed-event marker. Subscription UPSERT also corrects `user_id` from the verified customer mapping. `reconcileCustomer(customer, env)` can fetch the canonical full subscription list, but has no operator invocation interface; do not expose it publicly. For the initial beta, replaying an existing signed Stripe event is the recovery mechanism. **If no legitimate event remains available to resend, STOP AND ESCALATE. Do not manually insert or edit entitlement or subscription state.**
+
+Use Stripe LIVE Dashboard/Workbench and production D1 only after an incident is authorized. Before editing, verify in Stripe: LIVE mode and account; customer ID; customer metadata `ac_user_id`; the relevant Checkout Session `client_reference_id`; subscription ID/customer/status/current period/price/cancel-at-period-end; and event ID/type/delivery history. Match the account UUID to the existing D1 user. Do not copy card or payment details. Validate identifiers before interpolating them in Wrangler SQL: account UUID, `cus_…`, `sub_…`, and `evt_…` characters only. Run commands from the production checkout with the named database and `--remote`; do not use staging IDs.
+
+Read-only checks (select only non-content billing metadata):
+
+```sh
+npx wrangler d1 execute acquisition-companion-paid-production --remote --config wrangler.jsonc --command "SELECT id,CASE WHEN stripe_customer_id='cus_REPLACE' THEN 1 ELSE 0 END AS mapped_to_customer FROM users WHERE id='USER_UUID';"
+npx wrangler d1 execute acquisition-companion-paid-production --remote --config wrangler.jsonc --command "SELECT id FROM users WHERE stripe_customer_id='cus_REPLACE';"
+npx wrangler d1 execute acquisition-companion-paid-production --remote --config wrangler.jsonc --command "SELECT id,user_id,status,valid_until,cancel_at_period_end,observed_at FROM subscriptions WHERE id='sub_REPLACE';"
+npx wrangler d1 execute acquisition-companion-paid-production --remote --config wrangler.jsonc --command "SELECT id,processed_at FROM webhook_events WHERE id='evt_REPLACE';"
+npx wrangler d1 execute acquisition-companion-paid-production --remote --config wrangler.jsonc --command "SELECT customer_id,expires_at FROM billing_locks WHERE customer_id='cus_REPLACE';"
+```
+
+For **a verified Stripe customer missing its D1 mapping**, first establish the same account UUID from the Stripe customer metadata and Checkout Session, confirm that user exists in D1 and has no different customer mapping, and confirm no other D1 user owns this customer. If any identity conflicts, stop. Save the pre-change mapping state. Only when `stripe_customer_id IS NULL`, make this conditional correction:
+
+```sh
+npx wrangler d1 execute acquisition-companion-paid-production --remote --config wrangler.jsonc --command "UPDATE users SET stripe_customer_id='cus_REPLACE' WHERE id='USER_UUID' AND stripe_customer_id IS NULL;"
+```
+
+Require exactly one changed row, then reread the mapping. Never replace a non-null mapping by guess, create a user to fit Stripe metadata, or use metadata alone when the Checkout Session/account evidence disagrees.
+
+Choose the exact existing signed event for the subscription: `customer.subscription.created`, `.updated` or `.deleted`; `invoice.paid` and `invoice.payment_failed` also resolve the linked subscription. Prefer the latest relevant event. If it has no `webhook_events` row, use Stripe Workbench's normal **resend** to the production webhook after verifying the endpoint is intentionally enabled for incident recovery. If the event is already marked processed but its D1 subscription row is missing/stale, save the exact `processed_at`, ensure no unexpired customer lock exists, then remove only that event's deduplication marker so the same signed resend can reach canonical reconciliation:
+
+```sh
+npx wrangler d1 execute acquisition-companion-paid-production --remote --config wrangler.jsonc --command "DELETE FROM webhook_events WHERE id='evt_REPLACE' AND processed_at=PROCESSED_AT_REPLACE;"
+```
+
+Require exactly one deletion when a marker was observed, then immediately resend that same event. Do not delete a marker for a healthy duplicate. The customer lock and second dedupe check serialize concurrent retries; the canonical GET, not the old event body, determines current access. After a successful 2xx delivery, reread the event marker, customer mapping and subscription row. Confirm it is represented once and derive entitlement with the normal account/API check; do not insert an entitlement manually. Keep the AI paywall off while correcting any mapping.
+
+Recovery cases:
+
+- **Customer paid, mapping missing:** verify LIVE Customer `ac_user_id` and Checkout Session `client_reference_id` agree with the authenticated D1 account; conditionally map as above; resend the relevant signed event.
+- **Active subscription but no grant / stale state:** verify current canonical Stripe status, price and period; resend the newest relevant event. If its idempotency marker already exists, use the narrowly conditional marker removal above first. Canonical reconciliation may update or recreate the subscription row; access still depends on `active` and unexpired state.
+- **Duplicate event:** if the event marker exists and its D1 row is correct, resend is acknowledged as `duplicate` with no additional row or grant. Do not clear a healthy marker.
+- **Cancellation:** resend the newest subscription update/deleted event; `cancel_at_period_end` retains access only through the paid period, while canonical canceled/expired state denies access.
+- **Failed payment / recovery:** resend the corresponding `invoice.payment_failed` or `invoice.paid` event and inspect the canonical subscription status. The handler does not infer entitlement solely from an invoice: a subscription still `active` remains governed by its actual Stripe status; `past_due`/`unpaid` do not qualify.
+
+**Rollback of an operator mapping correction:** this procedure only permits a correction from `NULL`, so preserve that before-value and the observed subscription snapshot (IDs/status/timestamps only). If the mapping was assigned to the wrong account and no event was resent yet, reverse only that exact assignment:
+
+```sh
+npx wrangler d1 execute acquisition-companion-paid-production --remote --config wrangler.jsonc --command "UPDATE users SET stripe_customer_id=NULL WHERE id='USER_UUID' AND stripe_customer_id='cus_REPLACE';"
+```
+
+Require one changed row and reread it. If a replay already ran under the wrong mapping, do not hand-edit or create a subscription/grant: pause further resends, verify the true mapping from Stripe and the account record, clear only the affected event's marker using its exact `processed_at`, and replay the legitimate signed event so the canonical UPSERT assigns ownership from the verified mapping. Confirm the unintended account no longer has an eligible row and the correct account has the canonical row. If you cannot prove the before/after identity or no valid event is resendable, leave the paywall off and escalate; never manufacture a subscription row.
 
 ## Analytics and usage
 
@@ -74,12 +151,12 @@ Before launch: name the support operator, review log retention, configure alerts
 
 Usage storage is metadata only, including internal centrally configured cost estimates. Set model rates from current official OpenAI project/pricing documentation at launch; no fabricated `gpt-5.6-luna` rate is assumed. Reasoning tokens are already a subset of output, never double-counted. Unknown usage/rates remain unknown. Ordinary account responses never expose tokens/internal cost.
 
-GA funnel: `pricing_page_view`, `checkout_started` (predefined monthly/annual only), `ai_paid_request` (predefined mode only) use the existing consent controller. `subscription_started` / `subscription_canceled` have a safe empty-parameter contract but are not emitted by webhooks or account pages: no browser consent exists on server events, and account pages deliberately suppress analytics. Authoritative subscription lifecycle measurement belongs in privacy-safe billing operations; a future consent-aware browser confirmation path needs separate review. No prompts, response, identities or billing IDs enter GA. False master flag preserves existing open AI responses without usage/session storage.
+GA funnel: `pricing_page_view`, `checkout_started` (predefined monthly/annual only), `ai_paid_request` (predefined mode only) use the existing consent controller. `subscription_started` / `subscription_canceled` have a safe empty-parameter contract but are not emitted by webhooks or account pages: no browser consent exists on server events, and account pages deliberately suppress analytics. Authoritative subscription lifecycle measurement belongs in privacy-safe billing operations; a future consent-aware browser confirmation path needs separate review. No prompts, response, identities or billing IDs enter GA. With the master flag off, anonymous and non-entitled AI remains open and unmetered; only requests tied to a valid session and current paid entitlement create paid usage metadata.
 
 ## Exact runtime variables / secrets needed later
 
 Main production Worker (`acquisition-companion`), after approved dormant-code deployment:
-- `AI_PAYWALL_ENABLED=false` until explicit final activation; `AUTH_SIGNIN_ENABLED=false` during preparation.
+- `AI_PAYWALL_ENABLED=false`, `AUTH_SIGNIN_ENABLED=false`, `BILLING_ENABLED=false` during preparation; keep `AI_PAYWALL_ENABLED=false` through a controlled purchase unless/until paywall activation is separately approved.
 - `PAID_ENVIRONMENT=production`, `BILLING_TEST_MODE=false`, `ACCOUNT_ORIGIN=https://acquisitioncompanion.com`, `AI_ALLOW_TRIALS=false`, `AI_MONTHLY_REQUEST_LIMIT=100`.
 - `PAID_DB` → the NEW production D1 above; `AUTH_MAILER` → `acquisition-companion-mailer-production`, named `AuthMailer` entrypoint.
 - Secrets: `STRIPE_SECRET_KEY` (dedicated restricted LIVE key), `STRIPE_WEBHOOK_SECRET` (LIVE destination signing secret).
@@ -97,7 +174,7 @@ Astro build variables remain separate: `SITE_URL=https://acquisitioncompanion.co
 1. Complete IAM/mail delivery, live Stripe resource/account/mode review, Portal settings, operator approval/U.S. attestation, tax review, legal/refund/privacy/retention/deletion review and monitoring/reconciliation ownership.
 2. Approve the diff and publish the reviewed Terms/Privacy. Approve a dormant production release with master/auth flags OFF; integrate the candidate bindings/config into the established Workers Builds path, not a second competing deployment. Verify open AI remains unchanged.
 3. Configure production-only secrets/bindings using approved secret storage; verify flags OFF, D1 health, price/mode matching, mailer's locked origin/sender, no secret leakage and no staging bindings. Enable the isolated mailer only for an explicitly approved delivery check; do not enable account collection before policy review.
-4. Present the final readiness report and obtain explicit **paid-beta activation** approval. Only then set `AUTH_SIGNIN_ENABLED=true`, enable the LIVE webhook destination, and set `AI_PAYWALL_ENABLED=true` on the existing production Worker. Recheck account/anonymous/entitled/unpaid states and usage denial. If health regresses, turn the master OFF and diagnose; do not improvise data changes.
+4. Present the final readiness report and obtain explicit authorization for each live action. For an operator-only purchase while anonymous AI remains open, set only `AUTH_SIGNIN_ENABLED=true`, `BILLING_ENABLED=true`, and private-mailer `AUTH_MAIL_ENABLED=true`, then enable the LIVE webhook destination and approve only the operator; keep `AI_PAYWALL_ENABLED=false`. Test and then restore sign-in/billing/mail/webhook/approval state as intended. Enabling `AI_PAYWALL_ENABLED=true` is a separate later decision that requires explicit approval; recheck anonymous/entitled/unpaid/quota states then. If health regresses, turn only the relevant gate off and diagnose; do not improvise data changes.
 5. A real-card purchase/refund test needs its own explicit authorization; do not treat activation permission as permission to charge a card. No public launch announcement before approval and checks.
 
 Current recommendation remains **NEEDS PRODUCTION SETUP WORK** until the unresolved gates above pass. Dormant production infrastructure and LIVE catalog provisioning have occurred under the later explicit authorization. No auth/paywall activation, email, customer/subscription creation or real purchase has occurred.

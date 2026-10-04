@@ -1,8 +1,8 @@
 import {chromium} from '@playwright/test';import AxeBuilder from '@axe-core/playwright';import assert from 'node:assert/strict';import fs from 'node:fs';
 const base=process.env.PREVIEW_URL||'http://127.0.0.1:4321';
 const browser=await chromium.launch({channel:'chrome',headless:true});const context=await browser.newContext({viewport:{width:1440,height:1000}});
-const errors=[],external=[],calls=[];let enabled=false,signedIn=false,subscribed=true,billingState='active',cancelAtPeriodEnd=false,checkoutEligible=false,checkoutCalls=[];
-await context.route('**/api/billing/status',r=>r.fulfill({json:{enabled,product:{monthlyUsd:19,annualUsd:190},signInAvailable:enabled,billingAvailable:enabled}}));
+const errors=[],external=[],calls=[];let enabled=false,signInEnabled=false,billingEnabled=false,signedIn=false,subscribed=true,billingState='active',cancelAtPeriodEnd=false,checkoutEligible=false,checkoutCalls=[];
+await context.route('**/api/billing/status',r=>r.fulfill({json:{enabled,product:{monthlyUsd:19,annualUsd:190},signInAvailable:signInEnabled,billingAvailable:billingEnabled}}));
 await context.route('**/api/account',r=>r.fulfill(signedIn?{json:{signedIn:true,csrfToken:'b'.repeat(64),entitled:subscribed&&billingState==='active',checkoutEligible,subscription:subscribed?{status:billingState,accessUntil:Date.now()+100000,cancelAtPeriodEnd}:null,usage:{requestCount:2},monthlyRequestLimit:100}}:{status:401,json:{error:{message:'Sign in to continue.'}}}));
 await context.route('**/api/auth/*',r=>{calls.push(r.request().postDataJSON());signedIn=!r.request().url().endsWith('/logout');return r.fulfill({json:r.request().url().endsWith('/start')?{message:'Check your email.'}:{signedIn}});});
 await context.route('**/api/ai/status',r=>r.fulfill({json:{status:enabled?'access_required':'ready',available:!enabled,...(enabled?{access:'login_required'}:{})}}));
@@ -19,7 +19,10 @@ for(const width of [390,768,1440]){
 await page.goto(base+'/pricing/');assert.equal(await page.locator('[data-checkout]:visible').count(),0);
 await page.goto(base+'/account/');assert.equal(await page.locator('[data-signin-form]').isVisible(),false);assert.equal(calls.length,0);assert.equal(await page.locator('[data-analytics-consent]').count(),0);
 await page.goto(base+'/ai/');await page.locator('[data-ai-status][data-state=ready]').waitFor();assert.equal(await page.locator('[data-ai-access]').isVisible(),false);
-enabled=true;signedIn=false;await page.goto(base+'/ai/');await page.getByText('Sign in to use Deal Lab.',{exact:true}).waitFor();assert.equal(await page.locator('#ai-message').isDisabled(),true);assert.equal(await page.locator('[data-ai-access]').isVisible(),true);
+signInEnabled=true;await page.goto(base+'/account/');await page.locator('[data-signin-form]').waitFor();assert.equal(await page.locator('[data-signin-form]').isVisible(),true);assert.equal(await page.locator('[data-checkout]:visible').count(),0,'authentication may be available while billing is disabled');
+billingEnabled=true;signedIn=true;subscribed=false;checkoutEligible=true;await page.goto(base+'/pricing/');await page.locator('[data-checkout=monthly]').waitFor();assert.equal(await page.locator('[data-checkout=monthly]').isVisible(),true,'approved checkout can be available while the AI paywall flag is off');
+signedIn=false;subscribed=true;checkoutEligible=false;billingEnabled=false;
+enabled=true;billingEnabled=true;signedIn=false;await page.goto(base+'/ai/');await page.getByText('Sign in to use Deal Lab.',{exact:true}).waitFor();assert.equal(await page.locator('#ai-message').isDisabled(),true);assert.equal(await page.locator('[data-ai-access]').isVisible(),true);
 await page.goto(base+'/account/#token='+'a'.repeat(64));await page.locator('[data-confirm-signin]').waitFor();assert.equal(await page.evaluate(()=>location.hash),'');assert.equal(calls.length,0,'GET does not consume a sign-in link');
 await page.locator('[data-confirm-signin]').focus();await page.keyboard.press('Enter');await page.getByText('Your Deal Lab access is active.',{exact:true}).waitFor();assert.equal(calls.length,1);assert.equal(await page.locator('[data-account-details]').isVisible(),true);
 assert.equal(await page.locator('[data-billing-portal]').isVisible(),true);

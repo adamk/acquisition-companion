@@ -10,7 +10,7 @@ async function fixture(){
  const store=new D1PaidStore(db),token='a'.repeat(64),now=Date.now();let csrf='b'.repeat(64);
  await store.createSession('fictional@example.test',await hash(token),await hash(csrf),now+60000,now);
  const user=(await store.getSession(await hash(token),now)).userId;let calls=0;
- const env={AI_PAYWALL_ENABLED:'true',STRIPE_SECRET_KEY:'mock',STRIPE_WEBHOOK_SECRET:'mock',STRIPE_MONTHLY_PRICE_ID:'price_month',STRIPE_ANNUAL_PRICE_ID:'price_year'};
+ const env={AI_PAYWALL_ENABLED:'true',AUTH_SIGNIN_ENABLED:'true',BILLING_ENABLED:'true',STRIPE_SECRET_KEY:'mock',STRIPE_WEBHOOK_SECRET:'mock',STRIPE_MONTHLY_PRICE_ID:'price_month',STRIPE_ANNUAL_PRICE_ID:'price_year'};
  const request=(body,path='/api/billing/checkout')=>new Request(`https://acquisitioncompanion.com${path}`,{method:body?'POST':'GET',headers:{Origin:'https://acquisitioncompanion.com','Content-Type':'application/json',Cookie:`__Host-ac-session=${token}`,'X-CSRF-Token':csrf,'Sec-Fetch-Site':'same-origin','X-Account-Request':'1'},...(body?{body:JSON.stringify(body)}:{})});
  const fetcher=async(url,options)=>{calls++;if(url.endsWith('/customers'))return Response.json({id:'cus_fixture'});assert.equal(url,'https://api.stripe.com/v1/checkout/sessions');const params=new URLSearchParams(options.body);assert.equal(params.get('mode'),'subscription');assert.equal(params.get('line_items[0][price]'),'price_month');return Response.json({url:'https://checkout.stripe.com/c/pay/fixture'});};
  const approve=()=>sql.prepare('INSERT INTO beta_checkout_approvals(user_id,approved_at,approved_by) VALUES(?,?,?)').run(user,now,'operator-fixture');
@@ -32,6 +32,21 @@ test('beta approval never grants AI access; active subscription does, even after
  assert.equal((await requirePaidAccess(f.request(),f.env,f)).userId,f.user);
  f.sql.prepare('UPDATE subscriptions SET status=? WHERE user_id=?').run('canceled',f.user);
  const r=await handlePaidRequest(f.request({plan:'monthly',usCustomerAttested:true}),f.env,f);assert.equal(r.status,403);assert.equal(f.calls(),0);}finally{f.sql.close();}
+});
+
+test('a signed event replay after a verified customer-mapping correction repairs subscription ownership without duplicating the row',async()=>{
+ const f=await fixture();try{
+  await f.store.applySubscription('evt_original',{id:'sub_fixture',userId:f.user,status:'active',validUntil:Date.now()+60000,cancelAtPeriodEnd:false},Date.now());
+  await f.store.createSession('correct-owner@example.test','correct-owner-token','correct-owner-csrf',Date.now()+60000,Date.now());
+  const correctedUser=(await f.sql.prepare('SELECT id FROM users WHERE email=?').get('correct-owner@example.test')).id;
+  f.sql.prepare('DELETE FROM webhook_events WHERE id=?').run('evt_original');
+  await f.store.applySubscription('evt_replayed',{id:'sub_fixture',userId:correctedUser,status:'active',validUntil:Date.now()+120000,cancelAtPeriodEnd:false},Date.now());
+  const row=f.sql.prepare('SELECT id,user_id,status FROM subscriptions WHERE id=?').get('sub_fixture');
+  assert.deepEqual({...row},{id:'sub_fixture',user_id:correctedUser,status:'active'});
+  assert.equal(f.sql.prepare('SELECT COUNT(*) AS n FROM subscriptions WHERE id=?').get('sub_fixture').n,1);
+  assert.equal(await f.store.getGrant(f.user),null);
+  assert.equal((await f.store.getGrant(correctedUser)).status,'active');
+ }finally{f.sql.close();}
 });
 test('account exposes approval boolean only; missing approval storage fails closed before Stripe',async()=>{
  const f=await fixture();try{let r=await handlePaidRequest(f.request(undefined,'/api/account'),f.env,f);assert.equal((await r.json()).checkoutEligible,false);f.approve();r=await handlePaidRequest(f.request(undefined,'/api/account'),f.env,f);const data=await r.json();f.setCsrf(data.csrfToken);assert.equal(data.checkoutEligible,true);assert.equal(data.entitled,false);assert.ok(!JSON.stringify(data).includes('operator-fixture'));

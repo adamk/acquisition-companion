@@ -5,8 +5,9 @@ Initial target: 5–10 manually approved U.S. customers. The public course remai
 ## Eligibility and entitlement are different
 
 - `paid_beta_checkout` is an application capability backed by `beta_checkout_approvals` in PAID_DB. Only a non-revoked, non-future approval allows Checkout.
-- `/api/billing/checkout` requires authentication, same-origin JSON, session-bound CSRF, operator approval and the exact boolean `usCustomerAttested: true`. A missing approval table or failed lookup denies Checkout before any Stripe API call.
+- `/api/billing/checkout` is available only when `BILLING_ENABLED=true` and requires authentication, same-origin JSON, session-bound CSRF, operator approval and the exact boolean `usCustomerAttested: true`. A missing approval table or failed lookup denies Checkout before any Stripe API call.
 - `ai_deal_lab` is still derived solely from canonical eligible active Stripe subscription state. Approval cannot grant it; approval revocation cannot cancel a subscription or remove already-paid access.
+- `AI_PAYWALL_ENABLED` independently controls whether Deal Lab requests enforce `ai_deal_lab`; enabling authentication or billing does not alter anonymous AI access.
 - Preserve Stripe-hosted `mode=subscription` Checkout, approved price IDs, its payment authentication, signed webhooks, canonical reconciliation and idempotency. No SetupIntent flow, Stripe.js, Radar upgrade, identity-document storage or IP-based residency determination.
 - The customer attests they are a U.S. customer on each Checkout creation. The operator confirms eligibility directly before approval. Neither attestation nor billing/IP data is represented as independent proof of residency. Revisit automated eligibility after the beta establishes demand.
 

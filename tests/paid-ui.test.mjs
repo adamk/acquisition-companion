@@ -2,15 +2,18 @@ import test from 'node:test';import assert from 'node:assert/strict';import fs f
 import {handlePaidRequest} from '../src/worker/paid-api.mjs';
 test('paid endpoints stay closed by default; public status discloses no customer/secrets',async()=>{
  const env={STRIPE_SECRET_KEY:'SECRET_SENTINEL',STRIPE_WEBHOOK_SECRET:'WEBHOOK_SENTINEL'};
- for(const path of ['auth/start','auth/confirm','auth/logout','billing/checkout','billing/portal','billing/webhook','account']){
+ for(const path of ['auth/start','auth/confirm','auth/logout','billing/checkout','billing/portal','account']){
   const r=await handlePaidRequest(new Request(`https://acquisitioncompanion.com/api/${path}`,{method:'POST'}),env);
   assert.equal(r.status,404);assert.ok(!(await r.text()).includes('SENTINEL'));
  }
+ const webhook=await handlePaidRequest(new Request('https://acquisitioncompanion.com/api/billing/webhook',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'}),env);
+ assert.equal(webhook.status,503,'the independently controlled webhook still fails closed without complete billing configuration');
+ assert.ok(!(await webhook.text()).includes('SENTINEL'));
  const r=await handlePaidRequest(new Request('https://acquisitioncompanion.com/api/billing/status'),env);
  const data=await r.json();assert.equal(data.enabled,false);assert.equal(data.product.monthlyUsd,19);assert.equal(data.product.annualUsd,190);
 });
 test('account billing mutations require same-origin JSON and authenticated CSRF; GETs cannot mutate billing',async()=>{
- const env={AI_PAYWALL_ENABLED:'true'};
+ const env={AI_PAYWALL_ENABLED:'true',AUTH_SIGNIN_ENABLED:'true',BILLING_ENABLED:'true'};
  for(const path of ['auth/start','auth/confirm','auth/logout','billing/checkout','billing/portal']){
   const r=await handlePaidRequest(new Request(`https://acquisitioncompanion.com/api/${path}`,{method:'GET'}),env);
   assert.equal(r.status,405);

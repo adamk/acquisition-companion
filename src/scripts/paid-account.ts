@@ -39,8 +39,8 @@ if(root){
  function redirect(value:string,host:string){const url=new URL(value);if(url.protocol!=='https:'||url.hostname!==host||url.username||url.password)throw new Error('Billing access is unavailable.');location.assign(url.href);}
  root.querySelectorAll<HTMLButtonElement>('[data-checkout]').forEach(button=>button.addEventListener('click',()=>void action(async()=>{await refresh();const usCustomerAttested=root.querySelector<HTMLInputElement>('[data-us-attestation]')?.checked===true;if(!usCustomerAttested)throw new Error('Confirm that you are a U.S. customer before subscribing to the paid beta.');const data=await api('/api/billing/checkout',{plan:button.dataset.checkout!,usCustomerAttested});track('checkout_started',{plan:button.dataset.checkout!});redirect(data.url,'checkout.stripe.com');})));
  void action(async()=>{
-  const data=await api('/api/billing/status');if(!data.enabled)return;
-  announce('The initial paid beta is invite-only for U.S. customers. Sign in to check your Checkout approval.');
+  const data=await api('/api/billing/status');if(!data.signInAvailable&&!data.billingAvailable)return;
+  if(data.signInAvailable)announce('The initial paid beta is invite-only for U.S. customers. Sign in to check your Checkout approval.');
   root.querySelectorAll<HTMLElement>('[data-account-link]').forEach(el=>el.hidden=false);
   billingAvailable=data.billingAvailable===true;
   if(location.pathname==='/pricing/')try{await refresh();}catch{/* Anonymous visitors can inspect public prices. */}

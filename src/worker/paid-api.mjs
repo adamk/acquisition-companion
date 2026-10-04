@@ -1,4 +1,4 @@
-import {paywallEnabled,billingConfigured,authenticatedUser,isUserEntitledTo,monthlyLimit,hasAccountCapability} from './paid-access.mjs';
+import {paywallEnabled,billingEnabled,billingConfigured,authenticatedUser,isUserEntitledTo,monthlyLimit,hasAccountCapability} from './paid-access.mjs';
 import {paidStore} from './paid-store.mjs';
 import {beginSignIn,finishSignIn,requireCsrf} from './paid-auth.mjs';
 import {createCheckout,createPortal,verifyWebhook,processWebhook} from './stripe-billing.mjs';
@@ -6,22 +6,27 @@ import {reply,paidErrorResponse,PaidError,unavailable,sameOriginPost,jsonBody,re
 import {paidProduct} from '../lib/paid-product.mjs';
 import {mailerAvailable} from './auth-mailer.mjs';
 const paths=new Set(['/api/billing/status','/api/auth/start','/api/auth/confirm','/api/auth/logout','/api/account','/api/billing/checkout','/api/billing/portal','/api/billing/webhook']);
+const authPaths=new Set(['/api/auth/start','/api/auth/confirm','/api/auth/logout','/api/account']);
+const billingPaths=new Set(['/api/billing/checkout','/api/billing/portal']);
 export async function handlePaidRequest(request,env={},dependencies={}){
  const path=new URL(request.url).pathname;if(!paths.has(path))return null;
  if(path==='/api/billing/status'){
   if(request.method!=='GET')return reply(405,{error:{code:'method_not_allowed',message:'Use GET.'}},{Allow:'GET'});
-  return reply(200,{enabled:paywallEnabled(env),product:paidProduct,signInAvailable:paywallEnabled(env)&&env.AUTH_SIGNIN_ENABLED==='true'&&mailerAvailable(env)&&!!env.PAID_DB?.prepare,billingAvailable:paywallEnabled(env)&&billingConfigured(env)&&!!env.PAID_DB?.prepare});
+  return reply(200,{enabled:paywallEnabled(env),product:paidProduct,signInAvailable:env.AUTH_SIGNIN_ENABLED==='true'&&mailerAvailable(env)&&!!env.PAID_DB?.prepare,billingAvailable:billingEnabled(env)&&billingConfigured(env)&&!!env.PAID_DB?.prepare});
  }
- if(!paywallEnabled(env))return reply(404,{error:{code:'paid_access_disabled',message:'Subscriptions are not open.'}});
- try{
-  if(path==='/api/billing/webhook'){
+ if(path==='/api/billing/webhook'){
+  try{
    if(request.method!=='POST')return reply(405,{error:{code:'method_not_allowed',message:'Use POST.'}},{Allow:'POST'});
    if(!billingConfigured(env))throw unavailable();
    if(!/^application\/json(?:;.*)?$/i.test(request.headers.get('content-type')||''))throw new PaidError(415,'json_required','Send JSON.');
    const raw=await readBody(request,65536);
    const event=await verifyWebhook(raw,request.headers.get('stripe-signature'),env.STRIPE_WEBHOOK_SECRET);
    return reply(200,await processWebhook(event,env,dependencies));
-  }
+  }catch(error){return paidErrorResponse(error);}
+ }
+ if(authPaths.has(path)&&env.AUTH_SIGNIN_ENABLED!=='true')return reply(404,{error:{code:'auth_disabled',message:'Account sign-in is not available.'}});
+ if(billingPaths.has(path)&&!billingEnabled(env))return reply(404,{error:{code:'billing_disabled',message:'Billing actions are not available.'}});
+ try{
   if(path==='/api/account'){
    if(request.method!=='GET')return reply(405,{error:{code:'method_not_allowed',message:'Use GET.'}},{Allow:'GET'});
    // Only same-site JS can rotate CSRF tokens; cross-site requests cannot log users out or invalidate forms.

@@ -4,7 +4,7 @@ import {DEFAULT_OPENAI_MODEL,requestOpenAI} from './openai.mjs';
 import {buildDealAnalysis,startsNewDeal} from '../lib/deal-analysis.mjs';
 import {analysisKindFor,analysisPolicyFor,operationalPolicyFor} from './analysis-policy.mjs';
 
-import {paywallEnabled,requirePaidAccess,monthlyLimit,providerUsage,estimatedCost} from './paid-access.mjs';
+import {paywallEnabled,requirePaidAccess,entitledUsageAccess,monthlyLimit,providerUsage,estimatedCost} from './paid-access.mjs';
 import {PaidError,paidErrorResponse} from './paid-security.mjs';
 
 const AI_ORIGIN='https://acquisitioncompanion.com';
@@ -535,16 +535,32 @@ export async function handleAiRequest(request,env={},dependencies={}) {
     const access=await requirePaidAccess(request,env,dependencies);
     await applyRateLimits(request,env);
     const reportFailure=paywallEnabled(env)&&(env.PAID_ENVIRONMENT==='staging'||env.PAID_DIAGNOSTICS_ENABLED==='true')?(dependencies.reportProviderFailure||(value=>console.warn(JSON.stringify(value)))):null;
-    if(!access)return jsonResponse(200,await createModelResponse(validated,env,dependencies.fetcher || fetch,undefined,reportFailure));
+    let usageAccess=access;
+    if(!usageAccess){
+      // With the paywall off, account attribution is optional and can never restrict public AI.
+      try{usageAccess=await entitledUsageAccess(request,env,dependencies);}catch{usageAccess=null;}
+    }
+    if(!usageAccess)return jsonResponse(200,await createModelResponse(validated,env,dependencies.fetcher || fetch,undefined,reportFailure));
     const started=Date.now(),id=crypto.randomUUID(),model=env.OPENAI_MODEL||DEFAULT_OPENAI_MODEL;
-    await access.store.reserveUsage({id,userId:access.userId,timestamp:started,month:new Date(started).toISOString().slice(0,7),workflow:`${validated.mode}:${validated.mode==='ask_course'?(analysisKindFor(validated.message)||validated.action):validated.action}`,model},monthlyLimit(env));
+    const enforceQuota=Boolean(access);let reserved=false;
+    try{
+      await usageAccess.store.reserveUsage({id,userId:usageAccess.userId,timestamp:started,month:new Date(started).toISOString().slice(0,7),workflow:`${validated.mode}:${validated.mode==='ask_course'?(analysisKindFor(validated.message)||validated.action):validated.action}`,model},enforceQuota?monthlyLimit(env):null);
+      reserved=true;
+    }catch(error){
+      if(enforceQuota)throw error;
+      usageAccess=null;
+    }
+    if(!usageAccess)return jsonResponse(200,await createModelResponse(validated,env,dependencies.fetcher || fetch,undefined,reportFailure));
     let usage=providerUsage(null),success=false;
     try{
       const result=await createModelResponse(validated,env,dependencies.fetcher||fetch,value=>{usage=value;},reportFailure);
       success=true;return jsonResponse(200,result);
     }finally{
       // Failed paid calls count too. A lost completion leaves an unknown-cost reservation, never free quota.
-      await access.store.finishUsage(id,{...usage,success,latencyMs:Date.now()-started,estimatedCost:estimatedCost(env,model,usage)});
+      if(reserved){
+        try{await usageAccess.store.finishUsage(id,{...usage,success,latencyMs:Date.now()-started,estimatedCost:estimatedCost(env,model,usage)});}
+        catch(error){if(enforceQuota)throw error;}
+      }
     }
   } catch (error) {
     if(error instanceof PaidError)return paidErrorResponse(error);

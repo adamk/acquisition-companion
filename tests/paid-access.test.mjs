@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {paywallEnabled,isUserEntitledTo,requirePaidAccess,estimatedCost} from '../src/worker/paid-access.mjs';
+import {paywallEnabled,billingEnabled,isUserEntitledTo,requirePaidAccess,estimatedCost} from '../src/worker/paid-access.mjs';
 import {handleAiRequest} from '../src/worker/ai-api.mjs';
 
 const request=()=>new Request('https://acquisitioncompanion.com/api/ai',{method:'POST',headers:{Origin:'https://acquisitioncompanion.com','Content-Type':'application/json','X-AI-Session-ID':'a57b0383-eced-4ff3-83d8-73940fb97c41','CF-Connecting-IP':'192.0.2.1'},body:JSON.stringify({mode:'ask_course',message:'Explain EBITDA',history:[]})});
@@ -9,6 +9,8 @@ const env=()=>({AI_ENABLED:'true',OPENAI_API_KEY:'mock',OPENAI_VECTOR_STORE_ID:'
 test('paywall defaults off regardless of billing credentials and never touches new storage',async()=>{
  assert.equal(paywallEnabled({STRIPE_SECRET_KEY:'mock'}),false);
  assert.equal(paywallEnabled({AI_PAYWALL_ENABLED:'TRUE'}),false);
+ assert.equal(billingEnabled({STRIPE_SECRET_KEY:'configured but disabled'}),false);
+ assert.equal(billingEnabled({BILLING_ENABLED:'true'}),true);
  const off={STRIPE_SECRET_KEY:'mock',get PAID_DB(){throw Error('must not touch');}};
  assert.equal(await requirePaidAccess(request(),off),null);
  const response=await handleAiRequest(new Request('https://acquisitioncompanion.com/api/ai/status'),{...env(),STRIPE_SECRET_KEY:'mock',get PAID_DB(){throw Error('must not touch');}});

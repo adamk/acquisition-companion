@@ -1,6 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {beginSignIn,finishSignIn,requireCsrf} from '../src/worker/paid-auth.mjs';
 import {createCheckout,createPortal,verifyWebhook,processWebhook} from '../src/worker/stripe-billing.mjs';
+import {isUserEntitledTo} from '../src/worker/paid-access.mjs';
 import {hash} from '../src/worker/paid-security.mjs';
 const token='a'.repeat(64),browser='b'.repeat(64);
 const req=(cookie='')=>new Request('https://acquisitioncompanion.com/api/auth/start',{method:'POST',headers:{Origin:'https://acquisitioncompanion.com','Content-Type':'application/json',Cookie:cookie,'CF-Connecting-IP':'192.0.2.1'}});
@@ -58,6 +59,14 @@ test('webhooks reconcile canonical status, approved products, renewal, cancellat
  status='canceled';await processWebhook(event('evt_3'),settings,{store,fetcher});assert.equal(applied.at(-1).status,'canceled');
  status='active';price='price_unrelated';await processWebhook(event('evt_4'),settings,{store,fetcher});assert.equal(applied.at(-1).status,'ineligible');
  locked=true;await assert.rejects(processWebhook(event('evt_5'),settings,{store,fetcher}));assert.equal(seen.has('evt_5'),false);
+});
+test('canonical subscription webhook grants entitlement independently of AI, auth and Checkout flags',async()=>{
+ let grant;const env={...settings,AI_PAYWALL_ENABLED:'false',AUTH_SIGNIN_ENABLED:'false',BILLING_ENABLED:'false',BILLING_TEST_MODE:'true',STRIPE_SECRET_KEY:'sk_test_fixture'};
+ const store={eventProcessed:async()=>false,customerUser:async()=>({id:'u1'}),lockCustomer:async()=>true,unlockCustomer:async()=>{},applySubscription:async(_id,value)=>{grant=value;}};
+ const event={id:'evt_independent_flags',type:'customer.subscription.created',livemode:false,data:{object:{id:'sub_mock',customer:'cus_mock'}}};
+ const fetcher=async()=>Response.json({id:'sub_mock',customer:'cus_mock',status:'active',livemode:false,items:{data:[{price:{id:'price_month'},current_period_end:Math.floor(Date.now()/1000)+3600}]}});
+ await processWebhook(event,env,{store,fetcher});
+ assert.equal(grant.status,'active');assert.equal(isUserEntitledTo('ai_deal_lab',grant),true);
 });
 test('an old failed-invoice event cannot revoke a canonically renewed active subscription',async()=>{
  let grant;

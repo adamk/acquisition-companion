@@ -20,6 +20,7 @@
     "ACCOUNT_ORIGIN": "https://acquisitioncompanion.com",
     "AI_PAYWALL_ENABLED": "false",
     "AUTH_SIGNIN_ENABLED": "false",
+    "BILLING_ENABLED": "false",
     "AI_ALLOW_TRIALS": "false",
     "AI_MONTHLY_REQUEST_LIMIT": "100",
     "PAID_DIAGNOSTICS_ENABLED": "true",

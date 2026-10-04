@@ -30,7 +30,7 @@ try{
  await store.setCustomer(user,'cus_fixture');assert.equal((await store.customerUser('cus_fixture')).id,user);
  const token='e'.repeat(64),csrf='f'.repeat(64),origin='https://acquisitioncompanion.com';
  await store.createSession(email,await hash(token),await hash(csrf),now+600000,now);
- const betaEnv={PAID_DB:db,AI_PAYWALL_ENABLED:'true',PAID_ENVIRONMENT:'production',BILLING_TEST_MODE:'false',STRIPE_SECRET_KEY:'rk_live_fixture',STRIPE_WEBHOOK_SECRET:'fixture',STRIPE_MONTHLY_PRICE_ID:'price_month',STRIPE_ANNUAL_PRICE_ID:'price_year'};
+ const betaEnv={PAID_DB:db,AI_PAYWALL_ENABLED:'true',AUTH_SIGNIN_ENABLED:'true',BILLING_ENABLED:'true',PAID_ENVIRONMENT:'production',BILLING_TEST_MODE:'false',STRIPE_SECRET_KEY:'rk_live_fixture',STRIPE_WEBHOOK_SECRET:'fixture',STRIPE_MONTHLY_PRICE_ID:'price_month',STRIPE_ANNUAL_PRICE_ID:'price_year'};
  const checkoutRequest=attested=>new Request(origin+'/api/billing/checkout',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json',Cookie:`__Host-ac-session=${token}`,'X-CSRF-Token':csrf},body:JSON.stringify({plan:'monthly',usCustomerAttested:attested})});
  let mockedStripeCalls=0;const betaDeps={store,fetcher:async(url,options)=>{mockedStripeCalls++;assert.equal(url,'https://api.stripe.com/v1/checkout/sessions');assert.equal(new URLSearchParams(options.body).get('mode'),'subscription');return Response.json({livemode:true,url:'https://checkout.stripe.com/c/pay/fixture'});}};
  assert.equal((await handlePaidRequest(checkoutRequest(true),betaEnv,betaDeps)).status,403);assert.equal(mockedStripeCalls,0);

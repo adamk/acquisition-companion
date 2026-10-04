@@ -44,7 +44,7 @@ export class D1PaidStore {
  async applySubscription(event,subscription,now){
   await this.db.batch([
    this.statement('INSERT INTO webhook_events(id,processed_at) VALUES(?,?)',event,now),
-   this.statement('INSERT INTO subscriptions(id,user_id,status,valid_until,cancel_at_period_end,observed_at) VALUES(?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET status=excluded.status,valid_until=excluded.valid_until,cancel_at_period_end=excluded.cancel_at_period_end,observed_at=excluded.observed_at',subscription.id,subscription.userId,subscription.status,subscription.validUntil,Number(subscription.cancelAtPeriodEnd),now),
+   this.statement('INSERT INTO subscriptions(id,user_id,status,valid_until,cancel_at_period_end,observed_at) VALUES(?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET user_id=excluded.user_id,status=excluded.status,valid_until=excluded.valid_until,cancel_at_period_end=excluded.cancel_at_period_end,observed_at=excluded.observed_at',subscription.id,subscription.userId,subscription.status,subscription.validUntil,Number(subscription.cancelAtPeriodEnd),now),
   ]);
  }
  async markEvent(id,now){await this.statement('INSERT INTO webhook_events(id,processed_at) VALUES(?,?) ON CONFLICT(id) DO NOTHING',id,now).run();}
@@ -52,7 +52,7 @@ export class D1PaidStore {
   await this.db.batch([
    this.statement('INSERT INTO webhook_events(id,processed_at) VALUES(?,?)',event,now),
    this.statement("UPDATE subscriptions SET status='ineligible',observed_at=? WHERE user_id=?",now,userId),
-   ...subscriptions.map(s=>this.statement('INSERT INTO subscriptions(id,user_id,status,valid_until,cancel_at_period_end,observed_at) VALUES(?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET status=excluded.status,valid_until=excluded.valid_until,cancel_at_period_end=excluded.cancel_at_period_end,observed_at=excluded.observed_at',s.id,userId,s.status,s.validUntil,Number(s.cancelAtPeriodEnd),now)),
+   ...subscriptions.map(s=>this.statement('INSERT INTO subscriptions(id,user_id,status,valid_until,cancel_at_period_end,observed_at) VALUES(?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET user_id=excluded.user_id,status=excluded.status,valid_until=excluded.valid_until,cancel_at_period_end=excluded.cancel_at_period_end,observed_at=excluded.observed_at',s.id,userId,s.status,s.validUntil,Number(s.cancelAtPeriodEnd),now)),
   ]);
  }
  async reserveUsage(record,limit){

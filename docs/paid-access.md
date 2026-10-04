@@ -4,9 +4,9 @@
 
 ## Runtime architecture
 
-Astro continues generating static assets. The same Worker routes `/api/auth/*`, `/api/account`, `/api/billing/*` and the existing AI API ahead of `ASSETS`. Wrangler's production bindings, rate limits and `keep_vars` remain unchanged. All new billing/auth routes except public `/api/billing/status` are closed when `AI_PAYWALL_ENABLED` is not exactly `true`.
+Astro continues generating static assets. The same Worker routes `/api/auth/*`, `/api/account`, `/api/billing/*` and the existing AI API ahead of `ASSETS`. Runtime gates are independent: `AI_PAYWALL_ENABLED` controls entitlement checks on Deal Lab requests; `AUTH_SIGNIN_ENABLED` controls auth and account endpoints; `BILLING_ENABLED` controls Checkout and Customer Portal endpoints. Public `/api/billing/status` reports the independent availability states. The Stripe webhook is separately protected by its disabled/enabled Stripe destination, complete billing configuration and exact signature verification.
 
-When off, AI status/result contracts and model behavior remain unchanged, and no account storage, cookies, Stripe calls or usage writes occur on the AI path. When on, `/api/ai` checks a server-validated session and `isUserEntitledTo('ai_deal_lab')` before any model call. Missing configuration/storage fails closed. Status returns an access-required state, with sign-in/pricing links in the existing UI. `AI_ENABLED` remains an independent emergency model kill switch.
+When `AI_PAYWALL_ENABLED` is off, AI status/result contracts and anonymous model behavior remain unchanged. A request carrying a valid account session is opportunistically checked for a current canonical `ai_deal_lab` entitlement; only that account's request is recorded as paid usage. Anonymous and authenticated non-entitled requests do not create paid usage records, and metering-storage failure never turns open AI into an account requirement. Auth or billing may be tested independently without restricting public AI. When the AI paywall is on, `/api/ai` checks a server-validated session and `isUserEntitledTo('ai_deal_lab')` before any model call. Missing required configuration/storage fails closed. `AI_ENABLED` remains an independent emergency model kill switch. Checkout requires `BILLING_ENABLED`, an authenticated session, same-origin JSON, session-bound CSRF, active `paid_beta_checkout` approval, and explicit U.S.-customer attestation; none of those grants AI access.
 
 D1 is the optional native persistence choice, via `PAID_DB` and `D1PaidStore`. Apply `migrations/0001_paid_access.sql` only to a newly approved database after review. No database IDs or production binding edits are included. SQLite adapter tests exercise actual migration/query transactions; staging must also verify Cloudflare D1 semantics and concurrent writes.
 
@@ -28,9 +28,9 @@ Webhook delivery is eventually consistent. Before launch, test out-of-order even
 
 ## Usage accounting
 
-Each allowed authenticated model attempt reserves an event and increments its UTC monthly request count atomically before the provider call. Invalid/unauthorized/rate-limited submissions do not make model calls or consume monthly usage. Failed model attempts do count. Completion records only token counts, model, workflow, success/failure and latency. Reasoning tokens are a subset of output, never charged twice. Configurable per-million rates estimate input/cached-input/output cost; no provider price is invented. Missing pricing/usage produces NULL cost, and the aggregate separately reports unknown-cost count. File Search/tool charges, taxes and other provider fees are not modeled by these token estimates.
+When the paywall is on, each allowed authenticated model attempt reserves an event and increments its UTC monthly request count atomically before the provider call; the configured limit blocks the next attempt before OpenAI. With the paywall off, only a valid session with a current canonical `ai_deal_lab` entitlement is metered, and reservation uses no blocking quota limit so anonymous/free AI remains open. Anonymous and authenticated non-entitled requests skip paid usage writes. If optional lookup/reservation/finalization fails while the paywall is off, the AI request remains available and usage may be absent. Invalid/unauthorized/rate-limited submissions do not make model calls or consume monthly usage. Failed metered model attempts do count. Completion records only token counts, model, workflow, success/failure and latency. Reasoning tokens are a subset of output, never charged twice. Configurable per-million rates estimate input/cached-input/output cost; no provider price is invented. Missing pricing/usage produces NULL cost, and the aggregate separately reports unknown-cost count. File Search/tool charges, taxes and other provider fees are not modeled by these token estimates.
 
-If a completion write fails after a paid call, the reserved request still counts, cost stays unknown and the response fails safely. No automatic model retry. Usage schema has no prompt, response, financial facts, history or document columns. Implement approved retention and purge jobs before launch. Never log SQL parameters, tokens or provider payloads.
+If a completion write fails after a metered call, its reservation still counts and cost stays unknown. With the paywall on, the response fails safely; with the paywall off, optional metering failure does not block the public AI response. No automatic model retry. Usage schema has no prompt, response, financial facts, history or document columns. Implement approved retention and purge jobs before launch. Never log SQL parameters, tokens or provider payloads.
 
 ## Configuration (Worker runtime, never Astro public/build variables)
 
@@ -38,6 +38,8 @@ If a completion write fails after a paid call, the reserved request still counts
 | --- | --- |
 | `AI_PAYWALL_ENABLED` | Master access switch; absent/false = off. Credentials cannot enable it. |
 | `AUTH_SIGNIN_ENABLED` | Explicit email sign-in switch; absent/false = off. |
+| `BILLING_ENABLED` | Explicit Checkout/Portal switch; absent/false = off. Does not grant entitlement. |
+| `AUTH_MAIL_ENABLED` | Enforced by the private mailer Worker only; enabling the main auth API does not bypass it. |
 | `PAID_DB` | Optional D1 binding, approved/provisioned later. |
 | `AUTH_MAILER` | Trusted service binding, chosen/configured later. |
 | `ACCOUNT_ORIGIN` | Account/billing origin; defaults to `https://acquisitioncompanion.com`. |
@@ -61,7 +63,7 @@ Existing `OPENAI_API_KEY`, `OPENAI_VECTOR_STORE_ID`, `OPENAI_MODEL`, `AI_ENABLED
 7. Select commercial request allowance based on measured provider economics. Populate centrally configured model rates from verified provider pricing; include omitted tool costs in business accounting. Set usage retention/alerts; reconcile unknown-cost entries.
 8. Only after explicit approval, create live product/prices, configure server secrets and endpoint signature secret through Cloudflare; never build them into Astro or print them. Verify public assets have no secrets.
 9. Stage master flag on and verify direct API denial, UI sign-in/pricing, paid access, privacy/consent and all existing AI/citation behavior. Public page copy must then be reviewed for launch (currently explicitly marked preparation).
-10. Obtain explicit production activation approval. Set master flag deliberately, monitor access/webhooks/usage/errors and retain rollback version. Turning it off returns to current open AI access; disabling `AI_ENABLED` stops model calls. Choose the appropriate emergency action explicitly.
+10. Obtain explicit production activation approval. For a controlled account/Checkout drill that keeps anonymous AI open, enable only `AUTH_SIGNIN_ENABLED=true`, `BILLING_ENABLED=true`, and the private mailer's `AUTH_MAIL_ENABLED=true`; leave `AI_PAYWALL_ENABLED=false`. To activate entitlement enforcement later, set `AI_PAYWALL_ENABLED=true` separately after reviewing entitled, unpaid, and anonymous states. Turning the AI paywall off returns to open AI access; disabling `AI_ENABLED` stops model calls. Choose the appropriate emergency action explicitly.
 
 ## Local validation
 

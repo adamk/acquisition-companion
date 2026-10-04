@@ -19,7 +19,7 @@ test('Wrangler keeps Astro static assets, routes only the API first, and default
  assert.equal(config.main,'src/worker/paid-production-index.mjs');
  assert.deepEqual(config.assets,{directory:'./dist',binding:'ASSETS',run_worker_first:['/api/*'],not_found_handling:'404-page'});
  assert.equal(config.keep_vars,true);
- assert.equal(config.vars.AI_PAYWALL_ENABLED,'false');assert.equal(config.vars.AUTH_SIGNIN_ENABLED,'false');assert.equal(config.vars.AUTH_MAIL_ENABLED,'false');assert.equal(Object.hasOwn(config.vars,'OPENAI_API_KEY'),false);assert.equal(Object.hasOwn(config.vars,'OPENAI_VECTOR_STORE_ID'),false);assert.equal(Object.hasOwn(config.vars,'OPENAI_MODEL'),false);
+ assert.equal(config.vars.AI_PAYWALL_ENABLED,'false');assert.equal(config.vars.AUTH_SIGNIN_ENABLED,'false');assert.equal(config.vars.BILLING_ENABLED,'false');assert.equal(config.vars.AUTH_MAIL_ENABLED,'false');assert.equal(Object.hasOwn(config.vars,'OPENAI_API_KEY'),false);assert.equal(Object.hasOwn(config.vars,'OPENAI_VECTOR_STORE_ID'),false);assert.equal(Object.hasOwn(config.vars,'OPENAI_MODEL'),false);
  assert.deepEqual(config.ratelimits.map(binding=>binding.name),['AI_SESSION_LIMITER','AI_IP_LIMITER','AI_EDGE_LIMITER']);
  assert.equal(new Set(config.ratelimits.map(binding=>binding.namespace_id)).size,3);
  for(const binding of config.ratelimits){assert.match(binding.namespace_id,/^\d+$/);assert.ok(Number(binding.namespace_id)>0);}

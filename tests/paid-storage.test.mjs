@@ -3,6 +3,7 @@ import {DatabaseSync} from 'node:sqlite';
 import {D1PaidStore} from '../src/worker/paid-store.mjs';
 import {handleAiRequest} from '../src/worker/ai-api.mjs';
 import {handlePaidRequest} from '../src/worker/paid-api.mjs';
+import {hash} from '../src/worker/paid-security.mjs';
 function storage(){
  const sql=new DatabaseSync(':memory:');sql.exec(fs.readFileSync(new URL('../migrations/0001_paid_access.sql',import.meta.url),'utf8'));
  const db={prepare(query){return {bind(...args){return {async first(){const row=sql.prepare(query).get(...args.map(a=>a===undefined?null:a));return row?{...row}:null;},async run(){const r=sql.prepare(query).run(...args);return {meta:{changes:Number(r.changes)}};}};}};},async batch(items){sql.exec('BEGIN');try{const results=[];for(const item of items)results.push(await item.run());sql.exec('COMMIT');return results;}catch(e){sql.exec('ROLLBACK');throw e;}}};
@@ -59,10 +60,49 @@ test('real AI seam records token metadata for success and failures without any u
  assert.ok(!JSON.stringify(records).includes('UNIQUE_'));assert.ok(!JSON.stringify(records).includes('vs_mock'));
 });
 
+test('open AI meters only canonical paid accounts and enforces the 100-request cap only when paywall is on',async()=>{
+ const {store,sql}=storage(),now=Date.now(),month=new Date(now).toISOString().slice(0,7);
+ const paidToken='a'.repeat(64),freeToken='b'.repeat(64),expiresAt=now+60*60*1000;
+ await store.createSession('test@example.test',await hash(paidToken),await hash('c'.repeat(64)),expiresAt,now);
+ await sql.prepare('INSERT INTO users(id,email,created_at) VALUES(?,?,?)').run('free-user','free@example.test',now);
+ await store.createSession('free@example.test',await hash(freeToken),await hash('d'.repeat(64)),expiresAt,now);
+ await store.applySubscription('evt_active',{id:'sub_active',userId:'u',status:'active',validUntil:expiresAt,cancelAtPeriodEnd:false},now);
+ let providerCalls=0;
+ const limiter={limit:async()=>({success:true})};
+ const env={AI_ENABLED:'true',OPENAI_API_KEY:'mock',OPENAI_VECTOR_STORE_ID:'vs_mock',OPENAI_MODEL:'gpt-test',PAID_ENVIRONMENT:'staging',AI_PAYWALL_ENABLED:'false',AUTH_SIGNIN_ENABLED:'true',BILLING_ENABLED:'true',BILLING_TEST_MODE:'true',STRIPE_SECRET_KEY:'sk_test_fixture',STRIPE_WEBHOOK_SECRET:'whsec_fixture',STRIPE_MONTHLY_PRICE_ID:'price_month',STRIPE_ANNUAL_PRICE_ID:'price_year',AI_MONTHLY_REQUEST_LIMIT:'1',AI_SESSION_LIMITER:limiter,AI_IP_LIMITER:limiter,AI_EDGE_LIMITER:limiter};
+ const request=token=>new Request('https://acquisitioncompanion.com/api/ai',{method:'POST',headers:{Origin:'https://acquisitioncompanion.com','Content-Type':'application/json','X-AI-Session-ID':'672e377b-4a59-4e37-b271-5208686801e0','CF-Connecting-IP':'192.0.2.1',...(token?{Cookie:`__Host-ac-session=${token}`}:{})},body:JSON.stringify({mode:'ask_course',message:'Explain EBITDA briefly.',history:[]})});
+ const fetcher=async()=>{providerCalls++;return Response.json({status:'completed',usage:{input_tokens:20,output_tokens:10,total_tokens:30},output:[{type:'file_search_call',status:'completed',results:[]},{type:'message',role:'assistant',content:[{type:'output_text',text:JSON.stringify({responseText:'EBITDA is operating earnings before interest, taxes, depreciation and amortization.',suggestedActions:[]})}]}]});};
+ assert.equal((await handleAiRequest(request(null),env,{store,fetcher})).status,200,'anonymous AI remains open');
+ assert.equal((await handleAiRequest(request(freeToken),env,{store,fetcher})).status,200,'a signed-in non-subscriber still uses open AI');
+ assert.equal(sql.prepare('SELECT COUNT(*) AS n FROM monthly_usage').get().n,0,'neither anonymous nor non-entitled requests create monthly paid usage');
+ assert.equal(sql.prepare('SELECT COUNT(*) AS n FROM usage_events').get().n,0,'neither anonymous nor non-entitled requests create paid usage events');
+ assert.equal((await handleAiRequest(request(paidToken),env,{store,fetcher})).status,200,'an active entitled account is metered with paywall off');
+ assert.equal((await store.usageSummary('u',month)).requestCount,1);
+ assert.equal((await handleAiRequest(request(paidToken),env,{store,fetcher})).status,200,'a second HTTP request is counted once');
+ assert.equal((await store.usageSummary('u',month)).requestCount,2);
+ const paidRows=sql.prepare("SELECT id,user_id AS userId,timestamp,month,workflow,model FROM usage_events WHERE user_id='u' ORDER BY timestamp,id").all();
+ await assert.rejects(store.reserveUsage(paidRows[0],null),'replaying the same reservation ID is rejected transactionally');
+ assert.equal((await store.usageSummary('u',month)).requestCount,2,'a duplicate reservation ID cannot increment the aggregate twice');
+ await store.finishUsage(paidRows[0].id,{success:true,latencyMs:1,inputTokens:20,cachedInputTokens:0,outputTokens:10,reasoningTokens:0,totalTokens:30,estimatedCost:null});
+ assert.equal((await store.usageSummary('u',month)).requestCount,2,'re-finishing an already completed usage event does not increment the monthly count');
+ sql.prepare('UPDATE monthly_usage SET request_count=99,unknown_cost_count=99 WHERE user_id=? AND month=?').run('u',month);
+ const paywallEnv={...env,AI_PAYWALL_ENABLED:'true',AI_MONTHLY_REQUEST_LIMIT:'100'};
+ assert.equal((await handleAiRequest(request(paidToken),paywallEnv,{store,fetcher})).status,200,'the 100th paid request is allowed');
+ assert.equal((await store.usageSummary('u',month)).requestCount,100);
+ const beforeBlocked=providerCalls,response=await handleAiRequest(request(paidToken),paywallEnv,{store,fetcher});
+ assert.equal(response.status,429);assert.equal((await response.json()).error.code,'monthly_limit');
+ assert.equal(providerCalls,beforeBlocked,'the 101st request is blocked before calling the provider');
+ assert.equal((await store.usageSummary('u',month)).requestCount,100);
+ const anonymous=await handleAiRequest(request(null),paywallEnv,{store,fetcher});
+ assert.equal(anonymous.status,401,'paywall-on access still requires an active entitlement');
+ assert.equal(providerCalls,beforeBlocked);
+ sql.close();
+});
+
 test('ordinary account usage exposes request count without internal cost accounting',async()=>{
  const store={getSession:async()=>({userId:'u'}),setCsrf:async()=>{},getGrant:async()=>null,getBetaCheckoutApproval:async()=>null,usageSummary:async()=>({requestCount:2,knownEstimatedCost:0.001,unknownCostCount:1})};
  const request=new Request('https://acquisitioncompanion.com/api/account',{headers:{Cookie:`__Host-ac-session=${'a'.repeat(64)}`,'Sec-Fetch-Site':'same-origin','X-Account-Request':'1'}});
- const response=await handlePaidRequest(request,{AI_PAYWALL_ENABLED:'true'},{store});
+ const response=await handlePaidRequest(request,{AI_PAYWALL_ENABLED:'true',AUTH_SIGNIN_ENABLED:'true',BILLING_ENABLED:'false'},{store});
  assert.equal(response.status,200);
  const data=await response.json();assert.deepEqual(data.usage,{requestCount:2});assert.equal(data.subscription,null);
 });

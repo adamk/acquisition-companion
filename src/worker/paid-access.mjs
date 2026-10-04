@@ -1,6 +1,7 @@
 import {PaidError,unavailable,cookieValue,validToken,hash} from './paid-security.mjs';
 import {paidStore} from './paid-store.mjs';
 export const paywallEnabled=env=>env.AI_PAYWALL_ENABLED==='true';
+export const billingEnabled=env=>env.BILLING_ENABLED==='true';
 // Checkout approval never participates in paid AI entitlement evaluation.
 export function hasAccountCapability(feature,approval,now=Date.now()){
  return feature==='paid_beta_checkout'&&!!approval&&Number.isSafeInteger(approval.approvedAt)&&approval.approvedAt>=0&&approval.approvedAt<=now&&approval.revokedAt===null;
@@ -27,6 +28,15 @@ export async function requirePaidAccess(request,env,dependencies={}){
   if(!isUserEntitledTo('ai_deal_lab',grant,Date.now(),env.AI_ALLOW_TRIALS==='true'))throw new PaidError(402,'subscription_required','A Deal Lab subscription is required.');
   return {userId:session.userId,store};
  }catch(error){if(error instanceof PaidError)throw error;throw unavailable();}
+}
+export async function entitledUsageAccess(request,env,dependencies={}){
+ const token=cookieValue(request,'__Host-ac-session');
+ if(!validToken(token))return null;
+ const store=paidStore(env,dependencies),session=await authenticatedUser(request,store);
+ if(!session)return null;
+ const grant=await store.getGrant(session.userId);
+ if(!isUserEntitledTo('ai_deal_lab',grant,Date.now(),env.AI_ALLOW_TRIALS==='true'))return null;
+ return {userId:session.userId,store};
 }
 export function monthlyLimit(env){
  if(env.AI_MONTHLY_REQUEST_LIMIT===undefined||env.AI_MONTHLY_REQUEST_LIMIT===''){if(env.PAID_ENVIRONMENT==='production')throw unavailable();return null;}
