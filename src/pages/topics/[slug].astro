@@ -6,7 +6,7 @@ const {topic}=Astro.props;const {Content}=await render(topic);const examples=(aw
 ---
 <Base title={topic.data.title} description={topic.data.description} type="Topic">
  <Crumbs items={[{title:'Topics',url:'/topics/'},{title:topic.data.title}]} />
- <article class="narrow"><header class="page-header"><p class="eyebrow">{topic.data.category} · Topic guide</p><h1>{topic.data.title}</h1>{topic.data.description!==topic.data.definition && <p>{topic.data.description}</p>}</header>
+ <article class="narrow"><header class="page-header"><p class="eyebrow">{topic.data.category} · {topic.id==='private-credit' ? 'Topic' : 'Topic guide'}</p><h1>{topic.data.title}</h1>{topic.data.description!==topic.data.definition && <p>{topic.data.description}</p>}</header>
  {topic.data.coverage==='limited' && <p class="notice warning"><strong>Limited source coverage.</strong> This page marks the boundary of the evidence. It is not a complete product, legal, or underwriting guide.</p>}
  <p class="definition">{topic.data.definition}</p><div class="prose"><Content /></div>
  {examples.length>0 && <section class="section"><h2>See it in an example</h2><ul class="content-list spaced">{examples.map(x=><li><span class="badge">{label(x.data.status)}</span><h3 class="spaced"><a href={`/examples/${x.id}/`}>{x.data.title}</a></h3><p>{x.data.description}</p></li>)}</ul></section>}
