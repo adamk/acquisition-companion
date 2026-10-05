@@ -362,8 +362,8 @@ if(root){
      accountState=accountBody as {signedIn?:boolean;checkoutEligible?:boolean;entitled?:boolean};
       if(accountState.signedIn===true){accountLink.textContent='Account';state.paid=state.paid||accountState.entitled===true;}
      }
-    }else accountLink.hidden=true;
-   }catch{accountLink.hidden=true;}
+    }else{accountLink.hidden=false;accountLink.textContent='Sign in';}
+   }catch{accountLink.hidden=false;accountLink.textContent='Sign in';}
    if(data.access){
     accessNotice.hidden=false;accessPricing.hidden=false;accessRequest.hidden=true;
     if(data.access==='login_required'){

@@ -36,6 +36,25 @@ test('the six reviewed worked examples are fictional Acquisition Companion cases
   }
 });
 
+test('fictional worked-example calculations reconcile from their stated inputs',()=>{
+  const debt=read('src/content/examples/earnings-after-debt-service.md');
+  const annualPrincipal=1_200_000/8, seniorInterest=1_200_000*0.08, seniorDebtService=annualPrincipal+seniorInterest, totalPayments=seniorDebtService+48_000, remaining=330_000-totalPayments, coverage=330_000/totalPayments;
+  assert.equal(annualPrincipal,150_000);assert.equal(seniorInterest,96_000);assert.equal(seniorDebtService,246_000);assert.equal(totalPayments,294_000);assert.equal(remaining,36_000);assert.equal(coverage.toFixed(2),'1.12');
+  for(const value of ['£150,000','£96,000','£246,000','£294,000','£36,000','1.12×'])assert.ok(debt.includes(value),value);
+  const deferred=read('src/content/examples/exceptional-deferred-purchase.md');
+  assert.equal(2_100_000-1_650_000,450_000);assert.equal(450_000-380_000,70_000);for(const value of ['£450,000','£70,000','£2,100,000'])assert.ok(deferred.includes(value),value);
+  const machinery=read('src/content/examples/machinery-borrowing-base.md');
+  const eligible=355_000-55_000,grossBase=eligible*0.62,shareOfBook=grossBase/520_000*100;
+  assert.equal(eligible,300_000);assert.equal(grossBase,186_000);assert.equal(shareOfBook.toFixed(1),'35.8');for(const value of ['£300,000','£186,000','35.8%'])assert.ok(machinery.includes(value),value);
+  const addback=read('src/content/examples/marketing-addback.md');
+  assert.equal(120_000-36_000,84_000);assert.equal(420_000+36_000,456_000);for(const value of ['£84,000','£456,000'])assert.ok(addback.includes(value),value);
+  const preference=read('src/content/examples/preference-before-common.md');
+  const preferenceAmount=2_000_000*1.4,highConversion=3_600_000*0.25,highCommon=3_600_000-preferenceAmount,lowPreference=Math.min(preferenceAmount,2_400_000),lowConversion=2_400_000*0.25,lowCommon=2_400_000-lowPreference;
+  assert.equal(preferenceAmount,2_800_000);assert.equal(highConversion,900_000);assert.equal(highCommon,800_000);assert.equal(lowPreference,2_400_000);assert.equal(lowConversion,600_000);assert.equal(lowCommon,0);for(const value of ['$2,800,000','$900,000','$800,000','$2,400,000','$600,000','$0'])assert.ok(preference.includes(value),value);
+  const rollover=read('src/content/examples/seller-rollover-price-bridge.md');
+  const impliedEquity=960_000/0.6,retainedValue=impliedEquity*0.4;assert.equal(impliedEquity,1_600_000);assert.equal(retainedValue,640_000);for(const value of ['£1,600,000','£640,000'])assert.ok(rollover.includes(value),value);
+});
+
 test('regenerated corpus keeps the October source, provenance, and source-only associations while examples enter as original synthesis',()=>{
   const corpus=buildAiCorpus({root,siteOrigin:'https://acquisitioncompanion.com'});
   const source=readJson('src/data/videos.json').find(item=>item.id==='nYNfdSQqk3o');
@@ -72,11 +91,12 @@ test('public positioning preserves the current financing CTA and separates free 
   assert.match(home,/creators are sources, not collaborators/i);
   const pricing=read('src/pages/pricing.astro');
   assert.match(pricing,/course, topics, examples and source-linked educational material remain free/i);
-  assert.match(pricing,/subscriptions support interactive AI analysis, deterministic calculations, deal-reasoning and practice workflows, and associated model and compute costs/i);
+  assert.match(pricing,/subscriptions support interactive AI analysis, deterministic calculations, deal-reasoning workflows, fictional deal practice and IC workflows, and associated model and compute costs/i);
   const about=read('src/pages/about.astro');
   assert.match(about,/course, topics, examples and source-linked educational material are free; no account or payment is needed/i);
   assert.doesNotMatch(about,/There are no payments, subscriptions, memberships/i);
   const ai=read('src/pages/ai/index.astro');
+  assert.match(ai,/topics, examples and source-linked educational material remain free/i);
   assert.match(ai,/independently authored Acquisition Companion curriculum/i);
   assert.match(ai,/source links identify material by its original creators/i);
 });
