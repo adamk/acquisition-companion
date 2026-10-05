@@ -55,6 +55,7 @@ test('paid access is discoverable without putting account requirements in the fr
  assert.match(ai,/data-ai-account-link/);assert.doesNotMatch(ai,/data-ai-account-link hidden/,'the dormant AI page keeps a discoverable sign-in path');assert.match(ai,/data-ai-access-message/);assert.match(ai,/data-ai-access-pricing/);assert.match(ai,/data-ai-access-request/);
  assert.match(pricing,/data-account-link/);assert.match(pricing,/Already subscribed\? Sign in/);
  assert.match(base,/href="\/account\/"[^>]*>Account \/ sign in/);
+ assert.match(base,/\['Account','\/account\/'\]/,'Account remains in the primary navigation regardless of sign-in availability');
  assert.match(pricing,/The course, topics, examples and source-linked educational material remain free/);assert.match(pricing,/subscriptions support interactive AI analysis, deterministic calculations, deal-reasoning workflows, fictional deal practice and IC workflows, and associated model and compute costs/);
  assert.match(ai,/topics, examples and source-linked educational material remain free/);assert.match(ai,/fictional deal practice and IC workflows/);assert.match(ai,/associated model and compute costs/);
  assert.match(home,/<strong>Free course<\/strong> no account needed/);

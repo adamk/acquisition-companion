@@ -350,8 +350,9 @@ if(root){
  void (async()=>{
   try{
    const {response,body}=await fetchJsonWithTimeout('/api/ai/status',{method:'GET',credentials:'same-origin',cache:'no-store',headers:{Accept:'application/json'}},8_000);
-   if(!response.ok||!body||typeof body!=='object')throw new Error('status');const data=body as {available?:boolean;access?:string;paid?:boolean};
+   if(!response.ok||!body||typeof body!=='object')throw new Error('status');const data=body as {available?:boolean;access?:string;paid?:boolean;interactiveEnabled?:boolean};
    state.available=data.available===true;state.paid=data.paid===true;
+   if(data.interactiveEnabled===false){accountLink.hidden=false;accountLink.textContent='Account';accessNotice.hidden=false;accessPricing.hidden=true;accessRequest.hidden=true;accessMessage.textContent='Paid beta opening soon. The public course and Deal Lab examples remain available.';announce('Paid beta opening soon. Interactive AI is not available yet. The public course remains free.','unavailable');setControls();return;}
    let accountState:{signedIn?:boolean;checkoutEligible?:boolean;entitled?:boolean}|null=null;
    try{
     const {response:billingResponse,body:billingBody}=await fetchJsonWithTimeout('/api/billing/status',{method:'GET',credentials:'same-origin',cache:'no-store',headers:{Accept:'application/json'}},8_000);

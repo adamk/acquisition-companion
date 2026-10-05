@@ -63,7 +63,7 @@ const starters=[
       </div></details>
      </div>
      <form class="ai-compose" data-ai-form>
-      <label for="ai-message">Your question or reasoning</label><textarea id="ai-message" name="message" rows="3" maxlength="1500" placeholder="Ask an acquisition question…" required aria-describedby="ai-compose-limit"></textarea>
+      <label for="ai-message">Your question or reasoning</label><textarea id="ai-message" name="message" rows="3" maxlength="1500" placeholder="Ask an acquisition question…" required aria-describedby="ai-compose-limit" disabled></textarea>
       <div class="ai-compose-footer"><p id="ai-compose-limit">Up to 1,500 characters</p><button type="submit" class="button" data-submit disabled>Send question</button></div>
       <div class="ai-starters" data-starter-prompts aria-label="Suggested starter questions">{starters.map(([label,prompt])=><button type="button" data-starter-prompt={prompt}>{label}<span aria-hidden="true">↗</span></button>)}</div>
      </form>

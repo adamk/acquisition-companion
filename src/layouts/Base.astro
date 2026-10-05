@@ -6,7 +6,7 @@ import '../styles/global.css';
 interface Props {title:string;description?:string;type?:string;wide?:boolean;noindex?:boolean;workspace?:boolean;analytics?:boolean;}
 const {title,description=siteConfig.subtitle,type='Guide',wide=false,noindex=false,workspace=false,analytics=true}=Astro.props;
 const canonical=canonicalUrl(siteConfig.canonicalDomain,Astro.url.pathname);
-const nav=[['Start here','/start-here/'],['Course','/course/'],['AI Deal Lab','/ai/'],['Topics','/topics/'],['Financing','/financing/'],['Examples','/examples/'],['Glossary','/glossary/'],['Sources','/sources/'],['About','/about/']];
+const nav=[['Start here','/start-here/'],['Course','/course/'],['AI Deal Lab','/ai/'],['Account','/account/'],['Topics','/topics/'],['Financing','/financing/'],['Examples','/examples/'],['Glossary','/glossary/'],['Sources','/sources/'],['About','/about/']];
 const path=Astro.url.pathname;
 ---
 <!doctype html>

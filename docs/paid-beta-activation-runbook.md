@@ -15,7 +15,7 @@
 From a clean checkout of the exact release commit that is already deployed:
 
 1. Confirm `wrangler whoami` is the intended Cloudflare account and the release commit matches the deployed source.
-2. Confirm main Worker activation variables are all `false`: `AI_PAYWALL_ENABLED`, `AUTH_SIGNIN_ENABLED`, and `BILLING_ENABLED`.
+2. Confirm main Worker activation variables are all `false`: `AI_INTERACTIVE_ENABLED`, `AI_PAYWALL_ENABLED`, `AUTH_SIGNIN_ENABLED`, and `BILLING_ENABLED`.
 3. Confirm the private mailer has `AUTH_MAIL_ENABLED=false`, both secret binding names are present, and it has no public route or workers.dev/preview URL.
 4. Confirm the LIVE webhook remains enabled with the reviewed URL, API version and five events.
 5. Confirm the paid D1 database is healthy, the operator remains entitled through the paid-through date, and no unrelated account will be approved.
@@ -35,14 +35,14 @@ npx wrangler deploy --config wrangler.mailer-production.example.json --var AUTH_
 Verify the private mailer is enabled, remains private, and has no public route before continuing. Then enable the main Worker gates together:
 
 ```sh
-npx wrangler deploy --config wrangler.jsonc --var AI_PAYWALL_ENABLED:true --var AUTH_SIGNIN_ENABLED:true --var BILLING_ENABLED:true --keep-vars
+npx wrangler deploy --config wrangler.jsonc --var AI_INTERACTIVE_ENABLED:true --var AI_PAYWALL_ENABLED:true --var AUTH_SIGNIN_ENABLED:true --var BILLING_ENABLED:true --keep-vars
 ```
 
 Do not set `AUTH_MAIL_ENABLED=true` on the main Worker; sending remains behind the private service binding. `BILLING_TEST_MODE=false`, the production price/Portal variables, production D1, and existing server-only OpenAI bindings must remain unchanged.
 
 ## Verify immediately
 
-1. Verify the active main Worker version and effective values: `AI_PAYWALL_ENABLED=true`, `AUTH_SIGNIN_ENABLED=true`, `BILLING_ENABLED=true`, and main `AUTH_MAIL_ENABLED=false`. Verify private mailer `AUTH_MAIL_ENABLED=true`.
+1. Verify the active main Worker version and effective values: `AI_INTERACTIVE_ENABLED=true`, `AI_PAYWALL_ENABLED=true`, `AUTH_SIGNIN_ENABLED=true`, `BILLING_ENABLED=true`, and main `AUTH_MAIL_ENABLED=false`. Verify private mailer `AUTH_MAIL_ENABLED=true`.
 2. Verify `/api/billing/status` reports sign-in and billing available and the paywall enabled; `/api/ai/status` reports `access_required` for a signed-out browser while AI configuration itself remains ready.
 3. Verify a signed-out direct `/api/ai` POST is denied before OpenAI, and the public `/course/` remains readable without an account.
 4. Verify any existing subscription remains active through its canonical paid-through date and its usage count remains intact. Do not create another Checkout or alter cancellation.
@@ -55,8 +55,8 @@ Do not set `AUTH_MAIL_ENABLED=true` on the main Worker; sending remains behind t
 If paid AI access is misapplied or unhealthy, disable entitlement enforcement first to restore the existing open AI behavior, then disable new billing and sign-in. Stop new auth mail last. Keep the LIVE Stripe webhook enabled while any real subscription has lifecycle state to reconcile.
 
 ```sh
-npx wrangler deploy --config wrangler.jsonc --var AI_PAYWALL_ENABLED:false --var AUTH_SIGNIN_ENABLED:false --var BILLING_ENABLED:false --keep-vars
+npx wrangler deploy --config wrangler.jsonc --var AI_INTERACTIVE_ENABLED:false --var AI_PAYWALL_ENABLED:false --var AUTH_SIGNIN_ENABLED:false --var BILLING_ENABLED:false --keep-vars
 npx wrangler deploy --config wrangler.mailer-production.example.json --var AUTH_MAIL_ENABLED:false --keep-vars
 ```
 
-After rollback, verify anonymous AI is healthy and open, auth and billing endpoints fail closed, the mailer is disabled, and all existing customer/subscription/entitlement records remain intact. Never compensate for a webhook failure by inserting subscription or entitlement state manually; follow [the billing reconciliation procedure](paid-beta-launch-operations.md) and stop/escalate if no legitimate signed event can be replayed.
+After rollback, verify `/ai/` remains readable, interactive requests are blocked, auth and billing endpoints fail closed, the mailer is disabled, and all existing customer/subscription/entitlement records remain intact. Never compensate for a webhook failure by inserting subscription or entitlement state manually; follow [the billing reconciliation procedure](paid-beta-launch-operations.md) and stop/escalate if no legitimate signed event can be replayed.

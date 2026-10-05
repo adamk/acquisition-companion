@@ -17,6 +17,7 @@ function rateBinding(success=true) {
 function readyEnv(overrides={}) {
   return {
     AI_ENABLED:'true',
+    AI_INTERACTIVE_ENABLED:'true',
     OPENAI_API_KEY:'test-only-key',
     OPENAI_VECTOR_STORE_ID:'vs_test_public_course',
     AI_SESSION_LIMITER:rateBinding(),
@@ -71,15 +72,15 @@ async function readJson(response) {
   return JSON.parse(await response.text());
 }
 
-test('status and API stay unavailable by default and missing OpenAI settings never call the model', async () => {
+test('interactive AI defaults closed and missing OpenAI settings never call the model', async () => {
   const handleAiRequest=await loadApi();
   let modelCalls=0;
   const status=await handleAiRequest(new Request('https://acquisitioncompanion.com/api/ai/status'),{}, {fetcher:async()=>{modelCalls++;}});
   assert.equal(status.status,200);
-  assert.deepEqual(await readJson(status),{status:'unavailable',available:false});
+  assert.deepEqual(await readJson(status),{status:'prelaunch',available:false,interactiveEnabled:false});
   const response=await handleAiRequest(request(askPayload()),{}, {fetcher:async()=>{modelCalls++;}});
   assert.equal(response.status,503);
-  assert.equal((await readJson(response)).error.code,'unavailable');
+  assert.equal((await readJson(response)).error.code,'interactive_disabled');
   const disabled=await handleAiRequest(request(askPayload()),readyEnv({AI_ENABLED:'false'}),{fetcher:async()=>{modelCalls++;}});
   assert.equal(disabled.status,503,'the emergency kill switch blocks an otherwise configured Worker');
   assert.equal((await readJson(disabled)).error.code,'unavailable');
@@ -95,6 +96,32 @@ test('status and API stay unavailable by default and missing OpenAI settings nev
     assert.equal((await readJson(missingPost)).error.code,'unavailable');
   }
   assert.equal(modelCalls,0);
+});
+
+test('interactive AI disabled with paywall off reports prelaunch and never calls OpenAI',async()=>{
+ const handleAiRequest=await loadApi();let modelCalls=0;
+ const env=readyEnv({AI_INTERACTIVE_ENABLED:'false',AI_PAYWALL_ENABLED:'false'});
+ const status=await handleAiRequest(request(null,{path:'/api/ai/status',method:'GET'}),env,{fetcher:async()=>{modelCalls++;}});
+ assert.deepEqual(await readJson(status),{status:'prelaunch',available:false,interactiveEnabled:false});
+ const response=await handleAiRequest(request(askPayload()),env,{fetcher:async()=>{modelCalls++;}});
+ assert.equal(response.status,503);assert.equal((await readJson(response)).error.code,'interactive_disabled');assert.equal(modelCalls,0);
+});
+
+test('interactive AI disabled with paywall on still reports prelaunch before entitlement checks',async()=>{
+ const handleAiRequest=await loadApi();let modelCalls=0,storageCalls=0;
+ const env=readyEnv({AI_INTERACTIVE_ENABLED:'false',AI_PAYWALL_ENABLED:'true',STRIPE_SECRET_KEY:'fixture',STRIPE_WEBHOOK_SECRET:'fixture',STRIPE_MONTHLY_PRICE_ID:'price_month',STRIPE_ANNUAL_PRICE_ID:'price_year',PAID_DB:{prepare(){storageCalls++;throw Error('must not read while AI is closed');}}});
+ const dependencies={store:{async getSession(){storageCalls++;return null;}},fetcher:async()=>{modelCalls++;}};
+ const status=await handleAiRequest(request(null,{path:'/api/ai/status',method:'GET'}),env,dependencies);
+ assert.deepEqual(await readJson(status),{status:'prelaunch',available:false,interactiveEnabled:false});
+ const response=await handleAiRequest(request(askPayload()),env,dependencies);
+ assert.equal(response.status,503);assert.equal((await readJson(response)).error.code,'interactive_disabled');
+ assert.equal(modelCalls,0);assert.equal(storageCalls,0);
+});
+
+test('interactive AI enabled with paywall off preserves open model access',async()=>{
+ const handleAiRequest=await loadApi();let modelCalls=0;
+ const response=await handleAiRequest(request(askPayload()),readyEnv({AI_INTERACTIVE_ENABLED:'true',AI_PAYWALL_ENABLED:'false'}),{fetcher:async()=>{modelCalls++;return modelOutput();}});
+ assert.equal(response.status,200);assert.equal(modelCalls,1);
 });
 
 test('POST validation rejects bad methods, origin, content type, JSON, extra fields, and unknown modes before rate limiting', async () => {

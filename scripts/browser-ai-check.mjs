@@ -21,6 +21,23 @@ assert.equal(await unavailablePage.locator('#ai-message').isDisabled(),true);
 const unavailableAxe=await new AxeBuilder({page:unavailablePage}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
 assert.deepEqual(unavailableAxe.violations.map(item=>item.id),[]);
 
+const prelaunch=await browser.newContext({viewport:{width:390,height:844}});
+await prelaunch.addInitScript(()=>localStorage.setItem('acquisition-companion-analytics-consent','denied'));
+await prelaunch.route('**/api/ai/status',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({status:'prelaunch',available:false,interactiveEnabled:false})}));
+let prelaunchApiCalls=0;
+await prelaunch.route('**/api/ai',route=>{prelaunchApiCalls++;return route.fulfill({status:503,json:{error:{code:'interactive_disabled',message:'Paid beta opening soon.'}}});});
+const prelaunchPage=await prelaunch.newPage();prelaunchPage.on('pageerror',error=>errors.push(error.message));
+const prelaunchResponse=await prelaunchPage.goto(`${base}/ai/`);assert.equal(prelaunchResponse.status(),200);
+await prelaunchPage.locator('[data-ai-status]').filter({hasText:'Paid beta opening soon'}).waitFor();
+assert.equal(await prelaunchPage.locator('#ai-message').isDisabled(),true);
+assert.equal(await prelaunchPage.locator('#ai-message').getAttribute('disabled')!==null,true,'composer is disabled in server-rendered HTML before status loads');
+assert.equal(await prelaunchPage.locator('[data-submit]').isDisabled(),true);
+assert.equal(await prelaunchPage.locator('[data-ai-account-link]').getAttribute('href'),'/account/');
+assert.equal(prelaunchApiCalls,0,'closed interactive UI makes no AI request');
+assert.ok(await prelaunchPage.locator('[data-ai-workspace]').isVisible(),'the public workspace stays readable before launch');
+assert.deepEqual((await new AxeBuilder({page:prelaunchPage}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations.map(item=>item.id),[]);
+await prelaunch.close();
+
 const gatedContext=await browser.newContext({viewport:{width:390,height:844}});
 await gatedContext.addInitScript(()=>localStorage.setItem('acquisition-companion-analytics-consent','denied'));
 let gateAccess='login_required',gateAccount=null,gateModelCalls=0,gateDeniedCalls=0;

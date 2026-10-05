@@ -4,7 +4,7 @@ import {paywallEnabled,billingEnabled,isUserEntitledTo,requirePaidAccess,estimat
 import {handleAiRequest} from '../src/worker/ai-api.mjs';
 
 const request=()=>new Request('https://acquisitioncompanion.com/api/ai',{method:'POST',headers:{Origin:'https://acquisitioncompanion.com','Content-Type':'application/json','X-AI-Session-ID':'a57b0383-eced-4ff3-83d8-73940fb97c41','CF-Connecting-IP':'192.0.2.1'},body:JSON.stringify({mode:'ask_course',message:'Explain EBITDA',history:[]})});
-const env=()=>({AI_ENABLED:'true',OPENAI_API_KEY:'mock',OPENAI_VECTOR_STORE_ID:'vs_mock',...Object.fromEntries(['AI_SESSION_LIMITER','AI_IP_LIMITER','AI_EDGE_LIMITER'].map(k=>[k,{limit:async()=>({success:true})}]))});
+const env=()=>({AI_ENABLED:'true',AI_INTERACTIVE_ENABLED:'true',OPENAI_API_KEY:'mock',OPENAI_VECTOR_STORE_ID:'vs_mock',...Object.fromEntries(['AI_SESSION_LIMITER','AI_IP_LIMITER','AI_EDGE_LIMITER'].map(k=>[k,{limit:async()=>({success:true})}]))});
 
 test('paywall defaults off regardless of billing credentials and never touches new storage',async()=>{
  assert.equal(paywallEnabled({STRIPE_SECRET_KEY:'mock'}),false);

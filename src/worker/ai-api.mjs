@@ -19,6 +19,7 @@ const CONTENT_SECURITY_POLICY="default-src 'self'; script-src 'self' 'wasm-unsaf
 const MODES=new Set(['ask_course','deal_lab','ic_challenge']);
 const ACTIONS=new Set(['message','start','hint','explain','show_answer','what_did_i_miss','challenge_assumptions','reveal_next','complete']);
 const PROMPT_REFUSAL='I can help with the course or a fictional practice case. Please do not share confidential or non-public deal information.';
+const interactiveEnabled=env=>env.AI_INTERACTIVE_ENABLED==='true';
 
 class ApiError extends Error {
   constructor(status,code,message,headers={}) {
@@ -515,6 +516,7 @@ export async function handleAiRequest(request,env={},dependencies={}) {
   const path=new URL(request.url).pathname;
   if (path==='/api/ai/status') {
     if (request.method!=='GET') return jsonResponse(405,{error:{code:'method_not_allowed',message:'Use GET for AI service status.'}},{Allow:'GET'});
+    if (!interactiveEnabled(env)) return jsonResponse(200,{status:'prelaunch',available:false,interactiveEnabled:false});
     if(paywallEnabled(env)&&ready(env)){
       try{await requirePaidAccess(request,env,dependencies);}
       catch(error){return jsonResponse(200,{status:'access_required',available:false,access:error instanceof PaidError?error.code:'billing_unavailable'});}
@@ -523,6 +525,7 @@ export async function handleAiRequest(request,env={},dependencies={}) {
   }
   if (path!=='/api/ai') return null;
   if (request.method!=='POST') return jsonResponse(405,{error:{code:'method_not_allowed',message:'Use POST to submit an AI Deal Lab question.'}},{Allow:'POST'});
+  if (!interactiveEnabled(env)) return errorResponse(new ApiError(503,'interactive_disabled','Paid beta opening soon. Interactive AI is not available yet.'));
   if (!ready(env)) return errorResponse(new ApiError(503,'unavailable','AI Deal Lab is being configured. No AI requests are currently available.'));
   if (!sameOrigin(request)) return errorResponse(new ApiError(403,'same_origin_required','Send this request from Acquisition Companion.'));
   const contentType=request.headers.get('content-type')||'';

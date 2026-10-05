@@ -37,7 +37,7 @@ else: raise AssertionError('unreviewed addition accepted')
 test('AI citation allowlist exposes the new video from retrieved amortization material',async()=>{
  const {handleAiRequest}=await import('../src/worker/ai-api.mjs');
  const limiter={async limit(){return {success:true};}};
- const env={AI_ENABLED:'true',OPENAI_API_KEY:'test-only-key',OPENAI_VECTOR_STORE_ID:'vs_test_public_course',AI_SESSION_LIMITER:limiter,AI_IP_LIMITER:limiter,AI_EDGE_LIMITER:limiter};
+ const env={AI_ENABLED:'true',AI_INTERACTIVE_ENABLED:'true',OPENAI_API_KEY:'test-only-key',OPENAI_VECTOR_STORE_ID:'vs_test_public_course',AI_SESSION_LIMITER:limiter,AI_IP_LIMITER:limiter,AI_EDGE_LIMITER:limiter};
  const filename='ac-topic--amortization.md';
  const request=new Request('https://acquisitioncompanion.com/api/ai',{method:'POST',headers:{Origin:'https://acquisitioncompanion.com','Content-Type':'application/json','X-AI-Session-ID':'672e377b-4a59-4e37-b271-5208686801e0','CF-Connecting-IP':'198.51.100.42'},body:JSON.stringify({mode:'ask_course',message:'What does the course say about amortization?',history:[]})});
  const response=await handleAiRequest(request,env,{fetcher:async()=>Response.json({status:'completed',output:[{type:'file_search_call',status:'completed',results:[{filename}]},{type:'message',role:'assistant',content:[{type:'output_text',text:JSON.stringify({responseText:'Repayment timing is contextual, not a universal best tenor.',suggestedActions:['explain']}),annotations:[{type:'file_citation',filename}]}]}]})});

@@ -10,7 +10,7 @@ const token='a'.repeat(64),csrf='b'.repeat(64),userId='buyer-fixture';
 
 function baseEnv(overrides={}){
  return {
-  AI_ENABLED:'true',OPENAI_API_KEY:'test-only',OPENAI_VECTOR_STORE_ID:'vs_test',
+  AI_ENABLED:'true',AI_INTERACTIVE_ENABLED:'true',OPENAI_API_KEY:'test-only',OPENAI_VECTOR_STORE_ID:'vs_test',
   AI_SESSION_LIMITER:{limit:async()=>({success:true})},AI_IP_LIMITER:{limit:async()=>({success:true})},AI_EDGE_LIMITER:{limit:async()=>({success:true})},
   PAID_ENVIRONMENT:'staging',BILLING_TEST_MODE:'true',STRIPE_SECRET_KEY:'sk_test_fixture',STRIPE_WEBHOOK_SECRET:'whsec_fixture',
   STRIPE_MONTHLY_PRICE_ID:'price_month',STRIPE_ANNUAL_PRICE_ID:'price_year',PAID_DB:{prepare(){}},
@@ -39,8 +39,8 @@ function fixture({approved=false,grant=null,session=true}={}){
 
 function modelOutput(){return Response.json({status:'completed',output:[{type:'file_search_call',status:'completed',results:[]},{type:'message',role:'assistant',content:[{type:'output_text',text:JSON.stringify({responseText:'A concise sourced answer.',suggestedActions:['explain']})}]}]});}
 
-test('all activation flags off preserves anonymous AI and independently closes auth and billing APIs',async()=>{
- const f=fixture(),env=baseEnv({AI_PAYWALL_ENABLED:'false',AUTH_SIGNIN_ENABLED:'false',BILLING_ENABLED:'false'});
+test('all activation flags off leaves public pages readable and closes AI, auth, billing and mail',async()=>{
+ const f=fixture(),env=baseEnv({AI_INTERACTIVE_ENABLED:'false',AI_PAYWALL_ENABLED:'false',AUTH_SIGNIN_ENABLED:'false',BILLING_ENABLED:'false',AUTH_MAIL_ENABLED:'false'});
  const status=await handlePaidRequest(f.paidRequest('/api/billing/status'),env,f.dependencies);
  assert.equal(status.status,200);assert.deepEqual(((await status.json()).enabled),false);
  const signIn=await handlePaidRequest(f.paidRequest('/api/auth/start',{email:'buyer@example.test'},false),env,f.dependencies);
@@ -48,8 +48,8 @@ test('all activation flags off preserves anonymous AI and independently closes a
  assert.equal(signIn.status,404);assert.equal(checkout.status,404);assert.equal(f.calls(),0);
  const webhook=await handlePaidRequest(new Request('https://acquisitioncompanion.com/api/billing/webhook',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'}),env,f.dependencies);
  assert.equal(webhook.status,400,'webhook remains independently routed but requires a valid Stripe signature');
- const ai=await handleAiRequest(f.aiRequest(),env,{...f.dependencies,fetcher:async()=>modelOutput()});
- assert.equal(ai.status,200);
+ let modelCalls=0;const ai=await handleAiRequest(f.aiRequest(),env,{...f.dependencies,fetcher:async()=>{modelCalls++;return modelOutput();}});
+ assert.equal(ai.status,503);assert.equal((await ai.json()).error.code,'interactive_disabled');assert.equal(modelCalls,0);
 });
 
 test('sign-in operates with AI paywall off while billing remains independently disabled',async()=>{
@@ -60,17 +60,17 @@ test('sign-in operates with AI paywall off while billing remains independently d
  assert.equal(signIn.status,200);assert.ok(f.savedChallenge());
  const checkout=await handlePaidRequest(f.paidRequest('/api/billing/checkout',{plan:'monthly',usCustomerAttested:true}),env,f.dependencies);
  assert.equal(checkout.status,404);assert.equal(f.calls(),0);
- const ai=await handleAiRequest(f.aiRequest(),env,{...f.dependencies,fetcher:async()=>modelOutput()});assert.equal(ai.status,200);
+ const ai=await handleAiRequest(f.aiRequest(),{...env,AI_INTERACTIVE_ENABLED:'false'},{...f.dependencies,fetcher:async()=>modelOutput()});assert.equal(ai.status,503);assert.equal((await ai.json()).error.code,'interactive_disabled');
 });
 
 test('enabling billing alone does not open sign-in or gate anonymous AI',async()=>{
- const f=fixture({session:false}),env=baseEnv({AI_PAYWALL_ENABLED:'false',AUTH_SIGNIN_ENABLED:'false',BILLING_ENABLED:'true'});
+ const f=fixture({session:false}),env=baseEnv({AI_INTERACTIVE_ENABLED:'false',AI_PAYWALL_ENABLED:'false',AUTH_SIGNIN_ENABLED:'false',BILLING_ENABLED:'true'});
  const status=await handlePaidRequest(f.paidRequest('/api/billing/status'),env,f.dependencies),data=await status.json();
  assert.equal(data.enabled,false);assert.equal(data.signInAvailable,false);assert.equal(data.billingAvailable,true);
  const signIn=await handlePaidRequest(f.paidRequest('/api/auth/start',{email:'buyer@example.test'},false),env,f.dependencies);
  const checkout=await handlePaidRequest(f.paidRequest('/api/billing/checkout',{plan:'monthly',usCustomerAttested:true},false),env,f.dependencies);
  assert.equal(signIn.status,404);assert.equal(checkout.status,401);assert.equal(f.calls(),0);
- const ai=await handleAiRequest(f.aiRequest(),env,{...f.dependencies,fetcher:async()=>modelOutput()});assert.equal(ai.status,200);
+ let modelCalls=0;const ai=await handleAiRequest(f.aiRequest(),env,{...f.dependencies,fetcher:async()=>{modelCalls++;return modelOutput();}});assert.equal(ai.status,503);assert.equal((await ai.json()).error.code,'interactive_disabled');assert.equal(modelCalls,0);
 });
 
 test('billing can run with AI paywall off but still requires account approval; approval is not entitlement',async()=>{

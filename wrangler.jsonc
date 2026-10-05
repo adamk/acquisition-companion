@@ -18,6 +18,7 @@
     "PAID_ENVIRONMENT": "production",
     "BILLING_TEST_MODE": "false",
     "ACCOUNT_ORIGIN": "https://acquisitioncompanion.com",
+    "AI_INTERACTIVE_ENABLED": "false",
     "AI_PAYWALL_ENABLED": "false",
     "AUTH_SIGNIN_ENABLED": "false",
     "BILLING_ENABLED": "false",

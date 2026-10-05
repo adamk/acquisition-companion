@@ -7,7 +7,7 @@ test('quantitative archive remains available outside primary learner navigation'
  const layout=read('src/layouts/Base.astro');
  const nav=layout.match(/const nav=(\[.*?\]);/)[1];
  assert.ok(!nav.includes('/numbers/'));
- assert.deepEqual([...nav.matchAll(/\['([^']+)','([^']+)'\]/g)].map(m=>m[1]),['Start here','Course','AI Deal Lab','Topics','Financing','Examples','Glossary','Sources','About']);
+ assert.deepEqual([...nav.matchAll(/\['([^']+)','([^']+)'\]/g)].map(m=>m[1]),['Start here','Course','AI Deal Lab','Account','Topics','Financing','Examples','Glossary','Sources','About']);
  const page=read('src/pages/numbers.astro');
  assert.match(page,/<h1>Quantitative Reference<\/h1>/);
  assert.match(page,/title="Quantitative Reference"/);
