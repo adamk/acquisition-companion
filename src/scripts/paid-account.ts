@@ -36,13 +36,32 @@ if(root){
  async function refresh(){
   const data=await api('/api/account');csrf=data.csrfToken;
   if(signIn)signIn.hidden=true;if(confirm)confirm.hidden=true;if(details)details.hidden=false;
-  announce(data.entitled?'Your Deal Lab access is active.':data.subscription&&['past_due','unpaid'].includes(data.subscription.status)?'A payment problem is blocking access. Use Manage billing or contact support.':data.checkoutEligible?'Your paid-beta Checkout approval is active. Choose a subscription on the pricing page.':'Signed in. The initial paid beta is invite-only for U.S. customers. Contact support@acquisitioncompanion.com for Checkout approval.');
-  const canCheckout=billingAvailable&&data.checkoutEligible===true&&!data.entitled;
+  const entitled=data.entitled===true,checkoutEligible=data.checkoutEligible===true;
+  announce(entitled?'Your Deal Lab access is active.':data.subscription&&['past_due','unpaid'].includes(data.subscription.status)?'A payment problem is blocking Deal Lab access. Use Manage billing or contact support.':checkoutEligible?'Checkout approval is active. AI access starts only after a subscription becomes active.':'Signed in.');
+  const hasBillingRelationship=Boolean(data.subscription);
+  const canCheckout=billingAvailable&&data.checkoutEligible===true&&!data.entitled&&!hasBillingRelationship;
   root!.querySelectorAll<HTMLElement>('[data-checkout], [data-checkout-attestation]').forEach(el=>el.hidden=!canCheckout);
-  const summary=root!.querySelector<HTMLElement>('[data-subscription-summary]'),usage=root!.querySelector<HTMLElement>('[data-usage-summary]');
-  if(summary)summary.textContent=data.subscription?`Subscription: ${data.subscription.status}. ${data.entitled&&data.subscription.cancelAtPeriodEnd?'Cancellation scheduled; access continues through the paid period.':''}`:'No subscription yet.';
-  const portal=root!.querySelector<HTMLButtonElement>('[data-billing-portal]');if(portal)portal.hidden=!data.subscription;
-  if(usage)usage.textContent=`${data.usage.requestCount} requests this month (UTC)${data.monthlyRequestLimit===null?'':` of ${data.monthlyRequestLimit}; ${Math.max(0,data.monthlyRequestLimit-data.usage.requestCount)} remaining`}. Resets at 00:00 UTC on ${new Date(Date.UTC(new Date().getUTCFullYear(),new Date().getUTCMonth()+1,1)).toISOString().slice(0,10)}.`;
+  const summary=root!.querySelector<HTMLElement>('[data-subscription-summary]'),usage=root!.querySelector<HTMLElement>('[data-usage-summary]'),usagePanel=root!.querySelector<HTMLElement>('[data-entitled-usage]');
+  if(summary){
+   if(entitled&&data.subscription?.cancelAtPeriodEnd){
+    const periodEnd=Number(data.subscription.accessUntil),date=Number.isFinite(periodEnd)?new Date(periodEnd):null;
+    const paidThrough=date&&!Number.isNaN(date.valueOf())?date.toLocaleDateString('en-US',{timeZone:'UTC',year:'numeric',month:'long',day:'numeric'}):null;
+    summary.textContent=paidThrough?`Active subscription. Cancels on ${paidThrough}; Deal Lab access continues through that date.`:'Active subscription. Cancellation is scheduled; Deal Lab access continues through the paid period.';
+   }else summary.textContent=entitled?'Active Deal Lab subscription.':'No active Deal Lab subscription.';
+  }
+  const portal=root!.querySelector<HTMLButtonElement>('[data-billing-portal]');if(portal)portal.hidden=!hasBillingRelationship;
+  const subscriptionOptions=root!.querySelector<HTMLAnchorElement>('[data-subscription-options]');if(subscriptionOptions)subscriptionOptions.hidden=entitled||hasBillingRelationship;
+  if(usagePanel)usagePanel.hidden=!entitled;
+  if(usage&&entitled){
+   const limit=Number.isSafeInteger(data.monthlyRequestLimit)&&data.monthlyRequestLimit>=0?data.monthlyRequestLimit:null;
+   const allowance=limit===null?'':` of ${limit}; ${Math.max(0,limit-data.usage.requestCount)} remaining`;
+   usage.textContent=`${data.usage.requestCount} requests this month (UTC)${allowance}. Resets at 00:00 UTC on ${new Date(Date.UTC(new Date().getUTCFullYear(),new Date().getUTCMonth()+1,1)).toISOString().slice(0,10)}.`;
+  }
+  const betaRequest=root!.querySelector<HTMLElement>('[data-beta-request]'),betaApproved=root!.querySelector<HTMLElement>('[data-beta-approved]');
+  if(betaRequest)betaRequest.hidden=entitled||checkoutEligible||hasBillingRelationship;
+  if(betaApproved)betaApproved.hidden=entitled||!checkoutEligible||hasBillingRelationship;
+  const pricingRequest=root!.querySelector<HTMLElement>('[data-pricing-beta-request]');if(pricingRequest)pricingRequest.hidden=entitled||checkoutEligible||hasBillingRelationship;
+  root!.querySelectorAll<HTMLAnchorElement>('[data-account-link]').forEach(link=>{link.textContent=entitled||hasBillingRelationship?'Account · Manage billing':'Account';});
  }
  signIn?.addEventListener('submit',event=>{event.preventDefault();void action(async()=>{const data=await api('/api/auth/start',{email:root.querySelector<HTMLInputElement>('#account-email')!.value});announce(data.message);});});
  confirm?.addEventListener('click',()=>void action(async()=>{await recordAuthDiagnostic('auth_confirm_client_attempt');await api('/api/auth/confirm',{token:magicToken},authDiagnosticId?{'X-Auth-Diagnostic-ID':authDiagnosticId}:{});magicToken='';await refresh();}));
@@ -54,11 +73,11 @@ if(root){
   if(signIn&&['missing','invalid'].includes(magicLinkState)){
    announce(invalidLinkMessage);void recordAuthDiagnostic(magicLinkState==='missing'?'auth_fragment_missing':'auth_fragment_invalid');return;
   }
-  const data=await api('/api/billing/status');if(!data.signInAvailable&&!data.billingAvailable)return;
-  if(data.signInAvailable)announce('The initial paid beta is invite-only for U.S. customers. Sign in to check your Checkout approval.');
+  const data=await api('/api/billing/status');if(!data.signInAvailable&&!data.billingAvailable){if(location.pathname==='/pricing/')announce('Subscriptions are not open right now. The core course remains free, and current AI access is unchanged.');return;}
+  if(data.signInAvailable)announce('Sign in to check your U.S. beta Checkout approval.');
   root.querySelectorAll<HTMLElement>('[data-account-link]').forEach(el=>el.hidden=false);
   billingAvailable=data.billingAvailable===true;
-  if(location.pathname==='/pricing/')try{await refresh();}catch{/* Anonymous visitors can inspect public prices. */}
+  if(location.pathname==='/pricing/')try{await refresh();}catch{root.querySelectorAll<HTMLAnchorElement>('[data-account-link]').forEach(link=>{link.textContent='Already subscribed? Sign in';});/* Anonymous visitors can inspect public prices. */}
   if(signIn){if(magicToken&&data.signInAvailable){if(confirm)confirm.hidden=false;announce('Confirm this sign-in link in the browser where you requested it.');}else if(data.signInAvailable){signIn.hidden=false;try{await refresh();}catch{/* Unauthenticated is a normal first visit. */}}else announce('Account access is being configured.');}
  });
 }

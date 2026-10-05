@@ -99,8 +99,9 @@ try{
  // Browser A follows the same cross-site link with its own binding and completes once.
  await pageA.goto('https://mail.example.test/inbox/');await pageA.locator('#magic-link').click();await pageA.locator('[data-confirm-signin]').waitFor({state:'visible'});
  await pageA.locator('[data-confirm-signin]').click();await pageA.locator('[data-account-details]').waitFor({state:'visible'});
- assert.equal(await pageA.locator('[data-subscription-summary]').innerText(),'No subscription yet.','sign-in alone creates no subscription');
- assert.match(await pageA.locator('[data-paid-status]').innerText(),/invite-only/,'sign-in alone does not grant Deal Lab access');
+ assert.equal(await pageA.locator('[data-subscription-summary]').innerText(),'No active Deal Lab subscription.','sign-in alone creates no subscription');
+ assert.equal(await pageA.locator('[data-beta-request]').isVisible(),true,'an unapproved account gets one beta-access request path');
+ assert.match(await pageA.locator('[data-beta-request]').innerText(),/invite-only/,'sign-in alone does not grant Deal Lab access');
  assert.equal(challenge,null);assert.equal(sessions,1);assert.equal(diagnostics.at(-1)?.reason,'auth_confirm_success');
  assert.equal(await pageA.evaluate(()=>location.href),`${base}/account/`,'fragment and non-secret marker are absent after confirmation');
  const session=(await contextA.cookies(base)).find(cookie=>cookie.name==='__Host-ac-session');assert.ok(session);assert.equal(session.httpOnly,true);assert.equal(session.secure,true);assert.equal(session.sameSite,'Lax');assert.equal(session.path,'/');

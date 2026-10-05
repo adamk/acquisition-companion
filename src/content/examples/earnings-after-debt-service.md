@@ -1,29 +1,31 @@
 ---
-title: "£1m earnings, £150k left before other cash needs"
-description: "Calculate the illustrated bank and seller payments, then identify the cash needs still missing from the remainder."
+title: "A thin cushion after scheduled debt service"
+description: "Use a fictional cash-flow case to test the room left after senior and seller debt payments."
 status: "hypothetical"
 topics: ["debt-service", "cash-flow", "amortization"]
-evidence: ["E216"]
-sources: ["VmRqlJuqCs8"]
-numbers: ["N267", "N268", "N269", "N270"]
+evidence: []
+sources: []
+fundSources: []
+numbers: []
 ---
 
-## The situation
+## Fictional Acquisition Companion example
 
-The source illustrates a £3.5m purchase funded by £2.5m bank borrowing, £0.5m equity and £0.5m seller finance. Assumed annual earnings are £1m. Bank principal is repaid evenly over five years, the example uses 10% first-year interest on the starting balance, and seller payments are £100k annually. This is a hypothetical model, not a disclosed loan agreement. [Watch source](https://www.youtube.com/watch?v=VmRqlJuqCs8)
+This hypothetical uses invented facts and numbers. A fictional business produces £330,000 of annual cash available for debt service before financing payments. Its buyer is considering a £1.2 million senior loan with equal principal over eight years and a separate seller note requiring £48,000 each year.
 
-## Calculate the first-year burden
+## Build the simplified first-year schedule
 
-1. Bank principal: £2,500,000 ÷ 5 = **£500,000**.
-2. Simplified first-year interest: £2,500,000 × 10% = **£250,000**.
-3. Seller repayment: **£100,000**.
-4. Total illustrated payments: £500,000 + £250,000 + £100,000 = **£850,000**.
-5. Earnings less those payments: £1,000,000 − £850,000 = **£150,000**.
+For this illustration only, calculate interest at 8% of the opening senior balance:
 
-Those payments consume 85% of the assumed earnings. This is the source's annual simplification; actual interest depends on when principal is repaid and how the contract calculates accrual. Its spoken benchmark-rate explanation is flagged as questionable in the research, so the 10% input is retained solely as an assumption, not a current rate quotation.
+1. Senior principal: £1,200,000 ÷ 8 = **£150,000**.
+2. Senior interest: £1,200,000 × 8% = **£96,000**.
+3. Senior debt service: £150,000 + £96,000 = **£246,000**.
+4. Add the seller-note payment: £246,000 + £48,000 = **£294,000** total scheduled payments.
+5. Remaining cash in this simplified schedule: £330,000 − £294,000 = **£36,000**.
+6. Cash-flow coverage: £330,000 ÷ £294,000 = **1.12×** (rounded).
 
-## Interpret the remainder
+The interest convention and all terms are assumptions for the exercise, not a market benchmark or a proposed financing package.
 
-The £150k is not demonstrated free cash flow or a safe dividend. Tax, capital expenditure, working-capital changes and other costs have not been reconciled. It also assumes the £1m earnings survive the ownership change. A business with apparently substantial profit could have little room for a new executive or a delayed project payment after financing demands.
+## Decide what the remainder can support
 
-Next, turn the annual illustration into a monthly cash schedule using consistent earnings definitions and the actual loan terms. Do not call £1m divided by these payments the lender's contractual coverage ratio unless its numerator and included obligations match. Continue with [cash flow](/topics/cash-flow/) and [debt service](/topics/debt-service/).
+The £36,000 is only the remainder after the listed payments. The case has not modeled taxes, capital spending, working-capital swings, fees or unexpected repairs. A buyer should check those needs and test weaker trading before deciding how much debt the business can carry. Continue with [cash flow](/topics/cash-flow/) and [debt service](/topics/debt-service/).

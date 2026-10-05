@@ -19,7 +19,7 @@ function baseEnv(overrides={}){
 }
 
 function fixture({approved=false,grant=null,session=true}={}){
- let customerId=null,calls=0,savedChallenge=null;
+ let customerId=null,calls=0,savedChallenge=null;const usage=[];
  const store={
   async getSession(){return session?{userId,csrfHash:await hash(csrf)}:null;},
   async getGrant(){return grant;},
@@ -28,11 +28,13 @@ function fixture({approved=false,grant=null,session=true}={}){
   async setCustomer(_id,id){customerId=id;return id;},
   async allowEmailAttempt(){return true;},
   async saveChallenge(challenge){savedChallenge=challenge;},
+  async reserveUsage(record){usage.push(record);},
+  async finishUsage(){},
  };
  const dependencies={store,async sendEmail(){},async fetcher(url){calls++;if(url.endsWith('/customers'))return Response.json({object:'customer',id:'cus_fixture',livemode:false});return Response.json({object:'checkout.session',url:'https://checkout.stripe.com/c/pay/fixture',livemode:false});}};
  const paidRequest=(path,body,authenticated=true)=>new Request(`https://acquisitioncompanion.com${path}`,{method:body===undefined?'GET':'POST',headers:{Origin:'https://acquisitioncompanion.com','Content-Type':'application/json','Sec-Fetch-Site':'same-origin','CF-Connecting-IP':'198.51.100.42',...(authenticated?{Cookie:`__Host-ac-session=${token}`,'X-CSRF-Token':csrf}:{})},...(body===undefined?{}:{body:JSON.stringify(body)})});
  const aiRequest=(authenticated=false)=>new Request('https://acquisitioncompanion.com/api/ai',{method:'POST',headers:{Origin:'https://acquisitioncompanion.com','Content-Type':'application/json','X-AI-Session-ID':'672e377b-4a59-4e37-b271-5208686801e0','CF-Connecting-IP':'198.51.100.42',...(authenticated?{Cookie:`__Host-ac-session=${token}`}:{})},body:JSON.stringify({mode:'ask_course',message:'Explain EBITDA briefly.',history:[]})});
- return {store,dependencies,paidRequest,aiRequest,calls:()=>calls,savedChallenge:()=>savedChallenge,setSession(value){session=value;},setGrant(value){grant=value;}};
+ return {store,dependencies,paidRequest,aiRequest,calls:()=>calls,usage:()=>usage,savedChallenge:()=>savedChallenge,setSession(value){session=value;},setGrant(value){grant=value;}};
 }
 
 function modelOutput(){return Response.json({status:'completed',output:[{type:'file_search_call',status:'completed',results:[]},{type:'message',role:'assistant',content:[{type:'output_text',text:JSON.stringify({responseText:'A concise sourced answer.',suggestedActions:['explain']})}]}]});}
@@ -98,6 +100,35 @@ test('AI paywall alone gates AI; auth and billing stay off, and active subscript
  assert.equal(anonymous.status,401);
  const paid=fixture({grant:{status:'active',validUntil:Date.now()+60_000}}),paidEnv=baseEnv({AI_PAYWALL_ENABLED:'true',AUTH_SIGNIN_ENABLED:'false',BILLING_ENABLED:'false'});
  assert.equal((await requirePaidAccess(paid.aiRequest(true),paidEnv,{store:paid.store})).userId,userId);
+});
+
+test('Checkout approval alone never unlocks AI; active access survives scheduled cancellation only through paid-through time',async()=>{
+ let modelCalls=0;
+ const approved=fixture({approved:true}),env=baseEnv({AI_PAYWALL_ENABLED:'true',AUTH_SIGNIN_ENABLED:'true',BILLING_ENABLED:'true'});
+ const denied=await handleAiRequest(approved.aiRequest(true),env,{...approved.dependencies,fetcher:async()=>{modelCalls++;return modelOutput();}});
+ assert.equal(denied.status,402,'paid_beta_checkout does not satisfy ai_deal_lab');
+ assert.equal((await denied.json()).error.code,'subscription_required');
+ assert.equal(approved.usage().length,0,'denied access creates no paid usage row');
+ assert.equal(modelCalls,0,'denied access does not invoke the model');
+
+ const periodEnd=Date.now()+60_000,scheduled=fixture({grant:{status:'active',validUntil:periodEnd,cancelAtPeriodEnd:true}});
+ const allowed=await handleAiRequest(scheduled.aiRequest(true),env,{...scheduled.dependencies,fetcher:async()=>{modelCalls++;return modelOutput();}});
+ assert.equal(allowed.status,200,'cancel_at_period_end remains entitled through the paid-through time');
+ assert.equal(scheduled.usage().length,1);
+ assert.equal(modelCalls,1);
+
+ for(const grant of [
+  {status:'canceled',validUntil:periodEnd,cancelAtPeriodEnd:true},
+  {status:'past_due',validUntil:periodEnd},
+  {status:'unpaid',validUntil:periodEnd},
+  {status:'active',validUntil:Date.now()-1},
+ ]){
+  const inactive=fixture({grant});
+  const response=await handleAiRequest(inactive.aiRequest(true),env,{...inactive.dependencies,fetcher:async()=>{modelCalls++;return modelOutput();}});
+  assert.equal(response.status,402);
+  assert.equal(inactive.usage().length,0);
+ }
+ assert.equal(modelCalls,1,'inactive and expired subscriptions fail before model access');
 });
 
 test('scheduled credential cleanup follows sign-in without enabling the AI paywall',async()=>{

@@ -10,7 +10,9 @@ await fs.promises.mkdir('artifacts',{recursive:true});
 const browser=await chromium.launch({channel:'chrome',headless:true});
 const errors=[];const external=[];
 const unavailable=await browser.newContext({viewport:{width:1440,height:1000}});
+await unavailable.addInitScript(()=>localStorage.setItem('acquisition-companion-analytics-consent','denied'));
 await unavailable.route('**/api/ai/status',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({status:'unavailable',available:false})}));
+await unavailable.route('**/api/billing/status',route=>route.fulfill({json:{enabled:false,signInAvailable:false,billingAvailable:false}}));
 const unavailablePage=await unavailable.newPage();unavailablePage.on('pageerror',error=>errors.push(error.message));
 const pageResponse=await unavailablePage.goto(`${base}/ai/`);assert.equal(pageResponse.status(),200);
 await unavailablePage.getByText('AI Deal Lab is being configured.',{exact:false}).waitFor();
@@ -19,9 +21,49 @@ assert.equal(await unavailablePage.locator('#ai-message').isDisabled(),true);
 const unavailableAxe=await new AxeBuilder({page:unavailablePage}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
 assert.deepEqual(unavailableAxe.violations.map(item=>item.id),[]);
 
+const gatedContext=await browser.newContext({viewport:{width:390,height:844}});
+await gatedContext.addInitScript(()=>localStorage.setItem('acquisition-companion-analytics-consent','denied'));
+let gateAccess='login_required',gateAccount=null,gateModelCalls=0,gateDeniedCalls=0;
+await gatedContext.route('**/api/billing/status',route=>route.fulfill({json:{enabled:true,signInAvailable:true,billingAvailable:true,product:{monthlyUsd:19,annualUsd:190}}}));
+await gatedContext.route('**/api/account',route=>route.fulfill(gateAccount?{json:gateAccount}:{status:401,json:{error:{code:'login_required',message:'Sign in to continue.'}}}));
+await gatedContext.route('**/api/ai/status',route=>route.fulfill({json:gateAccess?{status:'access_required',available:false,access:gateAccess}:{status:'ready',available:true,paid:true}}));
+await gatedContext.route('**/api/ai',route=>{
+ if(!gateAccount?.entitled){gateDeniedCalls++;return route.fulfill({status:gateAccess==='login_required'?401:402,json:{error:{code:gateAccess,message:'Deal Lab access is required.'}}});}
+ gateModelCalls++;return route.fulfill({json:{responseText:'An entitled response.',citations:[],suggestedActions:[]}});
+});
+const gatedPage=await gatedContext.newPage();gatedPage.on('pageerror',error=>errors.push(error.message));
+await gatedPage.goto(`${base}/ai/`);await gatedPage.locator('[data-ai-status]').filter({hasText:'Sign in to use Deal Lab'}).waitFor();
+assert.equal(await gatedPage.locator('[data-ai-account-link]').innerText(),'Sign in');assert.equal(await gatedPage.locator('[data-ai-account-link]').getAttribute('href'),'/account/');
+assert.equal(await gatedPage.locator('[data-ai-access-pricing]').isVisible(),true);assert.equal(await gatedPage.locator('#ai-message').isDisabled(),true);
+assert.equal(await gatedPage.locator('[data-mode]').evaluateAll(buttons=>buttons.every(button=>!button.disabled)),true,'public workspace modes remain browsable while AI actions are gated');
+const signedOutBypass=await gatedPage.evaluate(async()=>{const response=await fetch('/api/ai',{method:'POST',headers:{Origin:location.origin,'Content-Type':'application/json','X-AI-Session-ID':crypto.randomUUID()},body:JSON.stringify({mode:'ask_course',message:'test',history:[]})});return response.status;});
+assert.equal(signedOutBypass,401);assert.equal(gateModelCalls,0);
+assert.deepEqual((await new AxeBuilder({page:gatedPage}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations.map(item=>item.id),[]);
+
+gateAccess='subscription_required';gateAccount={signedIn:true,csrfToken:'b'.repeat(64),checkoutEligible:false,entitled:false,subscription:null,usage:{requestCount:0},monthlyRequestLimit:100};
+await gatedPage.goto(`${base}/ai/`);await gatedPage.locator('[data-ai-status]').filter({hasText:'No active Deal Lab subscription'}).waitFor();
+assert.equal(await gatedPage.locator('[data-ai-account-link]').innerText(),'Account');assert.equal(await gatedPage.locator('[data-ai-access-request]').isVisible(),true);
+const nonEntitledBypass=await gatedPage.evaluate(async()=>{const response=await fetch('/api/ai',{method:'POST',headers:{Origin:location.origin,'Content-Type':'application/json','X-AI-Session-ID':crypto.randomUUID()},body:JSON.stringify({mode:'ask_course',message:'test',history:[]})});return response.status;});
+assert.equal(nonEntitledBypass,402);assert.equal(gateModelCalls,0);
+
+gateAccount.checkoutEligible=true;
+await gatedPage.goto(`${base}/ai/`);await gatedPage.locator('[data-ai-status]').filter({hasText:'Checkout approval is active'}).waitFor();
+assert.equal(await gatedPage.locator('[data-ai-access-request]').isVisible(),false);assert.equal(await gatedPage.locator('[data-ai-access-pricing]').isVisible(),true);
+const approvalOnlyBypass=await gatedPage.evaluate(async()=>{const response=await fetch('/api/ai',{method:'POST',headers:{Origin:location.origin,'Content-Type':'application/json','X-AI-Session-ID':crypto.randomUUID()},body:JSON.stringify({mode:'ask_course',message:'test',history:[]})});return response.status;});
+assert.equal(approvalOnlyBypass,402);assert.equal(gateModelCalls,0);
+
+gateAccount={...gateAccount,entitled:true,subscription:{status:'active',cancelAtPeriodEnd:true,accessUntil:Date.UTC(2026,10,4)}};gateAccess=null;
+await gatedPage.goto(`${base}/ai/`);await gatedPage.locator('[data-ai-status][data-state=ready]').waitFor();assert.equal(await gatedPage.locator('[data-ai-account-link]').innerText(),'Account');
+await gatedPage.locator('#ai-message').fill('Test one entitled question.');await gatedPage.locator('[data-submit]').click();
+await gatedPage.getByText('An entitled response.',{exact:true}).waitFor();assert.equal(gateModelCalls,1);assert.equal(gateDeniedCalls,3);
+for(const width of [390,768,1440]){await gatedPage.setViewportSize({width,height:900});await gatedPage.goto(`${base}/ai/`);assert.ok(await gatedPage.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`gated /ai/ ${width}`);assert.deepEqual((await new AxeBuilder({page:gatedPage}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations.map(item=>item.id),[]);}
+await gatedContext.close();
+
 const context=await browser.newContext({viewport:{width:1440,height:1000}});
+await context.addInitScript(()=>localStorage.setItem('acquisition-companion-analytics-consent','denied'));
 await context.addInitScript(()=>{window.__aiInjected=false;window.__aiEvents=[];});
 await context.route('**/api/ai/status',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({status:'ready',available:true})}));
+await context.route('**/api/billing/status',route=>route.fulfill({json:{enabled:false,signInAvailable:false,billingAvailable:false}}));
 const calls=[];const failures=new Map();let nextGate=null;
 function gateNextResponse(){
  let markStarted,release;

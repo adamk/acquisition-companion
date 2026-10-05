@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import caseCards from '../../data/ai-case-cards.json';
 import '../../styles/ai-lab.css';
 import {siteConfig} from '../../site-config.mjs';
+import {supportEmail} from '../../lib/paid-product.mjs';
 const starters=[
  ['Seller financing','What does Acquisition Companion teach about seller financing?'],
  ['Private credit','What does Acquisition Companion teach about private credit?'],
@@ -15,18 +16,19 @@ const starters=[
  <div class="ai-app" data-ai-app data-case-cards={JSON.stringify(caseCards)}>
   <header class="ai-topbar">
    <a class="ai-workspace-brand" href="/" aria-label="Acquisition Companion home"><span class="brand-mark" aria-hidden="true">AC</span><div class="ai-brand-copy"><span>Acquisition Companion</span><h1>AI Deal Lab</h1></div></a>
-   <nav class="ai-header-actions" aria-label="Workspace navigation" data-pagefind-ignore><a href="/course/">Back to course <span aria-hidden="true">↗</span></a><button type="button" class="button secondary ai-reset" data-reset>New session</button></nav>
+   <nav class="ai-header-actions" aria-label="Workspace navigation" data-pagefind-ignore><a href="/course/">Back to course <span aria-hidden="true">↗</span></a><a class="ai-account-link" href="/account/" data-ai-account-link hidden>Sign in</a><button type="button" class="button secondary ai-reset" data-reset>New session</button></nav>
   </header>
   <details class="ai-purpose">
    <summary>Why not just use ChatGPT?</summary>
    <div class="ai-purpose-copy">
     <p>You absolutely can use a general AI assistant. Acquisition Companion is designed for buyers who don’t want to build their own M&amp;A prompts, models and learning framework from scratch.</p>
-    <p>The workspace connects valuation, financing, debt capacity, downside, diligence and structure across a short deal conversation. Sources linked to the curriculum and deterministic calculations support the reasoning, with explanations and guardrails for new buyers, plus fictional deal and IC practice.</p>
+    <p>The workspace connects valuation, financing, debt capacity, downside, diligence and structure across a short deal conversation. It applies the independently authored Acquisition Companion curriculum, source-linked material and deterministic calculations to support the reasoning, with explanations and guardrails for new buyers, plus fictional deal and IC practice. Source links identify material by its original creators; they do not imply creator involvement or endorsement.</p>
     <p>We don’t claim a smarter underlying model or exclusive capabilities. The value is the acquisition framework around it.</p>
    </div>
   </details>
+  <p class="ai-free-paid-note">The course and source-linked educational material remain free; Deal Lab subscriptions support interactive tools and AI compute.</p>
   <div class="ai-status" data-ai-status role="status" aria-live="polite" data-pagefind-ignore>Checking AI Deal Lab availability…</div>
-  <p class="small" data-ai-access hidden><a href="/account/">Sign in</a> · <a href="/pricing/">View Deal Lab subscription options</a></p>
+  <p class="small ai-access-notice" data-ai-access hidden><span data-ai-access-message></span> <a href="/pricing/" data-ai-access-pricing>View pricing</a> <a href={`mailto:${supportEmail}`} data-ai-access-request hidden>Request beta access</a></p>
   <div class="ai-workspace" data-ai-workspace data-pagefind-ignore>
    <aside class="ai-rail" data-mode-rail aria-label="Learning modes">
     <p class="eyebrow ai-rail-heading">Ask · Practice · Defend</p>

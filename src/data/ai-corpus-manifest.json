@@ -1,6 +1,6 @@
 {
   "ac-example--earnings-after-debt-service.md": {
-    "title": "£1m earnings, £150k left before other cash needs",
+    "title": "A thin cushion after scheduled debt service",
     "slug": "earnings-after-debt-service",
     "contentType": "example",
     "topics": [
@@ -11,28 +11,18 @@
     "status": "hypothetical",
     "authorship": "Acquisition Companion",
     "sourceFamilies": [
-      "Yusufa Sey-derived education"
+      "Acquisition Companion original synthesis"
     ],
     "publicSourceReferences": {
-      "yusufaVideoIds": [
-        "VmRqlJuqCs8"
-      ],
-      "evidenceIds": [
-        "E216"
-      ],
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
       "fundLaunchGuideIds": []
     },
-    "originalSources": [
-      {
-        "family": "Yusufa Sey",
-        "title": "Zero to £100M | Merger & Acquisition entrepreneur doing business in Copenhagen | vlog 3",
-        "url": "https://www.youtube.com/watch?v=VmRqlJuqCs8"
-      }
-    ],
+    "originalSources": [],
     "url": "https://acquisitioncompanion.com/examples/earnings-after-debt-service/"
   },
   "ac-example--exceptional-deferred-purchase.md": {
-    "title": "The reported £1.8m acquisition",
+    "title": "A deferred payment creates a future funding gap",
     "slug": "exceptional-deferred-purchase",
     "contentType": "example",
     "topics": [
@@ -40,27 +30,17 @@
       "deferred-consideration",
       "adjusted-ebitda"
     ],
-    "status": "reported-completed",
+    "status": "hypothetical",
     "authorship": "Acquisition Companion",
     "sourceFamilies": [
-      "Yusufa Sey-derived education"
+      "Acquisition Companion original synthesis"
     ],
     "publicSourceReferences": {
-      "yusufaVideoIds": [
-        "EL60pBzPd_k"
-      ],
-      "evidenceIds": [
-        "E084"
-      ],
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
       "fundLaunchGuideIds": []
     },
-    "originalSources": [
-      {
-        "family": "Yusufa Sey",
-        "title": "Inside my 7-figure acquisitions (FULL breakdown)",
-        "url": "https://www.youtube.com/watch?v=EL60pBzPd_k"
-      }
-    ],
+    "originalSources": [],
     "url": "https://acquisitioncompanion.com/examples/exceptional-deferred-purchase/"
   },
   "ac-example--funding-the-search.md": {
@@ -140,7 +120,7 @@
     "url": "https://acquisitioncompanion.com/examples/institutional-debt-proposal/"
   },
   "ac-example--machinery-borrowing-base.md": {
-    "title": "Why £1m of machinery supports £640k in the illustration",
+    "title": "From recorded equipment value to an eligible borrowing base",
     "slug": "machinery-borrowing-base",
     "contentType": "example",
     "topics": [
@@ -150,28 +130,18 @@
     "status": "hypothetical",
     "authorship": "Acquisition Companion",
     "sourceFamilies": [
-      "Yusufa Sey-derived education"
+      "Acquisition Companion original synthesis"
     ],
     "publicSourceReferences": {
-      "yusufaVideoIds": [
-        "Hvw5FAbRAZY"
-      ],
-      "evidenceIds": [
-        "E241"
-      ],
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
       "fundLaunchGuideIds": []
     },
-    "originalSources": [
-      {
-        "family": "Yusufa Sey",
-        "title": "How To Raise Money To Buy A Business In 2025 | vlog 13",
-        "url": "https://www.youtube.com/watch?v=Hvw5FAbRAZY"
-      }
-    ],
+    "originalSources": [],
     "url": "https://acquisitioncompanion.com/examples/machinery-borrowing-base/"
   },
   "ac-example--marketing-addback.md": {
-    "title": "When an addback doubles claimed earnings",
+    "title": "Separate a supported expense adjustment from a recurring cost",
     "slug": "marketing-addback",
     "contentType": "example",
     "topics": [
@@ -182,28 +152,18 @@
     "status": "hypothetical",
     "authorship": "Acquisition Companion",
     "sourceFamilies": [
-      "Yusufa Sey-derived education"
+      "Acquisition Companion original synthesis"
     ],
     "publicSourceReferences": {
-      "yusufaVideoIds": [
-        "vkKw1MeUors"
-      ],
-      "evidenceIds": [
-        "E035"
-      ],
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
       "fundLaunchGuideIds": []
     },
-    "originalSources": [
-      {
-        "family": "Yusufa Sey",
-        "title": "If you ever feel confused… here’s how you buy a BUSINESS",
-        "url": "https://www.youtube.com/watch?v=vkKw1MeUors"
-      }
-    ],
+    "originalSources": [],
     "url": "https://acquisitioncompanion.com/examples/marketing-addback/"
   },
   "ac-example--preference-before-common.md": {
-    "title": "A $1.5bn exit that leaves common shareholders nothing",
+    "title": "Compare a preference with conversion into common equity",
     "slug": "preference-before-common",
     "contentType": "example",
     "topics": [
@@ -214,24 +174,14 @@
     "status": "hypothetical",
     "authorship": "Acquisition Companion",
     "sourceFamilies": [
-      "Yusufa Sey-derived education"
+      "Acquisition Companion original synthesis"
     ],
     "publicSourceReferences": {
-      "yusufaVideoIds": [
-        "fOjSk3VYZdc"
-      ],
-      "evidenceIds": [
-        "E187"
-      ],
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
       "fundLaunchGuideIds": []
     },
-    "originalSources": [
-      {
-        "family": "Yusufa Sey",
-        "title": "The art of making deals in private equity",
-        "url": "https://www.youtube.com/watch?v=fOjSk3VYZdc"
-      }
-    ],
+    "originalSources": [],
     "url": "https://acquisitioncompanion.com/examples/preference-before-common/"
   },
   "ac-example--revenue-covenant-floor.md": {
@@ -280,7 +230,7 @@
     "url": "https://acquisitioncompanion.com/examples/revenue-covenant-floor/"
   },
   "ac-example--seller-rollover-price-bridge.md": {
-    "title": "Bridging a four-times price with a 75% purchase",
+    "title": "Translate a partial equity purchase into an implied value",
     "slug": "seller-rollover-price-bridge",
     "contentType": "example",
     "topics": [
@@ -291,24 +241,14 @@
     "status": "hypothetical",
     "authorship": "Acquisition Companion",
     "sourceFamilies": [
-      "Yusufa Sey-derived education"
+      "Acquisition Companion original synthesis"
     ],
     "publicSourceReferences": {
-      "yusufaVideoIds": [
-        "_CJLfixvoN4"
-      ],
-      "evidenceIds": [
-        "E208"
-      ],
+      "yusufaVideoIds": [],
+      "evidenceIds": [],
       "fundLaunchGuideIds": []
     },
-    "originalSources": [
-      {
-        "family": "Yusufa Sey",
-        "title": "How I Would Buy a Business in 2026 (If I Had to Start Over)",
-        "url": "https://www.youtube.com/watch?v=_CJLfixvoN4"
-      }
-    ],
+    "originalSources": [],
     "url": "https://acquisitioncompanion.com/examples/seller-rollover-price-bridge/"
   },
   "ac-example--three-and-a-half-million-stack.md": {

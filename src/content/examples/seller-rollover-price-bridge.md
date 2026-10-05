@@ -1,32 +1,25 @@
 ---
-title: "Bridging a four-times price with a 75% purchase"
-description: "Follow the proportional price calculation, then examine what the seller still owns and risks."
+title: "Translate a partial equity purchase into an implied value"
+description: "A fictional proportional calculation separates cash paid for a stake from the value implied for retained shares."
 status: "hypothetical"
 topics: ["rollover-equity", "seller-financing", "equity-value"]
-evidence: ["E208"]
-sources: ["_CJLfixvoN4"]
-numbers: ["N251", "N252", "N253"]
+evidence: []
+sources: []
+fundSources: []
+numbers: []
 ---
 
-## The suggested structure
+## Fictional Acquisition Companion example
 
-The source discusses a seller wanting four times earnings while a buyer can fund three times, and uses a 75% economic interest as a way to bridge that gap. It suggests sellers can transfer the operating company to a holding company and receive holding-company shares for the retained portion. This is a hypothetical structuring idea, not a disclosed completed transaction on these exact terms. [Watch source](https://www.youtube.com/watch?v=_CJLfixvoN4)
+This hypothetical uses invented facts and numbers. A buyer pays £960,000 for 60% of a fictional company's equity. For this simple calculation, assume the shares have identical economic rights and the price scales proportionally across the equity.
 
-## Understand the proportional arithmetic
+## Derive the implied equity value
 
-Let annual earnings be one unit solely to keep the calculation clear:
+1. Implied value of all equity: £960,000 ÷ 60% = **£1,600,000**.
+2. Implied value of the retained 40%: £1,600,000 × 40% = **£640,000**.
 
-1. Seller's total value expectation: **4 units**.
-2. Buyer's available value for the initial economic interest: **3 units**.
-3. Proportional share: 3 ÷ 4 = **75%**.
-4. Seller's remaining economic participation: **25%**.
+The £640,000 is a proportional implication of the assumed price. It is not cash paid to the seller, a guaranteed future payment or a separate valuation opinion. Different share rights, debt, transaction adjustments, dilution or control terms could change the economics.
 
-These units are multiples of the same earnings base, not a stated pound amount. The arithmetic explains the proposed compromise; it does not determine control rights or a final contractual equity value. Cash, debt, fees and any other adjustments still require agreement.
+## Separate retained ownership from deferred cash
 
-## The retained stake remains an investment
-
-The seller continues to bear business and financing risk through the retained shares. A holding-company interest also needs careful definition if other acquisitions, investors or borrowings may enter that company. Being paid partly in shares is different from being owed a fixed deferred cash balance.
-
-The source mentions a later call option, illustratively after five years and using a future earnings multiple. That mechanism creates another valuation and funding question; it does not guarantee the seller a particular future cheque. Do not confuse it with the separate reported first acquisition in which a remaining 25% was bought about two years later.
-
-The useful questions concern the entity owned, the rights attached to its shares and how a later purchase would be financed. A percentage can bridge today's negotiation while leaving significant future uncertainty. Continue with [rollover equity](/topics/rollover-equity/) and [equity value](/topics/equity-value/).
+Rollover equity leaves the seller exposed to the future value of the business and to the rights attached to the retained shares. A fixed deferred payment is a contractual claim with different risks. Before using either structure, specify the entity, security rights, governance, future funding and any later purchase mechanism. Continue with [rollover equity](/topics/rollover-equity/) and [equity value](/topics/equity-value/).

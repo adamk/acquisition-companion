@@ -1,28 +1,27 @@
 ---
-title: "Why £1m of machinery supports £640k in the illustration"
-description: "Follow the reductions from machinery book value to appraisal and potential borrowing."
+title: "From recorded equipment value to an eligible borrowing base"
+description: "A fictional collateral calculation separates accounting value, eligible assets and an assumed advance rate."
 status: "hypothetical"
 topics: ["collateral", "asset-based-lending"]
-evidence: ["E241"]
-sources: ["Hvw5FAbRAZY"]
-numbers: ["N313"]
+evidence: []
+sources: []
+fundSources: []
+numbers: []
 ---
 
-## The situation
+## Fictional Acquisition Companion example
 
-The collection gives a machinery-financing illustration with three distinct amounts: £1m accounting book value, £800k appraised realization value and an advance calculated against that appraisal. The stated valuation basis assumes an ex-factory disposal over 120 days. This is hypothetical teaching from a recovered audio transcript, not an independently verified appraisal or an executed lending offer. [Watch source](https://www.youtube.com/watch?v=Hvw5FAbRAZY)
+This hypothetical uses invented facts and numbers. A fictional manufacturer records £520,000 of equipment on its books. A current appraisal for the lender's stated valuation basis is £355,000. Of that appraised amount, £55,000 is already pledged or otherwise ineligible under the assumed facility rules.
 
-## Apply the right denominator
+## Calculate the illustrative base
 
-1. Begin with the recorded machinery value: **£1,000,000**.
-2. Substitute the example's independent realization appraisal: **£800,000**.
-3. Apply the illustrated advance rate: £800,000 × 80% = **£640,000**.
-4. Compare with book value: £640,000 ÷ £1,000,000 = **64%**.
+1. Appraised equipment value: **£355,000**.
+2. Less ineligible or previously pledged assets: £355,000 − £55,000 = **£300,000 eligible collateral**.
+3. At an assumed 62% advance rate: £300,000 × 62% = **£186,000 gross borrowing base**.
+4. Compared with book value: £186,000 ÷ £520,000 = **35.8%** (rounded).
 
-The last percentage is an editorial calculation. Applying 80% directly to £1m would produce £800k, overstating the illustrated borrowing amount by £160k. There are two separate reductions: £200k between book and appraisal value, then £160k between appraisal and advance. Neither should be hidden inside an unexplained percentage.
+The assumed advance rate and eligibility decisions are fictional inputs, not typical lender terms. The gross base may also differ from cash available after reserves, fees, prior claims or other facility conditions.
 
-## Why this matters to an acquisition
+## Verify the collateral definition
 
-A buyer filling a purchase-price gap needs cash available under lender terms. The accounting asset total cannot supply that number on its own. Existing security, ownership and the eligible asset pool also need confirmation. Even £640k gross borrowing might not equal net completion proceeds after fees or amounts used to settle another facility.
-
-The 120 days describes a disposal assumption, not a four-month loan maturity. The source also discusses a broader 50–80% advance range, but does not establish a universal lender product. Use the example to ask better valuation questions: what is being valued, under what sale conditions and against which percentage? A machine's recorded depreciation schedule answers a different question from its lending value. Continue with [collateral](/topics/collateral/) and [asset-based lending](/topics/asset-based-lending/).
+Accounting value, appraised value, eligible collateral and funds available to close are different quantities. A buyer should confirm who owns each asset, which liens attach to it, how the appraisal handles sale conditions and what deductions the lender applies. A borrowing-base estimate is only as reliable as those underlying definitions. Continue with [collateral](/topics/collateral/) and [asset-based lending](/topics/asset-based-lending/).

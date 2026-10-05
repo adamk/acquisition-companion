@@ -40,6 +40,10 @@ if(root){
  const emptyState=document.querySelector<HTMLElement>('[data-empty-state]')!;
  const statusNode=document.querySelector<HTMLElement>('[data-ai-status]')!;
  const accessNotice=document.querySelector<HTMLElement>('[data-ai-access]')!;
+ const accessMessage=document.querySelector<HTMLElement>('[data-ai-access-message]')!;
+ const accessPricing=document.querySelector<HTMLAnchorElement>('[data-ai-access-pricing]')!;
+ const accessRequest=document.querySelector<HTMLAnchorElement>('[data-ai-access-request]')!;
+ const accountLink=document.querySelector<HTMLAnchorElement>('[data-ai-account-link]')!;
  const errorBox=document.querySelector<HTMLElement>('[data-ai-error]')!;
  const errorMessage=document.querySelector<HTMLElement>('[data-error-message]')!;
  const retryButton=document.querySelector<HTMLButtonElement>('[data-retry]')!;
@@ -300,7 +304,10 @@ if(root){
   state.lastAttempt=null;textarea.value='';announce('Response ready.');resetButton.hidden=false;setControls();if(trigger)trigger.textContent=triggerLabel;keepLatestVisible(nearLatest);
  }
  function showError(message:string,code:string){
-  if(['login_required','subscription_required','billing_unavailable'].includes(code)){state.available=false;accessNotice.hidden=false;retryButton.hidden=true;}
+  if(['login_required','subscription_required','billing_unavailable'].includes(code)){
+   state.available=false;accessNotice.hidden=false;retryButton.hidden=true;accessPricing.hidden=code==='billing_unavailable';accessRequest.hidden=code!=='subscription_required';
+   accessMessage.textContent=code==='login_required'?'Interactive Deal Lab analysis requires an active subscription. The free course remains available.':code==='subscription_required'?'No active Deal Lab subscription. The initial beta is invite-only for U.S. customers.':'Deal Lab access is temporarily unavailable. The core course remains free.';
+  }
   errorMessage.textContent=message;errorBox.hidden=false;retryButton.hidden=['rate_limited','response_too_long','login_required','subscription_required','billing_unavailable'].includes(code);announce(code==='rate_limited'?'Rate limit reached. Please wait before continuing.':code==='unavailable'?'AI Deal Lab is currently unavailable.':'There was a problem preparing your response.',code==='rate_limited'?'unavailable':'error');
  }
  function newSession(){
@@ -345,7 +352,41 @@ if(root){
    const {response,body}=await fetchJsonWithTimeout('/api/ai/status',{method:'GET',credentials:'same-origin',cache:'no-store',headers:{Accept:'application/json'}},8_000);
    if(!response.ok||!body||typeof body!=='object')throw new Error('status');const data=body as {available?:boolean;access?:string;paid?:boolean};
    state.available=data.available===true;state.paid=data.paid===true;
-   if(data.access){accessNotice.hidden=false;announce(data.access==='login_required'?'Sign in to use Deal Lab.':data.access==='subscription_required'?'A Deal Lab subscription is required.':'Account access is being configured.','unavailable');setControls();return;}
+   let accountState:{signedIn?:boolean;checkoutEligible?:boolean;entitled?:boolean}|null=null;
+   try{
+    const {response:billingResponse,body:billingBody}=await fetchJsonWithTimeout('/api/billing/status',{method:'GET',credentials:'same-origin',cache:'no-store',headers:{Accept:'application/json'}},8_000);
+    if(billingResponse.ok&&billingBody&&typeof billingBody==='object'&&(billingBody as {signInAvailable?:boolean}).signInAvailable===true){
+     accountLink.hidden=false;accountLink.textContent='Sign in';
+     const {response:accountResponse,body:accountBody}=await fetchJsonWithTimeout('/api/account',{method:'GET',credentials:'same-origin',cache:'no-store',headers:{Accept:'application/json','X-Account-Request':'1'}},8_000);
+     if(accountResponse.ok&&accountBody&&typeof accountBody==='object'){
+     accountState=accountBody as {signedIn?:boolean;checkoutEligible?:boolean;entitled?:boolean};
+      if(accountState.signedIn===true){accountLink.textContent='Account';state.paid=state.paid||accountState.entitled===true;}
+     }
+    }else accountLink.hidden=true;
+   }catch{accountLink.hidden=true;}
+   if(data.access){
+    accessNotice.hidden=false;accessPricing.hidden=false;accessRequest.hidden=true;
+    if(data.access==='login_required'){
+     accessMessage.textContent='Interactive Deal Lab analysis requires an active subscription. The free course remains available.';
+     announce('Sign in to use Deal Lab.','unavailable');
+    }else if(data.access==='subscription_required'){
+     if(accountState?.signedIn&&accountState.checkoutEligible){
+      accessMessage.textContent='Checkout approval is active. AI access begins only after a subscription becomes active.';
+      accessPricing.textContent='Choose a plan';announce('Checkout approval is active.','unavailable');
+     }else if(accountState?.signedIn){
+      accessMessage.textContent='No active Deal Lab subscription. The initial beta is invite-only for U.S. customers.';
+      accessRequest.hidden=false;announce('No active Deal Lab subscription.','unavailable');
+     }else{
+      accessMessage.textContent='A Deal Lab subscription is required. The core course remains free.';
+      announce('A Deal Lab subscription is required.','unavailable');
+     }
+    }else{
+     accessMessage.textContent='Deal Lab account access is temporarily unavailable. The core course remains free.';
+     accessPricing.hidden=true;announce('Account access is being configured.','unavailable');
+    }
+    setControls();return;
+   }
+   accessNotice.hidden=true;
    announce(state.available?'AI Deal Lab is ready.':'AI Deal Lab is being configured. You can still review the three practice modes and fictional case descriptions. Visit the course while AI is unavailable.',''+(state.available?'ready':'unavailable'));
   }catch{state.available=false;announce('AI Deal Lab service status could not be reached. Try again later or visit the course.','error');}
   setControls();

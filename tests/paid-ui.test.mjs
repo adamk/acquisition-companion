@@ -48,10 +48,19 @@ test('Worker auth logs serialize only an allowlisted stage and validated random 
  finally{console.warn=original;}
  assert.equal(output.length,2);for(const line of output){const event=JSON.parse(line);assert.deepEqual(Object.keys(event).sort(),['diagnosticId','reason','type']);assert.equal(event.type,'auth_diagnostic');assert.equal(event.reason,'auth_confirm_binding_mismatch');assert.match(event.diagnosticId,/^[0-9a-f-]{36}$/i);assert.ok(!line.includes('SECRET_TOKEN'));assert.ok(!line.includes('buyer@example.test'));}
 });
-test('pricing is a proposed single product with honest comparison; account disabled state collects nothing',()=>{
- const pricing=fs.readFileSync('src/pages/pricing.astro','utf8'),account=fs.readFileSync('src/pages/account.astro','utf8');
- assert.match(pricing,/Why not just use ChatGPT/);assert.match(pricing,/Paid-beta launch pricing/i);assert.match(pricing,/build their own/i);
- assert.match(account,/data-signin-form hidden/);assert.match(account,/Subscriptions are not open/);
+test('paid access is discoverable without putting account requirements in the free course',()=>{
+ const pricing=fs.readFileSync('src/pages/pricing.astro','utf8'),account=fs.readFileSync('src/pages/account.astro','utf8'),paidAccount=fs.readFileSync('src/scripts/paid-account.ts','utf8'),ai=fs.readFileSync('src/pages/ai/index.astro','utf8'),base=fs.readFileSync('src/layouts/Base.astro','utf8'),home=fs.readFileSync('src/pages/index.astro','utf8');
+ assert.match(pricing,/Why not just use ChatGPT/);assert.match(pricing,/data-checkout="monthly"/);assert.match(pricing,/data-checkout="annual"/);assert.match(pricing,/build their own/i);
+ assert.match(account,/data-signin-form hidden/);assert.match(account,/free course remains accessible without an account/);
+ assert.match(ai,/data-ai-account-link/);assert.match(ai,/data-ai-access-message/);assert.match(ai,/data-ai-access-pricing/);assert.match(ai,/data-ai-access-request/);
+ assert.match(pricing,/data-account-link/);assert.match(pricing,/Already subscribed\? Sign in/);
+ assert.match(base,/href="\/account\/"[^>]*>Account \/ sign in/);
+ assert.match(pricing,/The course, topics, examples and source-linked educational material remain free/);assert.match(pricing,/subscriptions support interactive AI analysis, deterministic calculations, deal-reasoning and practice workflows, and associated model and compute costs/);
+ assert.match(ai,/source-linked educational material remain free/);assert.match(ai,/interactive tools and AI compute/);
+ assert.match(home,/<strong>Free course<\/strong> no account needed/);
+ assert.match(account,/data-entitled-usage hidden/);assert.match(account+paidAccount,/No active Deal Lab subscription\./);
+ assert.match(account,/data-beta-request hidden/);assert.equal((account.match(/invite-only for U\.S\. customers/g)||[]).length,1,'the account page has one initially hidden beta message');
+ assert.equal((paidAccount.match(/invite-only for U\.S\. customers/g)||[]).length,0,'the account script does not duplicate static beta copy');
  assert.ok(!/type="file"|stripe\.js|localStorage/.test(account+pricing+fs.readFileSync('src/scripts/paid-account.ts','utf8')));
 });
 test('account pages suppress analytics so email-link fragments never enter page-view URLs',()=>{

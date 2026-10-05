@@ -30,6 +30,9 @@ test('corpus uses only authored curriculum and intentional public relationship m
     write(root, 'src/data/evidence.json', 'RESEARCH CLAIM TEXT MUST NOT BE INGESTED');
     write(root, 'private/research.md', 'PRIVATE SOURCE TEXT MUST NOT BE INGESTED');
     write(root, 'whisper_corpus/raw.md', 'RAW TRANSCRIPT TEXT MUST NOT BE INGESTED');
+    write(root, 'public/captions.srt', 'RAW CAPTION TEXT MUST NOT BE INGESTED');
+    write(root, 'public/transcript.vtt', 'RAW WEBVTT TEXT MUST NOT BE INGESTED');
+    write(root, 'public/source-recording.mp3', 'RAW AUDIO TEXT MUST NOT BE INGESTED');
 
     const result = buildAiCorpus({root, siteOrigin:'https://acquisitioncompanion.com'});
     const serialized = JSON.stringify(result);
@@ -37,6 +40,10 @@ test('corpus uses only authored curriculum and intentional public relationship m
     assert.ok(!serialized.includes('RESEARCH CLAIM TEXT'));
     assert.ok(!serialized.includes('PRIVATE SOURCE TEXT'));
     assert.ok(!serialized.includes('RAW TRANSCRIPT TEXT'));
+    assert.ok(!serialized.includes('RAW CAPTION TEXT'));
+    assert.ok(!serialized.includes('RAW WEBVTT TEXT'));
+    assert.ok(!serialized.includes('RAW AUDIO TEXT'));
+    assert.ok(!serialized.includes('Source-reconstruction boundary'));
     const lesson = result.documents.find(item => item.filename === 'ac-lesson--capital-stack.md');
     assert.ok(lesson);
     assert.match(lesson.content, /The authored lesson explains sources and uses/);

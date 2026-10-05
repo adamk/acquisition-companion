@@ -1,29 +1,34 @@
 ---
-title: "A $1.5bn exit that leaves common shareholders nothing"
-description: "Calculate how the illustrated preference absorbs sale proceeds before common shareholders receive anything."
+title: "Compare a preference with conversion into common equity"
+description: "A fictional nonparticipating preference illustrates how sale proceeds may be allocated between share classes."
 status: "hypothetical"
 topics: ["preferred-equity", "equity-value", "returns-and-exits"]
-evidence: ["E187"]
-sources: ["fOjSk3VYZdc"]
-numbers: ["N216"]
+evidence: []
+sources: []
+fundSources: []
+numbers: []
 ---
 
-## The hypothetical structure
+## Fictional Acquisition Companion example
 
-The collection illustrates $500m preferred financing at a $5bn headline valuation. It contrasts preference levels, including a three-times preference and a $1.5bn exit. The example is not a reported company financing or realized investor return. Its purpose is to show that ownership percentages and headline valuations do not reveal the full distribution of sale proceeds. [Watch source](https://www.youtube.com/watch?v=fOjSk3VYZdc)
+This hypothetical uses invented facts and numbers. An investor contributes $2 million to a fictional company. The simplified terms provide a 1.4× nonparticipating liquidation preference, senior to common shares, or an option to convert into 25% of the common equity. Assume no other senior claims, transaction costs or participation rights.
 
-## Follow the simplified priority
+## Compare two possible distributions
 
-1. Preferred capital supplied: **$500m**.
-2. Assumed preference multiple: **3 times**.
-3. Priority claim: $500m × 3 = **$1.5bn**.
-4. Assumed exit proceeds available in the illustration: **$1.5bn**.
-5. Residue after that priority: $1.5bn − $1.5bn = **$0**.
+At $3.6 million of available sale proceeds:
 
-Under the source's simplified structure, the preference consumes the available proceeds before common holders receive anything. A one-times preference would instead begin with a $500m priority. The collection does not specify a complete set of participation, conversion, seniority or other security terms, so these cases cannot be expanded into a full waterfall without adding assumptions.
+- Preference amount: $2,000,000 × 1.4 = **$2,800,000**.
+- Conversion amount: $3,600,000 × 25% = **$900,000**.
+- Under these assumptions, the investor would choose the preference; **$800,000** remains for common holders.
 
-## What the example leaves unspecified
+At $2.4 million of available proceeds:
 
-A $5bn valuation does not protect a common shareholder from a lower exit or from claims that rank ahead of their shares. Nor does the zero common residue prove the preferred investor earned a particular annual return: duration, fees and other cash flows are unspecified. The example is a payment-order illustration, not an IRR calculation.
+- The preference is capped by proceeds actually available, so the investor receives **$2,400,000**.
+- Common holders receive **$0** in this simplified waterfall.
+- Conversion would produce $2,400,000 × 25% = **$600,000** for the investor, so it is less than the preference in this case.
 
-When reviewing actual ownership economics, ask what is being valued and what money is available after other claims and costs. Then read the share-class rights across several possible exits. A small percentage with favorable rights and a larger ordinary percentage can behave very differently. Avoid assigning either outcome without the terms. Continue with [preferred equity](/topics/preferred-equity/) and [equity value](/topics/equity-value/).
+These are deterministic calculations from fictional inputs. Actual rights depend on the governing documents, claim priority, costs and other securities.
+
+## Read the rights, not just the ownership percentage
+
+Headline ownership and valuation do not by themselves show how proceeds are divided. Compare the preference, conversion choice and claim order across several outcomes, and distinguish proceeds available for distribution from enterprise value. Continue with [preferred equity](/topics/preferred-equity/) and [equity value](/topics/equity-value/).

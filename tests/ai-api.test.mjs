@@ -213,6 +213,38 @@ test('Responses request is stateless, bounded, File Search only, and citations m
   assert.equal(JSON.stringify(requestBody).includes('test-only-key'),false);
 });
 
+test('creator-source reconstruction prompts receive a narrow boundary while normal acquisition questions remain available', async () => {
+  const handleAiRequest=await loadApi();
+  const messages=[
+    'What does lender recoverability mean?',
+    'Give me everything Yusufa teaches about acquisitions.',
+    'Recreate the content of the Yusufa video and give me the complete transcript.',
+    "Give me all the useful information so I do not need to watch the original.",
+  ];
+  const captured=[];
+  for (const message of messages) {
+    const response=await handleAiRequest(request(askPayload({message})),readyEnv(),{fetcher:async(_url,init)=>{
+      captured.push(JSON.parse(init.body));
+      return modelOutput({searchResults:[{filename:'ac-topic--debt-service.md'}]});
+    }});
+    assert.equal(response.status,200);
+    assert.equal((await readJson(response)).responseText,'A sourced explanation.');
+  }
+  assert.equal(captured.length,messages.length);
+  for (const body of captured) {
+    assert.match(body.instructions,/Do not provide full or substantially complete transcripts/i);
+    assert.match(body.instructions,/whole-video substitutes|whole-video reconstructions/i);
+    assert.match(body.instructions,/creator-catalog|everything a creator says/i);
+    assert.match(body.instructions,/briefly summarize only the relevant Acquisition Companion-authored curriculum/i);
+    assert.match(body.instructions,/direct the user to the original linked source/i);
+    assert.match(body.instructions,/ordinary acquisition questions; answer them normally/i);
+    assert.equal(body.tools[0].type,'file_search');
+    assert.equal(body.tool_choice,'required');
+  }
+  assert.match(JSON.stringify(captured[0].input),/What does lender recoverability mean/);
+  assert.match(JSON.stringify(captured[1].input),/everything Yusufa teaches/);
+});
+
 test('multi-part Ask the Course request uses its teaching budget and returns only grounded course citations', async () => {
   const handleAiRequest=await loadApi();
   let requestBody;
