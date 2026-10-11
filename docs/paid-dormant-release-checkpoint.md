@@ -1,5 +1,7 @@
 # Dormant paid-infrastructure checkpoint — not activated
 
+> Historical checkpoint from the pre-activation release. The paid beta is now live; flags, webhook state and inventory below describe that earlier release and are not current production state. Use the current [deployment runbook](paid-beta-activation-runbook.md), [operator checklist](paid-beta-launch-operations.md), [owner policy](paid-beta-owner-policy.md) and [retention policy](paid-retention-review.md).
+
 Local branch: `production-paid-beta-preparation`, base `09c1c240c09cf1fb11312b1e21edd53e8426c22c`. The owner has approved a dormant production commit, main push and normal Workers Build after full validation; activation remains withheld. This complete file inventory includes the earlier prepared foundation and the latest invite-only gate; it is not a paid-staging merge.
 
 ## Production configuration proposed for the reviewed dormant release
@@ -21,7 +23,7 @@ Pre-release production rollback point is `85778d54-fcfe-4a0e-a7b2-db9e3946d980`,
 - `docs/paid-beta-launch-operations.md`
 - `docs/paid-beta-production-plan.md`
 - `docs/paid-dormant-release-checkpoint.md`
-- `docs/paid-launch-legal-draft.md`
+- `docs/paid-beta-owner-policy.md` (current policy record supersedes the former draft)
 - `docs/paid-retention-review.md`
 - `migrations/0001_paid_access.sql`
 - `migrations/0002_paid_beta_checkout.sql`

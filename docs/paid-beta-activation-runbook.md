@@ -22,7 +22,15 @@ Do not deploy `wrangler.paid-production.example.json` to production. It is a dor
 
 ## Ordinary code deployment
 
-Before deploying, use a clean checkout of the intended `main` commit. As of the latest production check, Cloudflare has no Workers Builds configuration attached to `acquisition-companion`, and production releases are direct Wrangler deployments. Pushing to `main` alone does not deploy. Run the full build and inspect the Wrangler dry run. Deploy the main Worker from the repository root with:
+Before deploying, use a clean checkout of the intended `main` commit. As of the latest production check, Cloudflare has no Workers Builds configuration attached to `acquisition-companion`, and production releases are direct Wrangler deployments. Pushing to `main` alone does not deploy. Build with the canonical public origin, run the full validation, and inspect the Wrangler dry run:
+
+```sh
+SITE_URL=https://acquisitioncompanion.com npm run build
+```
+
+Before a release that adds a D1 migration, first inspect the remote migration list and current production data with read-only queries. Apply only the reviewed pending migration to the dedicated production database; do not rerun an already-applied migration or run unrelated cleanup. For the completion-time migration `0003_paid_usage_completion_time.sql`, the additive schema change and conservative timestamp backfill are authorized by the owner-approved retention policy. It does not delete records. If it is pending after the checks, apply it with `npx wrangler d1 migrations apply acquisition-companion-paid-production --remote --config wrangler.jsonc`. Keep `PAID_RETENTION_POLICY_APPROVED`, `PAID_USAGE_RETENTION_DAYS` and `PAID_MONTHLY_USAGE_RETENTION_MONTHS` unset so applying it cannot run a scheduled purge. Verify the migration list and paid-account/subscription/usage state again before deploying the Worker.
+
+Deploy the main Worker from the repository root with:
 
 ```sh
 npx wrangler deploy --config wrangler.jsonc --keep-vars

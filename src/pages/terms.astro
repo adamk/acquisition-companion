@@ -1,15 +1,48 @@
 ---
-import Base from '../layouts/Base.astro';import Crumbs from '../components/Crumbs.astro';
+import Base from '../layouts/Base.astro';
+import Crumbs from '../components/Crumbs.astro';
 import {paidProduct,supportEmail} from '../lib/paid-product.mjs';
 ---
-<Base title="Paid-beta terms — review draft" description="Draft account and subscription terms for Acquisition Companion Deal Lab. Legal review and owner approval are required before paid access opens." type="About" noindex>
- <Crumbs items={[{title:'Terms'}]}/><article class="narrow"><header class="page-header"><p class="eyebrow">Paid-beta preparation</p><h1>Deal Lab subscription terms</h1><p class="notice">Review draft: these subscription terms require legal review and owner approval before paid access opens. Subscriptions are not open.</p></header>
- <div class="prose"><h2>Free learning, optional paid practice</h2><p>Acquisition Companion is operated by The Wired Nomad LLC. The public course, Start Here, Topics, Financing, Examples, Quantitative Reference, Glossary, Sources and methodology remain free. {paidProduct.name} is an optional educational subscription. The initial paid beta is invite-only for customers in the United States. Operator approval and an explicit U.S.-customer attestation are required before Checkout. Approval alone does not grant Deal Lab access.</p>
- <h2>Recurring billing</h2><p>Launch pricing is ${paidProduct.monthlyUsd} per month or ${paidProduct.annualUsd} per year, in USD. The chosen subscription renews at that interval until canceled. Checkout will show the price, billing interval and any applicable tax before purchase. There is one product and no free AI trial.</p>
- <h2>Cancellation and payment problems</h2><p>You may cancel recurring billing at any time through Manage billing in your account. Access continues through the already-paid billing period unless applicable law requires otherwise. Unpaid, past-due, canceled or expired subscriptions may lose access; correcting a payment problem can restore access after billing state is verified. For access or cancellation help, contact <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.</p>
- <h2>Refunds — legal review required</h2><p>Subscription fees are generally non-refundable after access has been used, except where required by applicable law. If you believe you were charged in error or have a billing problem, contact <a href={`mailto:${supportEmail}`}>{supportEmail}</a>. This policy does not limit mandatory consumer rights. Treatment of unused access and service outages must be finalized before launch.</p>
- <h2>Usage and availability</h2><p>Includes up to {paidProduct.monthlyRequestAllowance} AI requests per UTC calendar month, on either billing interval. Your account shows current usage and remaining requests. The allowance resets at 00:00 UTC on the first day of each month; it does not roll over. Requests that reach the model count even if a response fails. Access-denied, invalid or quota-denied requests do not consume the allowance. Service and model availability can vary.</p>
- <h2>Accounts and privacy</h2><p>Keep your sign-in email secure. Sign-in links expire after 15 minutes, work once and are bound to the browser where requested. You can sign out to end your session. Contact <a href={`mailto:${supportEmail}`}>{supportEmail}</a> for account security, deletion or access problems. Account deletion does not by itself cancel recurring billing; cancellation and any legally required record retention must be handled together. Retention periods and the deletion procedure remain review items; see <a href="/privacy/">Privacy</a>.</p>
- <h2>Educational use</h2><p>Deal Lab helps you examine evidence, calculate and practice reasoning. AI may make mistakes. You retain responsibility for decisions; responses do not establish financing approval, investment suitability or transaction-specific legal, tax or accounting advice. Do not submit confidential, proprietary, personal or non-public deal material. There are no private CIM, financial-package or data-room uploads.</p>
- <h2>Support</h2><p>Need help with sign-in, billing, cancellations, bugs or product questions? <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.</p></div></article>
+<Base title="Deal Lab subscription terms" description="Terms for the invite-only Acquisition Companion Deal Lab beta." type="About">
+ <Crumbs items={[{title:'Terms'}]}/>
+ <article class="narrow">
+  <header class="page-header">
+   <p class="eyebrow">Invite-only paid beta</p>
+   <h1>Deal Lab subscription terms</h1>
+   <p>Last updated October 11, 2026.</p>
+  </header>
+  <div class="prose">
+   <p>These terms cover Acquisition Companion and its optional Acquisition Companion Deal Lab subscription. The service is operated by The Wired Nomad LLC (“we” or “us”). By using the site, you agree to these terms. If you do not agree, do not use the service.</p>
+
+   <h2>Who may subscribe</h2>
+   <p>The public educational course is available without an account. The paid beta is invite-only and currently available only to customers in the United States who are 18 or older. An approved customer must sign in and confirm U.S.-customer eligibility before using hosted Checkout. Beta approval permits an attempt to subscribe; it does not itself provide Deal Lab access.</p>
+
+   <h2>Free education and paid Deal Lab</h2>
+   <p>The course and source-linked educational material remain free. A Deal Lab subscription supports interactive analysis, deterministic calculations, acquisition workflows, fictional practice, IC Challenge and associated AI model and compute use. Acquisition Companion is an independent educational product and is not affiliated with or endorsed by referenced creators.</p>
+
+   <h2>Price and recurring billing</h2>
+   <p>The single Deal Lab subscription is ${paidProduct.monthlyUsd} per month or ${paidProduct.annualUsd} per year in U.S. dollars. The selected plan renews automatically at that interval until canceled. Hosted Checkout displays the selected plan and recurring price before you confirm payment. Stripe provides Checkout and billing management; Acquisition Companion does not collect or store your card details.</p>
+
+   <h2>Usage allowance</h2>
+   <p>Each subscription includes up to {paidProduct.monthlyRequestAllowance} Deal Lab AI requests per UTC calendar month, whether billed monthly or annually. The allowance resets at 00:00 UTC on the first day of each month and does not roll over. A request that reaches the AI service counts, including when the service fails to return a complete answer. Requests denied before reaching the AI service, including invalid or quota-denied requests, do not count. Your Account page shows usage and remaining requests.</p>
+
+   <h2>Cancellation</h2>
+   <p>You may cancel recurring billing at any time through Manage billing in your account. Cancellation stops the next renewal. Your access continues through the already-paid billing period, unless applicable law requires otherwise. Cancellation does not delete your Acquisition Companion account. If payment is past due or a subscription has ended, Deal Lab access may be paused or removed according to the verified subscription state.</p>
+
+   <h2>Refunds and billing problems</h2>
+   <p>Subscription fees are generally non-refundable after access has been used, except where required by applicable law. If you believe you were charged in error or have a billing problem, contact <a href={`mailto:${supportEmail}`}>{supportEmail}</a>. This policy preserves any mandatory rights you have under applicable law.</p>
+
+   <h2>Accounts and acceptable use</h2>
+   <p>Keep access to your sign-in email secure and use your account for your own lawful educational work. Do not share sign-in links, bypass access controls, interfere with the service, or use it to submit information you are not authorized to provide. Do not submit confidential, proprietary, personal or non-public deal information. The beta does not include confidential-information, private CIM, or data-room uploads.</p>
+
+   <h2>Educational information and AI</h2>
+   <p>Acquisition Companion is an educational resource. AI can make mistakes, omit important facts or produce incomplete analysis. Calculations depend on the inputs and assumptions shown. The service is not legal, tax, accounting, investment or financing advice, does not provide a financing commitment or lender approval, and does not decide whether a transaction is suitable for you. You are responsible for independently checking information and decisions with appropriate sources and professionals.</p>
+
+   <h2>Availability and changes</h2>
+   <p>This is a beta service and features, models and availability may change. The service may be interrupted for maintenance, provider outages, safety or operational reasons. We may change or end a feature or the beta; where practical, we will give notice through the service or account contact. Nothing in this section removes rights or remedies that applicable law provides.</p>
+
+   <h2>Privacy and support</h2>
+   <p>Our <a href="/privacy/">Privacy Policy</a> explains how account, billing, usage and optional analytics information is handled. For sign-in, subscription, cancellation, privacy or product support, contact <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.</p>
+  </div>
+ </article>
 </Base>

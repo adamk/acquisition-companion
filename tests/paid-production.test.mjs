@@ -27,10 +27,10 @@ test('production auth mail is origin locked, supports Reply-To, and remains disa
  for(const url of [env.AUTH_MAIL_ORIGIN+'/account/#token='+'a'.repeat(64),env.AUTH_MAIL_ORIGIN+'/account/?signin=1&email=private@example.test#token='+'a'.repeat(64),env.AUTH_MAIL_ORIGIN+'/account/?signin=1#token='])await assert.rejects(sendSignInMail({...payload,url},env,dependencies));assert.equal(calls,1);
  for(const patch of [{AUTH_MAIL_ENABLED:'false'},{AUTH_MAIL_MODE:'unknown'},{AUTH_MAIL_ORIGIN:'https://paid-staging.example.test'},{AUTH_MAIL_FROM:'other@example.test'}])await assert.rejects(sendSignInMail(payload,{...env,...patch},dependencies));assert.equal(calls,1);
 });
-test('paid-beta surfaces name support, US-only availability, free course and legal review without guarantees',()=>{
+test('paid-beta surfaces name support, US-only availability, free course and owner-approved terms without guarantees',()=>{
  for(const file of ['src/pages/pricing.astro','src/pages/account.astro','src/pages/privacy.astro','src/pages/terms.astro'])assert.match(fs.readFileSync(file,'utf8'),/supportEmail/);
- const pricing=fs.readFileSync('src/pages/pricing.astro','utf8'),terms=fs.readFileSync('src/pages/terms.astro','utf8');assert.match(pricing,/United States/);assert.match(terms,/The Wired Nomad LLC/);assert.match(terms,/generally non-refundable after access has been used/);assert.match(terms,/except where required by applicable law/);assert.match(terms,/legal review/);assert.match(terms,/already-paid billing period/);
- assert.doesNotMatch(pricing,/unlimited|guaranteed financing|guaranteed deal success/i);assert.match(terms,/Requests that reach the model count/);assert.match(fs.readFileSync('src/pages/account.astro','utf8'),/analytics={false}/);
+ const pricing=fs.readFileSync('src/pages/pricing.astro','utf8'),terms=fs.readFileSync('src/pages/terms.astro','utf8');assert.match(pricing,/United States/);assert.match(terms,/The Wired Nomad LLC/);assert.match(terms,/generally non-refundable after access has been used/);assert.match(terms,/except where required by applicable law/);assert.match(terms,/supportEmail/);assert.match(terms,/already-paid billing period/);assert.doesNotMatch(terms,/legal review required|review draft|required before paid access opens|subscriptions are not open/i);
+ assert.doesNotMatch(pricing,/unlimited|guaranteed financing|guaranteed deal success/i);assert.match(terms,/request that reaches the AI service counts/i);assert.match(fs.readFileSync('src/pages/account.astro','utf8'),/analytics={false}/);
 });
 
 test('production mail failure diagnostics expose only stage/status and never mail or secrets',async()=>{

@@ -11,8 +11,9 @@ export class D1PaidStore {
  async cleanupUsage(policy){
   if(!policy)return;
   const items=[];
-  if(policy.usageBefore!==null)items.push(this.statement('DELETE FROM usage_events WHERE timestamp<? AND success IS NOT NULL',policy.usageBefore));
-  if(policy.monthBefore!==null)items.push(this.statement('DELETE FROM monthly_usage WHERE month<? AND NOT EXISTS(SELECT 1 FROM usage_events WHERE usage_events.user_id=monthly_usage.user_id AND usage_events.month=monthly_usage.month AND success IS NULL)',policy.monthBefore));
+  const currentMonth=policy.currentMonth??new Date().toISOString().slice(0,7);
+  if(policy.usageBefore!==null)items.push(this.statement('DELETE FROM usage_events WHERE completed_at<? AND success IS NOT NULL AND month<?',policy.usageBefore,currentMonth));
+  if(policy.monthBefore!==null)items.push(this.statement('DELETE FROM monthly_usage WHERE month<? AND month<? AND NOT EXISTS(SELECT 1 FROM usage_events WHERE usage_events.user_id=monthly_usage.user_id AND usage_events.month=monthly_usage.month)',policy.monthBefore,currentMonth));
   if(items.length)await this.db.batch(items);
  }
  async setCustomer(id,customer){await this.statement('UPDATE users SET stripe_customer_id=COALESCE(stripe_customer_id,?) WHERE id=?',customer,id).run();return (await this.getUser(id)).customerId;}
@@ -65,10 +66,10 @@ export class D1PaidStore {
   ]);
   if(results[0]?.meta?.changes!==1)throw new PaidError(429,'monthly_limit','Your monthly Deal Lab request allowance has been reached.');
  }
- async finishUsage(id,details){
+ async finishUsage(id,details,completedAt=Date.now()){
   await this.db.batch([
    this.statement('UPDATE monthly_usage SET estimated_cost=estimated_cost+?,unknown_cost_count=unknown_cost_count-? WHERE (user_id,month)=(SELECT user_id,month FROM usage_events WHERE id=? AND success IS NULL)',details.estimatedCost??0,details.estimatedCost===null?0:1,id),
-   this.statement('UPDATE usage_events SET success=?,latency_ms=?,input_tokens=?,cached_input_tokens=?,output_tokens=?,reasoning_tokens=?,total_tokens=?,estimated_cost=? WHERE id=? AND success IS NULL',Number(details.success),details.latencyMs,details.inputTokens,details.cachedInputTokens,details.outputTokens,details.reasoningTokens,details.totalTokens,details.estimatedCost,id),
+   this.statement('UPDATE usage_events SET success=?,latency_ms=?,input_tokens=?,cached_input_tokens=?,output_tokens=?,reasoning_tokens=?,total_tokens=?,estimated_cost=?,completed_at=? WHERE id=? AND success IS NULL',Number(details.success),details.latencyMs,details.inputTokens,details.cachedInputTokens,details.outputTokens,details.reasoningTokens,details.totalTokens,details.estimatedCost,completedAt,id),
   ]);
  }
  async usageSummary(userId,month){return await this.statement('SELECT request_count AS requestCount,estimated_cost AS knownEstimatedCost,unknown_cost_count AS unknownCostCount FROM monthly_usage WHERE user_id=? AND month=?',userId,month).first()||{requestCount:0,knownEstimatedCost:0,unknownCostCount:0};}

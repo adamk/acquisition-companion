@@ -1,4 +1,6 @@
-# Paid-beta production preparation — activation withheld
+# Paid-beta production preparation — historical record
+
+> This file records preparation before activation. Its status snapshots and open gates below are historical, not current production instructions. The invite-only beta is live. For the current offer, owner-approved policies, customer support and deployment procedures, use [launch operations](paid-beta-launch-operations.md), [the owner policy record](paid-beta-owner-policy.md), [retention](paid-retention-review.md) and [the production deployment runbook](paid-beta-activation-runbook.md).
 
 Prepared 2026-10-03. No launch, main push, public paid deployment, payment or paywall activation is authorized by this preparation checkpoint. Production AI remains open. Master flag must remain `AI_PAYWALL_ENABLED=false` until the owner explicitly approves the final report.
 

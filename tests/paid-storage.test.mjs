@@ -5,7 +5,7 @@ import {handleAiRequest} from '../src/worker/ai-api.mjs';
 import {handlePaidRequest} from '../src/worker/paid-api.mjs';
 import {hash} from '../src/worker/paid-security.mjs';
 function storage(){
- const sql=new DatabaseSync(':memory:');sql.exec(fs.readFileSync(new URL('../migrations/0001_paid_access.sql',import.meta.url),'utf8'));
+ const sql=new DatabaseSync(':memory:');sql.exec(fs.readFileSync(new URL('../migrations/0001_paid_access.sql',import.meta.url),'utf8'));sql.exec(fs.readFileSync(new URL('../migrations/0003_paid_usage_completion_time.sql',import.meta.url),'utf8'));
  const db={prepare(query){return {bind(...args){return {async first(){const row=sql.prepare(query).get(...args.map(a=>a===undefined?null:a));return row?{...row}:null;},async run(){const r=sql.prepare(query).run(...args);return {meta:{changes:Number(r.changes)}};}};}};},async batch(items){sql.exec('BEGIN');try{const results=[];for(const item of items)results.push(await item.run());sql.exec('COMMIT');return results;}catch(e){sql.exec('ROLLBACK');throw e;}}};
  sql.prepare('INSERT INTO users(id,email,created_at) VALUES(?,?,?)').run('u','test@example.test',0);
  return {store:new D1PaidStore(db),sql};
@@ -119,23 +119,66 @@ test('ordinary account usage exposes request count without internal cost account
 });
 
 
-test('reviewed usage retention is optional and cannot erase current-month quota or unfinished calls',async()=>{
+test('owner-approved usage retention is opt-in, measured from completion, and protects current quota and unfinished calls',async()=>{
  const {usageRetentionCutoffs}=await import('../src/worker/paid-retention.mjs');
  const now=Date.UTC(2026,9,15),off=usageRetentionCutoffs({},now);
  assert.equal(off,null);assert.equal(usageRetentionCutoffs({PAID_USAGE_RETENTION_DAYS:'1'},now),null);
  assert.throws(()=>usageRetentionCutoffs({PAID_RETENTION_POLICY_APPROVED:'true',PAID_USAGE_RETENTION_DAYS:'0'},now));
- const policy=usageRetentionCutoffs({PAID_RETENTION_POLICY_APPROVED:'true',PAID_USAGE_RETENTION_DAYS:'1',PAID_MONTHLY_USAGE_RETENTION_MONTHS:'1'},now);
- assert.equal(policy.usageBefore,Date.UTC(2026,9,1));assert.equal(policy.monthBefore,'2026-09');
+ const policy=usageRetentionCutoffs({PAID_RETENTION_POLICY_APPROVED:'true',PAID_USAGE_RETENTION_DAYS:'90',PAID_MONTHLY_USAGE_RETENTION_MONTHS:'13'},now);
+ assert.equal(policy.usageBefore,now-90*86400000);assert.equal(policy.monthBefore,'2025-10');assert.equal(policy.currentMonth,'2026-10');
  const {store,sql}=storage();
- for(const [id,month,timestamp,complete] of [['old','2026-08',Date.UTC(2026,7,1),true],['unfinished','2026-08',Date.UTC(2026,7,2),false],['current','2026-10',Date.UTC(2026,9,1),true]]){
+ const cutoff=policy.usageBefore;
+ for(const [id,month,timestamp,completedAt] of [
+  ['old-complete','2025-07',Date.UTC(2025,6,1),cutoff-1],
+  ['old-request-recent-complete','2025-08',Date.UTC(2025,7,2),now],
+  ['at-cutoff','2025-08',Date.UTC(2025,7,3),cutoff],
+  ['unfinished','2025-08',Date.UTC(2025,7,4),null],
+  ['current','2026-10',Date.UTC(2026,9,1),now],
+ ]){
   await store.reserveUsage({id,userId:'u',timestamp,month,workflow:'ask_course:message',model:'fixture'},100);
-  if(complete)await store.finishUsage(id,{success:true,latencyMs:1,inputTokens:1,cachedInputTokens:0,outputTokens:1,reasoningTokens:0,totalTokens:2,estimatedCost:null});
+  if(completedAt!==null)await store.finishUsage(id,{success:true,latencyMs:1,inputTokens:1,cachedInputTokens:0,outputTokens:1,reasoningTokens:0,totalTokens:2,estimatedCost:null},completedAt);
  }
- await store.cleanupUsage(null);assert.equal(sql.prepare('SELECT count(*) AS n FROM usage_events').get().n,3);
+ await store.cleanupUsage(null);assert.equal(sql.prepare('SELECT count(*) AS n FROM usage_events').get().n,5);
  await store.cleanupUsage(policy);
- assert.deepEqual(sql.prepare('SELECT id FROM usage_events ORDER BY id').all().map(r=>r.id),['current','unfinished']);
+ assert.deepEqual(sql.prepare('SELECT id FROM usage_events ORDER BY id').all().map(r=>r.id),['at-cutoff','current','old-request-recent-complete','unfinished']);
  assert.equal((await store.usageSummary('u','2026-10')).requestCount,1);
- assert.equal((await store.usageSummary('u','2026-08')).requestCount,2,'unfinished accounting retains its historical aggregate');
+ assert.equal((await store.usageSummary('u','2025-08')).requestCount,3,'historical quota aggregate remains while any detailed event for its month remains');
+ assert.equal((await store.usageSummary('u','2025-07')).requestCount,0,'an aggregate older than 13 months is removed after its detailed events expire');
+ assert.equal(sql.prepare('SELECT completed_at FROM usage_events WHERE id=?').get('old-request-recent-complete').completed_at,now);
+ sql.close();
+});
+
+test('monthly usage cleanup retains current month and incomplete accounting months even with an unsafe future cutoff',async()=>{
+ const {store,sql}=storage();
+ await sql.prepare('INSERT INTO monthly_usage(user_id,month,request_count) VALUES(?,?,?)').run('u','2024-01',7);
+ for(const [id,month,completedAt] of [['incomplete-month','2024-02',null],['current-month','2026-10',Date.UTC(2026,9,2)]]){
+  await store.reserveUsage({id,userId:'u',timestamp:1,month,workflow:'ask_course:message',model:'fixture'},100);
+  if(completedAt!==null)await store.finishUsage(id,{success:true,latencyMs:1,inputTokens:1,cachedInputTokens:0,outputTokens:1,reasoningTokens:0,totalTokens:2,estimatedCost:null},completedAt);
+ }
+ await store.cleanupUsage({usageBefore:null,monthBefore:'2026-11',currentMonth:'2026-10'});
+ assert.deepEqual(sql.prepare('SELECT month FROM monthly_usage ORDER BY month').all().map(r=>r.month),['2024-02','2026-10']);
+ assert.deepEqual(sql.prepare('SELECT id FROM usage_events ORDER BY id').all().map(r=>r.id),['current-month','incomplete-month']);
+ sql.close();
+});
+
+test('monthly usage cleanup uses a 13-month UTC boundary and retains its boundary month',async()=>{
+ const {usageRetentionCutoffs}=await import('../src/worker/paid-retention.mjs');
+ const now=Date.UTC(2026,9,15),policy=usageRetentionCutoffs({PAID_RETENTION_POLICY_APPROVED:'true',PAID_MONTHLY_USAGE_RETENTION_MONTHS:'13'},now);
+ assert.equal(policy.monthBefore,'2025-10');
+ const {store,sql}=storage();
+ for(const [month,count] of [['2025-09',9],['2025-10',10],['2026-10',1]])await sql.prepare('INSERT INTO monthly_usage(user_id,month,request_count) VALUES(?,?,?)').run('u',month,count);
+ await store.cleanupUsage(policy);
+ assert.deepEqual(sql.prepare('SELECT month,request_count FROM monthly_usage ORDER BY month').all().map(row=>[row.month,row.request_count]),[['2025-10',10],['2026-10',1]]);
+ sql.close();
+});
+
+test('completion-time migration conservatively starts retention for pre-existing completed usage at migration time',async()=>{
+ const sql=new DatabaseSync(':memory:');sql.exec(fs.readFileSync(new URL('../migrations/0001_paid_access.sql',import.meta.url),'utf8'));
+ sql.prepare('INSERT INTO users(id,email,created_at) VALUES(?,?,?)').run('u','test@example.test',0);
+ sql.prepare('INSERT INTO usage_events(id,user_id,timestamp,month,workflow,model,success) VALUES(?,?,?,?,?,?,?)').run('old','u',1,'1970-01','ask_course:message','fixture',1);
+ sql.exec(fs.readFileSync(new URL('../migrations/0003_paid_usage_completion_time.sql',import.meta.url),'utf8'));
+ const row=sql.prepare('SELECT completed_at FROM usage_events WHERE id=?').get('old');
+ assert.ok(Number.isSafeInteger(row.completed_at));assert.ok(row.completed_at>Date.UTC(2026,0,1));
  sql.close();
 });
 
