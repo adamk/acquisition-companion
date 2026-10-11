@@ -3,6 +3,7 @@ import {beginSignIn,finishSignIn,requireCsrf} from '../src/worker/paid-auth.mjs'
 import {createCheckout,createPortal,verifyWebhook,processWebhook} from '../src/worker/stripe-billing.mjs';
 import {isUserEntitledTo} from '../src/worker/paid-access.mjs';
 import {hash,secureCookie} from '../src/worker/paid-security.mjs';
+import {handlePaidRequest} from '../src/worker/paid-api.mjs';
 const token='a'.repeat(64),browser='b'.repeat(64);
 const req=(cookie='')=>new Request('https://acquisitioncompanion.com/api/auth/start',{method:'POST',headers:{Origin:'https://acquisitioncompanion.com','Content-Type':'application/json',Cookie:cookie,'CF-Connecting-IP':'192.0.2.1'}});
 const confirmReq=(cookie='')=>new Request('https://acquisitioncompanion.com/api/auth/confirm',{method:'POST',headers:{Origin:'https://acquisitioncompanion.com','Content-Type':'application/json',Cookie:cookie}});
@@ -82,6 +83,50 @@ test('hosted checkout/portal use configured price/customer; no live Stripe calls
 });
 
 async function signature(body,time,secret){const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(secret),{name:'HMAC',hash:'SHA-256'},false,['sign']);const bytes=new Uint8Array(await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(`${time}.${body}`)));return `t=${time},v1=${Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('')}`;}
+
+function signedWebhookRequest(event,secret=settings.STRIPE_WEBHOOK_SECRET,sign=true){
+ const body=JSON.stringify(event),time=Math.floor(Date.now()/1000);
+ return signature(body,time,secret).then(value=>new Request('https://acquisitioncompanion.com/api/billing/webhook',{method:'POST',headers:{'Content-Type':'application/json','Stripe-Signature':sign?value:`t=${time},v1=${'0'.repeat(64)}`},body}));
+}
+
+test('valid shared-account event for an unmapped customer is acknowledged, ignored and deduplicated without AC reconciliation',async()=>{
+ const seen=new Set(),calls={customerLookup:0,locks:0,canonicalGets:0,subscriptionWrites:0,markers:0};
+ const store={
+  eventProcessed:async id=>seen.has(id),
+  customerUser:async()=>{calls.customerLookup++;return null;},
+  lockCustomer:async()=>{calls.locks++;return true;},
+  unlockCustomer:async()=>{},
+  applySubscription:async()=>{calls.subscriptionWrites++;},
+  markEvent:async id=>{calls.markers++;seen.add(id);},
+ };
+ const event={id:'evt_shared_account_unmapped',type:'customer.subscription.updated',livemode:true,data:{object:{id:'sub_other_business',customer:'cus_other_business'}}};
+ const env=settings;
+ const dependencies={store,fetcher:async()=>{calls.canonicalGets++;throw Error('must not fetch Stripe');}};
+ const first=await handlePaidRequest(await signedWebhookRequest(event),env,dependencies);
+ assert.equal(first.status,200);assert.deepEqual(await first.json(),{received:true,ignored:true,reason:'non_ac_customer'});
+ const duplicate=await handlePaidRequest(await signedWebhookRequest(event),env,dependencies);
+ assert.equal(duplicate.status,200);assert.deepEqual(await duplicate.json(),{received:true,duplicate:true});
+ assert.deepEqual(calls,{customerLookup:1,locks:0,canonicalGets:0,subscriptionWrites:0,markers:1});
+ assert.equal(seen.has(event.id),true,'the ignored event is recorded for safe duplicate handling');
+});
+
+test('customer mapping storage failure remains a retryable 503 and is not ignored',async()=>{
+ const calls={locks:0,canonicalGets:0,subscriptionWrites:0,markers:0};
+ const store={eventProcessed:async()=>false,customerUser:async()=>{throw Error('D1 read failed');},lockCustomer:async()=>{calls.locks++;return true;},applySubscription:async()=>{calls.subscriptionWrites++;},markEvent:async()=>{calls.markers++;}};
+ const event={id:'evt_mapping_read_failure',type:'customer.subscription.updated',livemode:true,data:{object:{id:'sub_other_business',customer:'cus_other_business'}}};
+ const env=settings;
+ const response=await handlePaidRequest(await signedWebhookRequest(event),env,{store,fetcher:async()=>{calls.canonicalGets++;throw Error('must not fetch Stripe');}});
+ assert.equal(response.status,503);assert.deepEqual(await response.json(),{error:{code:'billing_unavailable',message:'Account access is temporarily unavailable. Please try again later.'}});
+ assert.deepEqual(calls,{locks:0,canonicalGets:0,subscriptionWrites:0,markers:0});
+});
+
+test('invalid webhook signature still returns HTTP 400 before customer lookup',async()=>{
+ let lookups=0;
+ const event={id:'evt_invalid_signature',type:'customer.subscription.updated',livemode:true,data:{object:{id:'sub_other_business',customer:'cus_other_business'}}};
+ const env=settings;
+ const response=await handlePaidRequest(await signedWebhookRequest(event,settings.STRIPE_WEBHOOK_SECRET,false),env,{store:{eventProcessed:async()=>{lookups++;}}});
+ assert.equal(response.status,400);assert.equal((await response.json()).error.code,'invalid_signature');assert.equal(lookups,0);
+});
 
 test('webhook signatures authenticate exact raw bytes and reject stale/tampered payloads',async()=>{
  const now=Date.now(),time=Math.floor(now/1000),body=JSON.stringify({id:'evt_mock',type:'customer.subscription.updated',data:{object:{id:'sub_mock',customer:'cus_mock'}}});

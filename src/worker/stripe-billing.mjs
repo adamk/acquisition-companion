@@ -71,7 +71,13 @@ export async function processWebhook(event,env,dependencies={}){
  else {await store.markEvent(event.id,now);return {received:true};}
  const customer=typeof object.customer==='string'?object.customer:object.customer?.id;
  if(!/^sub_[A-Za-z0-9_]+$/.test(subscriptionId||'')||!/^cus_[A-Za-z0-9_]+$/.test(customer||''))throw new PaidError(400,'invalid_event','Unsupported subscription event.');
- const user=await webhookStep(env,dependencies,'customer_mapping',()=>store.customerUser(customer));if(!user){reportWebhookFailure(env,dependencies,'customer_mapping_missing');throw unavailable();} // Retry: never accept client-supplied metadata as identity.
+ const user=await webhookStep(env,dependencies,'customer_mapping',()=>store.customerUser(customer));if(!user){
+  // This Stripe account also serves other products. A successful lookup with
+  // no AC mapping is a valid non-AC event; persist its ID for deduplication,
+  // but never infer ownership from Stripe metadata or reconcile its subscription.
+  await webhookStep(env,dependencies,'event_deduplication',()=>store.markEvent(event.id,now));
+  return {received:true,ignored:true,reason:'non_ac_customer'};
+ } // Retry storage failures; never accept client-supplied metadata as identity.
  const owner=crypto.randomUUID();
  if(!await webhookStep(env,dependencies,'customer_lock_acquisition',()=>store.lockCustomer(customer,owner,now))){reportWebhookFailure(env,dependencies,'customer_lock_busy');throw unavailable();}
  try{
