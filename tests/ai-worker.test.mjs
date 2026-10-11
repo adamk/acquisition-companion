@@ -14,12 +14,14 @@ test('the Worker handles its API and delegates static site paths to the Assets b
  assert.deepEqual(requests,['/ai/']);
 });
 
-test('Wrangler keeps Astro static assets, routes only the API first, and defaults AI off without embedded secrets',()=>{
+test('production Wrangler config preserves the live paid-beta gates without embedding runtime secrets',()=>{
  const config=JSON.parse(fs.readFileSync('wrangler.jsonc','utf8'));
  assert.equal(config.main,'src/worker/paid-production-index.mjs');
  assert.deepEqual(config.assets,{directory:'./dist',binding:'ASSETS',run_worker_first:['/api/*'],not_found_handling:'404-page'});
  assert.equal(config.keep_vars,true);
- assert.equal(config.vars.AI_INTERACTIVE_ENABLED,'false');assert.equal(config.vars.AI_PAYWALL_ENABLED,'false');assert.equal(config.vars.AUTH_SIGNIN_ENABLED,'false');assert.equal(config.vars.BILLING_ENABLED,'false');assert.equal(config.vars.AUTH_MAIL_ENABLED,'false');assert.equal(Object.hasOwn(config.vars,'OPENAI_API_KEY'),false);assert.equal(Object.hasOwn(config.vars,'OPENAI_VECTOR_STORE_ID'),false);assert.equal(Object.hasOwn(config.vars,'OPENAI_MODEL'),false);
+ assert.equal(config.vars.AI_INTERACTIVE_ENABLED,'true');assert.equal(config.vars.AI_PAYWALL_ENABLED,'true');assert.equal(config.vars.AUTH_SIGNIN_ENABLED,'true');assert.equal(config.vars.BILLING_ENABLED,'true');assert.equal(config.vars.AUTH_MAIL_ENABLED,'false');assert.equal(Object.hasOwn(config.vars,'OPENAI_API_KEY'),false);assert.equal(Object.hasOwn(config.vars,'OPENAI_VECTOR_STORE_ID'),false);assert.equal(Object.hasOwn(config.vars,'OPENAI_MODEL'),false);
+ const mailer=JSON.parse(fs.readFileSync('wrangler.mailer-production.example.json','utf8'));
+ assert.equal(mailer.name,'acquisition-companion-mailer-production');assert.equal(mailer.vars.AUTH_MAIL_ENABLED,'true');assert.equal(mailer.workers_dev,false);assert.equal(mailer.preview_urls,false);
  assert.deepEqual(config.ratelimits.map(binding=>binding.name),['AI_SESSION_LIMITER','AI_IP_LIMITER','AI_EDGE_LIMITER']);
  assert.equal(new Set(config.ratelimits.map(binding=>binding.namespace_id)).size,3);
  for(const binding of config.ratelimits){assert.match(binding.namespace_id,/^\d+$/);assert.ok(Number(binding.namespace_id)>0);}

@@ -4,11 +4,12 @@ import {sendSignInMail} from '../src/worker/auth-mailer.mjs';
 import {processWebhook,createCheckout} from '../src/worker/stripe-billing.mjs';
 import {paidProduct,supportEmail} from '../src/lib/paid-product.mjs';
 const settings={PAID_ENVIRONMENT:'production',BILLING_TEST_MODE:'false',STRIPE_SECRET_KEY:'rk_live_fixture',STRIPE_WEBHOOK_SECRET:'fixture',STRIPE_MONTHLY_PRICE_ID:'price_month',STRIPE_ANNUAL_PRICE_ID:'price_year'};
-test('production candidate remains disabled, separate from staging, with 100 UTC requests and existing AI rate limits',()=>{
+test('paid-production template stays dormant while the live production deployment config preserves launch gates',()=>{
  const config=JSON.parse(fs.readFileSync('wrangler.paid-production.example.json'));
  assert.equal(config.vars.AI_INTERACTIVE_ENABLED,'false');assert.equal(config.vars.AI_PAYWALL_ENABLED,'false');assert.equal(config.vars.AUTH_SIGNIN_ENABLED,'false');assert.equal(config.vars.BILLING_ENABLED,'false');assert.equal(config.vars.AI_MONTHLY_REQUEST_LIMIT,'100');assert.equal(monthlyLimit(config.vars),100);assert.throws(()=>monthlyLimit({PAID_ENVIRONMENT:'production'}));
  assert.equal(config.d1_databases[0].database_name,'acquisition-companion-paid-production');assert.equal(config.services[0].service,'acquisition-companion-mailer-production');
- const prod=JSON.parse(fs.readFileSync('wrangler.jsonc'));assert.deepEqual(config.ratelimits,prod.ratelimits);assert.equal(prod.vars.AI_INTERACTIVE_ENABLED,'false');assert.equal(prod.vars.AI_PAYWALL_ENABLED,'false');assert.equal(prod.vars.AUTH_SIGNIN_ENABLED,'false');assert.equal(prod.vars.BILLING_ENABLED,'false');assert.equal(prod.vars.AUTH_MAIL_ENABLED,'false');assert.equal(prod.d1_databases[0].database_name,'acquisition-companion-paid-production');assert.equal(prod.services[0].service,'acquisition-companion-mailer-production');assert.equal(paywallEnabled({...settings}),false);
+ const prod=JSON.parse(fs.readFileSync('wrangler.jsonc'));assert.deepEqual(config.ratelimits,prod.ratelimits);assert.equal(prod.vars.AI_INTERACTIVE_ENABLED,'true');assert.equal(prod.vars.AI_PAYWALL_ENABLED,'true');assert.equal(prod.vars.AUTH_SIGNIN_ENABLED,'true');assert.equal(prod.vars.BILLING_ENABLED,'true');assert.equal(prod.vars.AUTH_MAIL_ENABLED,'false');assert.equal(prod.d1_databases[0].database_name,'acquisition-companion-paid-production');assert.equal(prod.services[0].service,'acquisition-companion-mailer-production');
+ const mailer=JSON.parse(fs.readFileSync('wrangler.mailer-production.example.json'));assert.equal(mailer.vars.AUTH_MAIL_ENABLED,'true');assert.equal(mailer.workers_dev,false);assert.equal(mailer.preview_urls,false);assert.equal(paywallEnabled({...settings}),false);
  assert.equal(paidProduct.monthlyUsd,19);assert.equal(paidProduct.annualUsd,190);assert.equal(paidProduct.monthlyRequestAllowance,100);
 });
 test('production rejects test credentials, unknown mode and test-mode provider objects',async()=>{
