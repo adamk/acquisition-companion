@@ -1,6 +1,6 @@
 # Paid-access data retention and cleanup policy
 
-**Status:** Owner-approved policy for the live invite-only U.S. paid beta. This records the selected operating policy; it is not a claim of attorney review or legal advice. Account closure remains a manual operator process. There is no public account-deletion endpoint.
+**Status:** Owner-approved policy for the live public U.S.-only paid beta. This records the selected operating policy; it is not a claim of attorney review or legal advice. Account closure remains a manual operator process. There is no public account-deletion endpoint.
 
 ## Data inventory
 
@@ -13,7 +13,7 @@
 | `billing_locks` | Stripe customer ID, owner UUID and expiry; serializes webhook reconciliation | Only during a short reconciliation | A 60-second lease is released after use or removed at expiry. |
 | `subscriptions` | Stripe subscription ID, user UUID, canonical status, paid-through time, cancellation-at-period-end flag and observation time | While needed for entitlement, billing support and reconciliation | No automatic cleanup. After closure, retain only as long as a documented accounting, tax, billing-dispute, fraud, chargeback or legal need remains. Never manufacture or edit canonical state to delete an account. |
 | `webhook_events` | Stripe event ID and processed timestamp; duplicate-event protection | While needed for idempotency and billing reconciliation | No automatic cleanup. Event IDs are global and not linked to an application user. Keep while needed to prevent replay; do not clear healthy markers during account closure. |
-| `beta_checkout_approvals` | User UUID, approval/revocation timestamps and operator labels; Checkout eligibility audit | While approval/account is active | Retain while active. After revocation or account closure, retain for up to 12 months for beta operations/audit, then remove manually if no specific need remains. No identity documents are stored. |
+| `beta_checkout_approvals` | Historical user UUID, approval/revocation timestamps and operator labels; audit of the prior invite-only flow | Only while historical approval is active | New public Checkout does not use these rows. Retain historical active records while the account is active; after revocation or account closure, retain for up to 12 months for beta operations/audit, then remove manually if no specific need remains. No identity documents are stored. |
 | `usage_events` | Event UUID, user UUID, request timestamp, completion timestamp, UTC month, workflow/model labels, success, latency, token counts and internal estimated cost; quota/accounting/reliability | Needed for request accounting and recent support | Completed events are retained for 90 days after completion when cleanup is later enabled. `success IS NULL` or missing `completed_at` records are never removed by this cleanup. No prompt, response, deal fact or conversation content is stored. |
 | `monthly_usage` | User UUID, UTC month, request count, estimated cost and unknown-cost count; atomic quota and accounting aggregate | Current month is required for quota enforcement | Retain 13 months total: current UTC month plus the preceding 12 months. Current month is always protected. An aggregate is not removed while any detailed event for that user/month remains. |
 

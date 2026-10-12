@@ -1,4 +1,4 @@
-import {paywallEnabled,billingEnabled,billingConfigured,authenticatedUser,isUserEntitledTo,monthlyLimit,hasAccountCapability} from './paid-access.mjs';
+import {paywallEnabled,billingEnabled,billingConfigured,authenticatedUser,isUserEntitledTo,monthlyLimit} from './paid-access.mjs';
 import {paidStore} from './paid-store.mjs';
 import {beginSignIn,finishSignIn,requireCsrf,invalidLinkMessage} from './paid-auth.mjs';
 import {createCheckout,createPortal,verifyWebhook,processWebhook} from './stripe-billing.mjs';
@@ -59,8 +59,11 @@ export async function handlePaidRequest(request,env={},dependencies={}){
    const csrf=randomToken();await store.setCsrf(tokenHash,await hash(csrf));
    const grant=await store.getGrant(session.userId);
    const usage=await store.usageSummary(session.userId,new Date().toISOString().slice(0,7));
-   const checkoutEligible=hasAccountCapability('paid_beta_checkout',await store.getBetaCheckoutApproval(session.userId));
-   return reply(200,{signedIn:true,csrfToken:csrf,checkoutEligible,entitled:isUserEntitledTo('ai_deal_lab',grant,Date.now(),env.AI_ALLOW_TRIALS==='true'),subscription:grant?{status:grant.status,accessUntil:grant.validUntil,cancelAtPeriodEnd:!!grant.cancelAtPeriodEnd}:null,usage:{requestCount:usage.requestCount},monthlyRequestLimit:monthlyLimit(env)});
+   const entitled=isUserEntitledTo('ai_deal_lab',grant,Date.now(),env.AI_ALLOW_TRIALS==='true');
+   // Legacy beta approvals are retained for audit only; any signed-in account
+   // without current entitlement may proceed to the explicit US attestation.
+   const checkoutEligible=!entitled;
+   return reply(200,{signedIn:true,csrfToken:csrf,checkoutEligible,entitled,subscription:grant?{status:grant.status,accessUntil:grant.validUntil,cancelAtPeriodEnd:!!grant.cancelAtPeriodEnd}:null,usage:{requestCount:usage.requestCount},monthlyRequestLimit:monthlyLimit(env)});
   }
   await requireCsrf(request,session);
   if(path==='/api/auth/logout'){await jsonBody(request,[]);await store.logout(tokenHash);return reply(200,{signedOut:true},{'Set-Cookie':secureCookie('__Host-ac-session','',0)});}

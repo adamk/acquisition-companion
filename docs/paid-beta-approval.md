@@ -1,8 +1,10 @@
-# Production beta Checkout approval and webhook reconciliation
+# Legacy beta Checkout approval and production webhook reconciliation
+
+> **HISTORICAL/LEGACY:** Per-account `paid_beta_checkout` approval is no longer required for the public U.S. paid beta. Do not follow the manual approval steps below for new customers. The table, migration and historical operator records remain for audit. The webhook reconciliation procedure remains current.
 
 This procedure uses the production `acquisition-companion-paid-production` D1 database and the current main Worker `wrangler.jsonc`. Do not use staging storage or create an account to bypass sign-in. Checkout approval and AI entitlement are distinct: `paid_beta_checkout` only permits an eligible Checkout attempt; only canonical, verified active Stripe subscription state grants `ai_deal_lab`.
 
-## Approve one existing account
+## Historical manual approval procedure — do not use for new customers
 
 1. Customer must be 18 or older, able to sign in, request beta access and affirm that they are a U.S. customer. Do not use IP geolocation as proof or request identity documents, tax IDs, payment information or deal materials.
 2. Verify the account through the customer's authenticated session. In the private production D1 console, confirm exactly one account matches. Use its UUID locally; do not copy email, session, challenge or cookie values into notes or commands.

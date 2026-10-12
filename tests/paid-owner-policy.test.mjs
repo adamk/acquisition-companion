@@ -11,7 +11,7 @@ const product=read('src/lib/paid-product.mjs');
 test('live Terms state the owner-approved beta offer and operating rules without draft gates',()=>{
  assert.doesNotMatch(terms,/<Base[^>]*\bnoindex\b/);
  for(const phrase of [
-  'The Wired Nomad LLC','Acquisition Companion','invite-only','United States','18 or older',
+  'The Wired Nomad LLC','Acquisition Companion','publicly available','United States','18 or older',
   'paidProduct.monthlyUsd','paidProduct.annualUsd','paidProduct.monthlyRequestAllowance',
   'The course and source-linked educational material remain free',
   'interactive analysis','recurring','cancel recurring billing at any time through Manage billing',
@@ -63,5 +63,7 @@ test('first-customer operations checklist treats Terms, Privacy and retention as
  const ops=read('docs/paid-beta-launch-operations.md');
  assert.match(ops,/Terms and Privacy state the owner-approved live-beta policy/);
  assert.doesNotMatch(ops,/legal review required|retention periods remain unresolved|not legally approved/i);
- for(const phrase of ['approve and invite one customer','send the invitation','sign-in','checkout eligibility','entitlement','usage','cancellation','webhook failures','stop and escalate'])assert.ok(ops.toLowerCase().includes(phrase),phrase);
+ for(const phrase of ['public customer flow','customer signs in','u.s. attestation','stripe-hosted checkout','entitlement','usage','cancellation','webhook failures','stop and escalate'])assert.ok(ops.toLowerCase().includes(phrase),phrase);
+ assert.match(ops,/manual account-approval procedure.*historical\/legacy/i);
+ assert.doesNotMatch(ops,/approve Checkout only|approval as a normal onboarding step/i);
 });

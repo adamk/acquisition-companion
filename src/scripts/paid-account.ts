@@ -37,7 +37,7 @@ if(root){
   const data=await api('/api/account');csrf=data.csrfToken;
   if(signIn)signIn.hidden=true;if(confirm)confirm.hidden=true;if(details)details.hidden=false;
   const entitled=data.entitled===true,checkoutEligible=data.checkoutEligible===true;
-  announce(entitled?'Your Deal Lab access is active.':data.subscription&&['past_due','unpaid'].includes(data.subscription.status)?'A payment problem is blocking Deal Lab access. Use Manage billing or contact support.':checkoutEligible?'Checkout approval is active. AI access starts only after a subscription becomes active.':'Signed in.');
+  announce(entitled?'Your Deal Lab access is active.':data.subscription&&['past_due','unpaid'].includes(data.subscription.status)?'A payment problem is blocking Deal Lab access. Use Manage billing or contact support.':checkoutEligible?'Choose a plan and confirm U.S.-customer eligibility at Checkout. AI access starts only after an active subscription.':'Signed in.');
   const hasBillingRelationship=Boolean(data.subscription);
   const canCheckout=billingAvailable&&data.checkoutEligible===true&&!data.entitled&&!hasBillingRelationship;
   root!.querySelectorAll<HTMLElement>('[data-checkout], [data-checkout-attestation]').forEach(el=>el.hidden=!canCheckout);
@@ -57,10 +57,8 @@ if(root){
    const allowance=limit===null?'':` of ${limit}; ${Math.max(0,limit-data.usage.requestCount)} remaining`;
    usage.textContent=`${data.usage.requestCount} requests this month (UTC)${allowance}. Resets at 00:00 UTC on ${new Date(Date.UTC(new Date().getUTCFullYear(),new Date().getUTCMonth()+1,1)).toISOString().slice(0,10)}.`;
   }
-  const betaRequest=root!.querySelector<HTMLElement>('[data-beta-request]'),betaApproved=root!.querySelector<HTMLElement>('[data-beta-approved]');
-  if(betaRequest)betaRequest.hidden=entitled||checkoutEligible||hasBillingRelationship;
-  if(betaApproved)betaApproved.hidden=entitled||!checkoutEligible||hasBillingRelationship;
-  const pricingRequest=root!.querySelector<HTMLElement>('[data-pricing-beta-request]');if(pricingRequest)pricingRequest.hidden=entitled||checkoutEligible||hasBillingRelationship;
+  const publicBetaInfo=root!.querySelector<HTMLElement>('[data-public-beta-info]');
+  if(publicBetaInfo)publicBetaInfo.hidden=entitled||hasBillingRelationship;
   root!.querySelectorAll<HTMLAnchorElement>('[data-account-link]').forEach(link=>{link.textContent=entitled||hasBillingRelationship?'Account · Manage billing':'Account';});
  }
  signIn?.addEventListener('submit',event=>{event.preventDefault();void action(async()=>{const data=await api('/api/auth/start',{email:root.querySelector<HTMLInputElement>('#account-email')!.value});announce(data.message);});});
@@ -73,8 +71,8 @@ if(root){
   if(signIn&&['missing','invalid'].includes(magicLinkState)){
    announce(invalidLinkMessage);void recordAuthDiagnostic(magicLinkState==='missing'?'auth_fragment_missing':'auth_fragment_invalid');return;
   }
-  const data=await api('/api/billing/status');if(!data.signInAvailable&&!data.billingAvailable){if(location.pathname==='/pricing/')announce('Subscriptions are not open right now. The core course remains free, and current AI access is unchanged.');return;}
-  if(data.signInAvailable)announce('Sign in to check your U.S. beta Checkout approval.');
+  const data=await api('/api/billing/status');if(!data.signInAvailable&&!data.billingAvailable){if(location.pathname==='/pricing/')announce('Account access and paid Checkout are currently unavailable. The core course remains free.');return;}
+  if(data.signInAvailable)announce('Sign in to choose a plan and confirm U.S.-customer eligibility at Checkout.');
   root.querySelectorAll<HTMLElement>('[data-account-link]').forEach(el=>el.hidden=false);
   billingAvailable=data.billingAvailable===true;
   if(location.pathname==='/pricing/')try{await refresh();}catch{root.querySelectorAll<HTMLAnchorElement>('[data-account-link]').forEach(link=>{link.textContent='Already subscribed? Sign in';});/* Anonymous visitors can inspect public prices. */}

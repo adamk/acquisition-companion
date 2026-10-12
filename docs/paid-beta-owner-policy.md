@@ -1,15 +1,15 @@
 # Owner-approved paid-beta policy record
 
-The Wired Nomad LLC operates Acquisition Companion and Acquisition Companion Deal Lab. This record captures the owner's operating decisions for the invite-only paid beta. It does not claim attorney approval, completed legal review or legal advice.
+The Wired Nomad LLC operates Acquisition Companion and Acquisition Companion Deal Lab. This record captures the owner's operating decisions for the public U.S.-only paid beta. It does not claim attorney approval, completed legal review or legal advice.
 
 ## Offer and eligibility
 
-- The beta is invite-only and initially available only to U.S. customers aged 18 or older.
+- The paid beta is public to customers in the United States who are 18 or older.
 - Deal Lab is one recurring product at $19 USD/month or $190 USD/year.
 - Each plan includes up to 100 Deal Lab AI requests per UTC calendar month.
 - The public course and source-linked education remain free without an account.
 - Subscription payment supports interactive analysis, deterministic calculations, workflows, fictional practice, IC Challenge and associated model/compute usage.
-- Customers must be individually approved for `paid_beta_checkout` and attest to U.S.-customer eligibility. IP geolocation is not used as proof. Approval does not grant `ai_deal_lab`; only canonical eligible Stripe subscription state does.
+- Customers sign in and affirm U.S.-customer eligibility at hosted Checkout. IP geolocation is not used as proof. Historical `paid_beta_checkout` records are not required for new Checkout and do not grant `ai_deal_lab`; only canonical eligible Stripe subscription state does.
 
 ## Billing decisions
 

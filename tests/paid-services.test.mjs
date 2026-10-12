@@ -70,13 +70,14 @@ test('CSRF validation requires the session-bound token, missing email integratio
  await assert.rejects(beginSignIn(req(),{email:'x@example.test'},settings,{store:{}}),e=>e.code==='billing_unavailable');
 });
 
-test('hosted checkout/portal use configured price/customer; no live Stripe calls',async()=>{
- const calls=[],store={getUser:async()=>({id:'u1',customerId:'cus_mock'}),getGrant:async()=>null,getBetaCheckoutApproval:async()=>({approvedAt:0,revokedAt:null})};
+test('hosted checkout/portal use configured price/customer; no live Stripe calls or legacy approval lookup',async()=>{
+ const calls=[],store={getUser:async()=>({id:'u1',customerId:'cus_mock'}),getGrant:async()=>null,getBetaCheckoutApproval:async()=>{throw Error('legacy approval must not gate public Checkout');}};
  const fetcher=async(url,options)=>{calls.push({url,options});return new Response(JSON.stringify({url:url.endsWith('checkout/sessions')?'https://checkout.stripe.com/c/pay/mock':'https://billing.stripe.com/p/session/mock'}));};
  const checkout=await createCheckout('u1','annual','https://acquisitioncompanion.com',settings,{store,fetcher},true);
  assert.match(checkout.url,/checkout.stripe.com/);assert.equal(calls.length,1);
  assert.equal(new URLSearchParams(calls[0].options.body).get('line_items[0][price]'),'price_year');
  assert.equal(new URLSearchParams(calls[0].options.body).get('customer'),'cus_mock');
+ assert.equal(new URLSearchParams(calls[0].options.body).get('subscription_data[metadata][ac_beta_eligibility]'),'public_us_paid_beta_attested');
  assert.match((await createPortal('u1','https://acquisitioncompanion.com',settings,{store,fetcher})).url,/billing.stripe.com/);
  await assert.rejects(createCheckout('u1','weekly','https://acquisitioncompanion.com',settings,{store,fetcher}));
  assert.equal(calls.length,2);

@@ -59,13 +59,13 @@ assert.deepEqual((await new AxeBuilder({page:gatedPage}).withTags(['wcag2a','wca
 
 gateAccess='subscription_required';gateAccount={signedIn:true,csrfToken:'b'.repeat(64),checkoutEligible:false,entitled:false,subscription:null,usage:{requestCount:0},monthlyRequestLimit:100};
 await gatedPage.goto(`${base}/ai/`);await gatedPage.locator('[data-ai-status]').filter({hasText:'No active Deal Lab subscription'}).waitFor();
-assert.equal(await gatedPage.locator('[data-ai-account-link]').innerText(),'Account');assert.equal(await gatedPage.locator('[data-ai-access-request]').isVisible(),true);
+assert.equal(await gatedPage.locator('[data-ai-account-link]').innerText(),'Account');assert.equal(await gatedPage.locator('[data-ai-access-signin]').isVisible(),false);
 const nonEntitledBypass=await gatedPage.evaluate(async()=>{const response=await fetch('/api/ai',{method:'POST',headers:{Origin:location.origin,'Content-Type':'application/json','X-AI-Session-ID':crypto.randomUUID()},body:JSON.stringify({mode:'ask_course',message:'test',history:[]})});return response.status;});
 assert.equal(nonEntitledBypass,402);assert.equal(gateModelCalls,0);
 
 gateAccount.checkoutEligible=true;
-await gatedPage.goto(`${base}/ai/`);await gatedPage.locator('[data-ai-status]').filter({hasText:'Checkout approval is active'}).waitFor();
-assert.equal(await gatedPage.locator('[data-ai-access-request]').isVisible(),false);assert.equal(await gatedPage.locator('[data-ai-access-pricing]').isVisible(),true);
+await gatedPage.goto(`${base}/ai/`);await gatedPage.locator('[data-ai-status]').filter({hasText:'No active Deal Lab subscription'}).waitFor();
+assert.equal(await gatedPage.locator('[data-ai-access-signin]').isVisible(),false);assert.equal(await gatedPage.locator('[data-ai-access-pricing]').isVisible(),true);assert.equal(await gatedPage.locator('[data-ai-access-pricing]').innerText(),'Choose a plan');
 const approvalOnlyBypass=await gatedPage.evaluate(async()=>{const response=await fetch('/api/ai',{method:'POST',headers:{Origin:location.origin,'Content-Type':'application/json','X-AI-Session-ID':crypto.randomUUID()},body:JSON.stringify({mode:'ask_course',message:'test',history:[]})});return response.status;});
 assert.equal(approvalOnlyBypass,402);assert.equal(gateModelCalls,0);
 

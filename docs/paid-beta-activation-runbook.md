@@ -1,6 +1,6 @@
 # Production paid-beta deployment and rollback
 
-The U.S.-only Acquisition Companion Deal Lab beta is live and invite-only. This runbook protects the live configuration during ordinary code deployments and documents an explicit fail-closed rollback.
+The Acquisition Companion Deal Lab beta is publicly available to U.S. customers aged 18 or older. This runbook protects the live configuration during ordinary code deployments and documents an explicit fail-closed rollback. Checkout requires sign-in and explicit U.S.-customer attestation; manual beta approval is historical and not part of customer onboarding.
 
 ## Production configuration source of truth
 

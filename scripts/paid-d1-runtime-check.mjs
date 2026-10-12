@@ -71,12 +71,14 @@ try{
  const confirmed=await handlePaidRequest(request('/api/auth/confirm',{token:new URL(delivered.url).hash.slice(7)}),env);
  assert.equal(confirmed.status,200);csrf=(await confirmed.json()).csrfToken;cookie=confirmed.headers.get('set-cookie').split(';')[0];
  assert.equal((await ai()).status,402);assert.equal(modelCalls,0);
- assert.equal((await handlePaidRequest(request('/api/billing/checkout',{plan:'monthly',usCustomerAttested:true}),env,{fetcher})).status,403);
- assert.equal(providerCalls,0);
+ const unattested=await handlePaidRequest(request('/api/billing/checkout',{plan:'monthly'}),env,{fetcher});
+ assert.equal(unattested.status,400);assert.equal((await unattested.json()).error.code,'us_attestation_required');assert.equal(providerCalls,0);
+ const publicCheckout=await handlePaidRequest(request('/api/billing/checkout',{plan:'monthly',usCustomerAttested:true}),env,{fetcher});
+ assert.equal(publicCheckout.status,200);assert.equal(providerCalls,2);
+ assert.equal((await db.prepare('SELECT COUNT(*) AS n FROM beta_checkout_approvals').first()).n,0,'public Checkout does not require or create historical approval data');
  const checkoutUser=(await store.getSession(await hash(cookie.split('=')[1]),Date.now())).userId;
  await db.prepare('INSERT INTO beta_checkout_approvals(user_id,approved_at,approved_by) VALUES(?,?,?)').bind(checkoutUser,now,'fixture-operator').run();
- assert.equal((await ai()).status,402);
- assert.equal((await handlePaidRequest(request('/api/billing/checkout',{plan:'monthly',usCustomerAttested:true}),env,{fetcher})).status,200);
+ assert.equal((await ai()).status,402,'a historical approval alone still does not grant AI entitlement');
  const webhook=async id=>{
   const body=JSON.stringify({id,livemode:false,type:'customer.subscription.updated',data:{object:subscription()}}),time=Math.floor(Date.now()/1000);
   const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(env.STRIPE_WEBHOOK_SECRET),{name:'HMAC',hash:'SHA-256'},false,['sign']);
@@ -87,7 +89,7 @@ try{
  assert.equal((await webhook('evt_e2e_active')).status,200);assert.equal(providerCalls,callsBefore);
  assert.equal((await ai()).status,200);assert.equal(modelCalls,1);
  const account=await handlePaidRequest(request('/api/account'),env);const accountData=await account.json();csrf=accountData.csrfToken;
- assert.equal(accountData.entitled,true);assert.equal(accountData.checkoutEligible,true);
+ assert.equal(accountData.entitled,true);assert.equal(accountData.checkoutEligible,false);
  await db.prepare('UPDATE beta_checkout_approvals SET revoked_at=?,revoked_by=? WHERE user_id=?').bind(Date.now(),'fixture-operator',checkoutUser).run();
  assert.equal(isUserEntitledTo('ai_deal_lab',await store.getGrant(checkoutUser),Date.now()),true);assert.equal(accountData.usage.requestCount,1);assert.deepEqual(Object.keys(accountData.usage),['requestCount']);const accountUser=(await store.getSession(await hash(cookie.split('=')[1]),Date.now())).userId;assert.equal((await store.usageSummary(accountUser,new Date().toISOString().slice(0,7))).knownEstimatedCost,0.00291);
  assert.ok(!JSON.stringify(accountData).includes('cus_e2e'));assert.ok(!JSON.stringify(accountData).includes('sub_e2e'));assert.ok(!JSON.stringify(accountData).includes('new-buyer@example.test'));

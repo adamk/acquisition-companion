@@ -10,7 +10,10 @@ test('homepage introduces acquisition entrepreneurship and its audience without 
  assert.ok(hero.indexOf('Starting a company from scratch')<hero.indexOf('href="/start-here/"'));
  assert.ok(hero.indexOf('href="/start-here/"')<hero.indexOf('href="/course/"'));
  assert.doesNotMatch(hero,/easier than|safer than|likely to succeed|fast path to wealth|build an empire|IPO Capital|Buy Then Build/i);
- assert.doesNotMatch(home,/href="\/(?:pricing|account|ai)\//,'homepage keeps learning as the primary experience');
+ assert.doesNotMatch(hero,/href="\/(?:pricing|account|ai)\//,'the main learning hero remains course-first');
+ assert.match(home,/Deal Lab is a U\.S\.-only paid beta for customers 18 or older/);
+ assert.match(home,/\$19\/month or \$190\/year[\s\S]*up to 100 AI requests per UTC month/);
+ assert.match(home,/href="\/pricing\/">View Deal Lab plans/);assert.match(home,/href="\/account\/">sign in/);
 });
 
 test('Start Here offers one conceptual comparison and retains its existing seven-step learning path',()=>{

@@ -1,6 +1,6 @@
 # Paid-beta production preparation — historical record
 
-> This file records preparation before activation. Its status snapshots and open gates below are historical, not current production instructions. The invite-only beta is live. For the current offer, owner-approved policies, customer support and deployment procedures, use [launch operations](paid-beta-launch-operations.md), [the owner policy record](paid-beta-owner-policy.md), [retention](paid-retention-review.md) and [the production deployment runbook](paid-beta-activation-runbook.md).
+> This file records preparation before activation. Its status snapshots and open gates below are historical, not current production instructions. The invite-only state described below has been superseded by the public U.S.-only beta. For the current offer, owner-approved policies, customer support and deployment procedures, use [launch operations](paid-beta-launch-operations.md), [the owner policy record](paid-beta-owner-policy.md), [retention](paid-retention-review.md) and [the production deployment runbook](paid-beta-activation-runbook.md).
 
 Prepared 2026-10-03. No launch, main push, public paid deployment, payment or paywall activation is authorized by this preparation checkpoint. Production AI remains open. Master flag must remain `AI_PAYWALL_ENABLED=false` until the owner explicitly approves the final report.
 
@@ -51,7 +51,7 @@ Support forwarding is operator-confirmed. Production D1 was created/migrated and
 
 The owner now authorizes production D1 and private mailer bindings plus LIVE Stripe resource preparation. No paid activation is authorized. Attach the already verified production database and named AuthMailer entrypoint to the existing application with AI_PAYWALL_ENABLED=false, AUTH_SIGNIN_ENABLED=false and AUTH_MAIL_ENABLED=false. Preserve current OpenAI values, canonical/analytics build variables, routing and three rate-limit bindings. Reuse the existing database; do not create a duplicate. Stripe account metadata still reports no LIVE CLI authorization; no LIVE mutation may proceed until that changes. Manual Stripe secret entry uses Wrangler secure prompts only.
 
-## Current local checkpoint — invite-only beta
+## Historical checkpoint — invite-only beta (superseded)
 
 Preserve the proven hosted subscription Checkout. The owner rejected Radar and the SetupIntent/server-subscription/Stripe.js alternative as disproportionate for a 5–10-user beta. New local migration 0002 adds a separate operator-approved Checkout capability. Authentication, approval and explicit U.S.-customer attestation are required server-side before any Stripe Customer or Checkout creation; approval alone cannot grant AI access. See [approval procedure](paid-beta-approval.md) and [retention inventory](paid-retention-review.md).
 

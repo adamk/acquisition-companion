@@ -52,16 +52,19 @@ test('paid access is discoverable without putting account requirements in the fr
  const pricing=fs.readFileSync('src/pages/pricing.astro','utf8'),account=fs.readFileSync('src/pages/account.astro','utf8'),paidAccount=fs.readFileSync('src/scripts/paid-account.ts','utf8'),ai=fs.readFileSync('src/pages/ai/index.astro','utf8'),base=fs.readFileSync('src/layouts/Base.astro','utf8'),home=fs.readFileSync('src/pages/index.astro','utf8');
  assert.match(pricing,/Why not just use ChatGPT/);assert.match(pricing,/data-checkout="monthly"/);assert.match(pricing,/data-checkout="annual"/);assert.match(pricing,/build their own/i);
  assert.match(account,/data-signin-form hidden/);assert.match(account,/free course remains accessible without an account/);
- assert.match(ai,/data-ai-account-link/);assert.doesNotMatch(ai,/data-ai-account-link hidden/,'the dormant AI page keeps a discoverable sign-in path');assert.match(ai,/data-ai-access-message/);assert.match(ai,/data-ai-access-pricing/);assert.match(ai,/data-ai-access-request/);
+ assert.match(ai,/data-ai-account-link/);assert.doesNotMatch(ai,/data-ai-account-link hidden/,'the AI page keeps a discoverable sign-in path');assert.match(ai,/data-ai-access-message/);assert.match(ai,/data-ai-access-pricing/);assert.match(ai,/data-ai-access-signin/);
  assert.match(pricing,/data-account-link/);assert.match(pricing,/Already subscribed\? Sign in/);
  assert.match(base,/href="\/account\/"[^>]*>Account \/ sign in/);
  assert.match(base,/\['Account','\/account\/'\]/,'Account remains in the primary navigation regardless of sign-in availability');
  assert.match(pricing,/The course, topics, examples and source-linked educational material remain free/);assert.match(pricing,/subscriptions support interactive AI analysis, deterministic calculations, deal-reasoning workflows, fictional deal practice and IC workflows, and associated model and compute costs/);
- assert.match(ai,/topics, examples and source-linked educational material remain free/);assert.match(ai,/fictional deal practice and IC workflows/);assert.match(ai,/associated model and compute costs/);
+ assert.match(ai,/topics, examples and source-linked educational material remain free/);assert.match(ai,/optional interactive AI analysis, deterministic calculations and practice/);assert.match(ai,/U\.S\.-only paid beta to customers 18 or older/);assert.match(ai,/\$19\/month or \$190\/year/);assert.match(ai,/up to 100 AI requests per UTC month/);
  assert.match(home,/<strong>Free course<\/strong> no account needed/);
  assert.match(account,/data-entitled-usage hidden/);assert.match(account+paidAccount,/No active Deal Lab subscription\./);
- assert.match(account,/data-beta-request hidden/);assert.equal((account.match(/invite-only for U\.S\. customers/g)||[]).length,1,'the account page has one initially hidden beta message');
- assert.equal((paidAccount.match(/invite-only for U\.S\. customers/g)||[]).length,0,'the account script does not duplicate static beta copy');
+ assert.match(account,/data-public-beta-info hidden/);assert.equal((account.match(/paid beta for U\.S\. customers aged/g)||[]).length,1,'the account page has one initially hidden public-beta message');
+ assert.equal((paidAccount.match(/paid beta for U\.S\. customers aged/g)||[]).length,0,'the account script does not duplicate static beta copy');
+ assert.doesNotMatch(pricing,/\bnoindex\b|invite-only|request Checkout approval/i,'public paid-beta pricing is indexable and has no manual-approval copy');
+ assert.match(pricing,/available as a paid beta to customers in the United States/i);assert.match(pricing,/18 or older/);assert.match(pricing,/\$19/);assert.match(pricing,/\$190/);assert.match(pricing,/up to \{paidProduct\.monthlyRequestAllowance\} AI requests per UTC month/);
+ assert.doesNotMatch([pricing,account,ai,home,fs.readFileSync('src/pages/terms.astro','utf8')].join('\n'),/invite-only|request Checkout approval|Checkout approval is active/i);
  assert.ok(!/type="file"|stripe\.js|localStorage/.test(account+pricing+fs.readFileSync('src/scripts/paid-account.ts','utf8')));
 });
 test('account pages suppress analytics so email-link fragments never enter page-view URLs',()=>{

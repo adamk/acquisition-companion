@@ -3,7 +3,6 @@ import Base from '../../layouts/Base.astro';
 import caseCards from '../../data/ai-case-cards.json';
 import '../../styles/ai-lab.css';
 import {siteConfig} from '../../site-config.mjs';
-import {supportEmail} from '../../lib/paid-product.mjs';
 const starters=[
  ['Seller financing','What does Acquisition Companion teach about seller financing?'],
  ['Private credit','What does Acquisition Companion teach about private credit?'],
@@ -26,9 +25,9 @@ const starters=[
     <p>We don’t claim a smarter underlying model or exclusive capabilities. The value is the acquisition framework around it.</p>
    </div>
   </details>
-  <p class="ai-free-paid-note">The course, topics, examples and source-linked educational material remain free. Deal Lab subscriptions support interactive AI analysis, deterministic calculations, deal-reasoning workflows, fictional deal practice and IC workflows, and associated model and compute costs.</p>
+  <p class="ai-free-paid-note">The course, topics, examples and source-linked educational material remain free. Deal Lab is optional interactive AI analysis, deterministic calculations and practice, offered as a U.S.-only paid beta to customers 18 or older: $19/month or $190/year, with up to 100 AI requests per UTC month. <a href="/pricing/">View plans</a>.</p>
   <div class="ai-status" data-ai-status role="status" aria-live="polite" data-pagefind-ignore>Checking AI Deal Lab availability…</div>
-  <p class="small ai-access-notice" data-ai-access hidden><span data-ai-access-message></span> <a href="/pricing/" data-ai-access-pricing>View pricing</a> <a href={`mailto:${supportEmail}`} data-ai-access-request hidden>Request beta access</a></p>
+  <p class="small ai-access-notice" data-ai-access hidden><span data-ai-access-message></span> <a href="/pricing/" data-ai-access-pricing>View pricing</a> <a href="/account/" data-ai-access-signin hidden>Sign in</a></p>
   <div class="ai-workspace" data-ai-workspace data-pagefind-ignore>
    <aside class="ai-rail" data-mode-rail aria-label="Learning modes">
     <p class="eyebrow ai-rail-heading">Ask · Practice · Defend</p>

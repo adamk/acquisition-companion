@@ -1,5 +1,5 @@
 import {paidStore} from './paid-store.mjs';
-import {billingConfigured,isUserEntitledTo,hasAccountCapability} from './paid-access.mjs';
+import {billingConfigured,isUserEntitledTo} from './paid-access.mjs';
 import {PaidError,unavailable} from './paid-security.mjs';
 const API='https://api.stripe.com/v1';
 // Preserve the API version exercised by staging; upgrade separately after compatibility review.
@@ -23,14 +23,13 @@ export async function createCheckout(userId,plan,origin,env,dependencies={},usCu
  const store=paidStore(env,dependencies),user=await store.getUser(userId);if(!user)throw unavailable();
  const grant=await store.getGrant(userId);
  if(isUserEntitledTo('ai_deal_lab',grant,Date.now(),true))throw new PaidError(409,'already_subscribed','Manage your existing subscription in the customer portal.');
- if(!hasAccountCapability('paid_beta_checkout',await store.getBetaCheckoutApproval(userId)))throw new PaidError(403,'beta_approval_required','The initial paid beta is invite-only for U.S. customers. Contact support@acquisitioncompanion.com for approval.');
  if(usCustomerAttested!==true)throw new PaidError(400,'us_attestation_required','Confirm that you are a U.S. customer before subscribing to the paid beta.');
  let customer=user.customerId;
  if(!customer){const created=await stripe('customers',env,dependencies,{email:user.email,'metadata[ac_user_id]':userId},`ac-customer-${userId}`);if(!/^cus_[A-Za-z0-9_]+$/.test(created.id||''))throw unavailable();customer=await store.setCustomer(userId,created.id);}
  const session=await stripe('checkout/sessions',env,dependencies,{
   mode:'subscription',customer,client_reference_id:userId,'line_items[0][price]':env[plan==='monthly'?'STRIPE_MONTHLY_PRICE_ID':'STRIPE_ANNUAL_PRICE_ID'],'line_items[0][quantity]':'1',
   success_url:`${origin}/account/?checkout=complete`,cancel_url:`${origin}/pricing/`,
-  'subscription_data[metadata][ac_beta_eligibility]':'operator_approved_us_attested',
+  'subscription_data[metadata][ac_beta_eligibility]':'public_us_paid_beta_attested',
  },`ac-checkout-${userId}-${plan}-${Math.floor(Date.now()/300000)}`);
  return {url:hostedUrl(session.url,'checkout.stripe.com')};
 }

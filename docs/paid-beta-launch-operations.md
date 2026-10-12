@@ -1,12 +1,14 @@
-# Invite-only paid-beta operator checklist
+# Public U.S. paid-beta operator checklist
 
-This checklist supports the first 5–10 manually approved U.S. customers. The paid beta is live and invite-only. The course and source-linked educational material remain free; the subscription supports interactive analysis, deterministic calculations, deal workflows, fictional practice, IC Challenge and associated model/compute use. Acquisition Companion is independent and is not affiliated with or endorsed by referenced creators.
+This checklist supports the public U.S.-only paid beta. The course and source-linked educational material remain free; the optional subscription supports interactive analysis, deterministic calculations, deal workflows, fictional practice, IC Challenge and associated model/compute use. Acquisition Companion is independent and is not affiliated with or endorsed by referenced creators.
 
-The offer is **$19/month or $190/year**, with up to **100 Deal Lab AI requests per UTC calendar month**. Customers must be 18 or older, be approved for beta Checkout, and attest that they are U.S. customers. Do not use IP geolocation as proof of eligibility or request identity documents. Do not invite customers to submit confidential or non-public deal information. Support: [support@acquisitioncompanion.com](mailto:support@acquisitioncompanion.com).
+The offer is **$19/month or $190/year**, with up to **100 Deal Lab AI requests per UTC calendar month**. Customers must be 18 or older and explicitly attest that they are U.S. customers at Checkout. Do not use IP geolocation as proof of eligibility or request identity documents. Do not invite customers to submit confidential or non-public deal information. Support: [support@acquisitioncompanion.com](mailto:support@acquisitioncompanion.com).
 
 Terms and Privacy state the owner-approved live-beta policy. They are not represented as attorney-approved or as legal advice. The public pages and this checklist should stay consistent with the [owner policy record](paid-beta-owner-policy.md) and [retention policy](paid-retention-review.md).
 
-## Before each invitation
+The manual account-approval procedure in [paid-beta-approval.md](paid-beta-approval.md) is historical/legacy. New customers use the public Checkout flow below; operators must not add approval rows for routine onboarding.
+
+## Before onboarding
 
 - Confirm `/course/`, `/account/`, `/pricing/`, `/ai/`, `/terms/` and `/privacy/` load and the free course is readable without an account.
 - Confirm the operator can view Cloudflare Worker errors/logs, Stripe LIVE webhook delivery history, and AWS SES send/bounce status. Pause invitations if these are unavailable.
@@ -14,13 +16,15 @@ Terms and Privacy state the owner-approved live-beta policy. They are not repres
 - Confirm the approved support address is monitored. The SES mailer sends sign-in email; it is not an invitation or marketing-mail system.
 - Confirm the current prices, U.S.-only availability and 100-request allowance match `/pricing/` and Checkout. Do not promise “unlimited” use, financing, lender approval or a successful acquisition.
 
-## Approve and invite one customer
+## Public customer flow
 
-1. **Confirm eligibility.** Use the support channel. The customer must be 18 or older, request access, have or create their own account, and explicitly confirm U.S.-customer eligibility. Do not collect passports, tax identifiers, payment details or deal documents.
-2. **Verify sign-in.** Ask the customer to request a link from their normal browser and open it in that same browser. Confirm `/account/` shows their signed-in account. Do not request or retain the link, token, cookie or session value.
-3. **Approve Checkout only.** Follow [the production approval procedure](paid-beta-approval.md). Approve only the existing authenticated account for `paid_beta_checkout`, recording the approval timestamp and a short operator label. Read back the decision and confirm it did not create a customer, subscription or `ai_deal_lab` entitlement.
-4. **Send the invitation.** Use an operator-approved one-to-one channel. Include `/account/` and `/pricing/`, U.S.-only and 18+ eligibility, both prices, the 100-request monthly allowance, the free-course boundary, and support email. Never include a sign-in token or ask the customer to send one to support.
-5. **Confirm Checkout eligibility.** Have the customer reload their account or pricing page. They must complete the server-protected hosted Checkout flow and its explicit U.S.-customer attestation. Beta approval alone does not unlock AI.
+1. **Visitor reads pricing.** `/pricing/` shows the public U.S.-only offer, age 18+ requirement, both prices, 100-request allowance, free-course boundary and support address.
+2. **Customer signs in.** They open `/account/`, request a link in their normal browser and open it in the same browser. Confirm the page recognizes the signed-in account. Do not request or retain the link, token, cookie or session value.
+3. **Customer confirms U.S. eligibility.** On pricing, they affirm the U.S.-customer and 18+ statement. Do not use IP geolocation as proof or collect identity documents.
+4. **Customer chooses monthly or annual.** The signed-in customer selects a plan and continues through authenticated, same-origin, CSRF-protected Stripe-hosted Checkout. Beta approval is not required. Do not create a Checkout Session outside the customer's browser flow.
+5. **Stripe confirms payment and subscription.** A signed webhook maps canonical subscription state. Verify the paid invoice, one customer mapping, one subscription row and webhook delivery; do not use account-wide Stripe counts because the account is shared.
+6. **Entitlement activates from canonical state.** Confirm `/account/` reports active subscription, Manage billing, usage, remaining requests and UTC reset. Sign-in and U.S. attestation alone do not grant AI access; never insert entitlement manually.
+7. **Metered use begins.** Requests that reach the model count under the published monthly quota. Do not reset counters to resolve a discrepancy. Ask for high-level feedback with the [beta feedback template](paid-beta-feedback-template.md); do not request prompts, responses, company identities or confidential deal details.
 
 ## After Checkout
 
@@ -60,4 +64,4 @@ The detailed SELECT checks, conditional NULL-mapping correction, exact-event mar
 
 ## Stop and escalate
 
-Stop if an account/customer mapping is non-NULL but conflicts, the customer or subscription cannot be matched, D1 is unavailable, duplicate customer/subscription/entitlement rows appear, the LIVE webhook has no legitimate event to resend, or a write would require guessing. Never create fake subscription state, clear a healthy idempotency marker, bypass approval/attestation, or delete the operator's paid account data as part of routine support. See the [production deployment and rollback runbook](paid-beta-activation-runbook.md) for feature-gate safety. Keep the LIVE webhook enabled while any subscription still needs lifecycle events.
+Stop if an account/customer mapping is non-NULL but conflicts, the customer or subscription cannot be matched, D1 is unavailable, duplicate customer/subscription/entitlement rows appear, the LIVE webhook has no legitimate event to resend, or a write would require guessing. Never create fake subscription state, clear a healthy idempotency marker, bypass authentication, CSRF or U.S. attestation, or delete a customer's paid account data as part of routine support. See the [production deployment and rollback runbook](paid-beta-activation-runbook.md) for feature-gate safety. Keep the LIVE webhook enabled while any subscription still needs lifecycle events.

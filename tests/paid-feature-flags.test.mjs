@@ -73,15 +73,15 @@ test('enabling billing alone does not open sign-in or gate anonymous AI',async()
  let modelCalls=0;const ai=await handleAiRequest(f.aiRequest(),env,{...f.dependencies,fetcher:async()=>{modelCalls++;return modelOutput();}});assert.equal(ai.status,503);assert.equal((await ai.json()).error.code,'interactive_disabled');assert.equal(modelCalls,0);
 });
 
-test('billing can run with AI paywall off but still requires account approval; approval is not entitlement',async()=>{
+test('billing can run with AI paywall off; public Checkout requires U.S. attestation and not legacy approval',async()=>{
  const f=fixture(),env=baseEnv({AI_PAYWALL_ENABLED:'false',AUTH_SIGNIN_ENABLED:'true',BILLING_ENABLED:'true'});
  const status=await handlePaidRequest(f.paidRequest('/api/billing/status'),env,f.dependencies),data=await status.json();
  assert.equal(data.enabled,false);assert.equal(data.signInAvailable,true);assert.equal(data.billingAvailable,true);
- const unapproved=await handlePaidRequest(f.paidRequest('/api/billing/checkout',{plan:'monthly',usCustomerAttested:true}),env,f.dependencies);
- assert.equal(unapproved.status,403);assert.equal(f.calls(),0);
- f.store.getBetaCheckoutApproval=async()=>({approvedAt:Date.now()-1,revokedAt:null});
+ f.store.getBetaCheckoutApproval=async()=>{throw Error('legacy approval must not gate public Checkout');};
+ const unattested=await handlePaidRequest(f.paidRequest('/api/billing/checkout',{plan:'monthly'}),env,f.dependencies);
+ assert.equal(unattested.status,400);assert.equal((await unattested.json()).error.code,'us_attestation_required');assert.equal(f.calls(),0);
  const approved=await handlePaidRequest(f.paidRequest('/api/billing/checkout',{plan:'monthly',usCustomerAttested:true}),env,f.dependencies);
- assert.equal(approved.status,200);assert.equal(f.calls(),2);
+ assert.equal(approved.status,200);assert.equal(f.calls(),2,'unapproved public customer can create hosted Checkout after attestation');
  const grant={status:'active',validUntil:Date.now()+60_000};
  f.setGrant(grant);
  assert.equal(isUserEntitledTo('ai_deal_lab',grant),true);
