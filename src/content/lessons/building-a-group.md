@@ -6,7 +6,7 @@ order: 19
 minutes: 4
 topics: ["roll-ups", "bolt-ons", "management", "leverage", "covenants"]
 evidence: ["E090", "E111", "E051", "E091", "E112", "E113", "E093", "E092", "E146", "E043"]
-sources: ["nYNfdSQqk3o", "np9jH5OyQnE", "rVW6fyafA0s", "8LNGpCPhTzU", "NnWl4wMoQhM", "SPMaYlRzACI", "WBPmqD8jIKA", "3z3NDUcOaNg"]
+sources: ["nYNfdSQqk3o", "np9jH5OyQnE", "rVW6fyafA0s", "8LNGpCPhTzU", "NnWl4wMoQhM", "SPMaYlRzACI", "WBPmqD8jIKA", "3z3NDUcOaNg", "9rWdp9vC2tw"]
 takeaway: "Additional companies create value only if the operating and financing relationships make sense."
 ---
 

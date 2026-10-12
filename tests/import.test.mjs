@@ -17,8 +17,8 @@ else: raise AssertionError('misaligned provenance accepted')`],{encoding:'utf8'}
 });
 test('generated public data retains complete stable record identities and valid relationships',()=>{
  const evidence=read('evidence'),videos=read('videos'),numbers=read('numbers'),providers=read('providers');
- assert.equal(evidence.length,243);assert.equal(videos.length,118);assert.equal(numbers.length,313);assert.equal(providers.length,28);
- const videoIds=new Set(videos.map(v=>v.id));assert.equal(videoIds.size,118);
+ assert.equal(evidence.length,243);assert.equal(videos.length,119);assert.equal(numbers.length,313);assert.equal(providers.length,28);
+ const videoIds=new Set(videos.map(v=>v.id));assert.equal(videoIds.size,119);
  const topics=new Set(JSON.parse(readFileSync('docs/content-contract.json')).topics);
  for(const [records,prefix] of [[evidence,'E'],[numbers,'N'],[providers,'P']]) records.forEach((r,i)=>{
    assert.equal(r.id,`${prefix}${String(i+1).padStart(3,'0')}`);

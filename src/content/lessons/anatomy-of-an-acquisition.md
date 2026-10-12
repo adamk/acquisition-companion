@@ -6,7 +6,7 @@ order: 2
 minutes: 5
 topics: ["acquisition-process", "loi", "capital-stack", "due-diligence"]
 evidence: ["E059", "E019", "E032", "E056", "E036", "E125", "E075", "E074", "E009"]
-sources: ["WcYMjlTsUwA", "iuC8eRD77I8", "lGkWzEfsu_c", "cvauHwc3guQ", "3U3uEsou3SM", "vkKw1MeUors", "PqGjF6z1ZaM", "2maCpFUx4ks", "4DhN50eAkcA", "NTa6kB7cGg0", "942nFYmky6Q", "Sj_SpzSpxw0", "mh1tKwDlnaE", "eN6nVKlUu3c"]
+sources: ["WcYMjlTsUwA", "iuC8eRD77I8", "lGkWzEfsu_c", "cvauHwc3guQ", "3U3uEsou3SM", "vkKw1MeUors", "PqGjF6z1ZaM", "2maCpFUx4ks", "4DhN50eAkcA", "NTa6kB7cGg0", "942nFYmky6Q", "Sj_SpzSpxw0", "mh1tKwDlnaE", "eN6nVKlUu3c", "9rWdp9vC2tw"]
 takeaway: "A transaction progresses when seller terms, evidence, financing and completion conditions agree."
 ---
 
@@ -22,6 +22,8 @@ Sey describes late financing setbacks as costly in time, reputation and adviser 
 Begin by agreeing enough commercial detail to make investigation worthwhile. A letter of intent may identify the buyer, earnings basis, price, payment timing, working-capital assumptions and conditions. Financial information then supports both buyer diligence and lender assessment. The same data room can serve several readers, although the buyer's questions extend beyond the lender's credit concerns. [Watch source](https://www.youtube.com/watch?v=vkKw1MeUors) [Watch source](https://www.youtube.com/watch?v=vkKw1MeUors)
 
 Financing and legal work converge at completion. In the process Sey describes, lawyers coordinate documents and hold funds subject to release conditions. Ownership transfer and seller payment depend on those conditions being satisfied. Money described as available to a transaction is not personal spending money for the sponsor. [Watch source](https://www.youtube.com/watch?v=4DhN50eAkcA)
+
+A special-purpose vehicle (SPV), or acquisition vehicle, is a company formed for a particular transaction. In the practitioner’s example, acquisition financing moves through transaction entities to complete the purchase rather than becoming personal cash for the buyer. One structure has a HoldCo above a MidCo that borrows, with a BidCo acquiring the target. Other transactions may use fewer or differently arranged entities. The legal, tax and security choices depend on the deal and its advisers. [Watch source](https://www.youtube.com/watch?v=9rWdp9vC2tw)
 
 ## Practical interpretation
 Create four parallel columns in your deal notes: seller agreement, business evidence, funding and completion. For each, record what is confirmed, what is assumed and who owns the next action. This is an editorial planning tool based on the dependencies described in the source. For example, the seller may have accepted a headline price while the lender still needs reliable monthly accounts. Calling the whole deal agreed would conceal that mismatch. [Watch source](https://www.youtube.com/watch?v=vkKw1MeUors) [Watch source](https://www.youtube.com/watch?v=vkKw1MeUors)

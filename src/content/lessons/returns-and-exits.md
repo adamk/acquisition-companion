@@ -6,7 +6,7 @@ order: 20
 minutes: 5
 topics: ["returns-and-exits", "irr-and-moic", "equity-value", "preferred-equity", "refinancing"]
 evidence: ["E215", "E004", "E010", "E099", "E146", "E098", "E187", "E049", "E096", "E100"]
-sources: ["VmRqlJuqCs8", "9OBSog0S5XU", "TGMdeD8EnD4", "v41qQ3KC2b4", "T3zG2Iaxy-k", "Sj_SpzSpxw0", "7Zg5hGZLrDM", "IJIazMAuvmI", "SPMaYlRzACI", "WBPmqD8jIKA", "fOjSk3VYZdc", "8LNGpCPhTzU", "eKGCCawHqjk", "KsnY8Gpnkl4"]
+sources: ["VmRqlJuqCs8", "9OBSog0S5XU", "TGMdeD8EnD4", "v41qQ3KC2b4", "T3zG2Iaxy-k", "Sj_SpzSpxw0", "7Zg5hGZLrDM", "IJIazMAuvmI", "SPMaYlRzACI", "WBPmqD8jIKA", "fOjSk3VYZdc", "8LNGpCPhTzU", "eKGCCawHqjk", "KsnY8Gpnkl4", "9rWdp9vC2tw"]
 takeaway: "Investment performance depends on actual owner cash flows, timing and rights—not portfolio headlines."
 ---
 

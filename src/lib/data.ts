@@ -13,7 +13,7 @@ export interface FundGuide {id:string;title:string;organization:string;url:strin
 export interface FundNumber {id:string;metric:string;value:string;context:string;kind:string;confidence:string;caution:string;sourceId:string;sourceUrl:string;topics:string[];timeSensitive:boolean;}
 export const videos=videoData as Video[];
 // The original research inventory contains 57 captioned and 60 audio-recovered items.
-export const videoCounts={total:videos.length,captioned:57,audioRecovered:60+videos.filter(v=>v.transcript?.method==='Whisper audio recovery').length};
+export const videoCounts={total:videos.length,captioned:57,audioRecovered:60+videos.filter(v=>v.transcript?.method==='Whisper audio recovery').length,operatorSupplied:videos.filter(v=>v.transcript?.method==='Operator-supplied transcript').length};
 export const evidence=evidenceData as Evidence[];
 export const numbers=numberData as NumberRecord[];
 export const providers=providerData as Provider[];

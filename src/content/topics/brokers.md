@@ -6,7 +6,7 @@ category: "Finding deals"
 coverage: "substantive"
 related: ["sourcing", "bank-debt", "debt-pricing"]
 evidence: ["E018", "E104", "E138", "E110"]
-sources: ["cvauHwc3guQ", "vvw6brqjl2I", "j4orWHw8kdA", "kNoY1Wkr07E", "OtjUJIlY_6Q"]
+sources: ["cvauHwc3guQ", "vvw6brqjl2I", "j4orWHw8kdA", "kNoY1Wkr07E", "OtjUJIlY_6Q", "9rWdp9vC2tw"]
 ---
 
 The word broker covers different jobs. A sell-side broker represents an owner seeking a buyer. A buy-side broker helps an acquirer find targets. A debt broker helps identify lenders and assemble a financing process. Knowing which role someone occupies explains what information they need, whose objectives they prioritize and how their remuneration could influence the conversation.

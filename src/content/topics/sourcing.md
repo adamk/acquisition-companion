@@ -6,7 +6,7 @@ category: "Finding deals"
 coverage: "substantive"
 related: ["target-selection", "brokers", "loi"]
 evidence: ["E102", "E117", "E232"]
-sources: ["vvw6brqjl2I", "H7R3OanjTfo", "PqGjF6z1ZaM", "p3EX7IpcYd0"]
+sources: ["vvw6brqjl2I", "H7R3OanjTfo", "PqGjF6z1ZaM", "p3EX7IpcYd0", "9rWdp9vC2tw"]
 ---
 
 Sourcing turns a broad acquisition interest into conversations with identifiable owners. Listed opportunities provide a seller already exploring a transaction. Direct outreach may reach owners before a formal sale process, but willingness, timing and expectations still need to be discovered. A database entry is a lead; an owner who understands and accepts the outline economics is a materially different prospect.

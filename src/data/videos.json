@@ -2455,5 +2455,32 @@
         }
       ]
     }
+  },
+  {
+    "id": "9rWdp9vC2tw",
+    "title": "If you want to become a Private Equity sponsor, watch this (throwback interview)",
+    "url": "https://www.youtube.com/watch?v=9rWdp9vC2tw",
+    "collection": "yusufa-sey",
+    "summary": "Practitioner interview discussing sourcing, intermediaries, transaction vehicles, fundraising, management roles, group building and prospective exits. Examples are personal experience or illustration, not independent verification or general market benchmarks.",
+    "topics": [
+      "acquisition-entrepreneurship",
+      "sourcing",
+      "brokers",
+      "capital-stack",
+      "investor-equity",
+      "management",
+      "roll-ups",
+      "returns-and-exits"
+    ],
+    "usefulPE": true,
+    "usefulDebt": true,
+    "limited": false,
+    "creator": "Yusufa Sey",
+    "publishedAt": "2026-10-11",
+    "transcript": {
+      "method": "Operator-supplied transcript",
+      "caution": "The operator supplied this transcript; it has not been independently verified against the recording. This is a practitioner interview. Numerical examples are self-reported or illustrative, and prospective exit or multiple claims are not realized-performance evidence or general benchmarks.",
+      "sections": []
+    }
   }
 ]

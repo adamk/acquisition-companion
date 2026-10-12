@@ -6,12 +6,12 @@ order: 18
 minutes: 5
 topics: ["management", "cash-flow", "covenants", "customer-concentration"]
 evidence: ["E069", "E048", "E124", "E057", "E040", "E236", "E038", "E042", "E002"]
-sources: ["nYNfdSQqk3o", "xq5pwowli-0", "NWQKr-gqNhc", "8LNGpCPhTzU", "VNXXyH4dr-I", "ykuS4w_Ocws", "4DhN50eAkcA", "2maCpFUx4ks", "4KGWEet-vwE", "9-mOvWiyYZw", "b_Emk0J2yfw", "--DvlTBzkW4", "TGMdeD8EnD4", "eN6nVKlUu3c"]
+sources: ["nYNfdSQqk3o", "xq5pwowli-0", "NWQKr-gqNhc", "8LNGpCPhTzU", "VNXXyH4dr-I", "ykuS4w_Ocws", "4DhN50eAkcA", "2maCpFUx4ks", "4KGWEet-vwE", "9-mOvWiyYZw", "b_Emk0J2yfw", "--DvlTBzkW4", "TGMdeD8EnD4", "eN6nVKlUu3c", "9rWdp9vC2tw"]
 takeaway: "Delegating operations requires clear authority, useful reporting and an owner who remains engaged."
 ---
 
 ## What it means
-Managing ownership means deciding who runs the business, who oversees that work and how problems reach the people able to act. Sey distinguishes employment, economic ownership and control. In his larger-company model, a board oversees direction and performance while a chief executive leads operations through managers. The roles may overlap, but should not be confused. [Watch source](https://www.youtube.com/watch?v=xq5pwowli-0)
+Managing ownership means deciding who runs the business, who oversees that work and how problems reach the people able to act. Employment and compensation for operating work, economic ownership, and governance or control rights are separate dimensions. Sey describes a board overseeing direction and performance while a chief executive leads operations through managers. Outside capital can cause the dimensions to diverge: an executive may leave the operating role yet retain equity, a later raise may dilute an existing holding, and board rights may continue under transaction agreements. Titles do not establish legal authority; roles and rights depend on the deal documents. [Watch source](https://www.youtube.com/watch?v=xq5pwowli-0) [Watch source](https://www.youtube.com/watch?v=9rWdp9vC2tw)
 
 A sponsor hiring an operator is delegating daily work, not eliminating responsibility to investors, lenders or the business. The collection repeatedly returns to the need to stay aware of serious problems even when routine reporting flows through a group chief executive and finance team. [Watch source](https://www.youtube.com/watch?v=8LNGpCPhTzU)
 
