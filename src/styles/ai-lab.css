@@ -35,6 +35,7 @@
 .ai-case-choice{display:block;text-align:left;width:100%;padding:.6rem .55rem;background:transparent;color:var(--ink);border-left:2px solid transparent;border-radius:2px}
 .ai-case-choice span{display:block;font-size:.73rem;line-height:1.4}.ai-case-choice small{display:block;font-size:.61rem;color:var(--muted);text-transform:capitalize;margin-top:.15rem}
 .ai-case-choice[aria-pressed=true]{border-left-color:var(--teal);background:#e7eee6}.ai-case-choice:hover{background:#edf1e9}
+.ai-coach-link{display:block;font-size:.8rem;padding:.75rem .6rem;min-height:44px}
 .ai-rail-note{margin-top:auto;padding:.9rem .5rem 0;font-size:.71rem;line-height:1.65;color:var(--muted)}
 .ai-rail-note a{font-size:.68rem}
 .ai-mobile-mode-select,.ai-mobile-mode-label,.ai-mobile-cases{display:none}

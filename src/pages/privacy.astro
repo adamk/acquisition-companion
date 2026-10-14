@@ -9,7 +9,7 @@ import Crumbs from '../components/Crumbs.astro';
   <header class="page-header">
    <p class="eyebrow">Privacy</p>
    <h1>Privacy and analytics</h1>
-   <p>Last updated October 11, 2026.</p>
+   <p>Last updated October 14, 2026.</p>
   </header>
   <div class="prose">
    <p>Acquisition Companion is operated by The Wired Nomad LLC. The public course and source-linked educational material are free to read without an account. Lesson progress and your analytics choice are saved in this browser. Site search runs locally in your browser.</p>
@@ -21,6 +21,9 @@ import Crumbs from '../components/Crumbs.astro';
    <h2 id="ai-deal-lab">Optional AI Deal Lab and usage information</h2>
    <p>For quota, reliability and service accounting, the application stores usage-event identifiers, account UUID, timestamp and completion time, UTC month, Deal Lab workflow and model labels, completion status, latency, token counts when supplied, and estimated internal processing cost. Monthly aggregates store the request count and related accounting totals. Application usage records do not store prompts, responses, deal facts or conversation history. Cost accounting is kept server-side and is not shown in your account.</p>
    <p>Questions, a short capped conversation context and the selected synthetic case stage are sent to OpenAI to generate a Deal Lab response. Requests use <code>store: false</code>; this means Acquisition Companion does not intentionally maintain a server-side chat history. It is not a zero-retention guarantee; OpenAI’s applicable terms and policies govern its processing. Do not submit confidential, proprietary, personal or non-public deal information. There are no private deal-document, CIM, or data-room uploads.</p>
+
+   <h3>Seller Call Coach</h3>
+   <p>Seller Call Coach supports introductory seller conversations using short, non-confidential summaries, not confidential transcripts. Do not enter confidential, proprietary, personal, or non-public deal information. This version does not record audio or accept transcript or document uploads. Notes, coverage and coaching results stay in the active browser session, in page memory only, and clear when you reload, leave the page or choose Clear call. When you request a next question or call review, notes, coverage and up to three recent coaching questions are sent to OpenAI through our server with <code>store: false</code>. Acquisition Companion does not intentionally persist these notes or results as a deal file or conversation record. The page sends no analytics. Existing usage accounting records the workflow and processing metadata, without note or response contents. This is not a zero-retention guarantee; provider processing and retention policies still apply.</p>
 
    <h2>Service providers</h2>
    <p>Cloudflare provides the website, application Worker, edge services and production database. Stripe provides hosted billing and sends signed subscription events to the application. Amazon Web Services SES delivers passwordless sign-in email from signin@acquisitioncompanion.com. OpenAI processes Deal Lab requests. These providers process information needed for their services under their own terms and policies. Their independent retention practices are not controlled by Acquisition Companion.</p>

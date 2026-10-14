@@ -23,6 +23,7 @@
     "test:browser": "node scripts/browser-check.mjs",
     "test:analytics-browser": "node scripts/browser-analytics-check.mjs",
     "test:ai-browser": "node scripts/browser-ai-check.mjs",
+    "test:call-coach-browser": "node scripts/browser-call-coach-check.mjs",
     "test:paid-browser": "node scripts/browser-paid-check.mjs",
     "test:paid-d1-runtime": "node scripts/paid-d1-runtime-check.mjs"
   },

@@ -6,6 +6,7 @@ import {analysisKindFor,analysisPolicyFor,operationalPolicyFor} from './analysis
 
 import {paywallEnabled,requirePaidAccess,entitledUsageAccess,monthlyLimit,providerUsage,estimatedCost} from './paid-access.mjs';
 import {PaidError,paidErrorResponse} from './paid-security.mjs';
+import {validateCoachBody,coachInstructions,parseCoachResult} from './seller-call-coach.mjs';
 
 const AI_ORIGIN='https://acquisitioncompanion.com';
 const MAX_BODY_BYTES=12*1024;
@@ -136,6 +137,7 @@ function validateHistory(history) {
 
 function validateBody(body) {
   if (!body || typeof body!=='object' || Array.isArray(body)) throw new ApiError(400,'invalid_request','The request is missing required fields.');
+  if(body.mode==='seller_call_coach')return validateCoachBody(body,ApiError);
   const allowedKeys=new Set(['mode','message','history','caseId','caseStage','action']);
   if (Object.keys(body).some(key=>!allowedKeys.has(key))) throw new ApiError(400,'invalid_request','The request contains an unsupported field.');
   if (!MODES.has(body.mode)) throw new ApiError(400,'invalid_mode','Choose Ask the Course, Deal Lab, or IC Challenge.');
@@ -347,7 +349,7 @@ function createInstructorInstructions(validated) {
 }
 
 function buildCaseContext(validated) {
-  if (validated.mode==='ask_course') return null;
+  if (validated.mode==='ask_course'||validated.mode==='seller_call_coach') return null;
   const scenario=validated.scenario;
   const stage=validated.caseStage;
   const allFacts=visibleFacts(scenario.id,stage);
@@ -459,8 +461,8 @@ async function createModelResponse(validated,env,fetcher,onUsage,onProviderFailu
       apiKey:env.OPENAI_API_KEY,
       model:env.OPENAI_MODEL || DEFAULT_OPENAI_MODEL,
       vectorStoreId:env.OPENAI_VECTOR_STORE_ID,
-      input:makeOpenAIInput(history,validated.message),
-      instructions:createInstructorInstructions(promptInput),
+      input:validated.mode==='seller_call_coach'?makeOpenAIInput([],JSON.stringify({notes:validated.notes,coverage:validated.coverage,recentQuestions:validated.recentQuestions})):makeOpenAIInput(history,validated.message),
+      instructions:validated.mode==='seller_call_coach'?coachInstructions(validated):createInstructorInstructions(promptInput),
       allowedActions:allAllowedActions,
       allowedLessonSlugs:lessonSlugs,
       mode:validated.mode,
@@ -477,8 +479,9 @@ async function createModelResponse(validated,env,fetcher,onUsage,onProviderFailu
   if(onUsage){let usage;try{usage=JSON.parse(providerResponse.body)?.usage;}catch{}onUsage(providerUsage(usage));}
   if(!providerResponse.ok&&onProviderFailure){
     let error;try{error=JSON.parse(providerResponse.body)?.error;}catch{}
-    const code=typeof error?.code==='string'&&/^[a-z_]{1,80}$/.test(error.code)?error.code:null;
-    const scopes=typeof error?.message==='string'&&/missing scopes:/i.test(error.message)?[...new Set(error.message.match(/\bapi\.[a-z_]+(?:\.[a-z_]+)*\b/g)||[])].slice(0,8):[];
+    // Coach diagnostics never derive fields from provider text, which may echo notes.
+    const code=validated.mode!=='seller_call_coach'&&typeof error?.code==='string'&&/^[a-z_]{1,80}$/.test(error.code)?error.code:null;
+    const scopes=validated.mode!=='seller_call_coach'&&typeof error?.message==='string'&&/missing scopes:/i.test(error.message)?[...new Set(error.message.match(/\bapi\.[a-z_]+(?:\.[a-z_]+)*\b/g)||[])].slice(0,8):[];
     onProviderFailure({type:'ai_provider_failure',mode:validated.mode,action:validated.action,providerHttpStatus:providerResponse.status,providerCode:code,missingScopes:scopes});
   }
   if (providerResponse.status===429) throw new ApiError(429,'rate_limited','AI Deal Lab is busy right now. Please wait a minute and try again.',{'Retry-After':'60'});
@@ -494,6 +497,12 @@ async function createModelResponse(validated,env,fetcher,onUsage,onProviderFailu
     throw new ApiError(502,'response_incomplete','AI Deal Lab could not complete that response. Please try again.');
   }
   if (apiResponse?.status && apiResponse.status!=='completed') throw new ApiError(503,'unavailable','AI Deal Lab could not prepare a response. Please try again shortly.');
+  if(validated.mode==='seller_call_coach'){
+    const {structured,filenames,fileSearchCompleted}=extractOutput(apiResponse);
+    const coach=parseCoachResult(structured,validated.action);
+    if(!fileSearchCompleted||!coach)throw new ApiError(503,'unavailable','Seller Call Coach could not prepare a response. Please try again.');
+    return {coach,citations:mapCitations(filenames)};
+  }
   const {structured,filenames}=structuredCitations(apiResponse);
   if (validated.action==='complete' && !validCompletionFeedback(structured.feedback)) {
     throw new ApiError(503,'unavailable','AI Deal Lab could not prepare the committee feedback. Please try again shortly.');
@@ -534,9 +543,10 @@ export async function handleAiRequest(request,env={},dependencies={}) {
   let validated;
   try {
     validated=validateBody(await readJsonBody(request));
-    if (!['ask_course','deal_lab','ic_challenge'].includes(validated.mode)) throw new ApiError(400,'invalid_mode','Choose a supported learning mode.');
+    if (!['ask_course','deal_lab','ic_challenge','seller_call_coach'].includes(validated.mode)) throw new ApiError(400,'invalid_mode','Choose a supported learning mode.');
     if (validated.action==='start' && validated.mode!=='ask_course' && validated.requestedCaseStage!==0) throw new ApiError(400,'invalid_case_stage','Start the selected synthetic case first.');
-    const access=await requirePaidAccess(request,env,dependencies);
+    // This paid feature never inherits the general workspace's open-access fallback.
+    const access=await requirePaidAccess(request,validated.mode==='seller_call_coach'?{...env,AI_PAYWALL_ENABLED:'true'}:env,dependencies);
     await applyRateLimits(request,env);
     const reportFailure=paywallEnabled(env)&&(env.PAID_ENVIRONMENT==='staging'||env.PAID_DIAGNOSTICS_ENABLED==='true')?(dependencies.reportProviderFailure||(value=>console.warn(JSON.stringify(value)))):null;
     let usageAccess=access;

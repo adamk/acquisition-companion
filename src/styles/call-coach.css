@@ -1,0 +1,64 @@
+.workspace-shell>.site-header,.workspace-shell>.site-footer{display:none}
+.workspace-shell .workspace-main{max-width:none;width:100%;padding:0;min-height:0}
+.call-coach{max-width:1500px;margin:auto;padding:0 1.75rem 2rem;color:var(--ink)}
+.coach-topbar,.coach-topbar nav,.coach-brand,.coach-intro,.coach-panel-heading,.coach-controls{display:flex;align-items:center;gap:1rem}
+.coach-topbar{justify-content:space-between;padding:1.2rem 0;border-bottom:1px solid var(--line)}
+.coach-brand{font-weight:700;text-decoration:none;color:var(--ink)}
+.coach-topbar nav{font-size:.85rem;flex-wrap:wrap;justify-content:flex-end}
+.coach-topbar .button{font-size:.8rem;padding:.5rem .75rem;min-height:40px}
+.coach-intro{justify-content:space-between;padding:1.75rem 0 1rem;align-items:flex-end}
+.coach-intro h1{font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.15;margin:.3rem 0 .5rem}
+.coach-intro p:not(.eyebrow){color:var(--muted);margin:0}
+.coach-session-label{font-size:.75rem;border:1px solid var(--line);padding:.4rem .7rem;border-radius:2rem;white-space:nowrap;color:#365d57;background:#f2f7f5}
+.coach-boundary{font-size:.8rem;line-height:1.6;background:#f7f4ec;padding:.65rem .9rem;border-left:3px solid #a67c39;margin:.25rem 0 .65rem}
+.coach-access{font-size:.8rem;min-height:2rem;padding:.3rem 0 .7rem;color:var(--muted)}
+.coach-access a{white-space:nowrap}
+.coach-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:1rem;align-items:start}
+.coach-panel{min-width:0;border:1px solid var(--line);border-radius:12px;padding:1.2rem;background:var(--paper,#fff)}
+.coach-panel h2{font-size:1.15rem;line-height:1.3;margin:0}
+.coach-panel-heading{justify-content:space-between;align-items:center;margin-bottom:.5rem}
+.coach-panel-heading>span{font-size:.75rem;color:var(--muted);white-space:nowrap}
+.coach-notes>p{margin:.5rem 0 .9rem;color:var(--muted)}
+.coach-notes textarea{width:100%;box-sizing:border-box;min-height:240px;max-height:600px;resize:vertical;font:inherit;font-size:.95rem;line-height:1.65;padding:.9rem;border:1px solid #879e98;border-radius:7px;background:#fff;color:var(--ink);display:block}
+.coach-notes textarea::placeholder{color:#63736e}
+.coach-controls{margin-top:1rem;flex-wrap:wrap;gap:.6rem}
+.coach-controls .button{font-size:.85rem;min-height:44px}
+.coach-controls [data-ask-next]{flex:1 1 220px}
+.coach-controls [data-review-call]{flex:1 1 140px}
+.coach-meter{font-size:.73rem!important;margin-bottom:0!important}
+.coach-answer{border-top:4px solid #174d48;background:#f2f7f5;position:sticky;top:1rem;min-height:360px}
+.coach-answer>.eyebrow{margin-bottom:.45rem}
+.coach-answer h2{font-size:.85rem;text-transform:uppercase;letter-spacing:.09em;color:#365d57}
+.coach-question{font-size:clamp(1.25rem,2vw,1.8rem);line-height:1.4;font-weight:600;margin:.8rem 0 1.25rem;overflow-wrap:anywhere;color:#153b36}
+.coach-answer h3{font-family:inherit;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin:1.15rem 0 .35rem;color:#365d57}
+.coach-answer [data-question-detail] p{font-size:.9rem;line-height:1.6;margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.coach-answer-note{border-top:1px solid #ccdad5;padding-top:.9rem;margin-top:1.4rem;font-size:.75rem;color:#4d635e}
+.coach-freshness{font-size:.75rem;color:#655020}
+.coach-error{background:#fff2ee;border-left:3px solid #a2412b;padding:.75rem;color:#7a2f1e!important;font-size:.85rem;overflow-wrap:anywhere}
+.coach-coverage{grid-column:1;grid-row:2}
+.coach-coverage>p{color:var(--muted);margin:.5rem 0}
+.coach-goal{display:grid;grid-template-columns:minmax(0,1fr) minmax(145px,.7fr);gap:.8rem;padding:.75rem 0;border-top:1px solid var(--line);align-items:center}
+.coach-goal:first-child{border-top:0}
+.coach-goal label{font-size:.85rem;font-weight:700;display:block}
+.coach-goal p{font-size:.75rem;color:var(--muted);line-height:1.45;margin:.2rem 0}
+.coach-goal small{font-size:.68rem;line-height:1.3;display:block;color:#365d57}
+.coach-goal select{width:100%;min-width:0;min-height:42px;font-size:.75rem;border:1px solid #879e98;border-radius:5px;padding:.5rem .3rem;color:var(--ink);background:#fff}
+.coach-review{grid-column:2;grid-row:2}
+.coach-review>p.small{color:var(--muted);margin-top:.6rem}
+.coach-review-sections h3{font-size:.9rem;margin:1rem 0 .3rem}
+.coach-review-sections ul,.coach-sources ul{padding-left:1.2rem;font-size:.85rem;line-height:1.6;overflow-wrap:anywhere}
+.coach-review-sections li{margin:.25rem 0}
+.coach-sources summary{font-size:.75rem;cursor:pointer}
+.coach-privacy{margin-top:1.25rem;border-top:1px solid var(--line);padding:1rem 0;font-size:.8rem;color:var(--muted);max-width:960px;line-height:1.65}
+.coach-privacy summary{cursor:pointer;font-weight:700;color:var(--ink)}
+.coach-privacy p{margin:.6rem 0}
+.call-coach dialog{max-width:480px;width:calc(100% - 2rem);box-sizing:border-box;border:1px solid var(--line);border-radius:12px;padding:1.5rem;color:var(--ink);background:var(--paper,#fff)}
+.call-coach dialog::backdrop{background:rgb(12 30 25 / .45)}
+.call-coach dialog h2{font-size:1.3rem;margin:0 0 .7rem}
+.call-coach dialog p{font-size:.9rem;line-height:1.6}
+.call-coach [hidden]{display:none!important}
+.call-coach :focus-visible{outline:3px solid #a66a16;outline-offset:3px}
+@media(min-width:1800px){.coach-notes textarea{min-height:300px}}
+@media(max-width:1100px){.call-coach{padding:0 1rem 1rem}.coach-intro{align-items:flex-start}.coach-intro h1{font-size:2rem}.coach-session-label{white-space:normal;max-width:180px}.coach-panel{padding:1rem}.coach-controls{gap:.5rem}.coach-goal select{font-size:.75rem}.coach-topbar nav{gap:.65rem}}
+@media(max-width:800px){.coach-grid{grid-template-columns:minmax(0,1fr)}.coach-answer{grid-row:1;position:static;min-height:0}.coach-notes{grid-row:2}.coach-coverage{grid-row:3}.coach-review{grid-row:4;grid-column:1}.coach-topbar{align-items:flex-start;gap:.75rem}.coach-brand{font-size:.8rem}.coach-topbar nav{font-size:.75rem;gap:.5rem}.coach-intro{gap:.75rem;flex-wrap:wrap;padding-top:1.2rem}.coach-intro h1{font-size:1.8rem}.coach-session-label{max-width:none}.coach-goal{grid-template-columns:minmax(0,1fr) minmax(150px,.65fr)}.coach-notes textarea{min-height:180px}.coach-answer-note{margin-top:1rem}.coach-question{font-size:1.35rem}}
+@media(max-width:440px){.coach-topbar{flex-direction:column}.coach-topbar nav{justify-content:flex-start}.call-coach{padding:0 .75rem 1rem}.coach-panel{padding:.9rem}.coach-goal{grid-template-columns:1fr;gap:.35rem}.coach-goal select{max-width:100%}.coach-boundary{font-size:.75rem}.coach-controls{align-items:stretch}.coach-controls .button{width:100%}.coach-session-label{font-size:.7rem}}

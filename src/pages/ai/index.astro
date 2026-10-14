@@ -41,6 +41,7 @@ const starters=[
      <div class="ai-rail-cases" data-context-mode="ic_challenge" hidden><p class="ai-case-choice-label">Committee cases</p>{caseCards.map(item=><button type="button" class="ai-case-choice" data-case-choice={item.id} aria-pressed="false"><span>{item.title}</span><small>{item.difficulty}</small></button>)}</div>
     </nav>
     <div class="ai-mobile-cases" data-mobile-cases hidden><label for="ai-mobile-case-select">Synthetic case</label><select id="ai-mobile-case-select" data-case-select>{caseCards.map(item=><option value={item.id}>{item.title} · {item.difficulty}</option>)}</select></div>
+    <a href="/ai/call-coach/" class="ai-coach-link">Seller Call Coach <span aria-hidden="true">↗</span></a>
     <p class="ai-rail-note">A learning workspace for acquisition reasoning.<br /><a href="/methodology/">How the course uses sources</a></p>
    </aside>
    <section class="ai-conversation-panel" aria-labelledby="ai-conversation-heading">
