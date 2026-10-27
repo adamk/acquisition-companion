@@ -63,7 +63,8 @@ export async function handlePaidRequest(request,env={},dependencies={}){
    // Legacy beta approvals are retained for audit only; any signed-in account
    // without current entitlement may proceed to the explicit US attestation.
    const checkoutEligible=!entitled;
-   return reply(200,{signedIn:true,csrfToken:csrf,checkoutEligible,entitled,subscription:grant?{status:grant.status,accessUntil:grant.validUntil,cancelAtPeriodEnd:!!grant.cancelAtPeriodEnd}:null,usage:{requestCount:usage.requestCount},monthlyRequestLimit:monthlyLimit(env)});
+   const localWorkspaceNamespace=await hash(`acquisition-companion:deal-workspace:v1\0${session.userId}`);
+   return reply(200,{signedIn:true,csrfToken:csrf,checkoutEligible,entitled,localWorkspaceNamespace,subscription:grant?{status:grant.status,accessUntil:grant.validUntil,cancelAtPeriodEnd:!!grant.cancelAtPeriodEnd}:null,usage:{requestCount:usage.requestCount},monthlyRequestLimit:monthlyLimit(env)});
   }
   await requireCsrf(request,session);
   if(path==='/api/auth/logout'){await jsonBody(request,[]);await store.logout(tokenHash);return reply(200,{signedOut:true},{'Set-Cookie':secureCookie('__Host-ac-session','',0)});}

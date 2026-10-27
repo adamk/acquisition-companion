@@ -57,6 +57,14 @@
 .call-coach dialog h2{font-size:1.3rem;margin:0 0 .7rem}
 .call-coach dialog p{font-size:.9rem;line-height:1.6}
 .call-coach [hidden]{display:none!important}
+.coach-workspace-link{border:1px solid var(--line);border-radius:8px;padding:.75rem;margin-bottom:1rem;background:#f2f7f5}
+.coach-workspace-link p{margin:0 0 .5rem}
+.coach-workspace-link .button{font-size:.8rem;min-height:44px}
+.call-coach [data-coach-return-dialog]{max-height:85vh;overflow:auto}
+.call-coach [data-coach-return-dialog] label{display:block;font-size:.85rem;font-weight:600;margin-top:.75rem}
+.call-coach [data-coach-return-dialog] textarea{box-sizing:border-box;width:100%;resize:vertical;min-height:64px;font:inherit;padding:.6rem;border:1px solid #879e98;border-radius:5px;color:var(--ink);background:white}
+.call-coach [data-coach-return-dialog] input[type=checkbox]{margin-right:.5rem}
+.call-coach [data-return-error]{color:#7a2f1e}
 .call-coach :focus-visible{outline:3px solid #a66a16;outline-offset:3px}
 @media(min-width:1800px){.coach-notes textarea{min-height:300px}}
 @media(max-width:1100px){.call-coach{padding:0 1rem 1rem}.coach-intro{align-items:flex-start}.coach-intro h1{font-size:2rem}.coach-session-label{white-space:normal;max-width:180px}.coach-panel{padding:1rem}.coach-controls{gap:.5rem}.coach-goal select{font-size:.75rem}.coach-topbar nav{gap:.65rem}}

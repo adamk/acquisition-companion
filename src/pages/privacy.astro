@@ -9,7 +9,7 @@ import Crumbs from '../components/Crumbs.astro';
   <header class="page-header">
    <p class="eyebrow">Privacy</p>
    <h1>Privacy and analytics</h1>
-   <p>Last updated October 14, 2026.</p>
+   <p>Last updated October 26, 2026.</p>
   </header>
   <div class="prose">
    <p>Acquisition Companion is operated by The Wired Nomad LLC. The public course and source-linked educational material are free to read without an account. Lesson progress and your analytics choice are saved in this browser. Site search runs locally in your browser.</p>
@@ -24,6 +24,10 @@ import Crumbs from '../components/Crumbs.astro';
 
    <h3>Seller Call Coach</h3>
    <p>Seller Call Coach supports introductory seller conversations using short, non-confidential summaries, not confidential transcripts. Do not enter confidential, proprietary, personal, or non-public deal information. This version does not record audio or accept transcript or document uploads. Notes, coverage and coaching results stay in the active browser session, in page memory only, and clear when you reload, leave the page or choose Clear call. When you request a next question or call review, notes, coverage and up to three recent coaching questions are sent to OpenAI through our server with <code>store: false</code>. Acquisition Companion does not intentionally persist these notes or results as a deal file or conversation record. The page sends no analytics. Existing usage accounting records the workflow and processing metadata, without note or response contents. This is not a zero-retention guarantee; provider processing and retention policies still apply.</p>
+
+   <h3>Deal Workspace</h3>
+   <p>Deal Workspace holds short sanitized deal summaries, claims, evidence status, questions and actions in page memory by default; unsaved work clears when you reload or leave. Saving is an explicit choice and stores the selected deal in IndexedDB on this device and browser only. Saved records are not synchronized, backed up by us or encrypted by this feature. An opaque account namespace separates normal application access to saved records; it does not provide cryptographic isolation from someone with access to the same browser or device. Account deletion does not clear these device records. Use the workspace's delete controls or clear this site's browser data to remove them; its global delete control removes all Deal Workspace saves across accounts in that browser.</p>
+   <p>Only an explicit AI gap review or coaching request sends the displayed workspace context or selected coaching content through our server to OpenAI with <code>store: false</code>. Opening Call Coach does not request AI. Transfers between the two pages require your approval, and only manually selected short facts, questions or actions can be added to a deal; full call notes and AI output are not automatically saved. Acquisition Companion does not intentionally maintain a server-side deal record, and these workspace pages send no analytics. Provider processing and retention policies still apply; this is not a zero-retention guarantee. Do not enter confidential, proprietary, personal or non-public information, including in optional local saves.</p>
 
    <h2>Service providers</h2>
    <p>Cloudflare provides the website, application Worker, edge services and production database. Stripe provides hosted billing and sends signed subscription events to the application. Amazon Web Services SES delivers passwordless sign-in email from signin@acquisitioncompanion.com. OpenAI processes Deal Lab requests. These providers process information needed for their services under their own terms and policies. Their independent retention practices are not controlled by Acquisition Companion.</p>

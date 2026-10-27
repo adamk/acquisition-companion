@@ -1,4 +1,5 @@
 import {CALL_AREAS,COVERAGE_STATUSES} from '../lib/seller-call-coach.mjs';
+import {installCoachWorkspaceBridge} from '../lib/deal-workspace-bridge.mjs';
 
 const root=document.querySelector<HTMLElement>('[data-call-coach]');
 if(root){
@@ -9,12 +10,14 @@ if(root){
  let ready=false,busy=false,generation=0,revision=0,controller:AbortController|null=null;
  let questionRevision:number|null=null,reviewRevision:number|null=null;
  let recentQuestions:string[]=[];
+ let followUpQuestions:string[]=[];
  const manual=new Set<string>();
  const sessionId=crypto.randomUUID();
  function controls(){ask.disabled=review.disabled=!ready||busy||!notes.value.trim();one('[data-answer-panel]').setAttribute('aria-busy',String(busy));}
  function counts(){one('[data-note-count]').textContent=`${Array.from(notes.value).length.toLocaleString()} / 4,000`;one('[data-coverage-count]').textContent=`${selects.filter(s=>s.value==='clear').length} / ${CALL_AREAS.length} clear`;controls();}
- function clear(){
-  generation++;controller?.abort();controller=null;busy=false;revision=0;questionRevision=reviewRevision=null;notes.value='';recentQuestions=[];manual.clear();
+ function clear(preserveWorkspace=false){
+  generation++;controller?.abort();controller=null;busy=false;revision=0;questionRevision=reviewRevision=null;notes.value='';recentQuestions=[];followUpQuestions=[];manual.clear();
+  if(!preserveWorkspace)dealBridge.clear();
   selects.forEach(s=>{s.value='not_discussed';one(`[data-coverage-hint="${s.dataset.coverage}"]`).textContent='';});
   one('[data-next-question]').textContent='Add a few notes, then ask for your next question.';
   one('[data-why]').textContent='';one('[data-watch]').textContent='';one('[data-review-sections]').replaceChildren();one('[data-call-sources]').replaceChildren();one('[data-review-sources]').replaceChildren();
@@ -38,11 +41,12 @@ if(root){
  async function access(){
   ready=false;controls();
   try{
-   const [serviceResponse,accountResponse]=await Promise.all([fetch('/api/ai/status',{credentials:'same-origin',cache:'no-store'}),fetch('/api/account',{credentials:'same-origin',cache:'no-store'})]);
+   const [serviceResponse,accountResponse]=await Promise.all([fetch('/api/ai/status',{credentials:'same-origin',cache:'no-store'}),fetch('/api/account',{credentials:'same-origin',cache:'no-store',headers:{'X-Account-Request':'1'}})]);
    const service=await serviceResponse.json();const account=accountResponse.ok?await accountResponse.json():null;
    ready=serviceResponse.ok&&service.available===true&&account?.entitled===true;
    status.textContent=ready?'Ready · each coaching request or review uses 1 of your 100 monthly AI requests.':accountResponse.status===401||service.access==='login_required'?'Sign in to use Seller Call Coach.':account&&!account.entitled?'An active Deal Lab subscription is required.':'Seller Call Coach is temporarily unavailable. Reload to check again.';
    one('[data-coach-access-links]').hidden=ready;
+   if(ready)void dealBridge.ready();
   }catch{status.textContent='Unable to check access. Reload to try again.';}
   controls();
  }
@@ -69,6 +73,7 @@ if(root){
  }
  async function send(action:'next_question'|'review_call'){
   if(!ready||busy||!notes.value.trim())return;
+  if(!await dealBridge.authorize()||!ready||busy||!notes.value.trim())return;
   error.hidden=true;
   const body=JSON.stringify({mode:'seller_call_coach',action,notes:notes.value,coverage:Object.fromEntries(selects.map(s=>[s.dataset.coverage,s.value])),recentQuestions:recentQuestions.slice(-3)});
   if(Array.from(notes.value).length>4000||new TextEncoder().encode(body).length>12*1024){error.textContent='Your notes are too long for this request. Shorten the summaries and try again.';error.hidden=false;return;}
@@ -97,7 +102,7 @@ if(root){
      const section=document.createElement('section'),heading=document.createElement('h3'),list=document.createElement('ul');heading.textContent=label;
      for(const item of c.review[key]){const li=document.createElement('li');li.textContent=item;list.append(li);}section.append(heading,list);sections.append(section);
     }
-    one('[data-review]').hidden=false;reviewRevision=requestedRevision;
+    one('[data-review]').hidden=false;reviewRevision=requestedRevision;followUpQuestions=[...c.review.followUpQuestions];
    }
    const changedDuringRequest=revision!==requestedRevision;
    if(!changedDuringRequest)for(const suggestion of c.coverage){
@@ -112,6 +117,17 @@ if(root){
   }finally{clearTimeout(timeout);if(run===generation){controller=null;busy=false;button.textContent=oldLabel;counts();}}
  }
  ask.addEventListener('click',()=>void send('next_question'));review.addEventListener('click',()=>void send('review_call'));
+ const dealBridge=installCoachWorkspaceBridge({
+  async getNamespace(){
+   const response=await fetch('/api/account',{credentials:'same-origin',cache:'no-store',headers:{'X-Account-Request':'1'}});
+   if(!response.ok)return null;const account=await response.json();
+   return account.entitled===true&&typeof account.localWorkspaceNamespace==='string'?account.localWorkspaceNamespace:null;
+  },
+  onContext(summary:string){clear(true);notes.value=summary;changed();},
+  onAccessCheck(checking:boolean){one('.coach-grid').hidden=checking;if(checking){ask.disabled=true;review.disabled=true;}else controls();},
+  onInvalidContext(){clear();ready=false;status.textContent='Deal context is no longer available. Reload to check your account and start a fresh call.';one('[data-coach-access-links]').hidden=false;controls();},
+  questions:()=>[...recentQuestions,...followUpQuestions],
+ });
  window.addEventListener('pagehide',()=>{clear();ready=false;controls();});
  window.addEventListener('pageshow',event=>{if(event.persisted){clear();void access();}});
  counts();void access();

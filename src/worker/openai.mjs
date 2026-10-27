@@ -1,5 +1,6 @@
 import {ANALYTICAL_OUTPUT_TOKENS} from './analysis-policy.mjs';
 import {coachResponseSchema} from './seller-call-coach.mjs';
+import {workspaceResponseSchema} from './deal-workspace.mjs';
 export const DEFAULT_OPENAI_MODEL='gpt-5.6-luna';
 export const MAX_OUTPUT_TOKENS=1600;
 export const MAX_FILE_SEARCH_RESULTS=4;
@@ -48,7 +49,7 @@ export function createResponseRequest({model=DEFAULT_OPENAI_MODEL,vectorStoreId,
   return {
     model,
     store:false,
-    max_output_tokens:mode==='seller_call_coach'?(action==='review_call'?1800:1000):maxOutputTokens,
+    max_output_tokens:mode==='deal_workspace'?2400:mode==='seller_call_coach'?(action==='review_call'?1800:1000):maxOutputTokens,
     reasoning:{effort:'low'},
     instructions,
     input,
@@ -65,7 +66,7 @@ export function createResponseRequest({model=DEFAULT_OPENAI_MODEL,vectorStoreId,
       type:'json_schema',
       name:'acquisition_companion_ai_response',
       strict:true,
-      schema:mode==='seller_call_coach'?coachResponseSchema(action):{
+      schema:mode==='deal_workspace'?workspaceResponseSchema():mode==='seller_call_coach'?coachResponseSchema(action):{
         type:'object',
         properties,
         required,

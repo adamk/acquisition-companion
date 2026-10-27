@@ -31,5 +31,6 @@ test('model content is built as text and conversations are not persisted',()=>{
 
 test('privacy page describes OpenAI processing without promising zero retention',()=>{
  for(const text of ['Optional AI Deal Lab','OpenAI','store: false','does not intentionally maintain a server-side chat history','not a zero-retention guarantee','no private deal-document, CIM, or data-room uploads','does not receive question text, answer text','completion status'])assert.ok(privacy.toLowerCase().includes(text.toLowerCase()),text);
- assert.equal(/zero retention is guaranteed|zero-retention guarantee\s*\./i.test(privacy),false);
+ // An explicit negative remains a caveat even when it ends the sentence.
+ assert.equal(/zero retention is guaranteed|(?<!not a )zero-retention guarantee\s*\./i.test(privacy),false);
 });
