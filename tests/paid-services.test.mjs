@@ -76,6 +76,7 @@ test('hosted checkout/portal use configured price/customer; no live Stripe calls
  const checkout=await createCheckout('u1','annual','https://acquisitioncompanion.com',settings,{store,fetcher},true);
  assert.match(checkout.url,/checkout.stripe.com/);assert.equal(calls.length,1);
  assert.equal(new URLSearchParams(calls[0].options.body).get('line_items[0][price]'),'price_year');
+ assert.equal(new URLSearchParams(calls[0].options.body).get('adaptive_pricing[enabled]'),'false');
  assert.equal(new URLSearchParams(calls[0].options.body).get('customer'),'cus_mock');
  assert.equal(new URLSearchParams(calls[0].options.body).get('subscription_data[metadata][ac_beta_eligibility]'),'public_us_paid_beta_attested');
  assert.match((await createPortal('u1','https://acquisitioncompanion.com',settings,{store,fetcher})).url,/billing.stripe.com/);

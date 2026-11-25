@@ -28,6 +28,7 @@ export async function createCheckout(userId,plan,origin,env,dependencies={},usCu
  if(!customer){const created=await stripe('customers',env,dependencies,{email:user.email,'metadata[ac_user_id]':userId},`ac-customer-${userId}`);if(!/^cus_[A-Za-z0-9_]+$/.test(created.id||''))throw unavailable();customer=await store.setCustomer(userId,created.id);}
  const session=await stripe('checkout/sessions',env,dependencies,{
   mode:'subscription',customer,client_reference_id:userId,'line_items[0][price]':env[plan==='monthly'?'STRIPE_MONTHLY_PRICE_ID':'STRIPE_ANNUAL_PRICE_ID'],'line_items[0][quantity]':'1',
+  'adaptive_pricing[enabled]':'false',
   success_url:`${origin}/account/?checkout=complete`,cancel_url:`${origin}/pricing/`,
   'subscription_data[metadata][ac_beta_eligibility]':'public_us_paid_beta_attested',
  },`ac-checkout-${userId}-${plan}-${Math.floor(Date.now()/300000)}`);
